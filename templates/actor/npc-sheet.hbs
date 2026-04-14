@@ -1,0 +1,98 @@
+<section class="eqrpg npc-sheet">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{document.img}}" data-edit="img"
+         title="{{document.name}}" width="80" height="80" />
+    <div class="header-details">
+      <h1>
+        <input name="name" type="text" value="{{document.name}}"
+               placeholder="NPC Name" {{#unless isEditable}}disabled{{/unless}} />
+      </h1>
+      <div class="header-fields">
+        <div class="field-group">
+          <label>{{localize "EQRPG.CR"}}</label>
+          <input type="number" name="system.details.cr" value="{{system.details.cr}}"
+                 min="0" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="field-group">
+          <label>{{localize "EQRPG.Type"}}</label>
+          <input type="text" name="system.details.type" value="{{system.details.type}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="field-group">
+          <label>{{localize "EQRPG.Faction"}}</label>
+          <input type="text" name="system.details.faction" value="{{system.details.faction}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="npc-resources">
+    <div class="resource hp">
+      <label>{{localize "EQRPG.HP"}}</label>
+      <input type="number" name="system.resources.hp.value"
+             value="{{system.resources.hp.value}}" {{#unless isEditable}}disabled{{/unless}} />
+      <span>/</span>
+      <input type="number" name="system.resources.hp.max"
+             value="{{system.resources.hp.max}}" {{#unless isEditable}}disabled{{/unless}} />
+    </div>
+    <div class="resource mana">
+      <label>{{localize "EQRPG.Mana"}}</label>
+      <input type="number" name="system.resources.mana.value"
+             value="{{system.resources.mana.value}}" {{#unless isEditable}}disabled{{/unless}} />
+      <span>/</span>
+      <input type="number" name="system.resources.mana.max"
+             value="{{system.resources.mana.max}}" {{#unless isEditable}}disabled{{/unless}} />
+    </div>
+  </div>
+
+  <div class="npc-abilities">
+    {{#each abilities as |ability key|}}
+    <div class="ability">
+      <label>{{ability.abbr}}</label>
+      <input type="number" name="system.abilities.{{key}}.value"
+             value="{{ability.value}}" {{#unless @root.isEditable}}disabled{{/unless}} />
+      <span class="mod">({{#if (gte ability.mod 0)}}+{{/if}}{{ability.mod}})</span>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="npc-combat">
+    <div class="combat-row">
+      <label>{{localize "EQRPG.ArmorClass"}}</label>
+      <input type="number" name="system.combat.ac.value"
+             value="{{system.combat.ac.value}}" {{#unless isEditable}}disabled{{/unless}} />
+    </div>
+    <div class="combat-row">
+      <label>{{localize "EQRPG.BAB"}}</label>
+      <input type="number" name="system.combat.bab"
+             value="{{system.combat.bab}}" {{#unless isEditable}}disabled{{/unless}} />
+    </div>
+    <div class="combat-row">
+      <label>{{localize "EQRPG.Initiative"}}</label>
+      <input type="number" name="system.combat.initiative.value"
+             value="{{system.combat.initiative.value}}" {{#unless isEditable}}disabled{{/unless}} />
+    </div>
+    <div class="combat-row">
+      <label>{{localize "EQRPG.Fort"}}</label>
+      <input type="number" name="system.combat.saves.fortitude.value"
+             value="{{system.combat.saves.fortitude.value}}" {{#unless isEditable}}disabled{{/unless}} />
+    </div>
+    <div class="combat-row">
+      <label>{{localize "EQRPG.Ref"}}</label>
+      <input type="number" name="system.combat.saves.reflex.value"
+             value="{{system.combat.saves.reflex.value}}" {{#unless isEditable}}disabled{{/unless}} />
+    </div>
+    <div class="combat-row">
+      <label>{{localize "EQRPG.Will"}}</label>
+      <input type="number" name="system.combat.saves.will.value"
+             value="{{system.combat.saves.will.value}}" {{#unless isEditable}}disabled{{/unless}} />
+    </div>
+  </div>
+
+  <div class="npc-biography">
+    <h3>{{localize "EQRPG.Biography"}}</h3>
+    {{formField (lookup systemFields "biography") value=system.biography
+      name="system.biography" editable=isEditable}}
+  </div>
+</section>

@@ -1,0 +1,166 @@
+<header class="sheet-header">
+  <div class="portrait-frame">
+    <img class="profile-img" src="{{document.img}}" data-edit="img"
+         title="{{document.name}}" />
+  </div>
+  <div class="header-details">
+    <h1 class="char-name">
+      <input name="name" type="text" value="{{document.name}}"
+             placeholder="{{localize 'EQRPG.CharacterName'}}" {{#unless isEditable}}disabled{{/unless}} />
+    </h1>
+    <div class="header-fields">
+      <div class="field-group">
+        <label>{{localize "EQRPG.Race"}}</label>
+        <select name="system.details.race" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="">{{localize "EQRPG.SelectRace"}}</option>
+          {{#each raceOptions}}
+          <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EQRPG.Class"}}</label>
+        <select name="system.details.class" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="">{{localize "EQRPG.SelectClass"}}</option>
+          {{#each classOptions}}
+          <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EQRPG.Level"}}</label>
+        <input type="number" name="system.details.level" value="{{system.details.level}}"
+               min="1" max="30" {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+      <div class="field-group">
+        <label>{{localize "EQRPG.Alignment"}}</label>
+        <select name="system.details.alignment" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="">-</option>
+          {{#each alignmentOptions}}
+          <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EQRPG.Deity"}}</label>
+        <select name="system.details.deity" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="">{{localize "EQRPG.SelectDeity"}}</option>
+          {{#each deityOptions}}
+          <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+
+    {{!-- Deity Description Panel --}}
+    {{#if selectedDeity}}
+    <div class="deity-panel">
+      <div class="deity-panel-header">
+        <span class="deity-name">{{selectedDeity.label}}</span>
+        <span class="deity-domain">{{selectedDeity.domain}}</span>
+        <span class="deity-alignment">{{selectedDeity.alignment}}</span>
+      </div>
+      <p class="deity-description">{{selectedDeity.description}}</p>
+    </div>
+    {{/if}}
+    <div class="header-resources">
+      <div class="resource hp">
+        <label>{{localize "EQRPG.HP"}}</label>
+        <div class="resource-fill-wrap">
+          <div class="resource-fill hp-fill" style="width: {{hpPercent}}%"></div>
+          <div class="resource-bar">
+            <input type="number" name="system.resources.hp.value"
+                   value="{{system.resources.hp.value}}" {{#unless isEditable}}disabled{{/unless}} />
+            <span class="separator">/</span>
+            <span class="max">{{system.resources.hp.max}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="resource mana">
+        <label>{{localize "EQRPG.Mana"}}</label>
+        <div class="resource-fill-wrap">
+          <div class="resource-fill mana-fill" style="width: {{manaPercent}}%"></div>
+          <div class="resource-bar">
+            <input type="number" name="system.resources.mana.value"
+                   value="{{system.resources.mana.value}}" {{#unless isEditable}}disabled{{/unless}} />
+            <span class="separator">/</span>
+            <span class="max">{{system.resources.mana.max}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="resource xp">
+        <label>{{localize "EQRPG.XP"}}</label>
+        <input type="number" name="system.resources.xp"
+               value="{{system.resources.xp}}" {{#unless isEditable}}disabled{{/unless}} />
+        {{#if xpProgress.nextLevel}}
+        <span class="xp-next">/ {{xpProgress.nextLevel}}</span>
+        {{/if}}
+      </div>
+    </div>
+
+    {{!-- XP Progress Bar + Level-Up Button --}}
+    <div class="xp-progress-row">
+      <div class="xp-track" title="{{localize 'EQRPG.XPProgress'}}: {{xpProgress.earned}} / {{xpProgress.range}}">
+        <div class="xp-fill {{#if xpProgress.ready}}xp-ready{{/if}}"
+             style="width: {{xpProgress.percent}}%"></div>
+      </div>
+      {{#if xpProgress.maxLevel}}
+        <span class="xp-maxlevel">{{localize "EQRPG.MaxLevel"}}</span>
+      {{else if xpProgress.ready}}
+        <button type="button" data-action="levelUp" class="levelup-btn"
+                title="{{localize 'EQRPG.LevelUpTitle'}}">
+          ⬆ {{localize "EQRPG.LevelUp"}}
+        </button>
+      {{else}}
+        <span class="xp-label">{{localize "EQRPG.XPToNext"}}: {{math xpProgress.range "-" xpProgress.earned}}</span>
+      {{/if}}
+    </div>
+
+    {{!-- Character Setup Wizard button (editable sheets only) --}}
+    {{#if isEditable}}
+    <div class="wizard-launch-row">
+      <button type="button" data-action="openWizard" class="wizard-launch-btn"
+              title="Step-by-step character creation wizard">
+        ✧ Character Creation Wizard
+      </button>
+    </div>
+    {{/if}}
+
+    {{!-- Quick-view combat stats row --}}
+    <div class="char-quick-stats">
+      <div class="csp csp-ac" title="{{localize 'EQRPG.ArmorClass'}}">
+        <span class="csp-label">{{localize "EQRPG.AC"}}</span>
+        <span class="csp-value">{{system.combat.ac.value}}</span>
+      </div>
+      <div class="csp csp-init" title="{{localize 'EQRPG.Initiative'}}">
+        <span class="csp-label">{{localize "EQRPG.Init"}}</span>
+        <button type="button" class="csp-roll" data-action="rollInitiative"
+                title="{{localize 'EQRPG.RollInitiative'}}">
+          {{#if (gte system.combat.initiative.value 0)}}+{{/if}}{{system.combat.initiative.value}}
+        </button>
+      </div>
+      <div class="csp csp-fort" title="{{localize 'EQRPG.Fortitude'}}">
+        <span class="csp-label">{{localize "EQRPG.Fort"}}</span>
+        <button type="button" class="csp-roll" data-action="rollSave" data-save="fortitude"
+                title="{{localize 'EQRPG.RollFortitude'}}">
+          {{#if (gte system.combat.saves.fortitude.value 0)}}+{{/if}}{{system.combat.saves.fortitude.value}}
+        </button>
+      </div>
+      <div class="csp csp-ref" title="{{localize 'EQRPG.Reflex'}}">
+        <span class="csp-label">{{localize "EQRPG.Ref"}}</span>
+        <button type="button" class="csp-roll" data-action="rollSave" data-save="reflex"
+                title="{{localize 'EQRPG.RollReflex'}}">
+          {{#if (gte system.combat.saves.reflex.value 0)}}+{{/if}}{{system.combat.saves.reflex.value}}
+        </button>
+      </div>
+      <div class="csp csp-will" title="{{localize 'EQRPG.Will'}}">
+        <span class="csp-label">{{localize "EQRPG.Will"}}</span>
+        <button type="button" class="csp-roll" data-action="rollSave" data-save="will"
+                title="{{localize 'EQRPG.RollWill'}}">
+          {{#if (gte system.combat.saves.will.value 0)}}+{{/if}}{{system.combat.saves.will.value}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+</header>

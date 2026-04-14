@@ -1,0 +1,15 @@
+# OS / editor noise
+Thumbs.db
+.DS_Store
+
+# Foundry-generated transient compendium files
+packs/**/LOCK
+packs/**/LOG
+packs/**/LOG.old
+packs/**/CURRENT
+packs/**/MANIFEST-*
+packs/**/*.log
+
+# Local archives / exports
+*.zip
+*.tmp

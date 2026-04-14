@@ -1,0 +1,125 @@
+{
+  "id": "eqrpg",
+  "title": "EverQuest Role-Playing Game",
+  "description": "An implementation of the EverQuest Role-Playing Game (d20) for Foundry VTT.",
+  "authors": [
+    {
+      "name": "erikw"
+    }
+  ],
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "esmodules": [
+    "module/eqrpg.mjs"
+  ],
+  "styles": [
+    "styles/eqrpg.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "socket": false,
+  "initiative": "1d20 + @abilities.dex.mod + @combat.initiative.misc",
+  "grid": {
+    "type": 1,
+    "distance": 5,
+    "units": "ft",
+    "diagonals": 1
+  },
+  "primaryTokenAttribute": "resources.hp",
+  "secondaryTokenAttribute": "resources.mana",
+  "packs": [
+    {
+      "name": "eqrpg-spells",
+      "label": "EQ Spells",
+      "path": "packs/eqrpg-spells",
+      "type": "Item",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "eqrpg-skills",
+      "label": "EQ Skills",
+      "path": "packs/eqrpg-skills",
+      "type": "Item",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "eqrpg-weapons",
+      "label": "EQ Weapons",
+      "path": "packs/eqrpg-weapons",
+      "type": "Item",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "eqrpg-armor",
+      "label": "EQ Armor",
+      "path": "packs/eqrpg-armor",
+      "type": "Item",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "eqrpg-consumables",
+      "label": "EQ Consumables",
+      "path": "packs/eqrpg-consumables",
+      "type": "Item",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "eqrpg-feats",
+      "label": "EQ Feats",
+      "path": "packs/eqrpg-feats",
+      "type": "Item",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
+      "name": "eqrpg-phb",
+      "label": "EQ Player's Handbook",
+      "path": "packs/eqrpg-phb",
+      "type": "JournalEntry",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": ["biography"]
+      },
+      "npc": {
+        "htmlFields": ["biography"]
+      }
+    },
+    "Item": {
+      "weapon": {
+        "htmlFields": ["description"]
+      },
+      "armor": {
+        "htmlFields": ["description"]
+      },
+      "spell": {
+        "htmlFields": ["description"]
+      },
+      "skill": {
+        "htmlFields": ["description"]
+      },
+      "consumable": {
+        "htmlFields": ["description"]
+      },
+      "equipment": {
+        "htmlFields": ["description"]
+      },
+      "faction": {
+        "htmlFields": []
+      },
+      "feat": {
+        "htmlFields": ["description"]
+      }
+    }
+  }
+}

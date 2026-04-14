@@ -1,0 +1,2985 @@
+/* ===========================================================================
+   EverQuest RPG — Foundry VTT System Stylesheet
+   Dark parchment theme with gold accents inspired by the EQ RPG tabletop book
+   =========================================================================== */
+
+/* --- EQ Theme Variables --- */
+:root {
+  --eq-gold:          #c9a84c;
+  --eq-gold-dim:      #8a7435;
+  --eq-gold-bright:   #e8c95a;
+  --eq-gold-glow:     rgba(201, 168, 76, 0.15);
+  --eq-border:        #5a4e3a;
+  --eq-border-light:  #7a6e5a;
+  --eq-bg-dark:       #151210;
+  --eq-bg-mid:        #1e1a16;
+  --eq-bg-panel:      #2a2218;
+  --eq-bg-raised:     #332a1e;
+  --eq-bg-input:      #3a3028;
+  --eq-text:          #d4c8a8;
+  --eq-text-dim:      #8a7e68;
+  --eq-text-bright:   #f0e8d0;
+  --eq-red:           #c44040;
+  --eq-red-dim:       #7a2828;
+  --eq-blue:          #4a8ac4;
+  --eq-blue-dim:      #2a5a8a;
+  --eq-green:         #4a9a50;
+  --eq-purple:        #8a4ab4;
+}
+
+/* ===========================================================================
+   Tab Visibility — outside @layer for cascade priority
+   =========================================================================== */
+.eqrpg section.tab:not(.active) { display: none !important; }
+.eqrpg section.tab.active       { display: block !important; }
+
+/* ===========================================================================
+   Main Styles
+   =========================================================================== */
+@layer eqrpg {
+
+  /* -------------------------------------------------------------------------
+     Base
+  -------------------------------------------------------------------------- */
+  .eqrpg {
+    color: var(--eq-text);
+    font-size: 13px;
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    background: var(--eq-bg-mid);
+  }
+
+  .eqrpg *,
+  .eqrpg *::before,
+  .eqrpg *::after {
+    box-sizing: border-box;
+  }
+
+  .eqrpg input[type="number"],
+  .eqrpg input[type="text"],
+  .eqrpg select {
+    background: var(--eq-bg-input);
+    border: 1px solid var(--eq-border);
+    color: var(--eq-text-bright);
+    border-radius: 2px;
+    padding: 2px 4px;
+    height: 24px;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  .eqrpg input[type="number"] { width: 50px; text-align: center; }
+  .eqrpg input:focus,
+  .eqrpg select:focus {
+    border-color: var(--eq-gold);
+    outline: none;
+    box-shadow: 0 0 4px rgba(201, 168, 76, 0.25);
+  }
+  .eqrpg label { color: var(--eq-text-dim); font-size: 0.82em; }
+
+  .eqrpg h3 {
+    margin: 6px 0 4px;
+    padding: 2px 6px;
+    background: linear-gradient(90deg, rgba(201,168,76,0.18) 0%, transparent 100%);
+    border-left: 3px solid var(--eq-gold-dim);
+    color: var(--eq-gold);
+    font-size: 0.88em;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .eqrpg .hint {
+    font-size: 0.82em;
+    color: var(--eq-text-dim);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  /* -------------------------------------------------------------------------
+     Sheet Header
+  -------------------------------------------------------------------------- */
+  .eqrpg .sheet-header {
+    display: flex;
+    gap: 10px;
+    padding: 8px 10px;
+    background: var(--eq-bg-dark);
+    border-bottom: 2px solid var(--eq-gold-dim);
+    position: relative;
+  }
+
+  /* Gold corner accents */
+  .eqrpg .sheet-header::before,
+  .eqrpg .sheet-header::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 40px;
+    height: 2px;
+    background: var(--eq-gold-bright);
+  }
+  .eqrpg .sheet-header::before { left: 0; }
+  .eqrpg .sheet-header::after  { right: 0; }
+
+  .eqrpg .portrait-frame {
+    width: 88px;
+    height: 88px;
+    border: 2px solid var(--eq-gold-dim);
+    border-radius: 3px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.6), 0 0 6px rgba(201,168,76,0.12);
+  }
+  .eqrpg .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+  }
+
+  .eqrpg .header-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .eqrpg .char-name {
+    margin: 0 0 2px;
+    padding: 0;
+    border-bottom: 1px solid var(--eq-border);
+    font-size: 1rem;   /* override browser h1 default (~2em) */
+  }
+  .eqrpg .char-name input[type="text"] {
+    width: 100%;
+    height: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    color: var(--eq-gold-bright);
+    letter-spacing: 0.5px;
+    padding: 0;
+  }
+
+  .eqrpg .header-fields {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .eqrpg .header-fields .field-group {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .eqrpg .header-fields label {
+    font-weight: bold;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--eq-gold-dim);
+    white-space: nowrap;
+  }
+  .eqrpg .header-fields select { min-width: 90px; height: 22px; font-size: 0.85em; }
+  .eqrpg .header-fields input[type="number"] { width: 44px; height: 22px; font-size: 0.85em; }
+
+  /* ── Deity Panel ── */
+  .eqrpg .deity-panel {
+    margin: 4px 0 2px;
+    padding: 6px 10px;
+    background: linear-gradient(135deg, rgba(60,40,10,0.55) 0%, rgba(30,20,5,0.45) 100%);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-left: 3px solid rgba(201,168,76,0.5);
+    border-radius: 3px;
+    font-size: 0.82em;
+  }
+  .eqrpg .deity-panel-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 3px;
+  }
+  .eqrpg .deity-name {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: var(--eq-gold-bright);
+    letter-spacing: 0.3px;
+  }
+  .eqrpg .deity-domain {
+    font-size: 0.88em;
+    color: rgba(220,210,190,0.65);
+    font-style: italic;
+  }
+  .eqrpg .deity-domain::before { content: "·  "; color: rgba(201,168,76,0.4); }
+  .eqrpg .deity-alignment {
+    font-size: 0.82em;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: rgba(201,168,76,0.75);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .eqrpg .deity-description {
+    margin: 0;
+    color: rgba(220,210,190,0.7);
+    line-height: 1.45;
+    font-size: 0.9em;
+  }
+
+  /* Resources row */
+  .eqrpg .header-resources {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 3px 0 0;
+    border-top: 1px solid var(--eq-border);
+    margin-top: 2px;
+  }
+  .eqrpg .resource {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .eqrpg .resource label {
+    font-weight: bold;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    min-width: 0;
+  }
+  .eqrpg .resource-bar {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+  }
+  .eqrpg .resource-bar input[type="number"] { width: 42px; height: 22px; font-size: 0.9em; }
+  .eqrpg .resource-bar .separator { color: var(--eq-text-dim); padding: 0 1px; font-weight: bold; }
+  .eqrpg .resource-bar .max { font-weight: bold; color: var(--eq-text); min-width: 28px; text-align: center; font-size: 0.9em; }
+
+  .eqrpg .resource.hp    label { color: #e05050; }
+  .eqrpg .resource.mana  label { color: #5a9ad4; }
+  .eqrpg .resource.xp    label { color: var(--eq-gold); }
+
+  /* HP / Mana fill bars */
+  .eqrpg .resource-fill-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.06);
+    height: 26px;
+    min-width: 90px;
+  }
+  .eqrpg .resource-fill {
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    pointer-events: none;
+    transition: width 0.4s ease;
+    z-index: 0;
+  }
+  .eqrpg .hp-fill {
+    background: linear-gradient(90deg, rgba(90,20,20,0.8) 0%, rgba(160,40,40,0.65) 100%);
+  }
+  .eqrpg .mana-fill {
+    background: linear-gradient(90deg, rgba(20,30,90,0.8) 0%, rgba(40,70,160,0.65) 100%);
+  }
+  /* Keep the number display above the fill */
+  .eqrpg .resource-fill-wrap .resource-bar {
+    position: relative;
+    z-index: 1;
+    padding: 0 5px;
+  }
+
+  /* ── Character Quick-Stat Pills ────────────────────────────────────────── */
+  .eqrpg .char-quick-stats {
+    display: flex;
+    gap: 5px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .eqrpg .csp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    padding: 2px 7px;
+    min-width: 42px;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-gold-dim);
+  }
+  .eqrpg .csp-label {
+    font-size: 0.6em;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    color: var(--eq-gold-dim);
+    line-height: 1.2;
+  }
+  .eqrpg .csp-value {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--eq-text-bright);
+    line-height: 1.3;
+  }
+  /* Roll button variant — same look as .csp-value but clickable */
+  .eqrpg .csp-roll {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--eq-text-bright);
+    line-height: 1.3;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.15s;
+  }
+  .eqrpg .csp-roll:hover { color: var(--eq-gold); }
+  /* Colour-coded border tints per stat */
+  .eqrpg .csp-ac   { border-color: var(--eq-gold-dim); }
+  .eqrpg .csp-init { border-color: #2a7a8a; }
+  .eqrpg .csp-fort { border-color: #8a6020; }
+  .eqrpg .csp-ref  { border-color: #2a7a40; }
+  .eqrpg .csp-will { border-color: #6a3a8a; }
+
+  /* -------------------------------------------------------------------------
+     XP Progress Bar + Level-Up (header)
+  -------------------------------------------------------------------------- */
+  .eqrpg .xp-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 3px;
+  }
+  .eqrpg .xp-track {
+    flex: 1;
+    height: 5px;
+    background: var(--eq-bg-input);
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--eq-border);
+  }
+  .eqrpg .xp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--eq-gold-dim), var(--eq-gold));
+    border-radius: 3px;
+    max-width: 100%;
+    transition: width 0.4s ease;
+  }
+  .eqrpg .xp-fill.xp-ready {
+    background: linear-gradient(90deg, #60c060, #80e080);
+    box-shadow: 0 0 4px rgba(96,192,96,0.5);
+  }
+  .eqrpg .xp-label, .eqrpg .xp-maxlevel, .eqrpg .xp-next {
+    font-size: 0.72em;
+    color: var(--eq-text-dim);
+    white-space: nowrap;
+  }
+  .eqrpg .xp-maxlevel { color: var(--eq-gold); font-weight: bold; }
+  .eqrpg .xp-next { font-size: 0.75em; color: var(--eq-text-dim); }
+
+  .eqrpg .levelup-btn {
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 1px 8px;
+    height: 20px;
+    line-height: 16px;
+    border: 1px solid #60c060;
+    border-radius: 3px;
+    background: rgba(96,192,96,0.15);
+    color: #80e080;
+    cursor: pointer;
+    white-space: nowrap;
+    animation: levelup-pulse 1.5s ease-in-out infinite;
+  }
+  .eqrpg .levelup-btn:hover {
+    background: rgba(96,192,96,0.3);
+    color: #a0f0a0;
+  }
+  @keyframes levelup-pulse {
+    0%, 100% { box-shadow: 0 0 4px rgba(96,192,96,0.3); }
+    50%       { box-shadow: 0 0 10px rgba(96,192,96,0.7); }
+  }
+
+  /* -------------------------------------------------------------------------
+     Tab Navigation
+  -------------------------------------------------------------------------- */
+  .eqrpg .sheet-tabs {
+    display: flex;
+    background: var(--eq-bg-dark);
+    border-bottom: 2px solid var(--eq-gold-dim);
+    padding: 0 6px;
+    gap: 0;
+  }
+  .eqrpg .sheet-tabs .item {
+    padding: 5px 13px;
+    cursor: pointer;
+    color: var(--eq-text-dim);
+    font-weight: bold;
+    font-size: 0.78em;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    text-decoration: none;
+    transition: color 0.12s, border-color 0.12s;
+    user-select: none;
+  }
+  .eqrpg .sheet-tabs .item:hover { color: var(--eq-text); }
+  .eqrpg .sheet-tabs .item.active {
+    color: var(--eq-gold-bright);
+    border-bottom-color: var(--eq-gold);
+    background: linear-gradient(180deg, transparent 60%, rgba(201,168,76,0.06) 100%);
+  }
+
+  /* Tab content */
+  .eqrpg section.tab {
+    padding: 8px;
+    overflow-y: auto;
+    max-height: calc(100% - 4px);
+  }
+
+  /* -------------------------------------------------------------------------
+     Attributes Tab — Ability Score Blocks
+  -------------------------------------------------------------------------- */
+  .eqrpg .point-buy-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 4px 8px;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .eqrpg .point-buy-label    { color: var(--eq-text-dim); font-size: 0.82em; }
+  .eqrpg .point-buy-remaining {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: var(--eq-gold-bright);
+  }
+  .eqrpg .point-buy-remaining.over-budget { color: var(--eq-red); }
+  .eqrpg .point-buy-hint { font-size: 0.82em; color: var(--eq-text-dim); }
+
+  .eqrpg .abilities-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+  }
+
+  .eqrpg .ability-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--eq-bg-panel);
+    border: 1px solid var(--eq-border);
+    border-radius: 4px;
+    padding: 6px 4px 8px;
+    text-align: center;
+    position: relative;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  }
+  .eqrpg .ability-block::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--eq-gold-dim);
+    border-radius: 4px 4px 0 0;
+    opacity: 0.6;
+  }
+
+  .eqrpg .ability-header {
+    font-weight: bold;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--eq-gold);
+    margin-bottom: 3px;
+  }
+
+  /* Total score — the big number */
+  .eqrpg .ability-total {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--eq-text-bright);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  /* Modifier circle */
+  .eqrpg .ability-modifier {
+    margin-bottom: 4px;
+  }
+  .eqrpg .mod-value {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    border: 2px solid var(--eq-gold-dim);
+    border-radius: 50%;
+    background: var(--eq-bg-dark);
+    color: var(--eq-gold-bright);
+    font-weight: bold;
+    font-size: 0.92em;
+    text-align: center;
+  }
+
+  .eqrpg .ability-breakdown {
+    width: 100%;
+    font-size: 0.78em;
+    border-top: 1px solid var(--eq-border);
+    margin-top: 4px;
+    padding-top: 3px;
+  }
+  .eqrpg .ability-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 2px;
+  }
+  .eqrpg .ability-row label { font-size: 0.9em; color: var(--eq-text-dim); }
+
+  .eqrpg .point-buy-controls {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .eqrpg .adj-btn {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--eq-border);
+    border-radius: 2px;
+    background: var(--eq-bg-dark);
+    color: var(--eq-gold);
+  }
+  .eqrpg .adj-btn:hover:not(:disabled) {
+    background: var(--eq-gold-dim);
+    color: var(--eq-bg-dark);
+  }
+  .eqrpg .adj-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+
+  .eqrpg .base-value {
+    min-width: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--eq-text-bright);
+  }
+  .eqrpg .racial-value {
+    font-weight: bold;
+    min-width: 18px;
+    text-align: right;
+    color: var(--eq-text);
+  }
+  .eqrpg .ability-row input[type="number"] {
+    width: 34px;
+    font-size: 0.9em;
+    height: 18px;
+  }
+
+  /* -------------------------------------------------------------------------
+     Combat Tab
+  -------------------------------------------------------------------------- */
+  .eqrpg .combat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .eqrpg .combat-block {
+    background: var(--eq-bg-panel);
+    border: 1px solid var(--eq-border);
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+  }
+  .eqrpg .combat-block::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--eq-gold-dim);
+    border-radius: 4px 4px 0 0;
+    opacity: 0.5;
+  }
+  .eqrpg .combat-block h3 { margin-top: 0; }
+
+  .eqrpg .ac-total {
+    font-size: 2.8em;
+    font-weight: bold;
+    text-align: center;
+    margin: 2px 0 6px;
+    color: var(--eq-gold-bright);
+    text-shadow: 0 0 12px rgba(232,201,90,0.3);
+    line-height: 1;
+  }
+  .eqrpg .ac-block { text-align: center; }
+
+  .eqrpg .combat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(90,78,58,0.4);
+  }
+  .eqrpg .combat-row:last-child { border-bottom: none; }
+  .eqrpg .combat-row label { color: var(--eq-text-dim); font-size: 0.82em; }
+  .eqrpg .combat-value {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--eq-text-bright);
+  }
+  .eqrpg .combat-row input[type="number"] { width: 40px; height: 20px; font-size: 0.85em; }
+
+  .eqrpg .saves-block { grid-column: 1 / -1; }
+  .eqrpg .saves-grid { display: flex; flex-direction: column; gap: 2px; }
+
+  .eqrpg .save-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px;
+    background: var(--eq-bg-raised);
+    border-radius: 3px;
+  }
+  .eqrpg .save-row label {
+    font-weight: bold;
+    font-size: 0.85em;
+    min-width: 75px;
+    color: var(--eq-gold-dim);
+  }
+  .eqrpg .save-total {
+    font-weight: bold;
+    font-size: 1.15em;
+    min-width: 34px;
+    text-align: center;
+    color: var(--eq-text-bright);
+  }
+  .eqrpg .save-detail {
+    flex: 1;
+    font-size: 0.8em;
+    color: var(--eq-text-dim);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .eqrpg .save-misc { width: 34px !important; height: 20px !important; }
+
+  /* -------------------------------------------------------------------------
+     Spells Tab
+  -------------------------------------------------------------------------- */
+
+  /* Mana bar */
+  .eqrpg .mana-bar-section {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .eqrpg .mana-bar-section .mana-label {
+    font-weight: bold;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--eq-blue);
+    white-space: nowrap;
+  }
+  .eqrpg .mana-track {
+    flex: 1;
+    height: 7px;
+    background: var(--eq-bg-input);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--eq-border);
+  }
+  .eqrpg .mana-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--eq-blue-dim), var(--eq-blue));
+    border-radius: 4px;
+    max-width: 100%;
+    transition: width 0.3s ease;
+  }
+  .eqrpg .mana-bar-section .mana-value {
+    font-size: 0.8em;
+    color: var(--eq-blue);
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  /* Mana regen rate badge */
+  .eqrpg .mana-regen {
+    font-size: 0.75em;
+    font-weight: bold;
+    color: var(--eq-blue);
+    white-space: nowrap;
+    opacity: 0.85;
+    letter-spacing: 0.2px;
+  }
+
+  /* Rest controls row */
+  .eqrpg .rest-controls {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+
+  /* Shared rest / recover button base */
+  .eqrpg .recover-btn,
+  .eqrpg .rest-btn {
+    font-size: 0.74em;
+    font-weight: bold;
+    padding: 2px 8px;
+    height: 22px;
+    line-height: 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+
+  /* Recover (clear cooldowns) — gold */
+  .eqrpg .recover-btn {
+    border: 1px solid var(--eq-gold-dim);
+    background: rgba(201,168,76,0.1);
+    color: var(--eq-gold);
+  }
+  .eqrpg .recover-btn:hover { background: rgba(201,168,76,0.25); }
+
+  /* Short rest (meditate 1h) — blue */
+  .eqrpg .rest-short-btn {
+    border: 1px solid var(--eq-blue-dim);
+    background: rgba(74,138,196,0.1);
+    color: var(--eq-blue);
+  }
+  .eqrpg .rest-short-btn:hover { background: rgba(74,138,196,0.25); }
+
+  /* Long rest (full 8h) — green */
+  .eqrpg .rest-long-btn {
+    border: 1px solid var(--eq-green);
+    background: rgba(74,154,80,0.1);
+    color: var(--eq-green);
+  }
+  .eqrpg .rest-long-btn:hover { background: rgba(74,154,80,0.25); }
+
+  /* Spell slots grid — 4 columns × 2 rows */
+  .eqrpg .spell-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  .eqrpg .spell-slot {
+    border: 2px dashed var(--eq-border);
+    border-radius: 4px;
+    padding: 5px 4px 6px;
+    text-align: center;
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--eq-bg-dark);
+    transition: border-color 0.15s;
+    gap: 2px;
+  }
+  .eqrpg .spell-slot.memorized {
+    border-style: solid;
+    border-color: var(--eq-blue-dim);
+    background: rgba(74,138,196,0.07);
+  }
+  .eqrpg .spell-slot.on-cooldown {
+    opacity: 0.55;
+    border-color: var(--eq-border);
+  }
+
+  .eqrpg .slot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .eqrpg .slot-number { font-size: 0.68em; font-weight: bold; color: var(--eq-text-dim); }
+  .eqrpg .slot-empty  { font-size: 0.75em; color: var(--eq-text-dim); font-style: italic; margin-top: 4px; }
+
+  .eqrpg .slot-spell-name {
+    font-size: 0.74em;
+    font-weight: bold;
+    color: var(--eq-text-bright);
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .eqrpg .slot-mana-cost {
+    font-size: 0.7em;
+    color: var(--eq-blue);
+    font-weight: bold;
+  }
+  .eqrpg .slot-cooldown {
+    font-size: 0.75em;
+    color: var(--eq-text-dim);
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* Cast button (⚡) inside memorized slot */
+  .eqrpg .cast-btn {
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 2px 6px;
+    height: 18px;
+    line-height: 14px;
+    border: 1px solid var(--eq-purple);
+    border-radius: 3px;
+    background: rgba(138,74,180,0.15);
+    color: var(--eq-purple);
+    cursor: pointer;
+    margin-top: 2px;
+    white-space: nowrap;
+  }
+  .eqrpg .cast-btn:hover {
+    background: rgba(138,74,180,0.35);
+    color: #c880f0;
+    border-color: #c880f0;
+  }
+
+  /* Unmemorize button (✕ in slot header) */
+  .eqrpg .unmem-btn {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    font-size: 0.6em;
+    line-height: 14px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--eq-text-dim);
+  }
+  .eqrpg .unmem-btn:hover {
+    color: var(--eq-red);
+    background: rgba(196,64,64,0.1);
+    border-color: var(--eq-red-dim);
+  }
+
+  /* Memorize button (+M) in known spells list */
+  .eqrpg .mem-btn {
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 1px 5px;
+    height: 18px;
+    line-height: 16px;
+    border: 1px solid var(--eq-blue-dim);
+    border-radius: 2px;
+    background: rgba(74,138,196,0.1);
+    color: var(--eq-blue);
+    cursor: pointer;
+  }
+  .eqrpg .mem-btn:hover {
+    background: rgba(74,138,196,0.25);
+    color: #80bbf0;
+    border-color: var(--eq-blue);
+  }
+
+  .eqrpg .spell-recast { color: var(--eq-purple); }
+  .eqrpg .known-spells-section { margin-top: 4px; }
+
+  /* -------------------------------------------------------------------------
+     Item Lists (shared by Spells & Inventory)
+  -------------------------------------------------------------------------- */
+  .eqrpg .item-list { list-style: none; margin: 0; padding: 0; }
+  .eqrpg .item-list .item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 4px;
+    border-bottom: 1px solid rgba(90,78,58,0.5);
+  }
+  .eqrpg .item-list .item:last-child { border-bottom: none; }
+  .eqrpg .item-list .item:hover { background: rgba(201,168,76,0.05); }
+
+  .eqrpg .item-img {
+    border: 1px solid var(--eq-border);
+    border-radius: 2px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .eqrpg .item-name { flex: 1; font-weight: bold; color: var(--eq-text-bright); cursor: pointer; font-size: 0.9em; }
+  .eqrpg .item-detail { font-size: 0.8em; color: var(--eq-text-dim); }
+  .eqrpg .empty-list {
+    text-align: center;
+    color: var(--eq-text-dim);
+    font-style: italic;
+    padding: 6px;
+    font-size: 0.85em;
+  }
+
+  /* -------------------------------------------------------------------------
+     Inventory Tab
+  -------------------------------------------------------------------------- */
+  .eqrpg .encumbrance-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+    margin-bottom: 6px;
+  }
+  .eqrpg .encumbrance-bar label {
+    font-weight: bold;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--eq-gold-dim);
+    white-space: nowrap;
+  }
+  .eqrpg .enc-track {
+    flex: 1;
+    height: 7px;
+    background: var(--eq-bg-input);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--eq-border);
+  }
+  .eqrpg .enc-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--eq-green), #80c040);
+    border-radius: 4px;
+    max-width: 100%;
+    transition: width 0.3s ease;
+  }
+  .eqrpg .enc-label { font-size: 0.8em; color: var(--eq-text-dim); white-space: nowrap; }
+
+  .eqrpg .inventory-section { margin-bottom: 2px; }
+  .eqrpg .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 2px;
+  }
+  .eqrpg .section-header h3 { margin: 4px 0 2px; flex: 1; }
+
+  .eqrpg .create-btn {
+    width: 22px; height: 22px;
+    padding: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+    background: var(--eq-bg-dark);
+    color: var(--eq-gold);
+  }
+  .eqrpg .create-btn:hover { background: var(--eq-gold-dim); color: var(--eq-bg-dark); }
+
+  .eqrpg .equip-btn {
+    width: 22px; height: 22px;
+    padding: 0;
+    font-size: 0.75em;
+    font-weight: bold;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+    background: var(--eq-bg-dark);
+    color: var(--eq-text-dim);
+  }
+  .eqrpg .equip-btn.equipped {
+    background: rgba(74,154,80,0.15);
+    color: var(--eq-green);
+    border-color: var(--eq-green);
+  }
+  .eqrpg .equip-btn:hover { background: var(--eq-bg-input); }
+
+  .eqrpg .delete-btn {
+    width: 22px; height: 22px;
+    padding: 0;
+    font-size: 0.78em;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background: transparent;
+    color: var(--eq-text-dim);
+  }
+  .eqrpg .delete-btn:hover {
+    color: var(--eq-red);
+    background: rgba(196,64,64,0.1);
+    border-color: var(--eq-red);
+  }
+
+  /* -------------------------------------------------------------------------
+     Roll Buttons (shared across all tabs)
+  -------------------------------------------------------------------------- */
+
+  /* Generic roll-btn: used on mod circles, save totals, ATK/DMG/ROLL buttons */
+  .eqrpg .roll-btn {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+    font: inherit;
+    position: relative;
+    transition: color 0.12s, transform 0.08s;
+  }
+  .eqrpg .roll-btn:hover { color: var(--eq-gold-bright) !important; transform: scale(1.08); }
+  .eqrpg .roll-btn:active { transform: scale(0.96); }
+
+  /* mod-value is already styled as a circle; just make it a button */
+  .eqrpg .ability-modifier .roll-btn.mod-value {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 26px;
+    border: 2px solid var(--eq-gold-dim);
+    border-radius: 50%;
+    background: var(--eq-bg-dark);
+    color: var(--eq-gold-bright);
+    font-weight: bold;
+    font-size: 0.92em;
+    text-align: center;
+  }
+  .eqrpg .ability-modifier .roll-btn.mod-value:hover {
+    border-color: var(--eq-gold-bright);
+    background: var(--eq-gold-glow);
+    box-shadow: 0 0 6px rgba(232,201,90,0.35);
+  }
+
+  /* save-total as roll button */
+  .eqrpg .save-total.roll-btn {
+    font-weight: bold;
+    font-size: 1.15em;
+    min-width: 34px;
+    text-align: center;
+    color: var(--eq-text-bright);
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+  .eqrpg .save-total.roll-btn:hover {
+    background: var(--eq-gold-glow);
+    color: var(--eq-gold-bright);
+  }
+
+  /* combat-value (initiative) as roll button */
+  .eqrpg .combat-value.roll-btn {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--eq-text-bright);
+    padding: 1px 4px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .eqrpg .combat-value.roll-btn:hover {
+    background: var(--eq-gold-glow);
+    color: var(--eq-gold-bright);
+  }
+  .eqrpg .roll-icon { font-size: 0.85em; opacity: 0.7; }
+
+  /* ATK / DMG / ROLL inline buttons in item lists */
+  .eqrpg .roll-atk-btn,
+  .eqrpg .roll-dmg-btn,
+  .eqrpg .roll-skill-btn {
+    font-size: 0.7em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 1px 5px;
+    height: 18px;
+    line-height: 16px;
+    border: 1px solid var(--eq-border);
+    border-radius: 2px;
+    background: var(--eq-bg-dark);
+    color: var(--eq-text-dim);
+    cursor: pointer;
+  }
+  .eqrpg .roll-atk-btn:hover  { background: rgba(201,168,76,0.15); color: var(--eq-gold); border-color: var(--eq-gold-dim); }
+  .eqrpg .roll-dmg-btn:hover  { background: rgba(196,64,64,0.15);  color: var(--eq-red);  border-color: var(--eq-red-dim); }
+  .eqrpg .roll-skill-btn:hover { background: rgba(74,154,80,0.15); color: var(--eq-green); border-color: var(--eq-green); }
+
+  /* Skill tags (C = class skill, T = tradeskill) */
+  .eqrpg .skill-tags { display: flex; gap: 2px; }
+  .eqrpg .tag-cs, .eqrpg .tag-ts {
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 0 3px;
+    border-radius: 2px;
+    line-height: 14px;
+  }
+  .eqrpg .tag-cs { background: rgba(74,138,196,0.2); color: var(--eq-blue); border: 1px solid var(--eq-blue-dim); }
+  .eqrpg .tag-ts { background: rgba(138,74,180,0.2); color: var(--eq-purple); border: 1px solid var(--eq-purple); }
+
+  /* -------------------------------------------------------------------------
+     Faction Table (Biography tab)
+  -------------------------------------------------------------------------- */
+  .eqrpg .faction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 0.85em;
+  }
+  .eqrpg .faction-table th {
+    text-align: left;
+    padding: 3px 6px;
+    color: var(--eq-gold-dim);
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--eq-border);
+  }
+  .eqrpg .faction-table td {
+    padding: 4px 6px;
+    border-bottom: 1px solid rgba(90,78,58,0.35);
+    vertical-align: middle;
+  }
+  .eqrpg .faction-row:hover td { background: rgba(201,168,76,0.04); }
+  .eqrpg .faction-name-link {
+    color: var(--eq-text-bright);
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .eqrpg .faction-name-link:hover { color: var(--eq-gold-bright); }
+  .eqrpg .faction-standing-val {
+    font-weight: bold;
+    color: var(--eq-text);
+    text-align: center;
+    min-width: 48px;
+  }
+  .eqrpg .faction-label {
+    font-size: 0.82em;
+    font-weight: bold;
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+  /* Standing tier colors */
+  .eqrpg .faction-ally         { background: rgba(80,200,120,0.2);  color: #80f090; border: 1px solid #60c070; }
+  .eqrpg .faction-warmly       { background: rgba(80,180,100,0.15); color: #80d080; border: 1px solid #50a060; }
+  .eqrpg .faction-kindly       { background: rgba(80,180,180,0.15); color: #70d0d0; border: 1px solid #508080; }
+  .eqrpg .faction-amiable      { background: rgba(74,138,196,0.15); color: #70b0e0; border: 1px solid var(--eq-blue-dim); }
+  .eqrpg .faction-indifferent  { background: rgba(120,120,120,0.15); color: var(--eq-text-dim); border: 1px solid #555; }
+  .eqrpg .faction-apprehensive { background: rgba(200,180,50,0.15); color: #d0b840; border: 1px solid #a08020; }
+  .eqrpg .faction-dubious      { background: rgba(210,130,30,0.15); color: #d09040; border: 1px solid #a06020; }
+  .eqrpg .faction-threatening  { background: rgba(196,64,64,0.15);  color: #e07070; border: 1px solid var(--eq-red-dim); }
+  .eqrpg .faction-kos          { background: rgba(160,20,20,0.2);   color: #ff4040; border: 1px solid #a01010; }
+
+  .eqrpg .faction-controls { display: flex; gap: 3px; justify-content: flex-end; }
+  .eqrpg .faction-adj-btn {
+    width: 20px; height: 20px;
+    padding: 0;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 18px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--eq-border);
+    border-radius: 2px;
+    background: var(--eq-bg-dark);
+    color: var(--eq-gold);
+  }
+  .eqrpg .faction-adj-btn:hover { background: var(--eq-gold-dim); color: var(--eq-bg-dark); }
+
+  /* -------------------------------------------------------------------------
+     Biography Tab
+  -------------------------------------------------------------------------- */
+  .eqrpg .biography-fields {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+  }
+  .eqrpg .biography-fields .field-group { display: flex; align-items: center; gap: 4px; }
+  .eqrpg .biography-fields label {
+    font-weight: bold;
+    font-size: 0.82em;
+    color: var(--eq-gold-dim);
+  }
+  .eqrpg .biography-fields input[type="text"] { width: 200px; }
+  .eqrpg .biography-editor { min-height: 200px; }
+
+  /* -------------------------------------------------------------------------
+     NPC Sheet
+  -------------------------------------------------------------------------- */
+
+  /* Stats tab — two-column: abilities left, combat right */
+  .eqrpg.npc-sheet .npc-stats-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 10px 12px;
+  }
+
+  /* 3-column ability grid (STR DEX CON / INT WIS CHA) */
+  .eqrpg.npc-sheet .npc-abilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    align-content: start;
+  }
+  .eqrpg.npc-sheet .npc-ability-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 4px;
+    padding: 6px 4px;
+  }
+  .eqrpg.npc-sheet .npc-ability-box .ability-abbr {
+    font-size: 0.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--eq-gold-dim);
+    letter-spacing: 0.5px;
+  }
+  .eqrpg.npc-sheet .npc-ability-box input[type="number"] {
+    width: 50px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .eqrpg.npc-sheet .ability-mod-btn {
+    font-size: 0.8em;
+    padding: 1px 6px;
+    min-width: 36px;
+    background: transparent;
+    color: var(--eq-text-dim);
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .eqrpg.npc-sheet .ability-mod-btn:hover {
+    background: var(--eq-gold-dim);
+    color: var(--eq-bg-dark);
+  }
+
+  /* Combat stat block */
+  .eqrpg.npc-sheet .npc-combat-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .eqrpg.npc-sheet .npc-stat-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .eqrpg.npc-sheet .npc-stat-row label {
+    font-size: 0.82em;
+    font-weight: bold;
+    color: var(--eq-gold-dim);
+    min-width: 70px;
+  }
+  .eqrpg.npc-sheet .npc-stat-row input[type="number"] {
+    width: 52px;
+    text-align: center;
+  }
+  .eqrpg.npc-sheet .stat-roll-pair {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .eqrpg.npc-sheet .npc-saves-header {
+    font-size: 0.78em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--eq-gold);
+    border-top: 1px solid var(--eq-gold-dim);
+    padding-top: 6px;
+    margin-top: 2px;
+  }
+
+  /* NPC identity detail pills (CR / Type / Alignment / Faction) */
+  .eqrpg.npc-sheet .npc-details-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 0 10px;
+  }
+  .eqrpg.npc-sheet .npc-detail-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 4px;
+    padding: 3px 7px;
+    min-width: 44px;
+  }
+  .eqrpg.npc-sheet .npc-detail-pill.wide { min-width: 90px; }
+  .eqrpg.npc-sheet .npc-detail-label {
+    font-size: 0.6em;
+    text-transform: uppercase;
+    color: var(--eq-gold-dim);
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .eqrpg.npc-sheet .npc-detail-pill input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    color: var(--eq-text-bright);
+    font-size: 0.88em;
+    font-weight: bold;
+    text-align: center;
+    font-family: inherit;
+    width: 100%;
+    padding: 0 2px;
+  }
+  .eqrpg.npc-sheet .npc-detail-pill input[type="number"] { width: 40px; }
+  .eqrpg.npc-sheet .npc-detail-pill.wide input { min-width: 80px; }
+  .eqrpg.npc-sheet .npc-detail-pill input:focus {
+    outline: none;
+    border-bottom-color: var(--eq-gold-dim);
+  }
+
+  /* ATK / DMG roll buttons in actions tab */
+  .eqrpg.npc-sheet .atk-btn {
+    background: rgba(180, 120, 40, 0.25);
+    color: var(--eq-gold);
+    border-color: var(--eq-gold-dim);
+    font-size: 0.72em;
+    padding: 1px 5px;
+  }
+  .eqrpg.npc-sheet .atk-btn:hover { background: var(--eq-gold-dim); color: var(--eq-bg-dark); }
+  .eqrpg.npc-sheet .dmg-btn {
+    background: rgba(160, 50, 50, 0.25);
+    color: #e07070;
+    border-color: #7a3030;
+    font-size: 0.72em;
+    padding: 1px 5px;
+  }
+  .eqrpg.npc-sheet .dmg-btn:hover { background: #7a3030; color: #fff; }
+
+  /* Cast spell button */
+  .eqrpg.npc-sheet .cast-btn {
+    background: rgba(80, 80, 200, 0.25);
+    color: #9898e8;
+    border-color: #5050aa;
+    font-size: 0.72em;
+    padding: 1px 5px;
+  }
+  .eqrpg.npc-sheet .cast-btn:hover { background: #5050aa; color: #fff; }
+
+  /* Skill roll button */
+  .eqrpg.npc-sheet .skill-roll-btn {
+    background: rgba(60, 140, 80, 0.25);
+    color: #70c888;
+    border-color: #305040;
+    font-size: 0.72em;
+    padding: 1px 5px;
+  }
+  .eqrpg.npc-sheet .skill-roll-btn:hover { background: #305040; color: #a0e8b0; }
+
+  /* Attack array badge next to BAB input */
+  .eqrpg.npc-sheet .npc-attack-array {
+    font-size: 0.82em;
+    font-weight: bold;
+    color: var(--eq-gold);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  /* "ft" unit label */
+  .eqrpg.npc-sheet .npc-unit-label {
+    font-size: 0.75em;
+    color: var(--eq-text-dim);
+  }
+
+  /* Quick-stat pills in NPC header */
+  .eqrpg.npc-sheet .npc-quick-stats {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .eqrpg.npc-sheet .npc-quick-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 4px;
+    padding: 3px 8px;
+    min-width: 48px;
+  }
+  .eqrpg.npc-sheet .quick-stat-label {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--eq-gold-dim);
+    font-weight: bold;
+  }
+  .eqrpg.npc-sheet .quick-stat-value {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--eq-text-bright);
+  }
+
+  /* Item type badge in loot list */
+  .eqrpg .item-type-badge {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding: 1px 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    color: var(--eq-text-dim);
+  }
+
+  /* -------------------------------------------------------------------------
+     Item Sheet
+  -------------------------------------------------------------------------- */
+  .eqrpg.item-sheet .sheet-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    background: var(--eq-bg-dark);
+    border-bottom: 2px solid var(--eq-gold-dim);
+    margin-bottom: 8px;
+  }
+
+  /* Item sheet icon — fixed 40×40, no stretching */
+  .eqrpg.item-sheet .profile-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 3px;
+    background: var(--eq-bg-panel);
+    cursor: pointer;
+  }
+
+  /* Name input — tighter than the character sheet's h1 */
+  .eqrpg.item-sheet h1 {
+    flex: 1;
+    margin: 0;
+    font-size: 1rem;   /* override browser h1 default (~2em) */
+  }
+  .eqrpg.item-sheet h1 input {
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--eq-gold-dim);
+    color: var(--eq-text-bright);
+    width: 100%;
+    padding: 2px 4px;
+  }
+  .eqrpg.item-sheet h1 input:focus {
+    outline: none;
+    border-bottom-color: var(--eq-gold);
+  }
+
+  .eqrpg.item-sheet .item-type-label {
+    text-transform: uppercase;
+    font-size: 0.72em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    background: var(--eq-gold-dim);
+    color: var(--eq-bg-dark);
+    border-radius: 2px;
+  }
+  .eqrpg .item-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 12px;
+    padding: 8px;
+  }
+  .eqrpg .item-fields .field-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .eqrpg .item-fields .field-group label {
+    font-weight: bold;
+    font-size: 0.82em;
+    min-width: 82px;
+    color: var(--eq-gold-dim);
+  }
+  .eqrpg .item-fields .field-group input,
+  .eqrpg .item-fields .field-group select { flex: 1; }
+  .eqrpg .item-fields .field-group.checkbox { justify-content: flex-start; }
+  .eqrpg .item-fields .field-group.checkbox input { width: auto; flex: none; }
+
+  .eqrpg .item-description { padding: 8px; }
+
+  /* -------------------------------------------------------------------------
+     Spell Sheet — structured layout
+  -------------------------------------------------------------------------- */
+
+  /* Purple accent on the type badge when it's a spell */
+  .eqrpg.item-sheet.spell .item-type-label {
+    background: #5a3a8a;
+    color: #d8b8ff;
+  }
+
+  /* Outer wrapper — replaces .item-fields for spells */
+  .eqrpg .spell-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 8px 4px;
+  }
+
+  /* ---- Stat bar ---- */
+  .eqrpg .spell-stat-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px 0 8px;
+    border-bottom: 1px solid var(--eq-gold-dim);
+    margin-bottom: 8px;
+  }
+  .eqrpg .spell-stat-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--eq-bg-dark);
+    border: 1px solid #5a3a8a;
+    border-radius: 5px;
+    padding: 4px 8px;
+    min-width: 54px;
+  }
+  .eqrpg .spell-stat-pill.wide { min-width: 120px; align-items: flex-start; }
+  .eqrpg .spell-stat-label {
+    font-size: 0.62em;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #9060c0;
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+  .eqrpg .spell-stat-pill input[type="number"],
+  .eqrpg .spell-stat-pill input[type="text"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #5a3a8a;
+    color: var(--eq-text-bright);
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+  }
+  .eqrpg .spell-stat-pill.wide input[type="text"] { text-align: left; }
+  .eqrpg .spell-stat-pill input:focus { outline: none; border-bottom-color: #a070e0; }
+
+  /* ---- Two-column body ---- */
+  .eqrpg .spell-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .eqrpg .spell-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: var(--eq-bg-dark);
+    border: 1px solid #3a2060;
+    border-radius: 4px;
+    padding: 7px 8px;
+  }
+  .eqrpg .spell-section-title {
+    font-size: 0.72em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #9060c0;
+    border-bottom: 1px solid #3a2060;
+    padding-bottom: 4px;
+    margin-bottom: 2px;
+  }
+
+  /* field-group inside spell sections */
+  .eqrpg .spell-section .field-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .eqrpg .spell-section .field-group label {
+    font-size: 0.78em;
+    font-weight: bold;
+    color: var(--eq-gold-dim);
+    min-width: 72px;
+    flex-shrink: 0;
+  }
+  .eqrpg .spell-section .field-group input,
+  .eqrpg .spell-section .field-group select {
+    flex: 1;
+    font-size: 0.88em;
+  }
+
+  /* ---- Cast button row ---- */
+  .eqrpg .spell-cast-row {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 4px;
+  }
+  .eqrpg .spell-cast-btn {
+    background: linear-gradient(135deg, #3a1a6a 0%, #5a3a8a 100%);
+    color: #d8b8ff;
+    border: 1px solid #9060c0;
+    border-radius: 5px;
+    font-size: 0.92em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 7px 28px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .eqrpg .spell-cast-btn:hover {
+    background: linear-gradient(135deg, #5a3a8a 0%, #8050c0 100%);
+    color: #fff;
+    border-color: #d8b8ff;
+  }
+
+  /* -------------------------------------------------------------------------
+     Item Sheet — structured layout (weapon / armor / skill / consumable / equipment / faction)
+  -------------------------------------------------------------------------- */
+
+  /* Type badge accent per item type */
+  .eqrpg.item-sheet.weapon     .item-type-label { background: #7a4a10; color: #f0c870; }
+  .eqrpg.item-sheet.armor      .item-type-label { background: #203860; color: #90b8e8; }
+  .eqrpg.item-sheet.skill      .item-type-label { background: #0e4840; color: #70d0c0; }
+  .eqrpg.item-sheet.consumable .item-type-label { background: #144a20; color: #80d890; }
+  .eqrpg.item-sheet.equipment  .item-type-label { background: var(--eq-gold-dim); color: var(--eq-bg-dark); }
+  .eqrpg.item-sheet.faction    .item-type-label { background: #3a2a60; color: #c0a8f0; }
+
+  /* Outer layout wrapper (replaces .item-fields) */
+  .eqrpg .item-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 8px 4px;
+  }
+
+  /* ── Stat bar ── */
+  .eqrpg .item-stat-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px 0 8px;
+    border-bottom: 1px solid var(--eq-gold-dim);
+    margin-bottom: 8px;
+  }
+  .eqrpg .item-stat-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 5px;
+    padding: 3px 8px;
+    min-width: 52px;
+  }
+  .eqrpg .item-stat-pill.wide { min-width: 90px; }
+  .eqrpg .isp-label {
+    font-size: 0.62em;
+    text-transform: uppercase;
+    color: var(--eq-gold-dim);
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+  /* Inputs/selects inside stat pills */
+  .eqrpg .item-stat-pill input,
+  .eqrpg .item-stat-pill select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    color: var(--eq-text-bright);
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    font-family: inherit;
+    width: 100%;
+    padding: 0 2px;
+  }
+  .eqrpg .item-stat-pill input:focus,
+  .eqrpg .item-stat-pill select:focus {
+    outline: none;
+    border-bottom-color: var(--eq-gold-dim);
+  }
+  .eqrpg .item-stat-pill input[type="number"] { width: 48px; }
+  .eqrpg .item-stat-pill.wide input[type="text"],
+  .eqrpg .item-stat-pill.wide select { min-width: 80px; }
+
+  /* Crit display: two narrow inputs side-by-side */
+  .eqrpg .isp-crit-row {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.88em;
+    color: var(--eq-text-bright);
+    font-weight: bold;
+  }
+  .eqrpg .isp-narrow { width: 30px !important; text-align: center; }
+  .eqrpg .isp-sep { color: var(--eq-text-dim); font-size: 0.8em; white-space: nowrap; }
+
+  /* Per-type pill border color */
+  .eqrpg.item-sheet.weapon     .item-stat-pill { border-color: #6a3a08; }
+  .eqrpg.item-sheet.armor      .item-stat-pill { border-color: #1e3458; }
+  .eqrpg.item-sheet.skill      .item-stat-pill { border-color: #0c3c34; }
+  .eqrpg.item-sheet.consumable .item-stat-pill { border-color: #103c18; }
+  .eqrpg.item-sheet.equipment  .item-stat-pill { border-color: var(--eq-gold-dim); }
+  .eqrpg.item-sheet.faction    .item-stat-pill { border-color: #3a2a60; }
+
+  /* ── Property sections ── */
+  .eqrpg .item-prop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .eqrpg .item-prop-grid.single { grid-template-columns: 1fr; }
+  .eqrpg .item-prop-section {
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 4px;
+    padding: 6px 8px;
+  }
+  .eqrpg .item-prop-title {
+    font-size: 0.68em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--eq-gold-dim);
+    margin-bottom: 4px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--eq-border);
+  }
+  .eqrpg .item-prop-section .field-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 0;
+  }
+  .eqrpg .item-prop-section .field-group label {
+    font-size: 0.8em;
+    color: var(--eq-gold-dim);
+    min-width: 76px;
+    font-weight: bold;
+  }
+  .eqrpg .item-prop-section .field-group input,
+  .eqrpg .item-prop-section .field-group select { flex: 1; }
+  .eqrpg .item-prop-section .field-group.checkbox input { width: auto; flex: none; }
+
+  /* ── Skill flag row (Class Skill / Tradeskill checkboxes) ── */
+  .eqrpg .item-flags-row {
+    display: flex;
+    gap: 16px;
+    padding: 6px 2px 2px;
+    flex-wrap: wrap;
+  }
+  .eqrpg .item-flag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+  }
+  .eqrpg .item-flag input[type="checkbox"] { width: auto; cursor: pointer; }
+  .eqrpg .flag-cs { color: var(--eq-blue); font-weight: bold; }
+  .eqrpg .flag-ts { color: var(--eq-purple); font-weight: bold; }
+
+  /* ── Faction item sheet ── */
+  /* Tier pill: read-only, just shows the colored badge */
+  .eqrpg .faction-tier-pill { cursor: default; }
+  .eqrpg .faction-tier-pill .faction-label {
+    font-size: 0.82em;
+    font-weight: bold;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin-top: 2px;
+  }
+  /* Notes textarea fills the section */
+  .eqrpg .faction-notes {
+    width: 100%;
+    min-height: 80px;
+    background: transparent;
+    border: none;
+    color: var(--eq-text);
+    font-family: inherit;
+    font-size: 0.88em;
+    resize: vertical;
+    padding: 2px 0;
+    line-height: 1.45;
+  }
+  .eqrpg .faction-notes:focus { outline: none; color: var(--eq-text-bright); }
+
+  /* -------------------------------------------------------------------------
+     Chat Cards — base structure
+  -------------------------------------------------------------------------- */
+
+  /* Base card wrapper — lives in the Foundry chat log, outside .eqrpg scope */
+  .eq-chat-card {
+    font-family: var(--font-primary, "Signika", sans-serif);
+    font-size: 0.88rem;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.35);
+    background: rgba(20,18,14,0.65);
+    margin-bottom: 2px;
+  }
+
+  /* Color-coded left border per card type */
+  .eq-attack-card { border-left: 3px solid #b07820; }
+  .eq-dmg-card    { border-left: 3px solid #8a2020; }
+  .eq-spell-card  { border-left: 3px solid #7040b0; }
+  .eq-heal-card   { border-left: 3px solid #2a8a40; }
+  .eq-skill-card  { border-left: 3px solid #2a7a8a; }
+  .eq-use-card    { border-left: 3px solid #7040b0; }
+  .eq-ability-card { border-left: 3px solid #4a78c4; }
+  .eq-save-card    { border-left: 3px solid #c07820; }
+  .eq-init-card    { border-left: 3px solid #2a8a7a; }
+  .eq-levelup-card { border-left: 3px solid #c9a84c; }
+  .eq-rest-card    { border-left: 3px solid #2a5a9a; }
+
+  /* Card header row */
+  .eq-card-header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 8px;
+    background: rgba(201,168,76,0.08);
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+  }
+
+  /* Actor portrait (round, 32px) */
+  .eq-card-portrait {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(201,168,76,0.4);
+    flex-shrink: 0;
+  }
+
+  /* Item icon (square, 28px) */
+  .eq-card-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    object-fit: contain;
+    border: 1px solid rgba(201,168,76,0.3);
+    background: rgba(20,18,14,0.5);
+    flex-shrink: 0;
+  }
+
+  /* Title text block */
+  .eq-card-title {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    min-width: 0;
+  }
+  .eq-card-actor {
+    font-size: 0.82em;
+    font-weight: bold;
+    color: #c9a84c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .eq-card-action {
+    font-size: 0.82em;
+    color: rgba(220,210,190,0.75);
+  }
+
+  /* Badge cluster (crit, sneak, etc.) */
+  .eq-card-badges {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  /* ── Card body ── */
+  .eq-card-body {
+    padding: 6px 8px;
+  }
+
+  /* ── Card footer ── */
+  .eq-card-footer {
+    padding: 3px 8px;
+    font-size: 0.72em;
+    color: rgba(220,210,190,0.4);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Attack card rows ── */
+  .attack-line {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+  }
+  .attack-line:last-child { border-bottom: none; }
+
+  .attack-label {
+    font-size: 0.78em;
+    font-weight: bold;
+    color: rgba(201,168,76,0.6);
+    min-width: 60px;
+  }
+  .attack-bonus {
+    font-size: 0.8em;
+    color: rgba(220,210,190,0.5);
+    min-width: 28px;
+  }
+  .attack-arrow {
+    color: rgba(220,210,190,0.3);
+    font-size: 0.8em;
+  }
+  .attack-total {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #e8d898;
+    min-width: 24px;
+  }
+  .attack-total-extra {
+    color: rgba(232,216,152,0.65);
+    font-size: 0.95em;
+  }
+
+  /* ── Target hit/miss badges ── */
+  .eq-target-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+    width: 100%;
+  }
+
+  /* Base inline text colors (used outside badges) */
+  .eq-crit   { color: #d4a017; font-weight: bold; text-shadow: 0 0 6px rgba(212,160,23,0.5); }
+  .eq-threat { color: #e07820; font-weight: bold; }
+  .eq-hit    { color: #4a9a50; font-weight: bold; }
+  .eq-miss   { color: #8a4a4a; }
+
+  /* Badge context (inside .eq-target-results or .eq-card-badges) */
+  .eq-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.78em;
+  }
+  .eq-crit.eq-badge   { background: rgba(212,160,23,0.15); border: 1px solid rgba(212,160,23,0.4); }
+  .eq-hit.eq-badge    { background: rgba(40,110,40,0.15);  border: 1px solid rgba(50,130,50,0.4); color: #3a9040; }
+  .eq-miss.eq-badge   { background: rgba(140,40,40,0.15);  border: 1px solid rgba(140,60,60,0.35); color: #904040; }
+  .eq-threat.eq-badge { background: rgba(224,120,32,0.12); border: 1px solid rgba(224,120,32,0.35); }
+
+  /* Sneak attack badge */
+  .eq-sneak-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.78em;
+    background: rgba(160,64,160,0.15);
+    border: 1px solid rgba(160,64,160,0.4);
+    color: #c87cdc;
+    font-weight: bold;
+  }
+
+  /* ── Inline "Roll Damage" button row on attack cards ── */
+  .eq-attack-dmg-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 5px 8px 6px;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    background: rgba(0,0,0,0.08);
+    border-radius: 0 0 4px 4px;
+  }
+  .eq-roll-dmg-btn {
+    padding: 3px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    background: rgba(176,120,32,0.18);
+    border: 1px solid rgba(176,120,32,0.5);
+    color: #c8a040;
+    transition: background 0.15s, color 0.15s;
+  }
+  .eq-roll-dmg-btn:hover { background: rgba(176,120,32,0.4); color: #f0d070; }
+  .eq-roll-dmg-btn.eq-crit {
+    background: rgba(212,160,23,0.15);
+    border-color: rgba(212,160,23,0.5);
+    color: #d4a017;
+  }
+  .eq-roll-dmg-btn.eq-crit:hover { background: rgba(212,160,23,0.35); color: #f0c020; }
+
+  /* ── Berserker Rage card ── */
+  .eq-rage-card { border-left: 3px solid #c04020; }
+  .eq-rage-dice {
+    font-weight: bold;
+    color: #e06030;
+    font-size: 1em;
+  }
+
+  /* ── Shadow Knight Lifetap card ── */
+  .eq-lifetap-card { border-left: 3px solid #8030a0; }
+  .eq-lifetap-drain { color: #c040c0; font-weight: bold; }
+  .eq-lifetap-heal  { color: #50b860; font-weight: bold; }
+  .eq-lifetap-target { color: rgba(220,210,190,0.65); font-style: italic; }
+
+  /* Damage type label inline */
+  .eq-dmg-type {
+    font-size: 0.82em;
+    color: rgba(220,210,190,0.55);
+    font-style: italic;
+  }
+
+  /* ── Spell card ── */
+  .eq-spell-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px 8px;
+    border-bottom: 1px solid rgba(112,64,176,0.2);
+  }
+  .eq-spell-meta-pill {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-size: 0.75em;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    background: rgba(112,64,176,0.15);
+    border: 1px solid rgba(112,64,176,0.35);
+    color: #b898e8;
+  }
+  .eq-spell-meta-pill.level  { background: rgba(100,80,180,0.2); border-color: rgba(120,90,200,0.5); color: #c8b0ff; }
+  .eq-spell-meta-pill.mana   { background: rgba(40,80,160,0.2);  border-color: rgba(60,100,200,0.4); color: #88b0f0; }
+  .eq-spell-meta-pill.school { background: rgba(60,40,100,0.25); border-color: rgba(100,60,160,0.4); color: #b090d8; }
+  .eq-spell-meta-pill.recast { background: rgba(80,60,20,0.2);   border-color: rgba(160,120,40,0.3); color: #c8a840; }
+
+  .eq-spell-save {
+    padding: 3px 8px 5px;
+    font-size: 0.8em;
+    color: rgba(220,210,190,0.65);
+  }
+  .eq-save-label { color: rgba(220,210,190,0.45); }
+  .eq-save-dc    { color: #e8d898; font-size: 1.05em; }
+  .eq-save-type  { color: rgba(220,210,190,0.5); font-style: italic; }
+
+  /* Save DC span (legacy inline use) */
+  .save-dc {
+    font-style: italic;
+    color: rgba(220,210,190,0.6);
+    font-size: 0.9em;
+  }
+
+  /* ── Skill card ── */
+  .eq-skill-detail {
+    font-size: 0.88em;
+    color: rgba(220,210,190,0.5);
+    font-weight: normal;
+  }
+
+  /* ── Effect text ── */
+  .eq-effect-text {
+    font-size: 0.88em;
+    color: rgba(220,210,190,0.7);
+  }
+
+  /* ── Mana restore ── */
+  .eq-mana-restore {
+    font-weight: bold;
+    color: #88b0f0;
+  }
+
+  /* ── Apply damage / healing panel ── */
+  .eq-apply-panel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    margin-top: 2px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0 0 3px 3px;
+    background: rgba(245,240,230,0.9);
+  }
+  .eq-dmg-panel  { border-top-color: rgba(120,40,40,0.15); }
+  .eq-heal-panel { border-top-color: rgba(40,120,60,0.15); }
+
+  .eq-apply-label {
+    font-size: 0.78em;
+    color: #444;
+    white-space: nowrap;
+  }
+  .eq-apply-btns {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .eq-apply-btn {
+    padding: 2px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    color: #1a1a1a;
+  }
+  .eq-apply-full   { background: rgba(160,110,30,0.2);  border: 1px solid #8a6010; }
+  .eq-apply-full:hover { background: #8a6010; color: #fff; }
+  .eq-apply-half   { background: rgba(60,60,140,0.18);  border: 1px solid #3a3a88; }
+  .eq-apply-half:hover { background: #3a3a88; color: #fff; }
+  .eq-apply-double { background: rgba(140,30,30,0.18);  border: 1px solid #882222; }
+  .eq-apply-double:hover { background: #882222; color: #fff; }
+  .eq-apply-heal   { background: rgba(30,110,50,0.18);  border: 1px solid #1e6e32; }
+  .eq-apply-heal:hover { background: #1e6e32; color: #fff; }
+
+  /* Use consumable button */
+  .use-btn {
+    background: rgba(80, 40, 120, 0.25);
+    border-color: #5a2a8a;
+    color: var(--eq-text);
+  }
+  .use-btn:hover:not(:disabled) { background: #5a2a8a; color: #fff; }
+  .use-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Consumable type tag in inventory list */
+  .consumable-type-tag {
+    font-size: 0.75em;
+    color: var(--eq-text-dim);
+    text-transform: capitalize;
+    min-width: 44px;
+    text-align: center;
+  }
+
+  /* ── Class Features & Race Abilities blocks ─────────────────────────────── */
+  /* Both use .combat-block for layout; override the top accent bar color only */
+  .eqrpg .features-block::before {
+    background: var(--eq-blue-dim);   /* blue accent — class identity */
+    opacity: 0.7;
+  }
+  .eqrpg .race-block::before {
+    background: var(--eq-purple);     /* purple accent — racial identity */
+    opacity: 0.5;
+  }
+
+  .eqrpg .race-ability-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 0;
+  }
+
+  .eqrpg .ability-tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 10px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid var(--eq-gold-dim);
+    color: var(--eq-gold);
+    font-size: 0.72em;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+  }
+
+  /* Active race abilities (e.g. Slam) use an orange accent */
+  .eqrpg .ability-tag-active {
+    background: rgba(200,120,30,0.18);
+    border-color: #a05010;
+    color: #e08840;
+  }
+
+  .eqrpg .ability-note {
+    font-size: 0.78em;
+    color: var(--eq-text-dim);
+    font-style: italic;
+  }
+
+  /* Lay on Hands button */
+  .eqrpg .lay-on-hands-btn {
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    font-size: 1em;
+    background: rgba(74,154,80,0.15);
+    border: 1px solid var(--eq-green);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .eqrpg .lay-on-hands-btn:hover { background: rgba(74,154,80,0.35); }
+
+  /* ── Attack array display ────────────────────────────────────────────────── */
+  .eqrpg .attack-array {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+    font-weight: bold;
+  }
+  .eqrpg .attack-iter { font-weight: bold; }
+  .eqrpg .attack-sep  { color: var(--eq-text-dim); font-size: 0.9em; margin: 0 1px; }
+
+  /* ── Weapon delay / crit info (dim secondary detail) ────────────────────── */
+  .eqrpg .item-detail.dim {
+    opacity: 0.65;
+    font-size: 0.75em;
+  }
+
+  /* SA (Sneak Attack) button */
+  .eqrpg .roll-sa-btn {
+    font-size: 0.7em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: rgba(160,64,160,0.15);
+    border: 1px solid rgba(160,64,160,0.5);
+    color: var(--eq-text-dim);
+    cursor: pointer;
+  }
+  .eqrpg .roll-sa-btn:hover { background: rgba(160,64,160,0.35); color: #c87cdc; border-color: #c87cdc; }
+
+
+  /* ── Actor roll card body elements ──────────────────────────────────────── */
+
+  /* Shared roll result layout */
+  .eq-roll-mod {
+    font-size: 0.85em;
+    color: rgba(220,210,190,0.45);
+  }
+  .eq-roll-arrow {
+    color: rgba(220,210,190,0.25);
+    font-size: 0.85em;
+    margin: 0 2px;
+  }
+  .eq-roll-total {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #e8d898;
+  }
+
+  /* Level-up card */
+  .eq-levelup-gain {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #4a9a50;
+  }
+  .eq-levelup-detail {
+    font-size: 0.8em;
+    color: rgba(220,210,190,0.45);
+    margin-top: 1px;
+  }
+
+  /* Lay on Hands card */
+  .eq-loh-pool {
+    font-size: 1.05em;
+    font-weight: bold;
+    color: #4a9a50;
+  }
+  .eq-loh-target {
+    font-size: 0.9em;
+    color: rgba(220,210,190,0.75);
+    font-style: italic;
+  }
+
+  /* Rest card */
+  .eq-rest-val {
+    font-size: 1.05em;
+    font-weight: bold;
+    color: #88b0f0;
+  }
+  .eq-rest-detail {
+    font-size: 0.8em;
+    color: rgba(220,210,190,0.45);
+    margin-left: 4px;
+  }
+
+
+  /* ── Token HUD: HP / Mana strip + attack array ──────────────────────────── */
+
+  .eq-hud-strip {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3px;
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  /* Bar track */
+  .eq-hud-bar {
+    position: relative;
+    height: 13px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Filled portion */
+  .eq-hud-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.25s ease;
+  }
+  .hp-bar .eq-hud-fill { background: linear-gradient(90deg, #2a6030, #4aaa50); }
+  .mp-bar .eq-hud-fill { background: linear-gradient(90deg, #1a4898, #3a80e8); }
+
+  /* Text overlay on the bar */
+  .eq-hud-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6em;
+    font-weight: bold;
+    line-height: 1;
+    pointer-events: none;
+    text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 2px rgba(0,0,0,1);
+  }
+  .eq-hud-val    { color: #f0e8d0; }
+  .hp-val        { color: #a8f0a8; }
+  .mp-val        { color: #90c8ff; }
+  .eq-hud-sep    { color: rgba(240,230,200,0.35); margin: 0 1px; }
+  .eq-hud-max    { color: rgba(240,230,200,0.55); }
+
+  /* Attack array line */
+  .eq-hud-atk {
+    text-align: center;
+    font-size: 0.68em;
+    font-weight: bold;
+    color: var(--eq-gold);
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    line-height: 1.4;
+    text-shadow: 0 0 4px rgba(0,0,0,0.9);
+  }
+  .eq-hud-atk-sep { color: var(--eq-gold-dim); margin: 0 1px; font-weight: normal; }
+
+  /* ── Combat Tracker: attack array badge beside initiative ───────────────── */
+
+  .eq-ct-atk {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 0 4px;
+    font-size: 0.68em;
+    font-weight: bold;
+    color: var(--eq-gold);
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    border-radius: 3px;
+    vertical-align: middle;
+    white-space: nowrap;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+  }
+
+
+  /* ── Character sheet header: wizard launch button ───────────────────────── */
+
+  .eqrpg .wizard-launch-row {
+    margin: 4px 0 2px;
+  }
+  .eqrpg .wizard-launch-btn {
+    font-size: 0.78em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid var(--eq-gold-dim);
+    color: var(--eq-gold-dim);
+    cursor: pointer;
+    letter-spacing: 0.4px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .eqrpg .wizard-launch-btn:hover {
+    background: rgba(201,168,76,0.22);
+    color: var(--eq-gold);
+  }
+
+  /* ──────────────────────────────────────────────────────────────────────────
+     Character Creation Wizard (ApplicationV2 dialog)
+     All rules scoped to .character-wizard so nothing bleeds into the sheet.
+  ─────────────────────────────────────────────────────────────────────────── */
+
+  .character-wizard .window-content {
+    padding: 0;
+    overflow: hidden;
+    background: var(--eq-bg-panel);
+  }
+
+  .character-wizard .wizard-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--eq-text);
+    font-family: var(--eq-font, inherit);
+  }
+
+  /* ── Step indicator nav ─────────────────────────────────────────────────── */
+
+  .character-wizard .wizard-steps-nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 18px 8px;
+    background: var(--eq-bg-dark);
+    border-bottom: 1px solid var(--eq-gold-dim);
+    gap: 0;
+    flex-shrink: 0;
+  }
+
+  .character-wizard .wsn-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 11px;
+    border-radius: 14px;
+    border: 1px solid var(--eq-border);
+    color: var(--eq-text-dim);
+    font-size: 0.8em;
+    font-weight: bold;
+    background: var(--eq-bg-panel);
+    white-space: nowrap;
+  }
+  .character-wizard .wsn-pill.wsn-active {
+    border-color: var(--eq-gold);
+    color: var(--eq-gold);
+    background: rgba(201,168,76,0.12);
+  }
+  .character-wizard .wsn-pill.wsn-done {
+    border-color: var(--eq-green);
+    color: var(--eq-green);
+    background: rgba(74,154,80,0.10);
+  }
+
+  .character-wizard .wsn-num {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--eq-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.77em;
+    flex-shrink: 0;
+  }
+  .character-wizard .wsn-pill.wsn-active .wsn-num { background: var(--eq-gold);  color: var(--eq-bg-dark); }
+  .character-wizard .wsn-pill.wsn-done  .wsn-num  { background: var(--eq-green); color: var(--eq-bg-dark); }
+
+  .character-wizard .wsn-connector {
+    flex: 1;
+    height: 2px;
+    background: var(--eq-border);
+    margin: 0 4px;
+    min-width: 16px;
+  }
+  .character-wizard .wsn-connector.wsn-done { background: var(--eq-green); }
+
+  /* ── Body (scrollable) ──────────────────────────────────────────────────── */
+
+  .character-wizard .wizard-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+  }
+
+  .character-wizard .wizard-hint {
+    font-size: 0.82em;
+    color: var(--eq-text-dim);
+    margin: 0 0 10px;
+    font-style: italic;
+  }
+
+  /* ── Race & Class card grids ────────────────────────────────────────────── */
+
+  .character-wizard .wiz-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+  }
+
+  .character-wizard .wiz-card {
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: border-color 0.12s, background 0.12s;
+    user-select: none;
+  }
+  .character-wizard .wiz-card:hover {
+    border-color: var(--eq-gold-dim);
+    background: rgba(201,168,76,0.06);
+  }
+  .character-wizard .wiz-card.wiz-card-selected {
+    border-color: var(--eq-gold);
+    background: rgba(201,168,76,0.14);
+    box-shadow: 0 0 0 1px var(--eq-gold-dim);
+  }
+
+  .character-wizard .wiz-card-name {
+    font-weight: bold;
+    font-size: 0.93em;
+    color: var(--eq-gold);
+    margin-bottom: 4px;
+  }
+
+  .character-wizard .wiz-card-meta {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+  .character-wizard .wiz-meta-badge {
+    font-size: 0.67em;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: rgba(201,168,76,0.10);
+    border: 1px solid var(--eq-gold-dim);
+    color: var(--eq-text-dim);
+    text-transform: capitalize;
+  }
+
+  .character-wizard .wiz-card-adj {
+    font-size: 0.77em;
+    color: var(--eq-text-bright);
+    font-weight: bold;
+    margin-bottom: 3px;
+    letter-spacing: 0.2px;
+  }
+  .character-wizard .wiz-adj-none  { color: var(--eq-text-dim); font-style: italic; font-weight: normal; }
+  .character-wizard .wiz-card-abilities {
+    font-size: 0.70em;
+    color: var(--eq-blue);
+    text-transform: capitalize;
+  }
+
+  /* Class card extras */
+  .character-wizard .wiz-class-stats {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+    font-size: 0.79em;
+    flex-wrap: wrap;
+  }
+  .character-wizard .wiz-cs-item       { color: var(--eq-text-dim); }
+  .character-wizard .wiz-cs-item em    { font-style: normal; color: var(--eq-gold-dim); margin-right: 2px; }
+  .character-wizard .wiz-cs-caster     { color: var(--eq-blue); }
+  .character-wizard .wiz-class-saves   { font-size: 0.74em; color: var(--eq-text-dim); margin-bottom: 2px; }
+  .character-wizard .wiz-class-armor   { font-size: 0.70em; color: var(--eq-text-dim); text-transform: capitalize; }
+
+  /* ── Abilities step ─────────────────────────────────────────────────────── */
+
+  .character-wizard .wiz-ab-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 8px 14px;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 5px;
+    margin-bottom: 12px;
+  }
+
+  .character-wizard .wiz-ab-pool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 66px;
+  }
+  .character-wizard .wiz-pool-val   { font-size: 2.1em; font-weight: bold; color: var(--eq-gold); line-height: 1.1; }
+  .character-wizard .wiz-pool-label { font-size: 0.63em; color: var(--eq-text-dim); text-transform: uppercase; letter-spacing: 0.4px; }
+  .character-wizard .wiz-pool-spent .wiz-pool-val { color: var(--eq-text-dim); }
+  .character-wizard .wiz-pool-over  .wiz-pool-val { color: #c84040; }
+
+  .character-wizard .wiz-ab-pool-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .character-wizard .wiz-ab-pool-title { font-weight: bold; font-size: 0.88em; color: var(--eq-gold); }
+  .character-wizard .wiz-ab-pool-sub   { font-size: 0.76em; color: var(--eq-text-dim); font-style: italic; }
+  .character-wizard .wiz-ab-cost-legend{ font-size: 0.70em; color: var(--eq-text-dim); margin-top: 2px; letter-spacing: 0.1px; }
+
+  .character-wizard .wiz-ability-table {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .character-wizard .wiz-ab-thead {
+    display: grid;
+    grid-template-columns: 130px 1fr 68px 58px 52px;
+    font-size: 0.67em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--eq-gold-dim);
+    padding: 0 4px 5px;
+    border-bottom: 1px solid var(--eq-border);
+  }
+
+  .character-wizard .wiz-ab-row {
+    display: grid;
+    grid-template-columns: 130px 1fr 68px 58px 52px;
+    align-items: center;
+    padding: 4px 4px;
+    border-radius: 4px;
+    background: var(--eq-bg-dark);
+  }
+  .character-wizard .wiz-ab-row:nth-child(even) { background: rgba(0,0,0,0.15); }
+
+  .character-wizard .wiz-ab-name {
+    font-size: 0.84em;
+    color: var(--eq-text);
+    font-weight: bold;
+  }
+  .character-wizard .wiz-ab-base {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .character-wizard .wiz-ab-btn {
+    width: 22px;
+    height: 22px;
+    background: rgba(201,168,76,0.10);
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 3px;
+    color: var(--eq-gold);
+    font-size: 0.95em;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.10s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .character-wizard .wiz-ab-btn:hover:not(:disabled) { background: rgba(201,168,76,0.30); }
+  .character-wizard .wiz-ab-btn:disabled { opacity: 0.32; cursor: not-allowed; }
+
+  .character-wizard .wiz-ab-val  { width: 26px; text-align: center; font-weight: bold; font-size: 1em; color: var(--eq-text-bright); }
+  .character-wizard .wiz-ab-cost { font-size: 0.67em; color: var(--eq-text-dim); }
+
+  .character-wizard .wiz-ab-racial { font-size: 0.84em; font-weight: bold; color: var(--eq-text-dim); text-align: center; }
+  .character-wizard .wiz-racial-pos { color: var(--eq-green); }
+  .character-wizard .wiz-racial-neg { color: #c84040; }
+  .character-wizard .wiz-ab-final  { font-size: 1.02em; font-weight: bold; color: var(--eq-text-bright); text-align: center; }
+  .character-wizard .wiz-ab-mod    { font-size: 0.95em; font-weight: bold; color: var(--eq-gold); text-align: center; }
+
+  /* ── Details & Review step ──────────────────────────────────────────────── */
+
+  .character-wizard .wiz-details-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+
+  .character-wizard .wiz-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+  .character-wizard .wiz-field label {
+    font-size: 0.76em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--eq-gold-dim);
+  }
+  .character-wizard .wiz-field input,
+  .character-wizard .wiz-field select {
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 4px;
+    color: var(--eq-text-bright);
+    padding: 6px 8px;
+    font-size: 0.92em;
+    font-family: inherit;
+    width: 100%;
+  }
+  .character-wizard .wiz-field input:focus,
+  .character-wizard .wiz-field select:focus {
+    outline: none;
+    border-color: var(--eq-gold-dim);
+  }
+  .character-wizard .wiz-optional { font-weight: normal; color: var(--eq-text-dim); }
+
+  /* Review summary panel */
+  .character-wizard .wiz-summary {
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .character-wizard .wiz-sum-hero {
+    font-size: 1.15em;
+    font-weight: bold;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .character-wizard .wiz-sum-race  { color: var(--eq-gold); }
+  .character-wizard .wiz-sum-class { color: var(--eq-blue); }
+  .character-wizard .wiz-sum-sep   { color: var(--eq-text-dim); }
+  .character-wizard .wiz-sum-level {
+    font-size: 0.72em;
+    padding: 1px 6px;
+    border-radius: 10px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid var(--eq-gold-dim);
+    color: var(--eq-gold-dim);
+  }
+
+  .character-wizard .wiz-sum-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 0.87em;
+  }
+  .character-wizard .wiz-sum-label { color: var(--eq-gold-dim); min-width: 88px; font-weight: bold; }
+  .character-wizard .wiz-sum-val   { color: var(--eq-text-bright); font-weight: bold; }
+  .character-wizard .wiz-sum-note  { color: var(--eq-text-dim); font-size: 0.83em; }
+
+  .character-wizard .wiz-sum-divider {
+    height: 1px;
+    background: var(--eq-border);
+    margin: 2px 0;
+  }
+
+  /* Ability score pills in review */
+  .character-wizard .wiz-sum-scores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .character-wizard .wiz-ss-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 8px;
+    background: var(--eq-bg-panel);
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 4px;
+    min-width: 40px;
+  }
+  .character-wizard .wiz-ss-abbr { font-size: 0.60em; font-weight: bold; color: var(--eq-gold-dim); text-transform: uppercase; }
+  .character-wizard .wiz-ss-val  { font-size: 1.1em; font-weight: bold; color: var(--eq-text-bright); line-height: 1.2; }
+  .character-wizard .wiz-ss-mod  { font-size: 0.72em; color: var(--eq-gold); }
+
+  /* ── Footer navigation ──────────────────────────────────────────────────── */
+
+  .character-wizard .wizard-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 18px;
+    background: var(--eq-bg-dark);
+    border-top: 1px solid var(--eq-gold-dim);
+    flex-shrink: 0;
+  }
+
+  .character-wizard .wizard-footer-label {
+    color: var(--eq-text-dim);
+    font-size: 0.80em;
+  }
+
+  .character-wizard .wiz-btn {
+    padding: 6px 18px;
+    border-radius: 4px;
+    font-size: 0.88em;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid var(--eq-gold-dim);
+    background: rgba(201,168,76,0.10);
+    color: var(--eq-gold);
+    transition: background 0.13s;
+    letter-spacing: 0.3px;
+  }
+  .character-wizard .wiz-btn:hover:not(:disabled) { background: rgba(201,168,76,0.28); }
+  .character-wizard .wiz-btn:disabled { opacity: 0.34; cursor: not-allowed; }
+
+  .character-wizard .wiz-btn-finish {
+    background: rgba(74,154,80,0.14);
+    border-color: var(--eq-green);
+    color: var(--eq-green);
+  }
+  .character-wizard .wiz-btn-finish:hover:not(:disabled) { background: rgba(74,154,80,0.32); }
+
+  /* =========================================================================
+   * Feats — inventory section + item sheet
+   * ========================================================================= */
+
+  /* ── Inventory list ────────────────────────────────────────────────────── */
+  .eqrpg .feat-item {
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    align-items: center;
+    padding: 3px 4px;
+  }
+
+  /* Category badge — color-coded by category */
+  .eqrpg .feat-cat-badge {
+    display: inline-block;
+    font-size: 0.70em;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .eqrpg .feat-cat-general      { background: rgba(120,140,180,0.18); border-color: #5a7ab0; color: #8aaae8; }
+  .eqrpg .feat-cat-combat        { background: rgba(180,70,70,0.18);   border-color: #a03030; color: #d07070; }
+  .eqrpg .feat-cat-magic         { background: rgba(120,80,200,0.18);  border-color: #7040c0; color: #a880e0; }
+  .eqrpg .feat-cat-metamagic     { background: rgba(160,60,180,0.18);  border-color: #902090; color: #c060c0; }
+  .eqrpg .feat-cat-itemCreation  { background: rgba(60,150,80,0.18);   border-color: #306040; color: #60c080; }
+  .eqrpg .feat-cat-racial        { background: rgba(180,130,40,0.18);  border-color: #907020; color: #d0a840; }
+
+  /* Prerequisites tag — subdued secondary text */
+  .eqrpg .feat-prereq-tag {
+    font-size: 0.72em;
+    color: var(--eq-text-dim, #8a9099);
+    font-style: italic;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 220px;
+    flex: 1 1 auto;
+  }
+
+  /* ── Item sheet feat layout ─────────────────────────────────────────────── */
+  .eqrpg.item-sheet .feat-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .eqrpg.item-sheet .feat-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 2px;
+  }
+
+  .eqrpg.item-sheet .feat-benefit textarea,
+  .eqrpg.item-sheet .feat-special textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 52px;
+    font-size: 0.85em;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--eq-border-dim, rgba(120,100,60,0.35));
+    border-radius: 3px;
+    color: var(--eq-text, #d8cbb0);
+    padding: 4px 6px;
+    box-sizing: border-box;
+  }
+
+  .eqrpg.item-sheet .feat-prereqs input[type="text"] {
+    width: 100%;
+    font-size: 0.85em;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--eq-border-dim, rgba(120,100,60,0.35));
+    border-radius: 3px;
+    color: var(--eq-text, #d8cbb0);
+    padding: 3px 6px;
+    box-sizing: border-box;
+  }
+
+  /* ── Feat passive bonuses row ─────────────────────────────────────────────── */
+  .eqrpg.item-sheet .feat-bonuses-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+  }
+  .eqrpg.item-sheet .feat-bonuses-label {
+    font-size: 0.72em;
+    font-weight: bold;
+    color: var(--eq-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .eqrpg.item-sheet .feat-bonus-pills {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  .eqrpg.item-sheet .feat-bonus-pill {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    background: var(--eq-bg-panel);
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+    padding: 1px 5px;
+  }
+  .eqrpg.item-sheet .fbp-label {
+    font-size: 0.7em;
+    color: var(--eq-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .eqrpg.item-sheet .feat-bonus-pill input[type="number"] {
+    width: 38px;
+    height: 18px;
+    font-size: 0.82em;
+    text-align: center;
+    padding: 0 2px;
+    background: var(--eq-bg-input);
+  }
+
+} /* end @layer eqrpg */

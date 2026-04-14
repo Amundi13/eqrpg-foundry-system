@@ -1,0 +1,51 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="attributes">
+  <div class="point-buy-info">
+    <span class="point-buy-label">{{localize "EQRPG.PointBuy"}}:</span>
+    <span class="point-buy-remaining {{#if (lt pointBuy.remaining 0)}}over-budget{{/if}}">
+      {{pointBuy.remaining}} / {{config.pointBuyTotal}}
+    </span>
+    <span class="point-buy-hint">{{localize "EQRPG.PointsRemaining"}}</span>
+  </div>
+
+  <div class="abilities-grid">
+    {{#each abilities as |ability key|}}
+    <div class="ability-block">
+      <div class="ability-header">{{ability.abbr}}</div>
+      <div class="ability-score">
+        <span class="ability-total">{{ability.value}}</span>
+      </div>
+      {{!-- Modifier circle — click to roll ability check --}}
+      <div class="ability-modifier">
+        <button type="button" class="mod-value roll-btn"
+                data-action="rollAbility" data-ability="{{key}}"
+                title="Roll {{ability.label}} Check">
+          {{#if (gte ability.mod 0)}}+{{/if}}{{ability.mod}}
+        </button>
+      </div>
+      <div class="ability-breakdown">
+        <div class="ability-row">
+          <label>{{localize "EQRPG.Base"}}</label>
+          <div class="point-buy-controls">
+            <button type="button" class="adj-btn decrement"
+                    data-action="decrementAbility" data-ability="{{key}}"
+                    {{#unless ability.canDecrement}}disabled{{/unless}}>−</button>
+            <span class="base-value">{{ability.base}}</span>
+            <button type="button" class="adj-btn increment"
+                    data-action="incrementAbility" data-ability="{{key}}"
+                    {{#unless ability.canIncrement}}disabled{{/unless}}>+</button>
+          </div>
+        </div>
+        <div class="ability-row">
+          <label>{{localize "EQRPG.Racial"}}</label>
+          <span class="racial-value">{{#if (gte ability.racial 0)}}+{{/if}}{{ability.racial}}</span>
+        </div>
+        <div class="ability-row">
+          <label>{{localize "EQRPG.Misc"}}</label>
+          <input type="number" name="system.abilities.{{key}}.misc"
+                 value="{{ability.misc}}" {{#unless @root.isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>

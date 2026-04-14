@@ -1,0 +1,75 @@
+<header class="sheet-header">
+  <div class="portrait-frame">
+    <img class="profile-img" src="{{document.img}}" data-edit="img"
+         title="{{document.name}}" />
+  </div>
+  <div class="header-details">
+    <h1 class="char-name">
+      <input name="name" type="text" value="{{document.name}}"
+             placeholder="{{localize 'EQRPG.SheetNPC'}}"
+             {{#unless isEditable}}disabled{{/unless}} />
+    </h1>
+    <div class="header-fields">
+      <div class="field-group">
+        <label>{{localize "EQRPG.CR"}}</label>
+        <input type="number" name="system.details.cr" value="{{system.details.cr}}"
+               min="0" style="width:48px" {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+      <div class="field-group">
+        <label>{{localize "EQRPG.Type"}}</label>
+        <input type="text" name="system.details.type" value="{{system.details.type}}"
+               placeholder="humanoid…" {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+      <div class="field-group">
+        <label>{{localize "EQRPG.Faction"}}</label>
+        <input type="text" name="system.details.faction" value="{{system.details.faction}}"
+               {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+      <div class="field-group">
+        <label>{{localize "EQRPG.Alignment"}}</label>
+        <select name="system.details.alignment" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="">-</option>
+          {{#each alignmentOptions}}
+          <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <div class="header-resources">
+      <div class="resource hp">
+        <label>{{localize "EQRPG.HP"}}</label>
+        <div class="resource-bar">
+          <input type="number" name="system.resources.hp.value"
+                 value="{{system.resources.hp.value}}" {{#unless isEditable}}disabled{{/unless}} />
+          <span class="separator">/</span>
+          <input type="number" name="system.resources.hp.max"
+                 value="{{system.resources.hp.max}}" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
+      <div class="resource mana">
+        <label>{{localize "EQRPG.Mana"}}</label>
+        <div class="resource-bar">
+          <input type="number" name="system.resources.mana.value"
+                 value="{{system.resources.mana.value}}" {{#unless isEditable}}disabled{{/unless}} />
+          <span class="separator">/</span>
+          <input type="number" name="system.resources.mana.max"
+                 value="{{system.resources.mana.max}}" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
+      <div class="npc-quick-stats">
+        <div class="npc-quick-stat">
+          <span class="quick-stat-label">{{localize "EQRPG.ArmorClass"}}</span>
+          <span class="quick-stat-value">{{system.combat.ac.value}}</span>
+        </div>
+        <div class="npc-quick-stat">
+          <span class="quick-stat-label">{{localize "EQRPG.Initiative"}}</span>
+          <span class="quick-stat-value">{{#if (gte system.combat.initiative.value 0)}}+{{/if}}{{system.combat.initiative.value}}</span>
+        </div>
+        <div class="npc-quick-stat">
+          <span class="quick-stat-label">{{localize "EQRPG.Speed"}}</span>
+          <span class="quick-stat-value">{{system.details.speed}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

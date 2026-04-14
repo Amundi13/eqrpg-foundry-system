@@ -1,0 +1,191 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="inventory">
+
+  {{!-- Encumbrance Bar --}}
+  <div class="encumbrance-bar">
+    <label>{{localize "EQRPG.Encumbrance"}}</label>
+    <div class="enc-track">
+      <div class="enc-fill" style="width: {{#if encumbrance.max}}{{math (math encumbrance.current "/" encumbrance.max) "*" 100}}{{else}}0{{/if}}%"></div>
+    </div>
+    <span class="enc-label">{{encumbrance.current}} / {{encumbrance.max}} {{localize "EQRPG.Lbs"}}</span>
+  </div>
+
+  {{!-- Weapons --}}
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Weapons"}}</h3>
+      <button type="button" data-action="createItem" data-type="weapon" class="create-btn" title="{{localize 'EQRPG.AddWeapon'}}">+</button>
+    </div>
+    {{#if weapons.length}}
+    <ol class="item-list">
+      {{#each weapons as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="item-detail">{{item.system.damage}} {{item.system.damageType}}</span>
+        <span class="item-detail dim" title="{{localize 'EQRPG.WeaponDelay'}}">DLY {{item.system.delay}}</span>
+        <span class="item-detail dim" title="{{localize 'EQRPG.CritRange'}} / {{localize 'EQRPG.CritMult'}}">
+          {{#if (lt item.system.critRange 20)}}{{item.system.critRange}}–20{{else}}20{{/if}}×{{item.system.critMult}}
+        </span>
+        <button type="button" class="roll-atk-btn roll-btn"
+                data-action="rollAttack" title="{{localize 'EQRPG.RollAttack'}}">ATK</button>
+        <button type="button" class="roll-dmg-btn roll-btn"
+                data-action="rollDamage" title="{{localize 'EQRPG.RollDamage'}}">DMG</button>
+        {{#if (eq @root.system.details.class "rogue")}}
+        <button type="button" class="roll-sa-btn roll-btn"
+                data-action="rollSneakDamage" title="{{localize 'EQRPG.RollSneakAttack'}}">SA</button>
+        {{/if}}
+        <button type="button" data-action="toggleEquip"
+                class="equip-btn {{#if item.system.equipped}}equipped{{/if}}"
+                title="{{localize 'EQRPG.ToggleEquip'}}">
+          {{#if item.system.equipped}}E{{else}}−{{/if}}
+        </button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+      </li>
+      {{/each}}
+    </ol>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoWeapons"}}</p>
+    {{/if}}
+  </div>
+
+  {{!-- Armor --}}
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Armor"}}</h3>
+      <button type="button" data-action="createItem" data-type="armor" class="create-btn" title="{{localize 'EQRPG.AddArmor'}}">+</button>
+    </div>
+    {{#if armor.length}}
+    <ol class="item-list">
+      {{#each armor as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="item-detail">AC +{{item.system.acBonus}} ({{item.system.type}})</span>
+        <button type="button" data-action="toggleEquip"
+                class="equip-btn {{#if item.system.equipped}}equipped{{/if}}"
+                title="{{localize 'EQRPG.ToggleEquip'}}">
+          {{#if item.system.equipped}}E{{else}}−{{/if}}
+        </button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+      </li>
+      {{/each}}
+    </ol>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoArmor"}}</p>
+    {{/if}}
+  </div>
+
+  {{!-- Equipment --}}
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Equipment"}}</h3>
+      <button type="button" data-action="createItem" data-type="equipment" class="create-btn" title="{{localize 'EQRPG.AddEquipment'}}">+</button>
+    </div>
+    {{#if equipment.length}}
+    <ol class="item-list">
+      {{#each equipment as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="item-detail">×{{item.system.quantity}}</span>
+        <button type="button" data-action="toggleEquip"
+                class="equip-btn {{#if item.system.equipped}}equipped{{/if}}"
+                title="{{localize 'EQRPG.ToggleEquip'}}">
+          {{#if item.system.equipped}}E{{else}}−{{/if}}
+        </button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+      </li>
+      {{/each}}
+    </ol>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoEquipment"}}</p>
+    {{/if}}
+  </div>
+
+  {{!-- Consumables --}}
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Consumables"}}</h3>
+      <button type="button" data-action="createItem" data-type="consumable" class="create-btn" title="{{localize 'EQRPG.AddConsumable'}}">+</button>
+    </div>
+    {{#if consumables.length}}
+    <ol class="item-list">
+      {{#each consumables as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="item-detail consumable-type-tag">{{item.system.consumableType}}</span>
+        <span class="item-detail">×{{item.system.quantity}}</span>
+        <button type="button" class="use-btn roll-btn" data-action="useConsumable"
+                title="{{localize 'EQRPG.UseItem'}}"
+                {{#if (eq item.system.quantity 0)}}disabled{{/if}}>
+          🧪 {{localize "EQRPG.Use"}}
+        </button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+      </li>
+      {{/each}}
+    </ol>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoConsumables"}}</p>
+    {{/if}}
+  </div>
+
+  {{!-- Skills --}}
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Skills"}}</h3>
+      <button type="button" data-action="createItem" data-type="skill" class="create-btn" title="{{localize 'EQRPG.AddSkill'}}">+</button>
+    </div>
+    {{#if skills.length}}
+    <ol class="item-list">
+      {{#each skills as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="item-detail">{{item.system.ranks}} ranks</span>
+        <span class="item-detail skill-tags">
+          {{#if item.system.classSkill}}<span class="tag-cs" title="Class Skill">C</span>{{/if}}
+          {{#if item.system.isTradeskill}}<span class="tag-ts" title="Tradeskill">T</span>{{/if}}
+        </span>
+        <button type="button" class="roll-skill-btn roll-btn"
+                data-action="rollSkill" title="{{localize 'EQRPG.RollSkill'}}">ROLL</button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+      </li>
+      {{/each}}
+    </ol>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoSkills"}}</p>
+    {{/if}}
+  </div>
+
+  {{!-- Feats --}}
+  <div class="inventory-section feats-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Feats"}}</h3>
+      <button type="button" data-action="createFeat" class="create-btn" title="{{localize 'EQRPG.AddFeat'}}">+</button>
+    </div>
+    {{#if feats.length}}
+    <ol class="item-list feat-list">
+      {{#each feats as |item|}}
+      <li class="item feat-item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="feat-cat-badge feat-cat-{{item.system.category}}"
+              title="{{localize 'EQRPG.FeatCategory'}}">
+          {{localize (lookup @root.config.featCategories item.system.category)}}
+        </span>
+        {{#if item.system.prerequisites}}
+        <span class="feat-prereq-tag" title="{{localize 'EQRPG.FeatPrerequisites'}}">
+          {{item.system.prerequisites}}
+        </span>
+        {{/if}}
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+      </li>
+      {{/each}}
+    </ol>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoFeats"}}</p>
+    {{/if}}
+  </div>
+
+</section>

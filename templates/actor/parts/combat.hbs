@@ -1,0 +1,201 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="combat">
+  <div class="combat-grid">
+
+    {{!-- Armor Class --}}
+    <div class="combat-block ac-block">
+      <h3>{{localize "EQRPG.ArmorClass"}}</h3>
+      <div class="ac-total">{{system.combat.ac.value}}</div>
+      <div class="ac-breakdown">
+        <div class="combat-row">
+          <label>{{localize "EQRPG.Base"}}</label>
+          <span class="combat-value">{{system.combat.ac.base}}</span>
+        </div>
+        <div class="combat-row">
+          <label>{{localize "EQRPG.ArmorBonus"}}</label>
+          <span class="combat-value">+{{system.combat.ac.armor}}</span>
+        </div>
+        <div class="combat-row">
+          <label>{{localize "EQRPG.ShieldBonus"}}</label>
+          <span class="combat-value">+{{system.combat.ac.shield}}</span>
+        </div>
+        {{#if system.combat.ac.natural}}
+        <div class="combat-row">
+          <label>{{localize "EQRPG.NaturalArmor"}}</label>
+          <span class="combat-value">+{{system.combat.ac.natural}}</span>
+        </div>
+        {{/if}}
+        {{#if system.combat.ac.monkBonus}}
+        <div class="combat-row">
+          <label>{{localize "EQRPG.MonkACBonus"}}</label>
+          <span class="combat-value">+{{system.combat.ac.monkBonus}}</span>
+        </div>
+        {{/if}}
+        <div class="combat-row">
+          <label>{{localize "EQRPG.DexMod"}}</label>
+          <span class="combat-value">{{#if (gte abilities.dex.mod 0)}}+{{/if}}{{abilities.dex.mod}}</span>
+        </div>
+        <div class="combat-row">
+          <label>{{localize "EQRPG.Misc"}}</label>
+          <input type="number" name="system.combat.ac.misc"
+                 value="{{system.combat.ac.misc}}" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
+    </div>
+
+    {{!-- BAB & Initiative --}}
+    <div class="combat-block attack-block">
+      <h3>{{localize "EQRPG.Attack"}}</h3>
+      <div class="combat-row">
+        <label>{{localize "EQRPG.BAB"}}</label>
+        <span class="combat-value attack-array">
+          {{#each system.combat.attackArray as |bonus idx|}}
+            {{#if idx}}<span class="attack-sep">/</span>{{/if}}
+            <span class="attack-iter">{{#if (gte bonus 0)}}+{{/if}}{{bonus}}</span>
+          {{/each}}
+        </span>
+      </div>
+      <div class="combat-row">
+        <label>{{localize "EQRPG.Initiative"}}</label>
+        {{!-- Click to roll initiative --}}
+        <button type="button" class="combat-value roll-btn"
+                data-action="rollInitiative"
+                title="{{localize 'EQRPG.RollInitiative'}}">
+          {{#if (gte system.combat.initiative.value 0)}}+{{/if}}{{system.combat.initiative.value}}
+          <span class="roll-icon">⚄</span>
+        </button>
+      </div>
+      <div class="combat-row">
+        <label>{{localize "EQRPG.InitMisc"}}</label>
+        <input type="number" name="system.combat.initiative.misc"
+               value="{{system.combat.initiative.misc}}" {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+    </div>
+
+    {{!-- Saving Throws --}}
+    <div class="combat-block saves-block">
+      <h3>{{localize "EQRPG.SavingThrows"}}</h3>
+      <div class="saves-grid">
+
+        <div class="save-row">
+          <label>{{localize "EQRPG.Fortitude"}}</label>
+          <button type="button" class="save-total roll-btn"
+                  data-action="rollSave" data-save="fortitude"
+                  title="{{localize 'EQRPG.RollFortitude'}}">
+            {{#if (gte system.combat.saves.fortitude.value 0)}}+{{/if}}{{system.combat.saves.fortitude.value}}
+          </button>
+          <span class="save-detail">
+            {{system.combat.saves.fortitude.base}} base +
+            {{#if (gte abilities.con.mod 0)}}+{{/if}}{{abilities.con.mod}} CON +
+            <input type="number" name="system.combat.saves.fortitude.misc"
+                   value="{{system.combat.saves.fortitude.misc}}" class="save-misc"
+                   {{#unless isEditable}}disabled{{/unless}} /> misc
+          </span>
+        </div>
+
+        <div class="save-row">
+          <label>{{localize "EQRPG.Reflex"}}</label>
+          <button type="button" class="save-total roll-btn"
+                  data-action="rollSave" data-save="reflex"
+                  title="{{localize 'EQRPG.RollReflex'}}">
+            {{#if (gte system.combat.saves.reflex.value 0)}}+{{/if}}{{system.combat.saves.reflex.value}}
+          </button>
+          <span class="save-detail">
+            {{system.combat.saves.reflex.base}} base +
+            {{#if (gte abilities.dex.mod 0)}}+{{/if}}{{abilities.dex.mod}} DEX +
+            <input type="number" name="system.combat.saves.reflex.misc"
+                   value="{{system.combat.saves.reflex.misc}}" class="save-misc"
+                   {{#unless isEditable}}disabled{{/unless}} /> misc
+          </span>
+        </div>
+
+        <div class="save-row">
+          <label>{{localize "EQRPG.Will"}}</label>
+          <button type="button" class="save-total roll-btn"
+                  data-action="rollSave" data-save="will"
+                  title="{{localize 'EQRPG.RollWill'}}">
+            {{#if (gte system.combat.saves.will.value 0)}}+{{/if}}{{system.combat.saves.will.value}}
+          </button>
+          <span class="save-detail">
+            {{system.combat.saves.will.base}} base +
+            {{#if (gte abilities.wis.mod 0)}}+{{/if}}{{abilities.wis.mod}} WIS +
+            <input type="number" name="system.combat.saves.will.misc"
+                   value="{{system.combat.saves.will.misc}}" class="save-misc"
+                   {{#unless isEditable}}disabled{{/unless}} /> misc
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    {{!-- Class Features --}}
+    {{#if classFeatures}}
+    {{#if (or classFeatures.sneakAttackDice classFeatures.unarmedDamageDie classFeatures.layOnHandsPool classFeatures.rageDice classFeatures.lifetapDice)}}
+    <div class="combat-block features-block">
+      <h3>{{localize "EQRPG.ClassFeatures"}}</h3>
+
+      {{#if classFeatures.sneakAttackDice}}
+      <div class="combat-row">
+        <label>{{localize "EQRPG.SneakAttack"}}</label>
+        <span class="combat-value">{{classFeatures.sneakAttackDice}}d6</span>
+      </div>
+      {{/if}}
+
+      {{#if classFeatures.unarmedDamageDie}}
+      <div class="combat-row">
+        <label>{{localize "EQRPG.UnarmedDamage"}}</label>
+        <span class="combat-value">1d{{classFeatures.unarmedDamageDie}}</span>
+        <button type="button" class="roll-btn"
+                data-action="rollUnarmedStrike"
+                title="{{localize 'EQRPG.UnarmedStrike'}}">⚔</button>
+      </div>
+      {{/if}}
+
+      {{#if classFeatures.layOnHandsPool}}
+      <div class="combat-row">
+        <label>{{localize "EQRPG.LayOnHands"}}</label>
+        <span class="combat-value">{{classFeatures.layOnHandsPool}} HP</span>
+        <button type="button" class="roll-btn lay-on-hands-btn"
+                data-action="layOnHands"
+                title="{{localize 'EQRPG.UseLayOnHands'}}">✋</button>
+      </div>
+      {{/if}}
+
+      {{#if classFeatures.rageDice}}
+      <div class="combat-row">
+        <label>{{localize "EQRPG.Rage"}}</label>
+        <span class="combat-value">+{{classFeatures.rageDice}}d6</span>
+        <button type="button" class="roll-btn"
+                data-action="rollRageDamage"
+                title="Roll Berserker Rage Bonus Damage">⚔</button>
+      </div>
+      {{/if}}
+
+      {{#if classFeatures.lifetapDice}}
+      <div class="combat-row">
+        <label>{{localize "EQRPG.Lifetap"}}</label>
+        <span class="combat-value">{{classFeatures.lifetapDice}}d6</span>
+        <button type="button" class="roll-btn"
+                data-action="rollLifetap"
+                title="Roll Lifetap (requires targeted token)">🩸</button>
+      </div>
+      {{/if}}
+
+    </div>
+    {{/if}}
+    {{/if}}
+
+    {{!-- Race Abilities --}}
+    {{#if raceAbilities.length}}
+    <div class="combat-block race-block">
+      <h3>{{localize "EQRPG.RaceAbilities"}}</h3>
+      {{#each raceAbilities as |ab|}}
+      <div class="combat-row race-ability-row">
+        <span class="ability-tag ability-tag-{{ab.type}}">{{ab.label}}</span>
+        {{#if ab.note}}<span class="ability-note">{{ab.note}}</span>{{/if}}
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+
+  </div>
+</section>

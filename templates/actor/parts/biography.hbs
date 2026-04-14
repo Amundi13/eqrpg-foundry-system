@@ -1,0 +1,62 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="biography">
+
+  {{!-- Deity & other details --}}
+  <div class="biography-fields">
+    <div class="field-group">
+      <label>{{localize "EQRPG.Deity"}}</label>
+      <input type="text" name="system.details.deity" value="{{system.details.deity}}"
+             {{#unless isEditable}}disabled{{/unless}} />
+    </div>
+  </div>
+
+  {{!-- Faction Standing --}}
+  <div class="section-header">
+    <h3>{{localize "EQRPG.Factions"}}</h3>
+    <button type="button" data-action="createFaction" class="create-btn"
+            title="{{localize 'EQRPG.NewFaction'}}">+</button>
+  </div>
+
+  {{#if factions.length}}
+  <table class="faction-table">
+    <thead>
+      <tr>
+        <th class="faction-col-name">{{localize "EQRPG.FactionName"}}</th>
+        <th class="faction-col-standing">{{localize "EQRPG.FactionStanding"}}</th>
+        <th class="faction-col-label">{{localize "EQRPG.FactionStatus"}}</th>
+        <th class="faction-col-controls"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each factions as |faction|}}
+      <tr class="faction-row" data-item-id="{{faction.id}}">
+        <td class="faction-name">
+          <a data-action="editItem" class="faction-name-link">{{faction.name}}</a>
+        </td>
+        <td class="faction-standing-val">{{faction.standing}}</td>
+        <td>
+          <span class="faction-label {{faction.standingClass}}">{{faction.standingLabel}}</span>
+        </td>
+        <td class="faction-controls">
+          <button type="button" class="faction-adj-btn" data-action="factionStandingUp"
+                  data-delta="100" title="+100">+</button>
+          <button type="button" class="faction-adj-btn" data-action="factionStandingDown"
+                  data-delta="100" title="-100">−</button>
+          <button type="button" class="delete-btn" data-action="deleteItem"
+                  title="{{localize 'EQRPG.Delete'}}">✕</button>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{else}}
+  <p class="empty-list">{{localize "EQRPG.NoFactions"}}</p>
+  {{/if}}
+
+  {{!-- Biography text editor --}}
+  <h3>{{localize "EQRPG.Biography"}}</h3>
+  <div class="biography-editor">
+    {{formField (lookup systemFields "biography") value=system.biography enriched=enrichedBiography
+      name="system.biography" editable=isEditable}}
+  </div>
+
+</section>

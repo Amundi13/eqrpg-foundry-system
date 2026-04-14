@@ -1,0 +1,89 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="spells">
+
+  {{!-- Mana Bar + Rest Controls --}}
+  <div class="mana-bar-section">
+    <span class="mana-label">{{localize "EQRPG.Mana"}}</span>
+    <div class="mana-track">
+      <div class="mana-fill" style="width: {{#if system.resources.mana.max}}{{math (math system.resources.mana.value "/" system.resources.mana.max) "*" 100}}{{else}}0{{/if}}%"></div>
+    </div>
+    <span class="mana-value">{{system.resources.mana.value}} / {{system.resources.mana.max}}</span>
+    {{#if system.manaRegen}}
+    <span class="mana-regen" title="{{localize 'EQRPG.ManaRegenTitle'}}">+{{system.manaRegen}}/rnd</span>
+    {{/if}}
+  </div>
+  <div class="rest-controls">
+    <button type="button" data-action="recoverSpells" class="recover-btn"
+            title="{{localize 'EQRPG.RecoverSpells'}}">
+      🔮 {{localize "EQRPG.Recover"}}
+    </button>
+    <button type="button" data-action="restShort" class="rest-btn rest-short-btn"
+            title="{{localize 'EQRPG.RestShortTitle'}}">
+      🧘 {{localize "EQRPG.RestShort"}}
+    </button>
+    <button type="button" data-action="restLong" class="rest-btn rest-long-btn"
+            title="{{localize 'EQRPG.RestLongTitle'}}">
+      🌙 {{localize "EQRPG.RestLong"}}
+    </button>
+  </div>
+
+  {{!-- Memorized Spell Slots --}}
+  <h3>{{localize "EQRPG.SpellMemorization"}}</h3>
+  <div class="spell-slots-grid">
+    {{#each spellSlots as |slot|}}
+    <div class="spell-slot {{#if slot.itemId}}memorized{{else}}empty{{/if}} {{#if slot.onCooldown}}on-cooldown{{/if}}">
+      <div class="slot-header">
+        <span class="slot-number">{{math slot.index "+" 1}}</span>
+        {{#if slot.itemId}}
+        <button type="button" class="unmem-btn" data-action="unmemorizeSpell"
+                data-slot-index="{{slot.index}}" title="{{localize 'EQRPG.Unmemorize'}}">✕</button>
+        {{/if}}
+      </div>
+      {{#if slot.itemId}}
+        <span class="slot-spell-name">{{slot.spellName}}</span>
+        <span class="slot-mana-cost">{{slot.manaCost}} mp</span>
+        {{#if slot.onCooldown}}
+          <span class="slot-cooldown">⏳ {{slot.cooldownRemaining}}</span>
+        {{else}}
+          <button type="button" class="cast-btn" data-action="castSpell"
+                  data-slot-index="{{slot.index}}" title="{{localize 'EQRPG.Cast'}}">
+            ⚡ {{localize "EQRPG.Cast"}}
+          </button>
+        {{/if}}
+      {{else}}
+        <span class="slot-empty">{{localize "EQRPG.EmptySlot"}}</span>
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+
+  {{!-- Known Spells --}}
+  <div class="known-spells-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.KnownSpells"}}</h3>
+      <button type="button" data-action="createItem" data-type="spell" class="create-btn"
+              title="{{localize 'EQRPG.AddSpell'}}">+</button>
+    </div>
+    {{#if spells.length}}
+    <ol class="item-list spell-list">
+      {{#each spells as |spell|}}
+      <li class="item" data-item-id="{{spell.id}}">
+        <img src="{{spell.img}}" class="item-img" width="24" height="24" data-action="editItem" />
+        <span class="item-name" data-action="editItem">{{spell.name}}</span>
+        <span class="item-detail">Lvl {{spell.system.spellLevel}}</span>
+        <span class="item-detail">{{spell.system.manaCost}} mana</span>
+        {{#if spell.system.recastTime}}
+        <span class="item-detail spell-recast">{{spell.system.recastTime}}rnd</span>
+        {{/if}}
+        <button type="button" class="mem-btn" data-action="memorizeSpell"
+                data-item-id="{{spell.id}}" title="{{localize 'EQRPG.Memorize'}}">+M</button>
+        <button type="button" data-action="deleteItem" class="delete-btn"
+                title="{{localize 'EQRPG.Delete'}}">✕</button>
+      </li>
+      {{/each}}
+    </ol>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoSpells"}}</p>
+    {{/if}}
+  </div>
+
+</section>

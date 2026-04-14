@@ -1,0 +1,123 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="stats" id="{{partId}}">
+  <div class="npc-stats-layout">
+
+    {{!-- Ability Scores --}}
+    <div class="npc-abilities-grid">
+      {{#each abilities as |ab key|}}
+      <div class="npc-ability-box">
+        <div class="ability-abbr">{{ab.abbr}}</div>
+        <input type="number" name="system.abilities.{{key}}.value" value="{{ab.value}}"
+               {{#unless @root.isEditable}}disabled{{/unless}} />
+        <button type="button" data-action="rollAbility" data-ability="{{key}}"
+                class="ability-mod-btn roll-btn"
+                title="{{localize 'EQRPG.RollAbility'}} {{ab.label}}">
+          {{#if (gte ab.mod 0)}}+{{/if}}{{ab.mod}}
+        </button>
+      </div>
+      {{/each}}
+    </div>
+
+    {{!-- Identity Details: CR · Type · Alignment · Faction --}}
+    <div class="npc-details-row">
+      <div class="npc-detail-pill">
+        <span class="npc-detail-label">{{localize "EQRPG.CR"}}</span>
+        <input type="number" name="system.details.cr" value="{{system.details.cr}}"
+               min="0" {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+      <div class="npc-detail-pill wide">
+        <span class="npc-detail-label">{{localize "EQRPG.Type"}}</span>
+        <input type="text" name="system.details.type" value="{{system.details.type}}"
+               placeholder="undead…" {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+      <div class="npc-detail-pill wide">
+        <span class="npc-detail-label">{{localize "EQRPG.Alignment"}}</span>
+        <input type="text" name="system.details.alignment" value="{{system.details.alignment}}"
+               placeholder="neutral evil…" {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+      <div class="npc-detail-pill wide">
+        <span class="npc-detail-label">{{localize "EQRPG.Faction"}}</span>
+        <input type="text" name="system.details.faction" value="{{system.details.faction}}"
+               placeholder="Dark Paw…" {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+    </div>
+
+    {{!-- Combat Statistics --}}
+    <div class="npc-combat-block">
+
+      <div class="npc-stat-row">
+        <label>{{localize "EQRPG.ArmorClass"}}</label>
+        <input type="number" name="system.combat.ac.value" value="{{system.combat.ac.value}}"
+               {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+
+      <div class="npc-stat-row">
+        <label>{{localize "EQRPG.BAB"}}</label>
+        <div class="stat-roll-pair">
+          <input type="number" name="system.combat.bab" value="{{system.combat.bab}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+          {{#if attackArray.length}}
+          <span class="npc-attack-array" title="{{localize 'EQRPG.AttackArray'}}">
+            {{#each attackArray as |bonus idx|}}{{#if idx}}/{{/if}}{{#if (gte bonus 0)}}+{{/if}}{{bonus}}{{/each}}
+          </span>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="npc-stat-row">
+        <label>{{localize "EQRPG.Initiative"}}</label>
+        <div class="stat-roll-pair">
+          <input type="number" name="system.combat.initiative.value"
+                 value="{{system.combat.initiative.value}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <button type="button" data-action="rollInitiative" class="roll-btn"
+                  title="{{localize 'EQRPG.RollInitiative'}}">🎲</button>
+        </div>
+      </div>
+
+      <div class="npc-stat-row">
+        <label>{{localize "EQRPG.Speed"}}</label>
+        <div class="stat-roll-pair">
+          <input type="number" name="system.details.speed" value="{{system.details.speed}}"
+                 min="0" {{#unless isEditable}}disabled{{/unless}} />
+          <span class="npc-unit-label">ft</span>
+        </div>
+      </div>
+
+      <div class="npc-saves-header">{{localize "EQRPG.SavingThrows"}}</div>
+
+      <div class="npc-stat-row">
+        <label>{{localize "EQRPG.Fort"}}</label>
+        <div class="stat-roll-pair">
+          <input type="number" name="system.combat.saves.fortitude.value"
+                 value="{{system.combat.saves.fortitude.value}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <button type="button" data-action="rollSave" data-save="fortitude"
+                  class="roll-btn" title="{{localize 'EQRPG.RollFortitude'}}">🎲</button>
+        </div>
+      </div>
+
+      <div class="npc-stat-row">
+        <label>{{localize "EQRPG.Ref"}}</label>
+        <div class="stat-roll-pair">
+          <input type="number" name="system.combat.saves.reflex.value"
+                 value="{{system.combat.saves.reflex.value}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <button type="button" data-action="rollSave" data-save="reflex"
+                  class="roll-btn" title="{{localize 'EQRPG.RollReflex'}}">🎲</button>
+        </div>
+      </div>
+
+      <div class="npc-stat-row">
+        <label>{{localize "EQRPG.Will"}}</label>
+        <div class="stat-roll-pair">
+          <input type="number" name="system.combat.saves.will.value"
+                 value="{{system.combat.saves.will.value}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <button type="button" data-action="rollSave" data-save="will"
+                  class="roll-btn" title="{{localize 'EQRPG.RollWill'}}">🎲</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

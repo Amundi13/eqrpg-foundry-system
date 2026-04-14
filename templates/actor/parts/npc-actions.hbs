@@ -1,0 +1,111 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="actions" id="{{partId}}">
+
+  {{!-- Weapons --}}
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Weapons"}}</h3>
+      {{#if isEditable}}
+      <button type="button" data-action="createItem" data-type="weapon" class="create-btn"
+              title="{{localize 'EQRPG.AddWeapon'}}">+</button>
+      {{/if}}
+    </div>
+    {{#if weapons.length}}
+    <ul class="item-list">
+      {{#each weapons as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="item-detail">{{item.system.damage}} {{item.system.damageType}}</span>
+        <span class="item-detail dim" title="{{localize 'EQRPG.WeaponDelay'}}">DLY {{item.system.delay}}</span>
+        <span class="item-detail dim" title="{{localize 'EQRPG.CritRange'}} / {{localize 'EQRPG.CritMult'}}">
+          {{#if (lt item.system.critRange 20)}}{{item.system.critRange}}–20{{else}}20{{/if}}×{{item.system.critMult}}
+        </span>
+        <div class="item-controls">
+          <button type="button" data-action="rollAttack" class="roll-btn atk-btn"
+                  title="{{localize 'EQRPG.RollAttack'}}">ATK</button>
+          <button type="button" data-action="rollDamage" class="roll-btn dmg-btn"
+                  title="{{localize 'EQRPG.RollDamage'}}">DMG</button>
+          {{#if @root.isEditable}}
+          <button type="button" data-action="deleteItem" class="delete-btn">✕</button>
+          {{/if}}
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoWeapons"}}</p>
+    {{/if}}
+  </div>
+
+  {{!-- Spells --}}
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Spells"}}</h3>
+      {{#if isEditable}}
+      <button type="button" data-action="createItem" data-type="spell" class="create-btn"
+              title="{{localize 'EQRPG.AddSpell'}}">+</button>
+      {{/if}}
+    </div>
+    {{#if spells.length}}
+    <ul class="item-list">
+      {{#each spells as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="item-detail">Lvl {{item.system.spellLevel}}</span>
+        {{#if item.system.manaCost}}
+        <span class="item-detail dim">{{item.system.manaCost}} MP</span>
+        {{/if}}
+        {{#if item.system.range}}
+        <span class="item-detail dim">{{item.system.range}}</span>
+        {{/if}}
+        <div class="item-controls">
+          <button type="button" data-action="castSpell" class="roll-btn cast-btn"
+                  title="{{localize 'EQRPG.Cast'}}">✦ {{localize "EQRPG.Cast"}}</button>
+          {{#if @root.isEditable}}
+          <button type="button" data-action="deleteItem" class="delete-btn">✕</button>
+          {{/if}}
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p class="empty-list">—</p>
+    {{/if}}
+  </div>
+
+  {{!-- Special Abilities / Skills --}}
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Skills"}}</h3>
+      {{#if isEditable}}
+      <button type="button" data-action="createItem" data-type="skill" class="create-btn"
+              title="{{localize 'EQRPG.AddSkill'}}">+</button>
+      {{/if}}
+    </div>
+    {{#if skills.length}}
+    <ul class="item-list">
+      {{#each skills as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="item-detail">{{item.system.ranks}} ranks</span>
+        {{#if item.system.ability}}
+        <span class="item-detail dim">{{item.system.ability}}</span>
+        {{/if}}
+        <div class="item-controls">
+          <button type="button" data-action="rollSkill" class="roll-btn skill-roll-btn"
+                  title="{{localize 'EQRPG.RollSkill'}}">ROLL</button>
+          {{#if @root.isEditable}}
+          <button type="button" data-action="deleteItem" class="delete-btn">✕</button>
+          {{/if}}
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoSkills"}}</p>
+    {{/if}}
+  </div>
+
+</section>

@@ -1,0 +1,47 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="notes" id="{{partId}}">
+
+  {{!-- Biography / GM Notes --}}
+  <div class="biography-editor">
+    {{formField (lookup systemFields "biography") value=system.biography
+      name="system.biography" editable=isEditable}}
+  </div>
+
+  {{!-- Loot --}}
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.Loot"}}</h3>
+      {{#if isEditable}}
+      <button type="button" data-action="createItem" data-type="equipment" class="create-btn"
+              title="{{localize 'EQRPG.AddEquipment'}}">+</button>
+      {{/if}}
+    </div>
+    {{#if loot.length}}
+    <ul class="item-list">
+      {{#each loot as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
+        <span class="item-name" data-action="editItem">{{item.name}}</span>
+        <span class="item-detail item-type-badge">{{item.type}}</span>
+        {{#if item.system.quantity}}
+        <span class="item-detail">×{{item.system.quantity}}</span>
+        {{/if}}
+        {{#if item.system.price}}
+        <span class="item-detail dim">{{item.system.price}} pp</span>
+        {{/if}}
+        {{#if item.system.acBonus}}
+        <span class="item-detail dim">AC +{{item.system.acBonus}}</span>
+        {{/if}}
+        {{#if @root.isEditable}}
+        <div class="item-controls">
+          <button type="button" data-action="deleteItem" class="delete-btn">✕</button>
+        </div>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoLoot"}}</p>
+    {{/if}}
+  </div>
+
+</section>

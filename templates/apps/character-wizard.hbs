@@ -1,0 +1,249 @@
+{{!-- =========================================================== --}}
+{{!--  Character Creation Wizard                                  --}}
+{{!--  Steps: Race → Class → Abilities → Details                 --}}
+{{!-- =========================================================== --}}
+
+<div class="wizard-shell">
+
+  {{!-- ── Step indicator ──────────────────────────────────────────── --}}
+  <div class="wizard-steps-nav">
+    {{#each steps as |stepName|}}
+    <div class="wsn-pill
+         {{#if (eq @index @root.step)}}wsn-active{{/if}}
+         {{#if (lt @index @root.step)}}wsn-done{{/if}}">
+      <span class="wsn-num">
+        {{#if (lt @index @root.step)}}✓{{else}}{{math @index "+" 1}}{{/if}}
+      </span>
+      <span class="wsn-label">{{stepName}}</span>
+    </div>
+    {{#unless @last}}<div class="wsn-connector {{#if (lt @index @root.step)}}wsn-done{{/if}}"></div>{{/unless}}
+    {{/each}}
+  </div>
+
+  {{!-- ── Step body ────────────────────────────────────────────────── --}}
+  <div class="wizard-body">
+
+    {{!-- ═══════════════════════════════════════════════════════════ --}}
+    {{!--  STEP 0: Race                                              --}}
+    {{!-- ═══════════════════════════════════════════════════════════ --}}
+    {{#if (eq step 0)}}
+    <div class="wizard-step-race">
+      <p class="wizard-hint">
+        Choose your race. Each race carries unique ability adjustments
+        and special abilities that shape your life in Norrath.
+      </p>
+      <div class="wiz-card-grid">
+        {{#each raceCards as |r|}}
+        <div class="wiz-card {{#if r.selected}}wiz-card-selected{{/if}}"
+             data-action="selectRace" data-race="{{r.key}}">
+          <div class="wiz-card-name">{{r.name}}</div>
+          <div class="wiz-card-meta">
+            <span class="wiz-meta-badge">{{r.size}}</span>
+            <span class="wiz-meta-badge">{{r.speed}} ft</span>
+          </div>
+          {{#if r.adjRow}}
+          <div class="wiz-card-adj">{{r.adjRow}}</div>
+          {{else}}
+          <div class="wiz-card-adj wiz-adj-none">No adjustments</div>
+          {{/if}}
+          {{#if r.abilities}}
+          <div class="wiz-card-abilities">{{r.abilities}}</div>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    {{!-- ═══════════════════════════════════════════════════════════ --}}
+    {{!--  STEP 1: Class                                             --}}
+    {{!-- ═══════════════════════════════════════════════════════════ --}}
+    {{else if (eq step 1)}}
+    <div class="wizard-step-class">
+      <p class="wizard-hint">
+        Choose your class. The list below shows only classes available to
+        <strong>{{raceName}}</strong>.
+      </p>
+      <div class="wiz-card-grid wiz-card-grid-class">
+        {{#each classCards as |c|}}
+        <div class="wiz-card wiz-class-card {{#if c.selected}}wiz-card-selected{{/if}}"
+             data-action="selectClass" data-class="{{c.key}}">
+          <div class="wiz-card-name">{{c.name}}</div>
+          <div class="wiz-class-stats">
+            <span class="wiz-cs-item"><em>Hit Die</em> d{{c.hitDie}}</span>
+            <span class="wiz-cs-item"><em>BAB</em> {{c.bab}}</span>
+            {{#if c.caster}}
+            <span class="wiz-cs-item wiz-cs-caster"><em>Casts via</em> {{c.castStat}}</span>
+            {{/if}}
+          </div>
+          <div class="wiz-class-saves">Good saves: {{c.goodSaves}}</div>
+          <div class="wiz-class-armor">Armor: {{c.armor}}</div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    {{!-- ═══════════════════════════════════════════════════════════ --}}
+    {{!--  STEP 2: Ability Scores                                    --}}
+    {{!-- ═══════════════════════════════════════════════════════════ --}}
+    {{else if (eq step 2)}}
+    <div class="wizard-step-abilities">
+
+      {{!-- Pool header --}}
+      <div class="wiz-ab-header">
+        <div class="wiz-ab-pool
+             {{#if (eq remaining 0)}}wiz-pool-spent{{/if}}
+             {{#if (lt remaining 0)}}wiz-pool-over{{/if}}">
+          <span class="wiz-pool-val">{{remaining}}</span>
+          <span class="wiz-pool-label">points left</span>
+        </div>
+        <div class="wiz-ab-pool-info">
+          <div class="wiz-ab-pool-title">27-Point Buy</div>
+          <div class="wiz-ab-pool-sub">
+            Scores 8–18 · Cost increases above 13 · Racial bonuses applied to Final
+          </div>
+          <div class="wiz-ab-cost-legend">
+            8=0 · 9=1 · 10=2 · 11=3 · 12=4 · 13=5 · 14=6 · 15=7 · 16=8 · 17=10 · 18=12
+          </div>
+        </div>
+      </div>
+
+      {{!-- Ability table --}}
+      <div class="wiz-ability-table">
+        <div class="wiz-ab-thead">
+          <span>Ability</span>
+          <span>Base Score</span>
+          <span>Racial</span>
+          <span>Final</span>
+          <span>Mod</span>
+        </div>
+        {{#each abilities as |ab|}}
+        <div class="wiz-ab-row">
+          <span class="wiz-ab-name">{{ab.label}}</span>
+          <span class="wiz-ab-base">
+            <button type="button" class="wiz-ab-btn wiz-ab-dec"
+                    data-action="decrementAbility" data-ability="{{ab.key}}"
+                    {{#unless ab.canDec}}disabled{{/unless}}>−</button>
+            <span class="wiz-ab-val">{{ab.base}}</span>
+            <button type="button" class="wiz-ab-btn wiz-ab-inc"
+                    data-action="incrementAbility" data-ability="{{ab.key}}"
+                    {{#unless ab.canInc}}disabled{{/unless}}>+</button>
+            <span class="wiz-ab-cost">{{ab.cost}}pt</span>
+          </span>
+          <span class="wiz-ab-racial
+               {{#if (gt ab.racial 0)}}wiz-racial-pos{{/if}}
+               {{#if (lt ab.racial 0)}}wiz-racial-neg{{/if}}">
+            {{#if (gt ab.racial 0)}}+{{/if}}{{ab.racial}}
+          </span>
+          <span class="wiz-ab-final">{{ab.final}}</span>
+          <span class="wiz-ab-mod">{{#if (gte ab.mod 0)}}+{{/if}}{{ab.mod}}</span>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    {{!-- ═══════════════════════════════════════════════════════════ --}}
+    {{!--  STEP 3: Details & Review                                  --}}
+    {{!-- ═══════════════════════════════════════════════════════════ --}}
+    {{else if (eq step 3)}}
+    <div class="wizard-step-details">
+      <div class="wiz-details-cols">
+
+        {{!-- Left: input fields --}}
+        <div class="wiz-details-left">
+          <div class="wiz-field">
+            <label>Character Name</label>
+            <input type="text" name="wizard-name"
+                   value="{{choices.name}}"
+                   placeholder="Enter a name…"
+                   autocomplete="off" />
+          </div>
+          <div class="wiz-field">
+            <label>Alignment</label>
+            <select name="wizard-alignment">
+              {{#each alignments as |al|}}
+              <option value="{{al.key}}" {{#if al.selected}}selected{{/if}}>{{al.label}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="wiz-field">
+            <label>Deity <span class="wiz-optional">(optional)</span></label>
+            <input type="text" name="wizard-deity"
+                   value="{{choices.deity}}"
+                   placeholder="Tunare, Cazic-Thule…"
+                   autocomplete="off" />
+          </div>
+        </div>
+
+        {{!-- Right: character summary --}}
+        <div class="wiz-details-right">
+          <div class="wiz-summary">
+            <div class="wiz-sum-hero">
+              <span class="wiz-sum-race">{{raceName}}</span>
+              <span class="wiz-sum-sep">·</span>
+              <span class="wiz-sum-class">{{className}}</span>
+              <span class="wiz-sum-level">Level 1</span>
+            </div>
+
+            <div class="wiz-sum-stat">
+              <span class="wiz-sum-label">Starting HP</span>
+              <span class="wiz-sum-val">{{startHP}}</span>
+              <span class="wiz-sum-note">
+                d{{hitDie}} {{#if (gte conMod 0)}}+{{/if}}{{conMod}} CON
+              </span>
+            </div>
+
+            <div class="wiz-sum-stat">
+              <span class="wiz-sum-label">Good Saves</span>
+              <span class="wiz-sum-val">
+                {{#if goodSaveNames.length}}
+                  {{#each goodSaveNames as |s|}}{{#if @index}}, {{/if}}{{s}}{{/each}}
+                {{else}}—{{/if}}
+              </span>
+            </div>
+
+            <div class="wiz-sum-divider"></div>
+
+            <div class="wiz-sum-scores">
+              {{#each abilities as |ab|}}
+              <div class="wiz-ss-pill">
+                <span class="wiz-ss-abbr">{{ab.abbr}}</span>
+                <span class="wiz-ss-val">{{ab.final}}</span>
+                <span class="wiz-ss-mod">{{#if (gte ab.mod 0)}}+{{/if}}{{ab.mod}}</span>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {{/if}}
+
+  </div>{{!-- /wizard-body --}}
+
+  {{!-- ── Footer ───────────────────────────────────────────────────── --}}
+  <div class="wizard-footer">
+    <button type="button" class="wiz-btn wiz-btn-back"
+            data-action="wizardPrev"
+            {{#if isFirstStep}}disabled{{/if}}>← Back</button>
+
+    <span class="wizard-footer-label">
+      Step {{math step "+" 1}} of {{math stepMax "+" 1}}
+    </span>
+
+    {{#if isLastStep}}
+    <button type="button" class="wiz-btn wiz-btn-finish"
+            data-action="wizardFinish"
+            {{#unless canNext}}disabled{{/unless}}>
+      ✓ Create Character
+    </button>
+    {{else}}
+    <button type="button" class="wiz-btn wiz-btn-next"
+            data-action="wizardNext"
+            {{#unless canNext}}disabled{{/unless}}>
+      Next →
+    </button>
+    {{/if}}
+  </div>
+
+</div>{{!-- /wizard-shell --}}

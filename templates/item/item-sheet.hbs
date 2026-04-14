@@ -1,0 +1,482 @@
+<section class="eqrpg item-sheet {{itemType}}">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{document.img}}" data-edit="img"
+         title="{{document.name}}" width="48" height="48" />
+    <h1>
+      <input name="name" type="text" value="{{document.name}}"
+             placeholder="Item Name" {{#unless isEditable}}disabled{{/unless}} />
+    </h1>
+    <span class="item-type-label">{{itemType}}</span>
+  </header>
+
+  <div class="sheet-body">
+    {{!-- Weapon Fields --}}
+    {{#if isWeapon}}
+    <div class="item-layout">
+      <div class="item-stat-bar">
+        <div class="item-stat-pill editable wide">
+          <span class="isp-label">{{localize "EQRPG.Damage"}}</span>
+          <input type="text" name="system.damage" value="{{system.damage}}"
+                 placeholder="2d6" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.AttackBonus"}}</span>
+          <input type="number" name="system.attackBonus" value="{{system.attackBonus}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.WeaponDelay"}}</span>
+          <input type="number" name="system.delay" value="{{system.delay}}" min="1"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.Crit"}}</span>
+          <span class="isp-crit-row">
+            <input type="number" name="system.critRange" value="{{system.critRange}}"
+                   min="1" max="20" class="isp-narrow" {{#unless isEditable}}disabled{{/unless}} />
+            <span class="isp-sep">–20 ×</span>
+            <input type="number" name="system.critMult" value="{{system.critMult}}"
+                   min="1" class="isp-narrow" {{#unless isEditable}}disabled{{/unless}} />
+          </span>
+        </div>
+      </div>
+      <div class="item-prop-grid">
+        <div class="item-prop-section">
+          <div class="item-prop-title">{{localize "EQRPG.Combat"}}</div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.DamageType"}}</label>
+            <select name="system.damageType" {{#unless isEditable}}disabled{{/unless}}>
+              {{#each config.damageTypes as |label key|}}
+              <option value="{{key}}" {{#if (eq key @root.system.damageType)}}selected{{/if}}>
+                {{localize label}}
+              </option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Range"}}</label>
+            <input type="number" name="system.range" value="{{system.range}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+        </div>
+        <div class="item-prop-section">
+          <div class="item-prop-title">{{localize "EQRPG.Properties"}}</div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Weight"}}</label>
+            <input type="number" name="system.weight" value="{{system.weight}}" step="0.1"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Price"}}</label>
+            <input type="number" name="system.price" value="{{system.price}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group checkbox">
+            <label>{{localize "EQRPG.Equipped"}}</label>
+            <input type="checkbox" name="system.equipped" {{#if system.equipped}}checked{{/if}}
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Armor Fields --}}
+    {{#if isArmor}}
+    <div class="item-layout">
+      <div class="item-stat-bar">
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.ACBonus"}}</span>
+          <input type="number" name="system.acBonus" value="{{system.acBonus}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.MaxDexBonus"}}</span>
+          <input type="number" name="system.maxDexBonus" value="{{system.maxDexBonus}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill editable wide">
+          <span class="isp-label">{{localize "EQRPG.ArmorType"}}</span>
+          <select name="system.type" {{#unless isEditable}}disabled{{/unless}}>
+            {{#each config.armorTypes as |label key|}}
+            <option value="{{key}}" {{#if (eq key @root.system.type)}}selected{{/if}}>
+              {{localize label}}
+            </option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="item-prop-grid single">
+        <div class="item-prop-section">
+          <div class="item-prop-title">{{localize "EQRPG.Properties"}}</div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Weight"}}</label>
+            <input type="number" name="system.weight" value="{{system.weight}}" step="0.1"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Price"}}</label>
+            <input type="number" name="system.price" value="{{system.price}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group checkbox">
+            <label>{{localize "EQRPG.Equipped"}}</label>
+            <input type="checkbox" name="system.equipped" {{#if system.equipped}}checked{{/if}}
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Spell Fields --}}
+    {{#if isSpell}}
+    <div class="spell-layout">
+
+      {{!-- Stat bar: Level · Mana · School · Recast --}}
+      <div class="spell-stat-bar">
+        <div class="spell-stat-pill editable">
+          <span class="spell-stat-label">{{localize "EQRPG.SpellLevel"}}</span>
+          <input type="number" name="system.spellLevel" value="{{system.spellLevel}}"
+                 min="1" max="15" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="spell-stat-pill editable">
+          <span class="spell-stat-label">{{localize "EQRPG.ManaCost"}}</span>
+          <input type="number" name="system.manaCost" value="{{system.manaCost}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="spell-stat-pill editable wide">
+          <span class="spell-stat-label">{{localize "EQRPG.School"}}</span>
+          <input type="text" name="system.school" value="{{system.school}}"
+                 placeholder="evocation…"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="spell-stat-pill editable">
+          <span class="spell-stat-label">{{localize "EQRPG.RecastTime"}}</span>
+          <input type="number" name="system.recastTime" value="{{system.recastTime}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
+
+      {{!-- Two-column body: Delivery | Effects --}}
+      <div class="spell-body">
+
+        <div class="spell-section">
+          <div class="spell-section-title">{{localize "EQRPG.SpellDelivery"}}</div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.CastingTime"}}</label>
+            <input type="text" name="system.castingTime" value="{{system.castingTime}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SpellRange"}}</label>
+            <input type="text" name="system.range" value="{{system.range}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Duration"}}</label>
+            <input type="text" name="system.duration" value="{{system.duration}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SpellLine"}}</label>
+            <input type="text" name="system.spellLine" value="{{system.spellLine}}"
+                   placeholder="e.g. Fireball"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+        </div>
+
+        <div class="spell-section">
+          <div class="spell-section-title">{{localize "EQRPG.SpellEffects"}}</div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.DamageFormula"}}</label>
+            <input type="text" name="system.damageFormula" value="{{system.damageFormula}}"
+                   placeholder="e.g. 4d6"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.HealFormula"}}</label>
+            <input type="text" name="system.healFormula" value="{{system.healFormula}}"
+                   placeholder="e.g. 3d8+5"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SavingThrow"}}</label>
+            <select name="system.savingThrow" {{#unless isEditable}}disabled{{/unless}}>
+              {{#each saveOptions}}
+              <option value="{{this.value}}"
+                {{#if (eq this.value @root.system.savingThrow)}}selected{{/if}}>
+                {{this.label}}
+              </option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SaveDC"}}</label>
+            <input type="text" name="system.saveDC" value="{{system.saveDC}}"
+                   placeholder="auto or 10+lvl…"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SpellEffect"}}</label>
+            <input type="text" name="system.effect" value="{{system.effect}}"
+                   placeholder="brief effect…"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+        </div>
+
+      </div>{{!-- .spell-body --}}
+
+      {{!-- Cast button (only when owned by an actor) --}}
+      {{#if document.parent}}
+      <div class="spell-cast-row">
+        <button type="button" data-action="castSpell" class="spell-cast-btn">
+          ✦ {{localize "EQRPG.Cast"}} — {{system.manaCost}} MP
+        </button>
+      </div>
+      {{/if}}
+
+    </div>{{!-- .spell-layout --}}
+    {{/if}}
+
+    {{!-- Skill Fields --}}
+    {{#if isSkill}}
+    <div class="item-layout">
+      <div class="item-stat-bar">
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.Ranks"}}</span>
+          <input type="number" name="system.ranks" value="{{system.ranks}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill editable wide">
+          <span class="isp-label">{{localize "EQRPG.KeyAbility"}}</span>
+          <select name="system.ability" {{#unless isEditable}}disabled{{/unless}}>
+            {{#each config.abilities as |label key|}}
+            <option value="{{key}}" {{#if (eq key @root.system.ability)}}selected{{/if}}>
+              {{localize label}}
+            </option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="item-flags-row">
+        <label class="item-flag">
+          <input type="checkbox" name="system.classSkill" {{#if system.classSkill}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <span class="flag-cs">{{localize "EQRPG.ClassSkill"}}</span>
+        </label>
+        <label class="item-flag">
+          <input type="checkbox" name="system.isTradeskill" {{#if system.isTradeskill}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <span class="flag-ts">{{localize "EQRPG.Tradeskill"}}</span>
+        </label>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Consumable Fields --}}
+    {{#if isConsumable}}
+    <div class="item-layout">
+      <div class="item-stat-bar">
+        <div class="item-stat-pill editable wide">
+          <span class="isp-label">{{localize "EQRPG.ConsumableType"}}</span>
+          <select name="system.consumableType" {{#unless isEditable}}disabled{{/unless}}>
+            {{#each config.consumableTypes as |label key|}}
+            <option value="{{key}}" {{#if (eq key @root.system.consumableType)}}selected{{/if}}>
+              {{localize label}}
+            </option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.Quantity"}}</span>
+          <input type="number" name="system.quantity" value="{{system.quantity}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.HealFormula"}}</span>
+          <input type="text" name="system.healFormula" value="{{system.healFormula}}"
+                 placeholder="2d8+5" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.ManaRestore"}}</span>
+          <input type="number" name="system.manaRestore" value="{{system.manaRestore}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
+      <div class="item-prop-grid single">
+        <div class="item-prop-section">
+          <div class="item-prop-title">{{localize "EQRPG.Properties"}}</div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Effect"}}</label>
+            <input type="text" name="system.effect" value="{{system.effect}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Weight"}}</label>
+            <input type="number" name="system.weight" value="{{system.weight}}" step="0.1"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Price"}}</label>
+            <input type="number" name="system.price" value="{{system.price}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Equipment Fields --}}
+    {{#if isEquipment}}
+    <div class="item-layout">
+      <div class="item-stat-bar">
+        <div class="item-stat-pill editable">
+          <span class="isp-label">{{localize "EQRPG.Quantity"}}</span>
+          <input type="number" name="system.quantity" value="{{system.quantity}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill editable wide">
+          <span class="isp-label">{{localize "EQRPG.Slot"}}</span>
+          <input type="text" name="system.slot" value="{{system.slot}}"
+                 placeholder="neck, hands…" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
+      <div class="item-prop-grid single">
+        <div class="item-prop-section">
+          <div class="item-prop-title">{{localize "EQRPG.Properties"}}</div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Weight"}}</label>
+            <input type="number" name="system.weight" value="{{system.weight}}" step="0.1"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.Price"}}</label>
+            <input type="number" name="system.price" value="{{system.price}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group checkbox">
+            <label>{{localize "EQRPG.Equipped"}}</label>
+            <input type="checkbox" name="system.equipped" {{#if system.equipped}}checked{{/if}}
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Faction Fields --}}
+    {{#if isFaction}}
+    <div class="item-layout">
+      <div class="item-stat-bar">
+        <div class="item-stat-pill editable wide">
+          <span class="isp-label">{{localize "EQRPG.FactionStanding"}}</span>
+          <input type="number" name="system.standing" value="{{system.standing}}"
+                 min="-1500" max="1500" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="item-stat-pill faction-tier-pill">
+          <span class="isp-label">{{localize "EQRPG.FactionStatus"}}</span>
+          <span class="faction-label {{factionClass system.standing}}">{{factionLabel system.standing}}</span>
+        </div>
+      </div>
+      <div class="item-prop-grid single">
+        <div class="item-prop-section">
+          <div class="item-prop-title">{{localize "EQRPG.FactionNotes"}}</div>
+          <textarea class="faction-notes" name="system.notes"
+                    {{#unless isEditable}}disabled{{/unless}}>{{system.notes}}</textarea>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Feat Fields --}}
+    {{#if isFeat}}
+    <div class="item-layout feat-layout">
+      <div class="item-stat-bar">
+        <div class="item-stat-pill editable wide">
+          <span class="isp-label">{{localize "EQRPG.FeatCategory"}}</span>
+          <select name="system.category" {{#unless isEditable}}disabled{{/unless}}>
+            {{#each config.featCategories as |label key|}}
+            <option value="{{key}}" {{#if (eq key @root.system.category)}}selected{{/if}}>
+              {{localize label}}
+            </option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="feat-bonuses-row">
+        <span class="feat-bonuses-label">{{localize "EQRPG.FeatBonuses"}}</span>
+        <div class="feat-bonus-pills">
+          <div class="feat-bonus-pill">
+            <span class="fbp-label">{{localize "EQRPG.BonusFort"}}</span>
+            <input type="number" name="system.bonuses.fort" value="{{system.bonuses.fort}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="feat-bonus-pill">
+            <span class="fbp-label">{{localize "EQRPG.BonusRef"}}</span>
+            <input type="number" name="system.bonuses.reflex" value="{{system.bonuses.reflex}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="feat-bonus-pill">
+            <span class="fbp-label">{{localize "EQRPG.BonusWill"}}</span>
+            <input type="number" name="system.bonuses.will" value="{{system.bonuses.will}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="feat-bonus-pill">
+            <span class="fbp-label">{{localize "EQRPG.BonusInit"}}</span>
+            <input type="number" name="system.bonuses.init" value="{{system.bonuses.init}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="feat-bonus-pill">
+            <span class="fbp-label">{{localize "EQRPG.BonusAC"}}</span>
+            <input type="number" name="system.bonuses.ac" value="{{system.bonuses.ac}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="feat-bonus-pill">
+            <span class="fbp-label">{{localize "EQRPG.BonusHP"}}</span>
+            <input type="number" name="system.bonuses.hp" value="{{system.bonuses.hp}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+        </div>
+      </div>
+      <div class="feat-fields">
+        <div class="field-group feat-prereqs">
+          <label>{{localize "EQRPG.FeatPrerequisites"}}</label>
+          <input type="text" name="system.prerequisites"
+                 value="{{system.prerequisites}}"
+                 placeholder="{{localize 'EQRPG.FeatPrerequisitesPlaceholder'}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="field-group feat-benefit">
+          <label>{{localize "EQRPG.FeatBenefit"}}</label>
+          <textarea name="system.benefit" rows="3"
+                    {{#unless isEditable}}disabled{{/unless}}>{{system.benefit}}</textarea>
+        </div>
+        {{#if system.special}}
+        <div class="field-group feat-special">
+          <label>{{localize "EQRPG.FeatSpecial"}}</label>
+          <textarea name="system.special" rows="2"
+                    {{#unless isEditable}}disabled{{/unless}}>{{system.special}}</textarea>
+        </div>
+        {{else}}
+        <div class="field-group feat-special">
+          <label>{{localize "EQRPG.FeatSpecial"}}</label>
+          <textarea name="system.special" rows="2"
+                    placeholder="{{localize 'EQRPG.FeatSpecialPlaceholder'}}"
+                    {{#unless isEditable}}disabled{{/unless}}></textarea>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Description (all item types except faction) --}}
+    {{#unless isFaction}}
+    <div class="item-description">
+      <h3>{{localize "EQRPG.Description"}}</h3>
+      {{formField (lookup systemFields "description") value=system.description
+        name="system.description" editable=isEditable}}
+    </div>
+    {{/unless}}
+  </div>
+</section>
