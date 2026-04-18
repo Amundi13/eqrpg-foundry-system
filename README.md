@@ -36,6 +36,11 @@ After making changes, reload Foundry and use the browser console for runtime deb
 - Minimum Foundry version: `13`
 - Verified Foundry version: `13`
 
+## Install
+
+- Manifest URL: `https://raw.githubusercontent.com/Amundi13/eqrpg-foundry-system/main/system.json`
+- Release download: `https://github.com/Amundi13/eqrpg-foundry-system/releases/download/v0.1.1/eqrpg-foundry-system-v0.1.1.zip`
+
 ## License
 
 Add your preferred license here before publishing publicly.

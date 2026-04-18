@@ -7,7 +7,10 @@
       "name": "erikw"
     }
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "url": "https://github.com/Amundi13/eqrpg-foundry-system",
+  "manifest": "https://raw.githubusercontent.com/Amundi13/eqrpg-foundry-system/main/system.json",
+  "download": "https://github.com/Amundi13/eqrpg-foundry-system/releases/download/v0.1.1/eqrpg-foundry-system-v0.1.1.zip",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
