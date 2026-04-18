@@ -665,77 +665,123 @@
   }
 
   .eqrpg .frontsheet-ability-card {
-    padding: 8px;
+    padding: 7px 8px 8px;
   }
 
   .eqrpg .frontsheet-ability-head {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 6px;
+    gap: 8px;
+    margin-bottom: 7px;
   }
 
   .eqrpg .frontsheet-ability-labels {
     display: flex;
     flex-direction: column;
     min-width: 0;
+    gap: 1px;
   }
 
   .eqrpg .frontsheet-ability-abbr {
     color: var(--eq-gold);
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: bold;
-    letter-spacing: 1.1px;
+    letter-spacing: 0.9px;
     text-transform: uppercase;
   }
 
   .eqrpg .frontsheet-ability-name {
     color: var(--eq-text-dim);
-    font-size: 0.75em;
+    font-size: 0.68em;
     text-transform: uppercase;
-    letter-spacing: 0.7px;
+    letter-spacing: 0.55px;
+  }
+
+  .eqrpg .frontsheet-ability-summary {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .eqrpg .frontsheet-ability-mod {
+    min-width: 0;
+    margin: 0;
+    padding: 2px 8px;
+    font-size: 0.88em;
+    line-height: 1.1;
   }
 
   .eqrpg .frontsheet-ability-total {
-    min-width: 46px;
-    text-align: center;
+    min-width: 34px;
+    text-align: right;
     color: var(--eq-text-bright);
-    font-size: 2em;
+    font-size: 1.6em;
     font-weight: bold;
     line-height: 1;
   }
 
-  .eqrpg .frontsheet-ability-mod {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 7px;
-  }
-
   .eqrpg .frontsheet-ability-breakdown {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding-top: 7px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+    padding-top: 6px;
     border-top: 1px solid rgba(122,110,90,0.45);
   }
 
-  .eqrpg .frontsheet-ability-row {
+  .eqrpg .frontsheet-ability-chip {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    padding: 5px 6px;
+    border: 1px solid rgba(122,110,90,0.35);
+    border-radius: 4px;
+    background: rgba(16,13,11,0.32);
   }
 
-  .eqrpg .frontsheet-ability-row label {
+  .eqrpg .frontsheet-ability-chip-label {
     color: var(--eq-text-dim);
-    font-size: 0.78em;
+    font-size: 0.66em;
     text-transform: uppercase;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.45px;
   }
 
-  .eqrpg .frontsheet-ability-row input[type="number"] {
-    width: 44px;
+  .eqrpg .frontsheet-ability-chip-value {
+    color: var(--eq-text-bright);
+    font-size: 0.98em;
+    font-weight: bold;
+    line-height: 1.1;
+  }
+
+  .eqrpg .frontsheet-ability-point-buy {
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .eqrpg .frontsheet-ability-point-buy .adj-btn {
+    width: 20px;
+    height: 20px;
+    min-height: 20px;
+    padding: 0;
+    line-height: 18px;
+  }
+
+  .eqrpg .frontsheet-ability-point-buy .base-value {
+    min-width: 18px;
+    text-align: center;
+    font-size: 0.95em;
+    font-weight: bold;
+  }
+
+  .eqrpg .frontsheet-ability-misc-input {
+    width: 100%;
+    min-width: 0;
+    height: 24px;
+    padding: 2px 6px;
+    text-align: center;
   }
 
   .eqrpg .frontsheet-main {
@@ -1015,6 +1061,10 @@
     .eqrpg .frontsheet-tag-row,
     .eqrpg .frontsheet-skill-row,
     .eqrpg .combat-item-row {
+      grid-template-columns: 1fr;
+    }
+
+    .eqrpg .frontsheet-ability-breakdown {
       grid-template-columns: 1fr;
     }
   }
@@ -1698,21 +1748,198 @@
     color: var(--eq-gold-dim);
   }
   .eqrpg .biography-fields input[type="text"] { width: 200px; }
+  .eqrpg .biography-deity-readout {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 200px;
+    padding: 4px 8px;
+    border: 1px solid var(--eq-border);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.03);
+  }
+  .eqrpg .biography-deity-name {
+    color: var(--eq-text-bright);
+    font-weight: bold;
+  }
+  .eqrpg .biography-deity-meta {
+    color: var(--eq-text-dim);
+    font-size: 0.85em;
+  }
   .eqrpg .biography-editor { min-height: 200px; }
 
   /* -------------------------------------------------------------------------
      NPC Sheet
   -------------------------------------------------------------------------- */
 
-  /* Stats tab — two-column: abilities left, combat right */
+  .eqrpg.npc-sheet .npc-manual-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    gap: 12px;
+    padding: 10px 12px;
+    align-items: start;
+  }
+
+  .eqrpg.npc-sheet .npc-manual-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background:
+      linear-gradient(180deg, rgba(66,52,35,0.65) 0%, rgba(34,28,22,0.97) 16%, rgba(19,16,14,0.99) 100%);
+    border: 1px solid var(--eq-border-light);
+    border-radius: 5px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.05),
+      0 2px 6px rgba(0,0,0,0.18);
+    padding: 10px 12px 12px;
+  }
+
+  .eqrpg.npc-sheet .npc-manual-title {
+    color: var(--eq-gold);
+    font-size: 0.82em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(122,110,90,0.45);
+  }
+
+  .eqrpg.npc-sheet .npc-manual-subtitle {
+    margin-top: 4px;
+  }
+
+  .eqrpg.npc-sheet .npc-statblock-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 10px;
+  }
+
+  .eqrpg.npc-sheet .npc-statblock-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .eqrpg.npc-sheet .npc-statblock-row-wide {
+    grid-column: 1 / -1;
+  }
+
+  .eqrpg.npc-sheet .npc-statblock-row label,
+  .eqrpg.npc-sheet .npc-reference-label {
+    color: var(--eq-gold-dim);
+    font-size: 0.7em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.45px;
+  }
+
+  .eqrpg.npc-sheet .npc-statblock-row textarea,
+  .eqrpg.npc-sheet .npc-statblock-row input[type="text"],
+  .eqrpg.npc-sheet .npc-reference-pill input[type="text"] {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .eqrpg.npc-sheet .npc-reference-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .eqrpg.npc-sheet .npc-reference-pill {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    padding: 6px 8px;
+    border: 1px solid rgba(122,110,90,0.35);
+    border-radius: 4px;
+    background: rgba(16,13,11,0.32);
+  }
+
+  .eqrpg.npc-sheet .npc-quick-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid rgba(122,110,90,0.35);
+    border-radius: 4px;
+    background: rgba(16,13,11,0.32);
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-header {
+    color: var(--eq-gold-dim);
+    font-size: 0.72em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.45px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(122,110,90,0.35);
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(122,110,90,0.2);
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-name {
+    color: var(--eq-text-bright);
+    font-weight: bold;
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-detail {
+    color: var(--eq-text);
+    font-size: 0.84em;
+    line-height: 1.35;
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-detail.dim {
+    color: var(--eq-text-dim);
+  }
+
+  .eqrpg.npc-sheet .npc-quick-action-controls {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
   .eqrpg.npc-sheet .npc-stats-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    padding: 10px 12px;
+    align-items: start;
   }
 
-  /* 3-column ability grid (STR DEX CON / INT WIS CHA) */
   .eqrpg.npc-sheet .npc-abilities-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1920,6 +2147,16 @@
     font-size: 1em;
     font-weight: bold;
     color: var(--eq-text-bright);
+  }
+
+  @media (max-width: 900px) {
+    .eqrpg.npc-sheet .npc-manual-layout,
+    .eqrpg.npc-sheet .npc-stats-layout,
+    .eqrpg.npc-sheet .npc-reference-grid,
+    .eqrpg.npc-sheet .npc-statblock-grid,
+    .eqrpg.npc-sheet .npc-quick-actions {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* Item type badge in loot list */

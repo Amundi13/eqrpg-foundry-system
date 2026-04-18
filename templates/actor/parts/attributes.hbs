@@ -18,21 +18,20 @@
                 <span class="frontsheet-ability-abbr">{{this.abbr}}</span>
                 <span class="frontsheet-ability-name">{{this.label}}</span>
               </div>
-              <div class="frontsheet-ability-total">{{this.value}}</div>
+              <div class="frontsheet-ability-summary">
+                <div class="frontsheet-ability-total">{{this.value}}</div>
+                <button type="button" class="frontsheet-ability-mod mod-value roll-btn"
+                        data-action="rollAbility" data-ability="{{this.key}}"
+                        title="{{localize 'EQRPG.RollAbility'}}">
+                  {{#if (gte this.mod 0)}}+{{/if}}{{this.mod}}
+                </button>
+              </div>
             </header>
 
-            <div class="frontsheet-ability-mod">
-              <button type="button" class="mod-value roll-btn"
-                      data-action="rollAbility" data-ability="{{this.key}}"
-                      title="{{localize 'EQRPG.RollAbility'}}">
-                {{#if (gte this.mod 0)}}+{{/if}}{{this.mod}}
-              </button>
-            </div>
-
             <div class="frontsheet-ability-breakdown">
-              <div class="frontsheet-ability-row">
-                <label>{{localize "EQRPG.Base"}}</label>
-                <div class="point-buy-controls">
+              <div class="frontsheet-ability-chip frontsheet-ability-chip-base">
+                <span class="frontsheet-ability-chip-label">{{localize "EQRPG.Base"}}</span>
+                <div class="point-buy-controls frontsheet-ability-point-buy">
                   <button type="button" class="adj-btn decrement"
                           data-action="decrementAbility" data-ability="{{this.key}}"
                           {{#unless this.canDecrement}}disabled{{/unless}}>-</button>
@@ -42,13 +41,14 @@
                           {{#unless this.canIncrement}}disabled{{/unless}}>+</button>
                 </div>
               </div>
-              <div class="frontsheet-ability-row">
-                <label>{{localize "EQRPG.Racial"}}</label>
-                <span class="racial-value">{{#if (gte this.racial 0)}}+{{/if}}{{this.racial}}</span>
+              <div class="frontsheet-ability-chip">
+                <span class="frontsheet-ability-chip-label">{{localize "EQRPG.Racial"}}</span>
+                <span class="frontsheet-ability-chip-value">{{#if (gte this.racial 0)}}+{{/if}}{{this.racial}}</span>
               </div>
-              <div class="frontsheet-ability-row">
-                <label>{{localize "EQRPG.Misc"}}</label>
+              <div class="frontsheet-ability-chip">
+                <span class="frontsheet-ability-chip-label">{{localize "EQRPG.Misc"}}</span>
                 <input type="number" name="{{this.miscField}}"
+                       class="frontsheet-ability-misc-input"
                        value="{{this.misc}}" {{#unless @root.isEditable}}disabled{{/unless}} />
               </div>
             </div>

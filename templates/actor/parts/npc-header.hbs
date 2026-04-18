@@ -16,9 +16,14 @@
                min="0" style="width:48px" {{#unless isEditable}}disabled{{/unless}} />
       </div>
       <div class="field-group">
+        <label>{{localize "EQRPG.Size"}}</label>
+        <input type="text" name="system.details.size" value="{{system.details.size}}"
+               placeholder="Medium-Size" {{#unless isEditable}}disabled{{/unless}} />
+      </div>
+      <div class="field-group">
         <label>{{localize "EQRPG.Type"}}</label>
         <input type="text" name="system.details.type" value="{{system.details.type}}"
-               placeholder="humanoid…" {{#unless isEditable}}disabled{{/unless}} />
+               placeholder="Outsider" {{#unless isEditable}}disabled{{/unless}} />
       </div>
       <div class="field-group">
         <label>{{localize "EQRPG.Faction"}}</label>
@@ -27,12 +32,8 @@
       </div>
       <div class="field-group">
         <label>{{localize "EQRPG.Alignment"}}</label>
-        <select name="system.details.alignment" {{#unless isEditable}}disabled{{/unless}}>
-          <option value="">-</option>
-          {{#each alignmentOptions}}
-          <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
-          {{/each}}
-        </select>
+        <input type="text" name="system.details.alignment" value="{{system.details.alignment}}"
+               placeholder="Always orderly evil" {{#unless isEditable}}disabled{{/unless}} />
       </div>
     </div>
     <div class="header-resources">
@@ -67,7 +68,7 @@
         </div>
         <div class="npc-quick-stat">
           <span class="quick-stat-label">{{localize "EQRPG.Speed"}}</span>
-          <span class="quick-stat-value">{{system.details.speed}}</span>
+          <span class="quick-stat-value">{{#if system.statblock.speed}}{{system.statblock.speed}}{{else}}{{system.details.speed}} ft.{{/if}}</span>
         </div>
       </div>
     </div>

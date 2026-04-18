@@ -16,6 +16,7 @@ const SOURCE_FILES = [
   ["SAMPLE_ARMOR", "armor.json"],
   ["SAMPLE_EQUIPMENT", "equipment.json"],
   ["SAMPLE_CONSUMABLES", "consumables.json"],
+  ["SAMPLE_MONSTERS", "monsters.json"],
 ];
 
 function readJsonArray(filename) {

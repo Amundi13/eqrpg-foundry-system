@@ -4,8 +4,12 @@
   <div class="biography-fields">
     <div class="field-group">
       <label>{{localize "EQRPG.Deity"}}</label>
-      <input type="text" name="system.details.deity" value="{{system.details.deity}}"
-             {{#unless isEditable}}disabled{{/unless}} />
+      <div class="biography-deity-readout">
+        <span class="biography-deity-name">{{#if selectedDeity}}{{selectedDeity.label}}{{else}}-{{/if}}</span>
+        {{#if selectedDeity}}
+        <span class="biography-deity-meta">{{selectedDeity.domain}} • {{selectedDeity.alignment}}</span>
+        {{/if}}
+      </div>
     </div>
   </div>
 

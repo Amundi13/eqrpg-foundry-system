@@ -20,8 +20,11 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollInitiative: EQNPCSheet._onRollInitiative,
       rollAttack:     EQNPCSheet._onRollAttack,
       rollDamage:     EQNPCSheet._onRollDamage,
+      rollStatblockAttack: EQNPCSheet._onRollStatblockAttack,
+      rollStatblockDamage: EQNPCSheet._onRollStatblockDamage,
       castSpell:      EQNPCSheet._onCastSpell,
       rollSkill:      EQNPCSheet._onRollSkill,
+      useSpecialAbility: EQNPCSheet._onUseSpecialAbility,
       // Items
       createItem:     EQNPCSheet._onCreateItem,
       editItem:       EQNPCSheet._onEditItem,
@@ -121,6 +124,8 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.skills  = this.actor.items.filter(i => i.type === "skill");
     context.loot    = this.actor.items.filter(i =>
       ["armor", "consumable", "equipment"].includes(i.type));
+    context.statblockAttacks = this.actor.getNPCStatblockAttacks();
+    context.specialAbilities = this.actor.getNPCSpecialAbilities();
 
     // Iterative attack array from BAB (same thresholds as character sheet)
     const bab = system.combat.bab ?? 0;
@@ -206,6 +211,14 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await item?.rollDamage();
   }
 
+  static async _onRollStatblockAttack(event, target) {
+    await this.actor.rollNPCStatblockAttack(target.dataset.attackId);
+  }
+
+  static async _onRollStatblockDamage(event, target) {
+    await this.actor.rollNPCStatblockDamage(target.dataset.attackId);
+  }
+
   static async _onCastSpell(event, target) {
     const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     await item?.castSpell();
@@ -214,6 +227,10 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async _onRollSkill(event, target) {
     const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     await item?.rollSkill();
+  }
+
+  static async _onUseSpecialAbility(event, target) {
+    await this.actor.useNPCSpecialAbility(target.dataset.abilityId);
   }
 
   // ---------------------------------------------------------------------------

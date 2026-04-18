@@ -22667,3 +22667,1183 @@ export const SAMPLE_CONSUMABLES = [
     }
   }
 ];
+
+// Source: module/packs/source/monsters.json
+export const SAMPLE_MONSTERS = [
+  {
+    "name": "Abhorrent",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 10,
+          "mod": 0
+        },
+        "dex": {
+          "value": 10,
+          "mod": 0
+        },
+        "con": {
+          "value": 10,
+          "mod": 0
+        },
+        "int": {
+          "value": 10,
+          "mod": 0
+        },
+        "wis": {
+          "value": 10,
+          "mod": 0
+        },
+        "cha": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "details": {
+        "cr": 0,
+        "size": "",
+        "type": "",
+        "subtypes": "",
+        "faction": "",
+        "alignment": "",
+        "speed": 0
+      },
+      "resources": {
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 10
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 0
+          },
+          "reflex": {
+            "value": 0
+          },
+          "will": {
+            "value": 0
+          }
+        },
+        "initiative": {
+          "value": 0
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "",
+        "speed": "",
+        "ac": "",
+        "attacks": "",
+        "damage": "",
+        "faceReach": "",
+        "specialAttacks": "",
+        "specialQualities": "",
+        "saves": "",
+        "abilities": "",
+        "skills": "",
+        "feats": "Parry, Weapon Focus (bite), and Weapon Specialization (bite). or FOS rr - Tee - r - Laas ( \" Sy POR be) ~as ¥ AJ oe . 7 © nit ie es Se",
+        "climateTerrain": "",
+        "organization": "",
+        "treasure": "",
+        "advancement": "",
+        "challengeRating": "",
+        "source": "Monsters of Norrath p. 22",
+        "rawText": "serve one of his high priests. The abhorrent's\ncunning and stealth make it ideal for intelligence gathering and assassination\nmissions.\n\na\nAbhorrents have thick, stone-like skin «\nand a terrible countenance. Abhorrents do\nnot bother to carry weapons, as Innoruuk\nhas crafted them with jaws and talons that tear into\nthe flesh of their opponents with terrifying efficiency.\nTheir bat-like wings give them extraordinary aerial\n\nagility.\n\nCombat\n\nAbhorrents are not afraid of much, so they\nattack anything that they feel threatens their\nterritory, often launching ambushes that allow\nthem to use their backstab ability and to get into\n\nclose quarters where their hate aura can create havoc among their\nopponents' ranks.\n\nHate Aura (Su): Abhorrents can radiate a hatred effect in a 5-\nfoot radius as a free action. A Will save (DC 25) negates this\neffect. This power otherwise aggravates existing emotional tension between allies, causing victims of the aura to attack their\nnearest ally vehemently. If attacked or taunted by another opponent, a victim automatically turns her attack to the new opponent\nat the next opportunity. An affected target may attempt a new\nsave each round to end the effect of the hate aura. Once a creature\nsuccessfully saves against the aura, it cannot be affected by the\nsame abhorrent's aura for 24 hours.\n\nImmunities (Ex): Abhorrents are immune to fire and poison.\n\nResistances (Ex): Abhorrents have bonuses of acid, cold,\ndisease, and magic resistance (20), and sonic resistance (10).\n\nSee In Darkness (Su): Abhorrents can see perfectly in darkness of any kind, even magical darkness created by spells.\n\nTelepathy (Su): Abhorrents can communicate telepathically\nwith any creature within 100 feet as long as the creature speaks a\nlanguage.\n\nRogue Abilities (Ex): An abhorrent has the\nclass abilities of a 21st-level rogue, including sense traps, backstab +7d6, evasion,\nuncanny dodge, the Counterattack dis-\n\ncipline, and three extra feats: Parry,\n\nWeapon Focus (bite), and Weapon\nSpecialization\n\n(bite).\n\nor FOS\n\nrr\n\n- Tee -\nr -\nLaas (\n\n\" Sy\n\nPOR\nbe)\n~as\n\n¥\nAJ\noe\n.\n\n7\n© nit ie es Se"
+      },
+      "biography": "<h2>Combat</h2><p>Abhorrents are not afraid of much, so they attack anything that they feel threatens their territory, often launching ambushes that allow them to use their backstab ability and to get into</p><p>close quarters where their hate aura can create havoc among their opponents&#x27; ranks.</p><p>Hate Aura (Su): Abhorrents can radiate a hatred effect in a 5- foot radius as a free action. A Will save (DC 25) negates this effect. This power otherwise aggravates existing emotional tension between allies, causing victims of the aura to attack their nearest ally vehemently. If attacked or taunted by another opponent, a victim automatically turns her attack to the new opponent at the next opportunity. An affected target may attempt a new save each round to end the effect of the hate aura. Once a creature successfully saves against the aura, it cannot be affected by the same abhorrent&#x27;s aura for 24 hours.</p><p>Immunities (Ex): Abhorrents are immune to fire and poison.</p><p>Resistances (Ex): Abhorrents have bonuses of acid, cold, disease, and magic resistance (20), and sonic resistance (10).</p><p>See In Darkness (Su): Abhorrents can see perfectly in darkness of any kind, even magical darkness created by spells.</p><p>Telepathy (Su): Abhorrents can communicate telepathically with any creature within 100 feet as long as the creature speaks a language.</p><p>Rogue Abilities (Ex): An abhorrent has the class abilities of a 21st-level rogue, including sense traps, backstab +7d6, evasion, uncanny dodge, the Counterattack dis-</p><p>cipline, and three extra feats: Parry,</p><p>Weapon Focus (bite), and Weapon Specialization</p><p>(bite).</p><p>or FOS</p><p>rr</p><p>- Tee - r - Laas (</p><p>&quot; Sy</p><p>POR be) ~as</p><p>¥ AJ oe .</p><p>7 © nit ie es Se</p>"
+    }
+  },
+  {
+    "name": "Allizewsaur",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 10,
+          "mod": 0
+        },
+        "dex": {
+          "value": 10,
+          "mod": 0
+        },
+        "con": {
+          "value": 10,
+          "mod": 0
+        },
+        "int": {
+          "value": 10,
+          "mod": 0
+        },
+        "wis": {
+          "value": 10,
+          "mod": 0
+        },
+        "cha": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "details": {
+        "cr": 0,
+        "size": "",
+        "type": "",
+        "subtypes": "",
+        "faction": "",
+        "alignment": "",
+        "speed": 0
+      },
+      "resources": {
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 10
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 0
+          },
+          "reflex": {
+            "value": 0
+          },
+          "will": {
+            "value": 0
+          }
+        },
+        "initiative": {
+          "value": 0
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "",
+        "speed": "",
+        "ac": "",
+        "attacks": "",
+        "damage": "",
+        "faceReach": "",
+        "specialAttacks": "",
+        "specialQualities": "",
+        "saves": "",
+        "abilities": "",
+        "skills": "",
+        "feats": "",
+        "climateTerrain": "",
+        "organization": "",
+        "treasure": "",
+        "advancement": "",
+        "challengeRating": "",
+        "source": "Monsters of Norrath p. 23",
+        "rawText": "creature called the Allizewsaur. According to legend, this acre cursed creature once belonged to an ancient race of beings known\nXN as the Shissar, who created a vast and powerful society that\nSS dominated much of Norrath. Renowned for their intellect, their\non engineering skills, and their ruthless use of slave races, the Shissar\naay) built fortresses and temples to their god, Cazic-Thule (some of\nrecs which still stand today, including Najena and the Temple of\nUs Cazic-Thule in the southern swamps of Antonica).\n- Despite their success and advancement as a civilization, or\n' perhaps because of it, the Shissar grew proud. When Rallos Zek\nPe sought to conquer the Planes of Power during the first War of the\nwok Gods, the Shissar sided with the Warlord, thinking they were\n: - powerful enough to wage war among the gods themselves. Shissar\na magic aided Zek's invasion of the Plane of Earth. When the war\n‘ met its disastrous conclusion, the gods punished the Shissar along\n- with Rallos Zek and his progeny. The Shissar suffered a devastat-\n\\f* ing curse that took away much of their intelligence and their form,\naa) turning them into simple, barbaric lizard people.\n) =) One of the most powerful Shissar leaders was Allize Ssrateh,\nSere} known as the Herald of Fear. Whether it was Allize's own great\nip 2' power or the intervention of Cazic-Thule, the curse laid upon the\nes) Shissar enfeebled Allize's mind but did not reduce his form. On\naa) the contrary, the Herald of Fear took on a titanic form when the\n‘ curse was levied upon him. It is said that the gods hurled Allize\n<< Ssrateh - now called the Allizewsaur - into the Ocean of Tears\n| ae so that he would not pose a threat to the continent of Tunaria.\n° a) For as long as any mariner can now remember, the Allizewsaur\nve i has ranged the Ocean of Tears, becoming a legendary threat to\nPye\" ships. In reality, the Allizewsaur's attacks on ships are rare, as its .\n<-F main territory seems to lie outside the most frequented shipping\n\nlanes. A large tribe of aqua goblins living in the ocean, howeve\nrte has come to worship the beast, and these goblins are a hazard to\n\nv=) sailors, regularly taking sacrifices to appease \"the great lizard god.\"\na? The need for sacrifices gives the goblins great motivation to raid,\neS) ships passing through the Ocean of Tears, since if the goblins do\"\n> not capture hostages to serve as sacrifices, one of their own is\n\n- } selected to be the sacrifice!\n\nThe Allizewsaur is a giant lizard that walks upright like a\nhuman. It stands approximately 70 feet tall and has a huge maw\n\nyo ewe Owe - ---~a, 9\n\n4° »,\n\nes | ~\n\nfilled with razor-sharp teeth. The Allizewsaur, despite its civilized\norigins, has become little more than an animal. It acts on instinct,\n\nfeeds when hungry, defends itself when attacked, and has no\nmorals or language.\n\nCombat\n\nWhen it feels threatened, the Allizewsaur attacks ferociously.\nIt uses its vicious bite as well as both sets of claws to slice at its foe,\nand it will also swing its tail in an attempt to slam its target.\n\nImproved Grab (Ex): If the Allizewsaur hits a size Huge or\nsmaller opponent with its bite attack, it may use this ability. If it\ngets a hold, it can try to swallow its victim.\n\nSwallow Whole (Ex): The Allizewsaur can swallow any grabbed\nopponent of size Huge or smaller if it succeeds at a successful\ngrapple check. Once swallowed, the victim takes 2d6+8 points of\ncrushing damage and 2d6 points of acid damage each round. The\nacid damage is treated as a single damage-over-time attack for\npurposes of a victim's acid resistance, if any.\n\nSwallowed victims can cut their way out by dealing 40 points\nof slashing damage to the Allizewsaur's gut (AC 20). Any such\nopening regenerates immediately after it is cut, so each swallowed\nopponent must cut her own way out.\n\nThe Allizewsaur's stomach can hold two Huge, four Large,\neight Medium-size, or sixteen size Small or smaller creatures at\none time.\n\nTail Sweep (Ex): The Allizewsaur can sweep with its tail as an\nattack action. This attack affects all Large or smaller creatures\nwithin a 40-foot diameter, semi-circular area centered on the\nAllizewsaur's rear. The tail sweep deals 2d8+25 points of damage\nto all affected, although creatures can attempt a Reflex save (DC\n\n38) to take half damage."
+      },
+      "biography": "<h2>Combat</h2><p>When it feels threatened, the Allizewsaur attacks ferociously. It uses its vicious bite as well as both sets of claws to slice at its foe, and it will also swing its tail in an attempt to slam its target.</p><p>Improved Grab (Ex): If the Allizewsaur hits a size Huge or smaller opponent with its bite attack, it may use this ability. If it gets a hold, it can try to swallow its victim.</p><p>Swallow Whole (Ex): The Allizewsaur can swallow any grabbed opponent of size Huge or smaller if it succeeds at a successful grapple check. Once swallowed, the victim takes 2d6+8 points of crushing damage and 2d6 points of acid damage each round. The acid damage is treated as a single damage-over-time attack for purposes of a victim&#x27;s acid resistance, if any.</p><p>Swallowed victims can cut their way out by dealing 40 points of slashing damage to the Allizewsaur&#x27;s gut (AC 20). Any such opening regenerates immediately after it is cut, so each swallowed opponent must cut her own way out.</p><p>The Allizewsaur&#x27;s stomach can hold two Huge, four Large, eight Medium-size, or sixteen size Small or smaller creatures at one time.</p><p>Tail Sweep (Ex): The Allizewsaur can sweep with its tail as an attack action. This attack affects all Large or smaller creatures within a 40-foot diameter, semi-circular area centered on the Allizewsaur&#x27;s rear. The tail sweep deals 2d8+25 points of damage to all affected, although creatures can attempt a Reflex save (DC</p><p>38) to take half damage.</p>"
+    }
+  },
+  {
+    "name": "Amygdalan Knight",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 10,
+          "mod": 0
+        },
+        "dex": {
+          "value": 10,
+          "mod": 0
+        },
+        "con": {
+          "value": 10,
+          "mod": 0
+        },
+        "int": {
+          "value": 10,
+          "mod": 0
+        },
+        "wis": {
+          "value": 10,
+          "mod": 0
+        },
+        "cha": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "details": {
+        "cr": 20,
+        "size": "",
+        "type": "",
+        "subtypes": "",
+        "faction": "",
+        "alignment": "Always neutral evil by a 25th-level shadow knight",
+        "speed": 0
+      },
+      "resources": {
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 10
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 0
+          },
+          "reflex": {
+            "value": 0
+          },
+          "will": {
+            "value": 0
+          }
+        },
+        "initiative": {
+          "value": 0
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "",
+        "speed": "",
+        "ac": "",
+        "attacks": "",
+        "damage": "",
+        "faceReach": "",
+        "specialAttacks": "",
+        "specialQualities": "",
+        "saves": "",
+        "abilities": "The tosow fear, which Amygdalan knight's spell-like abilipleases the ties (and mana cost for each) are as knights' follows: dooming darkness (20), invoke master fear (20), life leech (53), summon dead (48), and word of spirit (22). These spells are as cast by a 25th-level shadow knight (save DC 15 + spell level) with a mana pool of 210. Resistances (Ex): Amygdalan knights have bonuses of acid, disease, poison, and sonic resistance (20), as well as cold, fire, and magic resistance (30). See In Darkness (Su): Amygdalan knights can see perfectly in darkness of any kind, even magical darkness created by spells. Telepathy (Su): Amygdalan knights can com- municate telepathically with any creature within 100 feet as long as the creature speaks a language. Zac Armored Casting (Ex): Amygdalan knights Cot - may ignore the arcane spell failure chance for wearing armor, as per the shadow knight ability.",
+        "skills": "An Amygdalan knight has a fearsome visage, conferring a +8 racial bonus to Intimidate. 4 eri:",
+        "feats": "",
+        "climateTerrain": "",
+        "organization": "",
+        "treasure": "Standard 24 hours. The power otherwise works like an invoke fear spell cast",
+        "advancement": "26-35 HD (Huge) Harm Touch (Su): Once per hour, the Amygdalan knight may Fection: je make a melee touch attack (+33 attack bonus) to deliver a harm touch. The harm touch deals 75 points of damage or half that Descri ption amount if the victim succeeds at a Fortitude save (DC 27). Harm touch may be used as an attack action, or, if the knight takes a full Amygdalan knights hail from the Plane of attack action, it may make one extra attack to deliver the harm Fear. They rarely appear on Norrath itself, touch in addition to its normal attacks. A but when they do, death and destruction failed attack roll does not expend the ultimately follow. The mere Amygdalan knight's hourly use of this threat of their appear- ability. ance is often enough Spell-Like Abilities: The tosow fear, which Amygdalan knight's spell-like abilipleases the ties (and mana cost for each) are as knights' follows: dooming darkness (20), invoke master fear (20), life leech (53), summon dead (48), and word of spirit (22). These spells are as cast by a 25th-level shadow knight (save DC 15 + spell level) with a mana pool of 210. Resistances (Ex): Amygdalan knights have bonuses of acid, disease, poison, and sonic resistance (20), as well as cold, fire, and magic resistance (30). See In Darkness (Su): Amygdalan knights can see perfectly in darkness of any kind, even magical darkness created by spells. Telepathy (Su): Amygdalan knights can com- municate telepathically with any creature within 100 feet as long as the creature speaks a language. Zac Armored Casting (Ex): Amygdalan knights Cot - may ignore the arcane spell failure chance for wearing armor, as per the shadow knight ability",
+        "challengeRating": "20",
+        "source": "Monsters of Norrath p. 24",
+        "rawText": "cannot be affected by the same Amygdalan knight's fear aura for\n\nChallenge Rating: 20\n\nTreasure: Standard 24 hours. The power otherwise works like an invoke fear spell cast\nAlignment: Always neutral evil by a 25th-level shadow knight.\n\nAdvancement Range: 26-35 HD (Huge) Harm Touch (Su): Once per hour, the Amygdalan knight may\nFection: je make a melee touch attack (+33 attack bonus) to deliver a harm\n\ntouch. The harm touch deals 75 points of damage or half that\n\nDescri ption amount if the victim succeeds at a Fortitude save (DC 27). Harm\n\ntouch may be used as an attack action, or, if the knight takes a full\n\nAmygdalan knights hail from the Plane of attack action, it may make one extra attack to deliver the harm\n\nFear. They rarely appear on Norrath itself, touch in addition to its normal attacks. A\n\nbut when they do, death and destruction failed attack roll does not expend the\n\nultimately follow. The mere Amygdalan knight's hourly use of this\nthreat of their appear- ability.\n\nance is often enough Spell-Like Abilities: The\ntosow fear, which Amygdalan knight's spell-like abilipleases the ties (and mana cost for each) are as\nknights' follows: dooming darkness (20), invoke\nmaster fear (20), life leech (53), summon dead\n(48), and word of spirit (22). These\nspells are as cast by a 25th-level\nshadow knight (save DC 15 + spell\nlevel) with a mana pool of 210.\n\nResistances (Ex): Amygdalan\nknights have bonuses of acid, disease,\npoison, and sonic resistance (20), as\nwell as cold, fire, and magic resistance (30).\nSee In Darkness (Su): Amygdalan knights\ncan see perfectly in darkness of any kind, even\nmagical darkness created by spells.\n\nTelepathy (Su): Amygdalan knights can com-\n\nmunicate telepathically with any creature within\n100 feet as long as the creature speaks a language.\n\nZac Armored Casting (Ex): Amygdalan knights\nCot - may ignore the arcane spell failure chance for\n\nwearing armor, as per the shadow knight ability.\n\nSkills: An Amygdalan knight has a fearsome visage,\nconferring a +8 racial bonus to Intimidate.\n\n4\n\neri:"
+      },
+      "biography": "<p>cannot be affected by the same Amygdalan knight&#x27;s fear aura for Challenge Rating: 20 Treasure: Standard 24 hours. The power otherwise works like an invoke fear spell cast Alignment: Always neutral evil by a 25th-level shadow knight. Advancement Range: 26-35 HD (Huge) Harm Touch (Su): Once per hour, the Amygdalan knight may Fection: je make a melee touch attack (+33 attack bonus) to deliver a harm touch. The harm touch deals 75 points of damage or half that Descri ption amount if the victim succeeds at a Fortitude save (DC 27). Harm touch may be used as an attack action, or, if the knight takes a full Amygdalan knights hail from the Plane of attack action, it may make one extra attack to deliver the harm Fear. They rarely appear on Norrath itself, touch in addition to its normal attacks. A but when they do, death and destruction failed attack roll does not expend the ultimately follow. The mere Amygdalan knight&#x27;s hourly use of this threat of their appear- ability. ance is often enough Spell-Like Abilities: The tosow fear, which Amygdalan knight&#x27;s spell-like abilipleases the ties (and mana cost for each) are as knights&#x27; follows: dooming darkness (20), invoke master fear (20), life leech (53), summon dead (48), and word of spirit (22). These spells are as cast by a 25th-level shadow knight (save DC 15 + spell level) with a mana pool of 210. Resistances (Ex): Amygdalan knights have bonuses of acid, disease, poison, and sonic resistance (20), as well as cold, fire, and magic resistance (30). See In Darkness (Su): Amygdalan knights can see perfectly in darkness of any kind, even magical darkness created by spells. Telepathy (Su): Amygdalan knights can com- municate telepathically with any creature within 100 feet as long as the creature speaks a language. Zac Armored Casting (Ex): Amygdalan knights Cot - may ignore the arcane spell failure chance for wearing armor, as per the shadow knight ability. Skills: An Amygdalan knight has a fearsome visage, conferring a +8 racial bonus to Intimidate. 4 eri:</p>"
+    }
+  },
+  {
+    "name": "Avatar of Fear",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 31,
+          "mod": 10
+        },
+        "dex": {
+          "value": 11,
+          "mod": 0
+        },
+        "con": {
+          "value": 35,
+          "mod": 12
+        },
+        "int": {
+          "value": 23,
+          "mod": 6
+        },
+        "wis": {
+          "value": 21,
+          "mod": 5
+        },
+        "cha": {
+          "value": 28,
+          "mod": 9
+        }
+      },
+      "details": {
+        "cr": 19,
+        "size": "Huge",
+        "type": "Outsider",
+        "subtypes": "Evil",
+        "faction": "Cazic-Thule Resistances (Ex): The Avatar of fz : Fear has bonuses of acid, cold, fire, - Oescri ption and magic resistance (20). = Immunities (Ex): The Avatar iy bis Scene he as a of Fear is immune to disease, poi- ; : sleek ast vem ka Piadelah son, and mind-affecting spells or & effects, such as those of the fear : Fear but creates the Avatar of and mesmerize spell lines. L Fear as his emissary. The Avatar of Fear looks exactly like CazicThule but on a smaller scale: a giant hulk without a face on short, thick legs with of Fear takes normal (not subdual)",
+        "alignment": "Always neutral evil their attack roll or make a Reflex save (DC 30) 4",
+        "speed": 30
+      },
+      "resources": {
+        "hp": {
+          "value": 330,
+          "max": 330,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 35
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 24
+          },
+          "reflex": {
+            "value": 12
+          },
+          "will": {
+            "value": 17
+          }
+        },
+        "initiative": {
+          "value": 0
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "20d8+240 (330 hp) attacks. It is usually surrounded by fanatical devotees who will wile re P soften up any enemies before it charges forth to encompass as",
+        "speed": "30 ft. before the Avatar become targets for its suite of melee attacks,",
+        "ac": "35 (-2 size, +27 natural) which generally begin with a harm touch. While it stomps Attaches 2'slams'+ 28 malée: 2 claws +23 inelecv or 2'sloms relatively small opponents with its feet (it may only use its stomp +28 melee, 2 claws +23 melee, 2 stomps +23 melee attack against Medium-size or smaller opponents), its two muscuD ; Slam 4d6+10 and daze. claw Id6+5: stomp 4d8+10 lar, over-sized arms pound foes into jelly, while two smaller arms - ee ee just below them rip into foes with their razor-sharp claws. .",
+        "attacks": "Fear aura, harm touch, trample 8d8+15 usually has several powerful magic items in its possession that it G",
+        "damage": "",
+        "faceReach": "20 ft. by 20 ft/I5 ft. (5 Ft. for claws) In addition to the statistics provided here, the Avatar of Fear >» Special",
+        "specialAttacks": "",
+        "specialQualities": "Damage reduction 30/+3, SR 30, immunities, resis- will use as appropriate. Aa tances, regeneration 30, see invisible, infravision, Fear Aura (Su): This ability operates continuously within a - ultravision 20-foot radius as an invoke fear spell cast by a 25th-level shadow 4",
+        "saves": "Fort +24, Ref +12, Will +17 knight. A Will save (DC 25) negates the effect. If the save is yt",
+        "abilities": "Str 31, Dex 11, Con 35, Int 23, Wis 21, Cha 28 successful, that opponent cannot be affected again by the Avatar's *< fear aura for 24 hours. Harm Touch (Su): Once per hour, the Avatar of Fear may make a melee touch attack (+28 attack bonus) to deliver a harm i",
+        "skills": "Climb +30, Hide +12, Intimidate +27, Jump +30, Knowledge (geography) +26, Knowledge (history) +26, Knowledge (mysticism) +26, Knowledge (pla- nar travel) +26, Knowledge (religion) +26, Listen +25, Search +26, Sense Motive +25, Spot +25, touch. The harm touch deals 60 points of damage or half that amount if the victim succeeds at a Fortitude save (DC 26). Harm touch may be used as an attack action, or, if the Avatar takes a full + Undead Empathy +27 attack action, it may make one extra attack to deliver the harm (Pe",
+        "feats": "Cleave, Finishing Blow, Great Cleave, Improved Slam, touch in addition to its normal attacks. A failed attack roll does ~ Power Attack, Slam ( not expend the Avatar's hourly use of this ability. b",
+        "climateTerrain": "Any } Trample (Ex): As a standard action, the Avatar of Fear ey",
+        "organization": "Solitary 5 can simply run over a Large or smaller opponent. This ie",
+        "treasure": "Triple standard attempt attacks of opportunity at a-4 penalty to ~",
+        "advancement": "for half damage. ‘",
+        "challengeRating": "19 ) Nits; attack requires no attack roll and deals 8d8+15 blud- 4 : geoning damage. Trampled opponents can either we",
+        "source": "Monsters of Norrath p. 25",
+        "rawText": ". Avatar of Fear Combat\noe\n~\n\nHuge Outsider (Evil) The Avatar of Fear has good resistances to all sorts of magical\n= Hit Dice: 20d8+240 (330 hp) attacks. It is usually surrounded by fanatical devotees who will\nwile re P soften up any enemies before it charges forth to encompass as\n\nInitiative: +0 many foes as possible in its fear aura. Those who do not quail\n\nSpeed: 30 ft. before the Avatar become targets for its suite of melee attacks,\nAC: 35 (-2 size, +27 natural) which generally begin with a harm touch. While it stomps\nAttaches 2'slams'+ 28 malée: 2 claws +23 inelecv or 2'sloms relatively small opponents with its feet (it may only use its stomp\n+28 melee, 2 claws +23 melee, 2 stomps +23 melee attack against Medium-size or smaller opponents), its two muscuD ; Slam 4d6+10 and daze. claw Id6+5: stomp 4d8+10 lar, over-sized arms pound foes into jelly, while two smaller arms\n- ee ee just below them rip into foes with their razor-sharp claws. .\nFace/Reach: 20 ft. by 20 ft/I5 ft. (5 Ft. for claws) In addition to the statistics provided here, the Avatar of Fear >»\nSpecial Attacks: Fear aura, harm touch, trample 8d8+15 usually has several powerful magic items in its possession that it G\nSpecial Qualities: Damage reduction 30/+3, SR 30, immunities, resis- will use as appropriate. Aa\ntances, regeneration 30, see invisible, infravision, Fear Aura (Su): This ability operates continuously within a -\nultravision 20-foot radius as an invoke fear spell cast by a 25th-level shadow 4\nSaves: Fort +24, Ref +12, Will +17 knight. A Will save (DC 25) negates the effect. If the save is yt\nAbilities: Str 31, Dex 11, Con 35, Int 23, Wis 21, Cha 28 successful, that opponent cannot be affected again by the Avatar's *<\n\nfear aura for 24 hours.\n\nHarm Touch (Su): Once per hour, the Avatar of Fear may\nmake a melee touch attack (+28 attack bonus) to deliver a harm i\n\nSkills: Climb +30, Hide +12, Intimidate +27, Jump +30,\nKnowledge (geography) +26, Knowledge (history)\n+26, Knowledge (mysticism) +26, Knowledge (pla-\n\nnar travel) +26, Knowledge (religion) +26, Listen\n+25, Search +26, Sense Motive +25, Spot +25,\n\ntouch. The harm touch deals 60 points of damage or half that\namount if the victim succeeds at a Fortitude save (DC 26). Harm\n\ntouch may be used as an attack action, or, if the Avatar takes a full +\nUndead Empathy +27 attack action, it may make one extra attack to deliver the harm (Pe\nFeats: Cleave, Finishing Blow, Great Cleave, Improved Slam, touch in addition to its normal attacks. A failed attack roll does ~\nPower Attack, Slam ( not expend the Avatar's hourly use of this ability. b\nClimate/Terrain: Any } Trample (Ex): As a standard action, the Avatar of Fear ey\nOrganization: Solitary 5 can simply run over a Large or smaller opponent. This ie\nChallenge Rating: 19 ) Nits; attack requires no attack roll and deals 8d8+15 blud- 4\n: geoning damage. Trampled opponents can either we\nTreasure: Triple standard attempt attacks of opportunity at a-4 penalty to ~\nAlignment: Always neutral evil their attack roll or make a Reflex save (DC 30) 4\nAdvancement Range: - for half damage. ‘,\nFaction: Cazic-Thule Resistances (Ex): The Avatar of fz\n: Fear has bonuses of acid, cold, fire, -\nOescri ption and magic resistance (20). =\nImmunities (Ex): The Avatar iy\nbis Scene he as a of Fear is immune to disease, poi- ; :\nsleek ast vem ka Piadelah son, and mind-affecting spells or &\neffects, such as those of the fear :\nFear but creates the Avatar of and mesmerize spell lines. L\n\nFear as his emissary. The Avatar\nof Fear looks exactly like CazicThule but on a smaller scale: a\ngiant hulk without a face on\nshort, thick legs with\n\nof Fear takes normal (not subdual)\ndamage only from divine spells cast by\ngood-aligned casters, and it cannot\n\nRegeneration (Ex): The Avatar | .\n\nbroad feet; with two _-_- regenerate such dam- Fy\nsets of arms, one ‘\" eee: <\nhuge and the other i\nrelatively small. The :\nAvatar of Fear is far ne\nless powerful than .\nCazic-Thule himself, (: <\nbut it is still a fearsome a\nfoe in every way. Like its master, it :\nloves to trample over smaller crea- ‘\ntures. Le\nThe Avatar of Fear ?\nappears wherever re\nCazic-Thule de- pt\nsires his presence =\n\nto be known, whether\nthe throne room of\nCaballis or directing the\ndevout in the Lost Temple\ndeep in the Feerott."
+      },
+      "biography": "<p>. Avatar of Fear Combat oe ~ Huge Outsider (Evil) The Avatar of Fear has good resistances to all sorts of magical = Hit Dice: 20d8+240 (330 hp) attacks. It is usually surrounded by fanatical devotees who will wile re P soften up any enemies before it charges forth to encompass as Initiative: +0 many foes as possible in its fear aura. Those who do not quail Speed: 30 ft. before the Avatar become targets for its suite of melee attacks, AC: 35 (-2 size, +27 natural) which generally begin with a harm touch. While it stomps Attaches 2&#x27;slams&#x27;+ 28 malée: 2 claws +23 inelecv or 2&#x27;sloms relatively small opponents with its feet (it may only use its stomp +28 melee, 2 claws +23 melee, 2 stomps +23 melee attack against Medium-size or smaller opponents), its two muscuD ; Slam 4d6+10 and daze. claw Id6+5: stomp 4d8+10 lar, over-sized arms pound foes into jelly, while two smaller arms - ee ee just below them rip into foes with their razor-sharp claws. . Face/Reach: 20 ft. by 20 ft/I5 ft. (5 Ft. for claws) In addition to the statistics provided here, the Avatar of Fear &gt;» Special Attacks: Fear aura, harm touch, trample 8d8+15 usually has several powerful magic items in its possession that it G Special Qualities: Damage reduction 30/+3, SR 30, immunities, resis- will use as appropriate. Aa tances, regeneration 30, see invisible, infravision, Fear Aura (Su): This ability operates continuously within a - ultravision 20-foot radius as an invoke fear spell cast by a 25th-level shadow 4 Saves: Fort +24, Ref +12, Will +17 knight. A Will save (DC 25) negates the effect. If the save is yt Abilities: Str 31, Dex 11, Con 35, Int 23, Wis 21, Cha 28 successful, that opponent cannot be affected again by the Avatar&#x27;s *&lt; fear aura for 24 hours. Harm Touch (Su): Once per hour, the Avatar of Fear may make a melee touch attack (+28 attack bonus) to deliver a harm i Skills: Climb +30, Hide +12, Intimidate +27, Jump +30, Knowledge (geography) +26, Knowledge (history) +26, Knowledge (mysticism) +26, Knowledge (pla- nar travel) +26, Knowledge (religion) +26, Listen +25, Search +26, Sense Motive +25, Spot +25, touch. The harm touch deals 60 points of damage or half that amount if the victim succeeds at a Fortitude save (DC 26). Harm touch may be used as an attack action, or, if the Avatar takes a full + Undead Empathy +27 attack action, it may make one extra attack to deliver the harm (Pe Feats: Cleave, Finishing Blow, Great Cleave, Improved Slam, touch in addition to its normal attacks. A failed attack roll does ~ Power Attack, Slam ( not expend the Avatar&#x27;s hourly use of this ability. b Climate/Terrain: Any } Trample (Ex): As a standard action, the Avatar of Fear ey Organization: Solitary 5 can simply run over a Large or smaller opponent. This ie Challenge Rating: 19 ) Nits; attack requires no attack roll and deals 8d8+15 blud- 4 : geoning damage. Trampled opponents can either we Treasure: Triple standard attempt attacks of opportunity at a-4 penalty to ~ Alignment: Always neutral evil their attack roll or make a Reflex save (DC 30) 4 Advancement Range: - for half damage. ‘, Faction: Cazic-Thule Resistances (Ex): The Avatar of fz : Fear has bonuses of acid, cold, fire, - Oescri ption and magic resistance (20). = Immunities (Ex): The Avatar iy bis Scene he as a of Fear is immune to disease, poi- ; : sleek ast vem ka Piadelah son, and mind-affecting spells or &amp; effects, such as those of the fear : Fear but creates the Avatar of and mesmerize spell lines. L Fear as his emissary. The Avatar of Fear looks exactly like CazicThule but on a smaller scale: a giant hulk without a face on short, thick legs with of Fear takes normal (not subdual) damage only from divine spells cast by good-aligned casters, and it cannot Regeneration (Ex): The Avatar | . broad feet; with two _-_- regenerate such dam- Fy sets of arms, one ‘&quot; eee: &lt; huge and the other i relatively small. The : Avatar of Fear is far ne less powerful than . Cazic-Thule himself, (: &lt; but it is still a fearsome a foe in every way. Like its master, it : loves to trample over smaller crea- ‘ tures. Le The Avatar of Fear ? appears wherever re Cazic-Thule de- pt sires his presence = to be known, whether the throne room of Caballis or directing the devout in the Lost Temple deep in the Feerott.</p>"
+    }
+  },
+  {
+    "name": "Aviak",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 10,
+          "mod": 0
+        },
+        "dex": {
+          "value": 14,
+          "mod": 2
+        },
+        "con": {
+          "value": 10,
+          "mod": 0
+        },
+        "int": {
+          "value": 6,
+          "mod": -2
+        },
+        "wis": {
+          "value": 10,
+          "mod": 0
+        },
+        "cha": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "details": {
+        "cr": 2,
+        "size": "",
+        "type": "",
+        "subtypes": "",
+        "faction": "",
+        "alignment": "Usually neutral",
+        "speed": 40
+      },
+      "resources": {
+        "hp": {
+          "value": 32,
+          "max": 32,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 15
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 2
+          },
+          "reflex": {
+            "value": 7
+          },
+          "will": {
+            "value": 2
+          }
+        },
+        "initiative": {
+          "value": 6
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "7d8 (32 hp)",
+        "speed": "40 ft.",
+        "ac": "15 (+2 Dex, +3 natural)",
+        "attacks": "Heavy mace +5 melee; or javelin +7 ranged",
+        "damage": "Heavy mace 1d8; javelin Id6",
+        "faceReach": "5 ft. by 5 Ft./5 ft",
+        "specialAttacks": "",
+        "specialQualities": "Glide",
+        "saves": "Fort +2, Ref +7, Will +2",
+        "abilities": "Str 10, Dex 14, Con 10, Int 6, Wis 10, Cha 10",
+        "skills": "Hide +3, Listen +1, Sneak +7, Spot +8",
+        "feats": "Improved Initiative, Lightning Reflexes",
+        "climateTerrain": "Any forest and plains",
+        "organization": "Solitary, brace, or brood (3-8)",
+        "treasure": "Standard",
+        "advancement": "None",
+        "challengeRating": "2",
+        "source": "Monsters of Norrath p. 26",
+        "rawText": "Medium-Size Humanoid (Aviak)\n7d8 (32 hp)\n\n+6 (+2 Dex, +4 Improved Initiative)\n40 ft.\n\n15 (+2 Dex, +3 natural)\n\nHeavy mace +5 melee; or javelin +7 ranged\n\nHeavy mace 1d8; javelin Id6\n5 ft. by 5 Ft./5 ft.\n\nGlide\n\nFort +2, Ref +7, Will +2\n\nStr 10, Dex 14, Con 10, Int 6, Wis 10, Cha 10\nHide +3, Listen +1, Sneak +7, Spot +8\n\nImproved Initiative, Lightning Reflexes\n\nAny forest and plains\n\nSolitary, brace, or brood (3-8)\n2\n\nStandard\n\nUsually neutral\n\nNone\n\nHarrier\n\nLarge Humanoid (Aviak)\n\n14d8+14 (77 hp)\n\n+8 (+4 Dex, +4 Improved Initiative)\n50 ft.\n\n17 (-1 size, +4 Dex, +6 natural)\nLarge morningstar +14/+8 melee, or\nLarge javelin +12/+7 ranged\n\nLarge morningstar 2d6+5;\n\nLarge javelin 1d8+5\n\n5 ft. by 5 Ft./10 Ft.\n\nGlide\n\nFort +5, Ref +15, Will +4\n\nStr 20, Dex 18, Con 12, Int 8, Wis 11, Cha 14\nHide +1, Listen +3, Sneak +10, Spot +11\nCombat Reflexes, Improved Initiative,\nLightning Reflexes, Power Attack\nAny forest and plains\n\nSolitary, brace, or brood (3-5)\n\n5\n\nStandard\n\nUsually neutral\n\n: 15-17 HD (Large)\n\nDescription\n\nNone\n\nMedium-Size Humanoid (Aviak)\n8d8 (36 hp)\n\n+7 (+3 Dex, +4 Improved Initiative)\n40 ft.\n\n16 (+3 Dex, +3 natural)\n\nMorningstar +7/+1 melee; or javelin +9/\n+4 ranged\n\nMorningstar Id10+1; javelin 1d6+1\n5 ft. by 5 ft./5 ft.\n\nGlide\n\nFort +2, Ref +11, Will +2\n\nStr 13, Dex 16, Con Il, Int 6, Wis 10, Cha 11\nHide +4, Listen +1, Sneak +7, Spot +7\n\nCombat Reflexes, Improved Initiative,\nLightning Reflexes\n\nAny forest and plains\n\nSolitary, brace, or nest (3-20)\n3\n\nStandard\n\nUsually neutral\n\n7-10 HD (Medium-size)\n\nNone\n\nAvocet\n\nLarge Humanoid (Aviak)\n\n18d8+18 (77 hp)\n\n+7 (+5 Dex, +4 Improved Initiative)\n50 ft.\n\n22 (-I size, +5 Dex, +8 natural)\nLarge morningstar +17/+13/+7 melee,\nor Large javelin +18/+13/+8 ranged\nLarge morningstar 2d6+7;\n\nLarge javelin 1d8+7\n\n5 ft. by 5 Ft./10 ft.\n\nGlide\n\nFort +7, Ref +18, Will +6\n\nStr 24, Dex 20, Con 13, Int 10, Wis 12, Cha 16\n\nHide +2, Listen +4, Sneak +12, Spot +12\n\nMedium-Size Humanoid (Aviak)\n11d8 (50 hp)\n\n+7 (+3 Dex, +4 Improved Initiative)\n40 ft.\n\n17 (+3 Dex, +4 natural)\n\nMorningstar +10/+4 melee; or javelin +I1/\n+6 ranged\n\nMorningstar Id10+2; javelin 1d6+2\n\n5 ft. by 5 Ft./5 ft.\n\nGlide\n\nFort +3, Ref +12, Will +3\n\nStr 14, Dex 17, Con 11, Int 7, Wis 10, Cha 12\nHide +4, Listen +2, Sneak +7, Spot +7\n\nCombat Reflexes, Improved Initiative,\nLightning Reflexes\n\nAny forest and plains\n\nSolitary, brace, or nest (3-20)\n4\n\nStandard\nUsually neutral\n12-13 HD (Medium-size)\n\nNone\n\nCleave, Combat Reflexes, Improved Initiative, §\n\nLightning Reflexes, Power Attack\nAny forest and plains\n\nSolitary\n\n6\n\nStandard\n\nUsually neutral\n\n17-24 HD (Large)\n\nNone\n\nAviaks, a birdlike race of humanoids, can be found throughout\nNorrath. From nests in the crags of the Butcherblock Mountains\nto village roosts on island archipelagoes in the Ocean of Tears to\nentire aviary cities on the plains of Karana, many different species\nof aviaks have carved out their homes.\n\nAsarule, aviaks are not very aggressive toward other creatures.\nThis trait, combined with their limited intelligence, makes them\nsomewhat less than a serious threat to other civilized races. Aviaks\ncan, however, become serious nuisances, if not outright threats, to\noutlying communities. They have little regard for (or perhaps"
+      },
+      "biography": "<h2>Description</h2><p>None</p><p>Medium-Size Humanoid (Aviak) 8d8 (36 hp)</p><p>+7 (+3 Dex, +4 Improved Initiative) 40 ft.</p><p>16 (+3 Dex, +3 natural)</p><p>Morningstar +7/+1 melee; or javelin +9/ +4 ranged</p><p>Morningstar Id10+1; javelin 1d6+1 5 ft. by 5 ft./5 ft.</p><p>Glide</p><p>Fort +2, Ref +11, Will +2</p><p>Str 13, Dex 16, Con Il, Int 6, Wis 10, Cha 11 Hide +4, Listen +1, Sneak +7, Spot +7</p><h2>Combat</h2><p>Reflexes, Improved Initiative, Lightning Reflexes, Power Attack Any forest and plains</p><p>Solitary, brace, or brood (3-5)</p><p>5</p><p>Standard</p><p>Usually neutral</p><p>: 15-17 HD (Large)</p><h2>Description</h2><p>None</p><p>Medium-Size Humanoid (Aviak) 8d8 (36 hp)</p><p>+7 (+3 Dex, +4 Improved Initiative) 40 ft.</p><p>16 (+3 Dex, +3 natural)</p><p>Morningstar +7/+1 melee; or javelin +9/ +4 ranged</p><p>Morningstar Id10+1; javelin 1d6+1 5 ft. by 5 ft./5 ft.</p><p>Glide</p><p>Fort +2, Ref +11, Will +2</p><p>Str 13, Dex 16, Con Il, Int 6, Wis 10, Cha 11 Hide +4, Listen +1, Sneak +7, Spot +7</p><p>Combat Reflexes, Improved Initiative, Lightning Reflexes</p><p>Any forest and plains</p><p>Solitary, brace, or nest (3-20) 3</p><p>Standard</p><p>Usually neutral</p><p>7-10 HD (Medium-size)</p><p>None</p><p>Avocet</p><p>Large Humanoid (Aviak)</p><p>18d8+18 (77 hp)</p><p>+7 (+5 Dex, +4 Improved Initiative) 50 ft.</p><p>22 (-I size, +5 Dex, +8 natural) Large morningstar +17/+13/+7 melee, or Large javelin +18/+13/+8 ranged Large morningstar 2d6+7;</p><p>Large javelin 1d8+7</p><p>5 ft. by 5 Ft./10 ft.</p><p>Glide</p><p>Fort +7, Ref +18, Will +6</p><p>Str 24, Dex 20, Con 13, Int 10, Wis 12, Cha 16</p><p>Hide +2, Listen +4, Sneak +12, Spot +12</p><p>Medium-Size Humanoid (Aviak) 11d8 (50 hp)</p><p>+7 (+3 Dex, +4 Improved Initiative) 40 ft.</p><p>17 (+3 Dex, +4 natural)</p><p>Morningstar +10/+4 melee; or javelin +I1/ +6 ranged</p><p>Morningstar Id10+2; javelin 1d6+2</p><p>5 ft. by 5 Ft./5 ft.</p><p>Glide</p><p>Fort +3, Ref +12, Will +3</p><p>Str 14, Dex 17, Con 11, Int 7, Wis 10, Cha 12 Hide +4, Listen +2, Sneak +7, Spot +7</p><p>Combat Reflexes, Improved Initiative, Lightning Reflexes</p><p>Any forest and plains</p><p>Solitary, brace, or nest (3-20) 4</p><p>Standard Usually neutral 12-13 HD (Medium-size)</p><p>None</p><p>Cleave, Combat Reflexes, Improved Initiative, §</p><p>Lightning Reflexes, Power Attack Any forest and plains</p><p>Solitary</p><p>6</p><p>Standard</p><p>Usually neutral</p><p>17-24 HD (Large)</p><p>None</p><p>Aviaks, a birdlike race of humanoids, can be found throughout Norrath. From nests in the crags of the Butcherblock Mountains to village roosts on island archipelagoes in the Ocean of Tears to entire aviary cities on the plains of Karana, many different species of aviaks have carved out their homes.</p><p>Asarule, aviaks are not very aggressive toward other creatures. This trait, combined with their limited intelligence, makes them somewhat less than a serious threat to other civilized races. Aviaks can, however, become serious nuisances, if not outright threats, to outlying communities. They have little regard for (or perhaps</p>"
+    }
+  },
+  {
+    "name": "Bixie",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 6,
+          "mod": -2
+        },
+        "dex": {
+          "value": 16,
+          "mod": 3
+        },
+        "con": {
+          "value": 10,
+          "mod": 0
+        },
+        "int": {
+          "value": 8,
+          "mod": -1
+        },
+        "wis": {
+          "value": 10,
+          "mod": 0
+        },
+        "cha": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "details": {
+        "cr": 1,
+        "size": "",
+        "type": "",
+        "subtypes": "",
+        "faction": "Stone Hive Bixies",
+        "alignment": "Usually neutral",
+        "speed": 20
+      },
+      "resources": {
+        "hp": {
+          "value": 3,
+          "max": 3,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 15
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 0
+          },
+          "reflex": {
+            "value": 5
+          },
+          "will": {
+            "value": 2
+          }
+        },
+        "initiative": {
+          "value": 3
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "Id6 (3 hp)",
+        "speed": "20 ft., fly 60 ft. (good)",
+        "ac": "15 (+2 size, +3 Dex)",
+        "attacks": "Sting +5 melee",
+        "damage": "",
+        "faceReach": "",
+        "specialAttacks": "Sting Id2-2 and poison 2 1/2 Ft. by 2 1/2 Ft./0 ft. Poison, flyby attack SR 12 SR 14",
+        "specialQualities": "",
+        "saves": "Fort +0, Ref +5, Will +2",
+        "abilities": "Str 6, Dex 16, Con 10, Int 8, Wis 10, Cha 10",
+        "skills": "An aviak's light, birdlike step confers a +2 racial bonus to Sneak, and its hawk like eyes confer a +4 racial bonus to Spot. Aviak Characters Aviaks' favored class is rogue. Queen Tiny Fey (Bixie) 5d6+5 (22 hp) +3 (Dex) 20 ft., fly 60 ft. (good) 17 (+2 size, +3 Dex, +2 natural) Sting +7 melee; or Tiny dart +7 ranged Sting Id2 and poison; Tiny dart 1d2 and poison 2 1/2 Ft. by 2 1/2 Ft./0 Ft. Poison, flyby attack, spells SR 18 Fort +2, Ref +7, Will +6 Str 10, Dex 16, Con 12, Int 12, Wis 14, Cha 14 Animal Empathy +6, Channeling +6, Heal Perform (dance, singing) +2, Pick Pocket +7, Search +2, Sneak +6, Spot +5, Trade Skill (alchemy) +1, Wilderness Lore +2 (nature) +3, Listen +6, Perform (dance) +1, Pick Pocket +8, Profession (herbalist) +2, Search +3, Sneak +8, Spot +7, Trade Skill +6, Hide +11, Knowledge (nature) +7, Listen +4, Meditation +4, Perform (dance, flute) +4, Profession (herbalist) +5, Search (alchemy) +1, Wilderness Lore +3 Weapon Finesse (sting) Temperate forest, plains, and hills, and underground",
+        "feats": "2d6 (7 hp)",
+        "climateTerrain": "Temperate forest, plains, and hills",
+        "organization": "Swarm (5-20)",
+        "treasure": "Standard",
+        "advancement": "2-4 HD (Tiny)",
+        "challengeRating": "1/4 13",
+        "source": "Monsters of Norrath p. 27",
+        "rawText": "Tiny Fey (Bixie)\n\nId6 (3 hp)\n\n+3 (Dex)\n\n20 ft., fly 60 ft. (good)\n15 (+2 size, +3 Dex)\nSting +5 melee\n\nDrone\n\nSting Id2-2 and poison\n\n2 1/2 Ft. by 2 1/2 Ft./0 ft.\nPoison, flyby attack\n\nSR 12 SR 14\nFort +0, Ref +5, Will +2\n\nStr 6, Dex 16, Con 10, Int 8, Wis 10, Cha 10\n\nTiny Fey (Bixie)\n\n2d6 (7 hp)\n\n+4 (Dex)\n\n20 ft., fly 80 Ft. (good)\n\n17 (+2 size, +4 Dex, +1 natural)\n\nSting +7 melee; or Tiny dart +7 ranged\nSting 1d2-2 and poison; Tiny dart Id2-2\nand poison\n\n2 1/2 Ft. by 2 1/2 Ft./0 Ft.\n\nPoison, flyby attack\n\nFort +0, Ref +7, Will +3\nStr 7, Dex 18, Con 10, Int 7, Wis 10, Cha 10\nAppraise +2, Heal +2, Hide +12, Listen +5, Appraise +2, Heal +2, Hide +14, Knowledge\n\nCombat\n\nAviaks are not known for brilliant tactics. They generally do\nnot go for reinforcements when they perhaps ought to; they are\nunlikely to stage ambushes or focus attacks on particularly dangerous opponents; and they rarely use teamwork options.\n\nGlide (Ex): Aviaks are essentially flightless; however, they can\nuse their vestigial wings to glide. Aviaks take no damage from\nfalling and may glide horizontally up to 3 feet for every 1 foot of\ndescent in elevation, at a base speed of 60 feet and with poor\nmaneuverability (assuming they are at least 20 feet in the air at the\nstart of their move action).\n\nSkills: An aviak's light, birdlike step confers a +2 racial bonus\nto Sneak, and its hawk like eyes confer a +4 racial bonus to Spot.\n\nAviak Characters\n\nAviaks' favored class is rogue.\n\nQueen\n\nTiny Fey (Bixie)\n\n5d6+5 (22 hp)\n\n+3 (Dex)\n\n20 ft., fly 60 ft. (good)\n\n17 (+2 size, +3 Dex, +2 natural)\n\nSting +7 melee; or Tiny dart +7 ranged\nSting Id2 and poison; Tiny dart 1d2\nand poison\n\n2 1/2 Ft. by 2 1/2 Ft./0 Ft.\n\nPoison, flyby attack, spells\nSR 18\n\nFort +2, Ref +7, Will +6\nStr 10, Dex 16, Con 12, Int 12, Wis 14, Cha 14\n\nAnimal Empathy +6, Channeling +6, Heal\n\nPerform (dance, singing) +2, Pick Pocket\n+7, Search +2, Sneak +6, Spot +5, Trade\nSkill (alchemy) +1, Wilderness Lore +2\n\n(nature) +3, Listen +6, Perform (dance) +1,\nPick Pocket +8, Profession (herbalist) +2,\nSearch +3, Sneak +8, Spot +7, Trade Skill\n\n+6, Hide +11, Knowledge (nature) +7, Listen +4, Meditation +4, Perform (dance,\nflute) +4, Profession (herbalist) +5, Search\n\n(alchemy) +1, Wilderness Lore +3\n\nWeapon Finesse (sting)\n\nTemperate forest, plains, and hills,\nand underground\n\nOrganization: Swarm (5-20)\n\nChallenge Rating: 1/4 13\n\nTreasure: Standard\n\nAlignment: Usually neutral\nAdvancement Range: 2-4 HD (Tiny)\nFaction: Stone Hive Bixies\n\nDescription\n\nBixies swarm together in stone towers in the Misty Thicket, the\nNektulos Forest, the East Commonlands, the Kithicor Forest, and\nother wooded areas throughout Norrath. They usually mind their\nown business unless disturbed and will sometimes help a respectful\ntraveler. These tiny fey have plump bodies striped with yellow and\nblack, like bumble bees. Their wings also resemble those of bees.\nAlthough they are not evil, bixies dislike intrusion onto their\nterritory and are very quick to anger. Some bixies attack travelers\nout of spite and attempt to shoo them away from their hive, while\nothers attack merely to make trouble, and still others attack in an\nattempt to steal shiny baubles from travelers.\n\nWeapon Finesse (sting)\n\nTemperate forest, plains, and hills,\nand underground\n\nSwarm (5-20)\n\nStandard\nUsually neutral\n3-4 HD (Tiny); 5-8 HD (Small)\n\nStone Hive Bixies\n\n+5, Spellcraft +4, Spot +7, Trade Skill (alchemy) +7, Wilderness Lore +6\n\nMental Clarity, Quicken Spell, Weapon Finesse (sting)\n\nTemperate forest, plains, and hills,\nand underground\n\nSolitary, or accompanied by a swarm of\nworkers and/or drones (5-20)\n\n3\n\nDouble standard\n\nUsually neutral good\n\n6-7 HD (Tiny); 8-10 HD (Small)\n\nStone Hive Bixies\n\nCombat\n\nAll bixies may attack with their stingers, although the queen\nwill also use spells. They rarely travel alone, and, if a swarm is\nattacked, one returns to the hive to get reinforcements (an\n\nadditional swarm of 5-20 drones). These reserves arrive in 1d10\nminutes.\n\nFlyby Attack (Ex): All bixies may attack while flying as if they\nhad the Flyby Attack feat.\n\nSkills: Bixies have sharp senses, conferring a +2 racial bonus to\nListen, Search, and Spot."
+      },
+      "biography": "<h2>Description</h2><p>Bixies swarm together in stone towers in the Misty Thicket, the Nektulos Forest, the East Commonlands, the Kithicor Forest, and other wooded areas throughout Norrath. They usually mind their own business unless disturbed and will sometimes help a respectful traveler. These tiny fey have plump bodies striped with yellow and black, like bumble bees. Their wings also resemble those of bees. Although they are not evil, bixies dislike intrusion onto their territory and are very quick to anger. Some bixies attack travelers out of spite and attempt to shoo them away from their hive, while others attack merely to make trouble, and still others attack in an attempt to steal shiny baubles from travelers.</p><p>Weapon Finesse (sting)</p><p>Temperate forest, plains, and hills, and underground</p><p>Swarm (5-20)</p><p>Standard Usually neutral 3-4 HD (Tiny); 5-8 HD (Small)</p><p>Stone Hive Bixies</p><p>+5, Spellcraft +4, Spot +7, Trade Skill (alchemy) +7, Wilderness Lore +6</p><p>Mental Clarity, Quicken Spell, Weapon Finesse (sting)</p><p>Temperate forest, plains, and hills, and underground</p><p>Solitary, or accompanied by a swarm of workers and/or drones (5-20)</p><p>3</p><p>Double standard</p><p>Usually neutral good</p><p>6-7 HD (Tiny); 8-10 HD (Small)</p><p>Stone Hive Bixies</p><h2>Combat</h2><p>Aviaks are not known for brilliant tactics. They generally do not go for reinforcements when they perhaps ought to; they are unlikely to stage ambushes or focus attacks on particularly dangerous opponents; and they rarely use teamwork options.</p><p>Glide (Ex): Aviaks are essentially flightless; however, they can use their vestigial wings to glide. Aviaks take no damage from falling and may glide horizontally up to 3 feet for every 1 foot of descent in elevation, at a base speed of 60 feet and with poor maneuverability (assuming they are at least 20 feet in the air at the start of their move action).</p><p>Skills: An aviak&#x27;s light, birdlike step confers a +2 racial bonus to Sneak, and its hawk like eyes confer a +4 racial bonus to Spot.</p><p>Aviak Characters</p><p>Aviaks&#x27; favored class is rogue.</p><p>Queen</p><p>Tiny Fey (Bixie)</p><p>5d6+5 (22 hp)</p><p>+3 (Dex)</p><p>20 ft., fly 60 ft. (good)</p><p>17 (+2 size, +3 Dex, +2 natural)</p><p>Sting +7 melee; or Tiny dart +7 ranged Sting Id2 and poison; Tiny dart 1d2 and poison</p><p>2 1/2 Ft. by 2 1/2 Ft./0 Ft.</p><p>Poison, flyby attack, spells SR 18</p><p>Fort +2, Ref +7, Will +6 Str 10, Dex 16, Con 12, Int 12, Wis 14, Cha 14</p><p>Animal Empathy +6, Channeling +6, Heal</p><p>Perform (dance, singing) +2, Pick Pocket +7, Search +2, Sneak +6, Spot +5, Trade Skill (alchemy) +1, Wilderness Lore +2</p><p>(nature) +3, Listen +6, Perform (dance) +1, Pick Pocket +8, Profession (herbalist) +2, Search +3, Sneak +8, Spot +7, Trade Skill</p><p>+6, Hide +11, Knowledge (nature) +7, Listen +4, Meditation +4, Perform (dance, flute) +4, Profession (herbalist) +5, Search</p><p>(alchemy) +1, Wilderness Lore +3</p><p>Weapon Finesse (sting)</p><p>Temperate forest, plains, and hills, and underground</p><p>Organization: Swarm (5-20)</p><p>Challenge Rating: 1/4 13</p><p>Treasure: Standard</p><p>Alignment: Usually neutral Advancement Range: 2-4 HD (Tiny) Faction: Stone Hive Bixies</p><h2>Description</h2><p>Bixies swarm together in stone towers in the Misty Thicket, the Nektulos Forest, the East Commonlands, the Kithicor Forest, and other wooded areas throughout Norrath. They usually mind their own business unless disturbed and will sometimes help a respectful traveler. These tiny fey have plump bodies striped with yellow and black, like bumble bees. Their wings also resemble those of bees. Although they are not evil, bixies dislike intrusion onto their territory and are very quick to anger. Some bixies attack travelers out of spite and attempt to shoo them away from their hive, while others attack merely to make trouble, and still others attack in an attempt to steal shiny baubles from travelers.</p><p>Weapon Finesse (sting)</p><p>Temperate forest, plains, and hills, and underground</p><p>Swarm (5-20)</p><p>Standard Usually neutral 3-4 HD (Tiny); 5-8 HD (Small)</p><p>Stone Hive Bixies</p><p>+5, Spellcraft +4, Spot +7, Trade Skill (alchemy) +7, Wilderness Lore +6</p><p>Mental Clarity, Quicken Spell, Weapon Finesse (sting)</p><p>Temperate forest, plains, and hills, and underground</p><p>Solitary, or accompanied by a swarm of workers and/or drones (5-20)</p><p>3</p><p>Double standard</p><p>Usually neutral good</p><p>6-7 HD (Tiny); 8-10 HD (Small)</p><p>Stone Hive Bixies</p><h2>Combat</h2><p>All bixies may attack with their stingers, although the queen will also use spells. They rarely travel alone, and, if a swarm is attacked, one returns to the hive to get reinforcements (an</p><p>additional swarm of 5-20 drones). These reserves arrive in 1d10 minutes.</p><p>Flyby Attack (Ex): All bixies may attack while flying as if they had the Flyby Attack feat.</p><p>Skills: Bixies have sharp senses, conferring a +2 racial bonus to Listen, Search, and Spot.</p>"
+    }
+  },
+  {
+    "name": "Blood Sapper",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 8,
+          "mod": -1
+        },
+        "dex": {
+          "value": 17,
+          "mod": 3
+        },
+        "con": {
+          "value": 12,
+          "mod": 1
+        },
+        "int": {
+          "value": 2,
+          "mod": -4
+        },
+        "wis": {
+          "value": 14,
+          "mod": 2
+        },
+        "cha": {
+          "value": 6,
+          "mod": -2
+        }
+      },
+      "details": {
+        "cr": 0,
+        "size": "Small",
+        "type": "Beast",
+        "subtypes": "",
+        "faction": "None",
+        "alignment": "Always neutral",
+        "speed": 30
+      },
+      "resources": {
+        "hp": {
+          "value": 13,
+          "max": 13,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 16
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 4
+          },
+          "reflex": {
+            "value": 6
+          },
+          "will": {
+            "value": 2
+          }
+        },
+        "initiative": {
+          "value": 3
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "2d10+2 (13 hp)",
+        "speed": "30 ft.",
+        "ac": "16 (+1 size, +3 Dex, +2 natural)",
+        "attacks": "Bite +1 melee",
+        "damage": "Bite Id6-1",
+        "faceReach": "5 ft. by 5 ft./5 ft. Special",
+        "specialAttacks": "",
+        "specialQualities": "Scent",
+        "saves": "Fort +4, Ref +6, Will +2",
+        "abilities": "Str 8, Dex 17, Con 12, Int 2, Wis 14, Cha 6",
+        "skills": "Hide +7*, Listen +3, Sneak +6, Spot +3",
+        "feats": "",
+        "climateTerrain": "Underground",
+        "organization": "Solitary or pack (2-5)",
+        "treasure": "1/10 coins, standard goods (gems and keys only), no items",
+        "advancement": "3-4 HD (Small); 5-6 HD (Medium-size)",
+        "challengeRating": "I",
+        "source": "Monsters of Norrath p. 28",
+        "rawText": "Blood Sapper\n\nSmall Beast\n\nHit Dice: 2d10+2 (13 hp)\n\nInitiative: +3 (Dex)\n\nSpeed: 30 ft.\n\nAC: 16 (+1 size, +3 Dex, +2 natural)\n\nAttacks: Bite +1 melee\n\nDamage: Bite Id6-1\n\nFace/Reach: 5 ft. by 5 ft./5 ft.\n\nSpecial Attacks: Attach, blood sap\n\nSpecial Qualities: Scent\n\nSaves: Fort +4, Ref +6, Will +2\n\nAbilities: Str 8, Dex 17, Con 12, Int 2, Wis 14, Cha 6\n\nSkills: Hide +7*, Listen +3, Sneak +6, Spot +3\n\nClimate/Terrain: Underground\n\nOrganization: Solitary or pack (2-5)\n\nChallenge Rating: I\n\nTreasure: 1/10 coins, standard goods (gems and keys only), no\nitems\n\nAlignment: Always neutral\n\nAdvancement Range: 3-4 HD (Small); 5-6 HD (Medium-size)\nFaction: None\n\nDescription\n\nFound mainly in dungeons on Antonica, blood sappers are both\nscavengers and predators. These 3-foot long, dingy-hued, rat-like\ncreatures tend to lair near undead and have a taste for rotted flesh\nas well as living. They live on a steady diet of normal rats, lizards,\nand dead matter, whether still shambling or simply still. They\nseem to hate other rats, attacking giant rats and plague rats on\nsight. Blood sappers often appear to become tainted by their\nassociation with undead - their eyes tend to glow with an\nunearthly green luminescence.\n\nAlone, blood sappers generally only attack creatures smaller\nthan themselves. They have shown themselves willing, however,\nto take on similarly sized creatures such as halflings or a larger lone\nadventurer who is weakened by more dangerous opponents. In\npacks, goaded by hunger, they are more aggressive. Though still\nunlikely to tackle a group of healthy adventurers, they will go after\na wounded party or one covered in gore from a recent kill. After\na group of potential meals enters the dungeon, the blood sappers\nfollow at a safe distance, like rodent jackals, waiting for the\nexplorers to kill or be killed by another large creature.\n\nDespite occasional meals of opportunity or desperation, blood\nsappers are mostly docile if ignored, preferring easy prey. If\nattacked or cornered, however, they lash out with bursts of speed\nand ferocity. A single blood sapper can severely wound a healthy\ntarget by locking onto it and draining its blood. A pack of them\ncan kill a target this way in a matter of seconds.\n\nBlood sappers generally have dozens of burrows throughout\ntheir dungeon homes. A\nburrow is"
+      },
+      "biography": "<h2>Description</h2><p>Found mainly in dungeons on Antonica, blood sappers are both scavengers and predators. These 3-foot long, dingy-hued, rat-like creatures tend to lair near undead and have a taste for rotted flesh as well as living. They live on a steady diet of normal rats, lizards, and dead matter, whether still shambling or simply still. They seem to hate other rats, attacking giant rats and plague rats on sight. Blood sappers often appear to become tainted by their association with undead - their eyes tend to glow with an unearthly green luminescence.</p><p>Alone, blood sappers generally only attack creatures smaller than themselves. They have shown themselves willing, however, to take on similarly sized creatures such as halflings or a larger lone adventurer who is weakened by more dangerous opponents. In packs, goaded by hunger, they are more aggressive. Though still unlikely to tackle a group of healthy adventurers, they will go after a wounded party or one covered in gore from a recent kill. After a group of potential meals enters the dungeon, the blood sappers follow at a safe distance, like rodent jackals, waiting for the explorers to kill or be killed by another large creature.</p><p>Despite occasional meals of opportunity or desperation, blood sappers are mostly docile if ignored, preferring easy prey. If attacked or cornered, however, they lash out with bursts of speed and ferocity. A single blood sapper can severely wound a healthy target by locking onto it and draining its blood. A pack of them can kill a target this way in a matter of seconds.</p><p>Blood sappers generally have dozens of burrows throughout their dungeon homes. A burrow is</p>"
+    }
+  },
+  {
+    "name": "Boogeyman",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 10,
+          "mod": 0
+        },
+        "dex": {
+          "value": 10,
+          "mod": 0
+        },
+        "con": {
+          "value": 10,
+          "mod": 0
+        },
+        "int": {
+          "value": 10,
+          "mod": 0
+        },
+        "wis": {
+          "value": 10,
+          "mod": 0
+        },
+        "cha": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "details": {
+        "cr": 0,
+        "size": "",
+        "type": "",
+        "subtypes": "",
+        "faction": "",
+        "alignment": "",
+        "speed": 0
+      },
+      "resources": {
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 10
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 0
+          },
+          "reflex": {
+            "value": 0
+          },
+          "will": {
+            "value": 0
+          }
+        },
+        "initiative": {
+          "value": 0
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "",
+        "speed": "",
+        "ac": "",
+        "attacks": "",
+        "damage": "",
+        "faceReach": "",
+        "specialAttacks": "",
+        "specialQualities": "",
+        "saves": "",
+        "abilities": "",
+        "skills": "",
+        "feats": "",
+        "climateTerrain": "",
+        "organization": "",
+        "treasure": "",
+        "advancement": "",
+        "challengeRating": "",
+        "source": "Monsters of Norrath p. 29",
+        "rawText": "Whatever bizarre creature a boogeyman might have been when\nit was alive is a mystery. In undeath, it stalks the Plane of Fear,\nbringing dread to interlopers there.\n\nBoogeymen literally feed on fear. In the past, they sated this\nhunger by traveling to Norrath and striking fear into the various\ninhabitants there. More recently, as the boundaries between the\nplanes began to weaken, adventurers have started gating to the\nPlane of Fear, allowing boogeymen to feed without leaving home.\n\nThe taste of fear borne of overconfidence is especially fine to\nboogeymen.\n\nThese 12-foot tall horrors have tight, dark skin and luminescent\ngreen eyes. Their heads are flattened and their faces elongated.\nAlthough they can talk, boogeymen rarely do. Their only sound in\ncombat is a raspy breathing and an occasional chuckle when one of\ntheir special abilities affects an opponent. They are quite capable of\nadvanced tactics, but use them only when they think their oppo-\n\nCombat\n\nwarrant the\nthought. The rest\nof the time, they\nsimply appear\nfrom the cloaking\n\nshadows and begin fighting.\n\nA\nboogeyman\nfights with its\nbarefists,slamming opponents\nwith frightfully\npowerful blows.\nItuses its Mobility and Spring\nAttack feats to\nmove around Jim\nin combat so\nthat its\nshadow falls on\ndifferent targets. If a\ncombat turns against it, a .\nboogeyman uses its shadow walk ability to flee.\n\nInsanity (Ex): Ifa boogeyman hits a single opponent at least\ntwice in the same round, that opponent must succeed at a Will\n\nsave (DC 29) or suffer 2d4 points of permanent Wisdom drain.\n\nTerrify (Su): Anyone who walks or falls into a boogeyman's\nshadow must succeed at a Will save (DC 29) or fall catatonic with\nfear for 2d4 rounds. A catatonic victim cannot move or speak and\nis considered helpless. A boogeyman's shadow generally covers a\n10-foot long by 5-foot wide area ina given direction, although any\nbright light that reaches the boogeyman (such as the bright flare\nof a fire spell) will likely cast a shadow, even if only momentarily,\non its opposite side, of a length equal to 5 feet multiplied by the\ndistance of the light source's center-point from the boogeyman.\n\nResistances (Ex): Boogeymen have bonuses of cold and magic\nresistance (20).\n\nRegeneration (Ex): Ifa boogeyman loses a limb or body part, the lost\nportion grows back in 1 minute. It can also reattach the severed member\ninstantly by holding it to the stump. A boogeyman takes normal damage\nfrom fire and acid and from divine spells cast by a good-aligned cleric.\n\nOversight (Su): While on the Plane of Fear, a boogeyman can\n\"see\" everything within 50 miles as if it had blindsight to that\nrange. Further, it can coordinate this supernatural vision with its\nnatural eyesight without incurring penalties or may use it instead\nof its own sight if blinded.\n\nShadow Walk (Su): A boogeyman can step into any shadow\nand teleport instantly to any other shadow within a 50-mile\nradius. It may use this ability twice per day to translocate through\nshadows between the Plane of Fear and Norrath.\n\nSummon Minions (Su): While on the Plane of Fear, once per\nday a boogeyman can summon any other denizen of that plane\nwith fewer Hit Dice than itself within a 50-mile radius. Summoned creatures may appear anywhere within 20 feet of the\nboogeyman, as the boogeyman chooses.\n\nUndead: Immune to poison, sleep, paralysis, stunning, death\nmagic, and disease. Not subject to critical hits, subdual damage,\nability damage, energy drain, or death from massive damage.\nImmune to any effect that calls for a Fortitude save to resist unless\nthe effect specifically targets objects. Not subject to attacks or\nspells of a mind-affecting nature."
+      },
+      "biography": "<h2>Combat</h2><p>is a raspy breathing and an occasional chuckle when one of their special abilities affects an opponent. They are quite capable of advanced tactics, but use them only when they think their oppo-</p><h2>Combat</h2><p>warrant the thought. The rest of the time, they simply appear from the cloaking</p><p>shadows and begin fighting.</p><p>A boogeyman fights with its barefists,slamming opponents with frightfully powerful blows. Ituses its Mobility and Spring Attack feats to move around Jim in combat so that its shadow falls on different targets. If a combat turns against it, a . boogeyman uses its shadow walk ability to flee.</p><p>Insanity (Ex): Ifa boogeyman hits a single opponent at least twice in the same round, that opponent must succeed at a Will</p><p>save (DC 29) or suffer 2d4 points of permanent Wisdom drain.</p><p>Terrify (Su): Anyone who walks or falls into a boogeyman&#x27;s shadow must succeed at a Will save (DC 29) or fall catatonic with fear for 2d4 rounds. A catatonic victim cannot move or speak and is considered helpless. A boogeyman&#x27;s shadow generally covers a 10-foot long by 5-foot wide area ina given direction, although any bright light that reaches the boogeyman (such as the bright flare of a fire spell) will likely cast a shadow, even if only momentarily, on its opposite side, of a length equal to 5 feet multiplied by the distance of the light source&#x27;s center-point from the boogeyman.</p><p>Resistances (Ex): Boogeymen have bonuses of cold and magic resistance (20).</p><p>Regeneration (Ex): Ifa boogeyman loses a limb or body part, the lost portion grows back in 1 minute. It can also reattach the severed member instantly by holding it to the stump. A boogeyman takes normal damage from fire and acid and from divine spells cast by a good-aligned cleric.</p><p>Oversight (Su): While on the Plane of Fear, a boogeyman can &quot;see&quot; everything within 50 miles as if it had blindsight to that range. Further, it can coordinate this supernatural vision with its natural eyesight without incurring penalties or may use it instead of its own sight if blinded.</p><p>Shadow Walk (Su): A boogeyman can step into any shadow and teleport instantly to any other shadow within a 50-mile radius. It may use this ability twice per day to translocate through shadows between the Plane of Fear and Norrath.</p><p>Summon Minions (Su): While on the Plane of Fear, once per day a boogeyman can summon any other denizen of that plane with fewer Hit Dice than itself within a 50-mile radius. Summoned creatures may appear anywhere within 20 feet of the boogeyman, as the boogeyman chooses.</p><p>Undead: Immune to poison, sleep, paralysis, stunning, death magic, and disease. Not subject to critical hits, subdual damage, ability damage, energy drain, or death from massive damage. Immune to any effect that calls for a Fortitude save to resist unless the effect specifically targets objects. Not subject to attacks or spells of a mind-affecting nature.</p>"
+    }
+  },
+  {
+    "name": "Brontotherium",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 35,
+          "mod": 12
+        },
+        "dex": {
+          "value": 7,
+          "mod": -2
+        },
+        "con": {
+          "value": 30,
+          "mod": 10
+        },
+        "int": {
+          "value": 2,
+          "mod": -4
+        },
+        "wis": {
+          "value": 12,
+          "mod": 1
+        },
+        "cha": {
+          "value": 3,
+          "mod": -4
+        }
+      },
+      "details": {
+        "cr": 21,
+        "size": "",
+        "type": "",
+        "subtypes": "",
+        "faction": "None : -y . . . ' |",
+        "alignment": "Always neutral white background of Velious, conferring a +12 racial bonus to iS ‘J",
+        "speed": 30
+      },
+      "resources": {
+        "hp": {
+          "value": 465,
+          "max": 465,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 36
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 27
+          },
+          "reflex": {
+            "value": 15
+          },
+          "will": {
+            "value": 11
+          }
+        },
+        "initiative": {
+          "value": 2
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "30d10+300 (465 hp) attempt fails, the opponent cannot react to trip the brontotherium. ),",
+        "speed": "30 ft. well as any applicable size modifiers (see \"Trip\" in the EverQuest: ‘>",
+        "ac": "36 (-2 size, -2 Dex, +30 natural) Player's Handbook, page 378). la",
+        "attacks": "Gore +32 melee Trample (Ex): Asa standard action during its turn each round, ~~",
+        "damage": "Gore 3d12+18 the brontotherium can literally run over a Large or smaller ae 10 Ft. by 20 Ft,/10 Ft opponent. This attack requires no attack roll and deals 2d12+15 ' ; ° points of bludgeoning damage. Trampled opponents can either - Special",
+        "faceReach": "",
+        "specialAttacks": "",
+        "specialQualities": "Damage reduction 10/- , cold resistance (50), fast a Reflex save (DC 35) for half damage. ~ healing 10, unstoppable movement Unstoppable Movement (Ex): The brontotherium brings such . <",
+        "saves": "Fort +27, Ref +15, Will +11 force to bear that it is hard to keep the beast in one place; it easily Tc",
+        "abilities": "Str 35, Dex 7, Con 30, Int 2, Wis 12, Cha 3 breaks snare and root effects by simply moving through the ex -",
+        "skills": "Hide +0*, Listen +13, Spot +7 entangling plants or earth. The brontotherium gains a +10 bonus Ase >) Secanittiirels pare on all saving throws to resist effects that would hamper or halt its > sone pests ny se movement. » :",
+        "feats": "",
+        "climateTerrain": "",
+        "organization": "Solitary or pair",
+        "treasure": "None hide of the brontotherium makes it hard to see against the snowy- ~-% xs",
+        "advancement": "31~50'HDi(?hige) Hide in such surroundings. STP \"4",
+        "challengeRating": "21 racial bonus to Listen and a +4 racial bonus to Spot. *The white - = 5) a",
+        "source": "Monsters of Norrath p. 30",
+        "rawText": "Toss (Ex): A brontotherium that hits with its gore attack can\nattempt to trip the opponent as a free action without making a\n\ntouch attack or provoking an attack of opportunity. If the trip\n) Hit Dice: 30d10+300 (465 hp) attempt fails, the opponent cannot react to trip the brontotherium.\n), Initiative: _2 (Dex) Further, the brontotherium gains a +8 bonus on all Strength\n\n: . checks for the purpose of trip attacks due to its great stability, as\nas Speed: 30 ft. well as any applicable size modifiers (see \"Trip\" in the EverQuest:\n‘> AC: 36 (-2 size, -2 Dex, +30 natural) Player's Handbook, page 378).\nla Attacks: Gore +32 melee Trample (Ex): Asa standard action during its turn each round,\n~~ Damage: Gore 3d12+18 the brontotherium can literally run over a Large or smaller\n\nae 10 Ft. by 20 Ft,/10 Ft opponent. This attack requires no attack roll and deals 2d12+15\n\n' ; ° points of bludgeoning damage. Trampled opponents can either\n- Special Attacks: Skewer, toss, trample attempt attacks of opportunity at a -4 penalty to attack or make\nmad Special Qualities: Damage reduction 10/- , cold resistance (50), fast a Reflex save (DC 35) for half damage.\n~ healing 10, unstoppable movement Unstoppable Movement (Ex): The brontotherium brings such .\n< Saves: Fort +27, Ref +15, Will +11 force to bear that it is hard to keep the beast in one place; it easily Tc\nAbilities: Str 35, Dex 7, Con 30, Int 2, Wis 12, Cha 3 breaks snare and root effects by simply moving through the ex\n- Skills: Hide +0*, Listen +13, Spot +7 entangling plants or earth. The brontotherium gains a +10 bonus Ase\n>) Secanittiirels pare on all saving throws to resist effects that would hamper or halt its >\n\nsone pests ny se movement. »\n\n: Organization: Solitary or pair Skills: The brontotherium is always alert, conferring a +8 : '\n+ Challenge Rating: 21 racial bonus to Listen and a +4 racial bonus to Spot. *The white - = 5)\na Treasure: None hide of the brontotherium makes it hard to see against the snowy- ~-%\nxs Alignment: Always neutral white background of Velious, conferring a +12 racial bonus to iS\n‘J Advancement Range: 31~50'HDi(?hige) Hide in such surroundings. STP\n\"4 Faction: None : -y\n\n. . . '\n| Description =\noJ Long since vanished from other parts of Norrath, teu\n\n~~ brontotheriums live in the far off Western Wastes of icy Velious, 7. .\n+e protected behind the stronghold of the dragons of the Claws of pox\nVeeshan. : |\n\n' The brontotherium is a large quadruped animal reminis- ; '\ncS cent of a rhinoceros, with two curved horns rising from its ye\nra snout, almost like a fork. Heavy hide, thicker and tougher oi\n=] than any armor, covers and protects the brontotherium oe\n‘ from the harsh climate and from predators. It stands on es4\n\nfour powerful, short, stout legs that provide it with Var\ntd great stability and surprisingly quick movement. Sh\n> As herbivores, brontotheriums actually live off the --\n\nmeager vegetation that grows under the snow and ice :\n\n' or at the edges of the waters of the Western Wastes. , '\n+ What few trees and shrubs grow in these lands also re\nm4 provide occasional meals. f-\n\n~) The brontotherium's double horn, developed for t ~]\n\n‘ digging through many feet of ice, is also a fearsome .\n\nweapon when used to defend itself or its young. Male .\n3) brontotheriums will sometimes fight over territory, but 3)\n3 never to the death. Gs\n4 Velium hounds have been known to gather in packs ifs\n+> and try to bring downa weak or young brontotherium, la ;\n7 though even then they are rarely successful. y >\n™- Combat ae\n\nThe brontotherium is not normally aggressive;\n\nbrontotherium's critical threat range with its gore attack is\n\n7 however, if a brontotherium is riled or angered, it A)\n\n\"4 will defend itself viciously, using its sharp horns to 4\n\noS cause massive damage to its assailants. es\n\n- In combat, the brontotherium simply attacks its foes rN}\n\n~~ with its horns, running them over if the opportunity presents -\nitself. Ifa brontotherium's foe lies still, it will generally leave them :\n\n' be, as it has little desire for the flesh of other creatures. If the '\n* brontotherium finds itself badly wounded, it will try to escape ¥ = sy\n4 from an encounter. f=X\n=~ Skewer (Ex): The horns of the brontotherium, backed a\n\"<4 by its massive force, make a truly deadly weapon. The ae\n\n_\n\n17-20, and its critical damage multiplier is x3."
+      },
+      "biography": "<p>Toss (Ex): A brontotherium that hits with its gore attack can attempt to trip the opponent as a free action without making a touch attack or provoking an attack of opportunity. If the trip ) Hit Dice: 30d10+300 (465 hp) attempt fails, the opponent cannot react to trip the brontotherium. ), Initiative: _2 (Dex) Further, the brontotherium gains a +8 bonus on all Strength : . checks for the purpose of trip attacks due to its great stability, as as Speed: 30 ft. well as any applicable size modifiers (see &quot;Trip&quot; in the EverQuest: ‘&gt; AC: 36 (-2 size, -2 Dex, +30 natural) Player&#x27;s Handbook, page 378). la Attacks: Gore +32 melee Trample (Ex): Asa standard action during its turn each round, ~~ Damage: Gore 3d12+18 the brontotherium can literally run over a Large or smaller ae 10 Ft. by 20 Ft,/10 Ft opponent. This attack requires no attack roll and deals 2d12+15 &#x27; ; ° points of bludgeoning damage. Trampled opponents can either - Special Attacks: Skewer, toss, trample attempt attacks of opportunity at a -4 penalty to attack or make mad Special Qualities: Damage reduction 10/- , cold resistance (50), fast a Reflex save (DC 35) for half damage. ~ healing 10, unstoppable movement Unstoppable Movement (Ex): The brontotherium brings such . &lt; Saves: Fort +27, Ref +15, Will +11 force to bear that it is hard to keep the beast in one place; it easily Tc Abilities: Str 35, Dex 7, Con 30, Int 2, Wis 12, Cha 3 breaks snare and root effects by simply moving through the ex - Skills: Hide +0*, Listen +13, Spot +7 entangling plants or earth. The brontotherium gains a +10 bonus Ase &gt;) Secanittiirels pare on all saving throws to resist effects that would hamper or halt its &gt; sone pests ny se movement. » : Organization: Solitary or pair Skills: The brontotherium is always alert, conferring a +8 : &#x27; + Challenge Rating: 21 racial bonus to Listen and a +4 racial bonus to Spot. *The white - = 5) a Treasure: None hide of the brontotherium makes it hard to see against the snowy- ~-% xs Alignment: Always neutral white background of Velious, conferring a +12 racial bonus to iS ‘J Advancement Range: 31~50&#x27;HDi(?hige) Hide in such surroundings. STP &quot;4 Faction: None : -y . . . &#x27; | Description = oJ Long since vanished from other parts of Norrath, teu ~~ brontotheriums live in the far off Western Wastes of icy Velious, 7. . +e protected behind the stronghold of the dragons of the Claws of pox Veeshan. : | &#x27; The brontotherium is a large quadruped animal reminis- ; &#x27; cS cent of a rhinoceros, with two curved horns rising from its ye ra snout, almost like a fork. Heavy hide, thicker and tougher oi =] than any armor, covers and protects the brontotherium oe ‘ from the harsh climate and from predators. It stands on es4 four powerful, short, stout legs that provide it with Var td great stability and surprisingly quick movement. Sh &gt; As herbivores, brontotheriums actually live off the -- meager vegetation that grows under the snow and ice : &#x27; or at the edges of the waters of the Western Wastes. , &#x27; + What few trees and shrubs grow in these lands also re m4 provide occasional meals. f- ~) The brontotherium&#x27;s double horn, developed for t ~] ‘ digging through many feet of ice, is also a fearsome . weapon when used to defend itself or its young. Male . 3) brontotheriums will sometimes fight over territory, but 3) 3 never to the death. Gs 4 Velium hounds have been known to gather in packs ifs +&gt; and try to bring downa weak or young brontotherium, la ; 7 though even then they are rarely successful. y &gt; ™- Combat ae The brontotherium is not normally aggressive; brontotherium&#x27;s critical threat range with its gore attack is 7 however, if a brontotherium is riled or angered, it A) &quot;4 will defend itself viciously, using its sharp horns to 4 oS cause massive damage to its assailants. es - In combat, the brontotherium simply attacks its foes rN} ~~ with its horns, running them over if the opportunity presents - itself. Ifa brontotherium&#x27;s foe lies still, it will generally leave them : &#x27; be, as it has little desire for the flesh of other creatures. If the &#x27; * brontotherium finds itself badly wounded, it will try to escape ¥ = sy 4 from an encounter. f=X =~ Skewer (Ex): The horns of the brontotherium, backed a &quot;&lt;4 by its massive force, make a truly deadly weapon. The ae _ 17-20, and its critical damage multiplier is x3.</p>"
+    }
+  },
+  {
+    "name": "Brownie",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 8,
+          "mod": -1
+        },
+        "dex": {
+          "value": 14,
+          "mod": 2
+        },
+        "con": {
+          "value": 10,
+          "mod": 0
+        },
+        "int": {
+          "value": 12,
+          "mod": 1
+        },
+        "wis": {
+          "value": 14,
+          "mod": 2
+        },
+        "cha": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "details": {
+        "cr": 3,
+        "size": "Tiny",
+        "type": "Fey",
+        "subtypes": "Brownie) Tiny Fey (Brownie",
+        "faction": "Brownie Brownie",
+        "alignment": "Usually discordant neutral Usually discordant neutral",
+        "speed": 20
+      },
+      "resources": {
+        "hp": {
+          "value": 10,
+          "max": 10,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 14
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 1
+          },
+          "reflex": {
+            "value": 7
+          },
+          "will": {
+            "value": 5
+          }
+        },
+        "initiative": {
+          "value": 2
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "3d6 (10 hp) 8d6+16 (44 hp)",
+        "speed": "20 ft. 20 ft.",
+        "ac": "14 (+2 size, +2 Dex) 15 (+2 size, +3 Dex)",
+        "attacks": "Dagger +2 melee; or Tiny dart +S ranged Tiny kama +7 melee",
+        "damage": "Dagger 1d3-1; Tiny dart 1d2-1 Tiny kama 1d3+1",
+        "faceReach": "5 ft. by 5 Ft./5 ft. 5 ft. by 5 Ft/5 ft. Special",
+        "specialAttacks": "",
+        "specialQualities": "SR 10 SR 15",
+        "saves": "Fort +1, Ref +7, Will +5 Fort +4, Ref +11, Will +11",
+        "abilities": "Str 8, Dex 14, Con 10, Int 12, Wis 14,Chal0 Str 12, Dex 16, Con 14, Int 12, Wis 16, Cha 10",
+        "skills": "Appraise +2, Balance +3, Channeling+6, Balance +5, Channeling +10, Gather InforGather Information +3, Hide +12, mation +4, Hide +12, Knowledge (nature) Knowledge (local lore) +4, Knowledge +5, Listen +5, Meditation +7, Profession (farmer) +7, Sneak +8, Spot +3, Trade Skill (baking) +11, Wilderness Lore +8 (nature) +4, Listen +5, Meditation +5, Sneak +8, Spot +5, Wilderness Lore +8",
+        "feats": "Dodge, Lightning Reflexes Dodge, Iron Will, Lightning Reflexes",
+        "climateTerrain": "Temperate forest, hill, marsh, mountains, Temperate forest, hill, marsh, mountains, or plains or plains",
+        "organization": "Solitary, pair, mission (3-12) Solitary, pair, enclave (3-18)",
+        "treasure": "Standard Standard",
+        "advancement": "4-7 HD (Tiny) 7-15 (Tiny)",
+        "challengeRating": "3 8",
+        "source": "Monsters of Norrath p. 31",
+        "rawText": "Brownie Scout Brownie Farmer\n\nTiny Fey (Brownie) Tiny Fey (Brownie)\n\nHit Dice: 3d6 (10 hp) 8d6+16 (44 hp)\n\nInitiative: +2 (Dex) +3 (Dex)\n\nSpeed: 20 ft. 20 ft.\n\nAC: 14 (+2 size, +2 Dex) 15 (+2 size, +3 Dex)\n\nAttacks: Dagger +2 melee; or Tiny dart +S ranged Tiny kama +7 melee\n\nDamage: Dagger 1d3-1; Tiny dart 1d2-1 Tiny kama 1d3+1\n\nFace/Reach: 5 ft. by 5 Ft./5 ft. 5 ft. by 5 Ft/5 ft.\n\nSpecial Attacks: Spell-Like Abilities Spell-Like Abilities\n\nSpecial Qualities: SR 10 SR 15\n\nSaves: Fort +1, Ref +7, Will +5 Fort +4, Ref +11, Will +11\n\nAbilities: Str 8, Dex 14, Con 10, Int 12, Wis 14,Chal0 Str 12, Dex 16, Con 14, Int 12, Wis 16, Cha 10\n\nSkills: Appraise +2, Balance +3, Channeling+6, Balance +5, Channeling +10, Gather InforGather Information +3, Hide +12, mation +4, Hide +12, Knowledge (nature)\n\nKnowledge (local lore) +4, Knowledge +5, Listen +5, Meditation +7, Profession\n(farmer) +7, Sneak +8, Spot +3, Trade Skill\n\n(baking) +11, Wilderness Lore +8\n\n(nature) +4, Listen +5, Meditation +5,\nSneak +8, Spot +5, Wilderness Lore +8\n\nFeats: Dodge, Lightning Reflexes Dodge, Iron Will, Lightning Reflexes\n\nClimate/Terrain: Temperate forest, hill, marsh, mountains, Temperate forest, hill, marsh, mountains,\nor plains or plains\n\nOrganization: Solitary, pair, mission (3-12) Solitary, pair, enclave (3-18)\n\nChallenge Rating: 3 8\n\nTreasure: Standard Standard\n\nAlignment: Usually discordant neutral Usually discordant neutral\n\nAdvancement Range: 4-7 HD (Tiny) 7-15 (Tiny)\n\nFaction: Brownie Brownie\n\nDescription\n\nBrownies live all over the island continent of Faydwer and are more\nrarely found traveling farand wide from there. Most often, however, they\nare found in the Faydark Forest, where their isolationist communities\nkeep to themselves in the darkest corners of the great woods. While not\nan evil or immoral race asa rule, brownies are so fiercely xenophobic and\nterritorial that they usually attack interlopers on sight.\n\nBrownies are short and lean, typically wearing clothing that\nmatches the underbrush or trees in color. They have tanned and\n\nruddy complexions and dark hair, and commonly wear face paint\nfor decoration.\n\nBrownie Scout\n\nBrownies are a paranoid sort, and they often imagine enemies\nwhere there are none. Young scouts are sent throughout Faydwer\nand beyond to gather information on other races and fey courts -\n\nsince clearly these races have little better to do than to conspire\nagainst the brownies. Scouts do not earn prestige unless they\n\nreturn with proof of such plots, so it is hardly surprising that most\nare able to locate what passes for evidence.\n\nOther brownie scouts set out to collect ingredients or simply to\nsatisfy their youthful wanderlust.\n\nCombat\n\nBrownie scouts leap into battle at the first sign of provocation, ready\nto prove themselves. They are more effective when using their ranged\nweapon froma short distance away and prefer this tactic toclose combat.\n\nSpell-Like Abilities: A typical brownie scout's spell-like abilities (and the mana cost for each) are as follows: camouflage (2),\ngrasping roots (6), panic animal (2), snare (3), and whirling wind (4).\nAs the spells cast by a 3rd-level druid (save DC 12 + spell level)\nwith a pool of 12 mana.\n\nBrownie Outcast\nTiny Fey (Brownie)\n16d6+16 (72 hp)\n\n+8 (+4 Dex, +4 Improved Initiative)\n\n20 ft.\n\n16 (+2 size, +4 Dex)\nDagger +10/+6 melee; or Tiny dart +14/\n\n+10 ranged\n\nDagger 1d3; Tiny dart Id2\n\n5 ft. by 5 Ft./5 ft.\nSpell-Like Abilities\nSR 25\n\nFort +8, Ref +16, Will +16\nStr 10, Dex 18, Con 12, Int 12, Wis 18, Cha 11\n\nAppraise +2, Balance +8, Channeling +14,\nGather Information +3, Hide +15, Knowledge (local lore) +3, Knowledge (nature)\n\n+5, Listen +11, Meditation +12, Sneak +12,\nSpot +11, Wilderness Lore +10\n\nDodge, Great Fortitude, Improved Initiative, Iron Will, Lightning Reflexes\n\nTemperate forest, hill, marsh, mountains,\n\nor plains\nSolitary or pair\n16\n\nStandard\n\nUsually discordant neutral\n\n17-24 (Tiny)\n\nBrownie"
+      },
+      "biography": "<h2>Description</h2><p>Brownies live all over the island continent of Faydwer and are more rarely found traveling farand wide from there. Most often, however, they are found in the Faydark Forest, where their isolationist communities keep to themselves in the darkest corners of the great woods. While not an evil or immoral race asa rule, brownies are so fiercely xenophobic and territorial that they usually attack interlopers on sight.</p><p>Brownies are short and lean, typically wearing clothing that matches the underbrush or trees in color. They have tanned and</p><p>ruddy complexions and dark hair, and commonly wear face paint for decoration.</p><p>Brownie Scout</p><p>Brownies are a paranoid sort, and they often imagine enemies where there are none. Young scouts are sent throughout Faydwer and beyond to gather information on other races and fey courts -</p><p>since clearly these races have little better to do than to conspire against the brownies. Scouts do not earn prestige unless they</p><p>return with proof of such plots, so it is hardly surprising that most are able to locate what passes for evidence.</p><p>Other brownie scouts set out to collect ingredients or simply to satisfy their youthful wanderlust.</p><h2>Combat</h2><p>Brownie scouts leap into battle at the first sign of provocation, ready to prove themselves. They are more effective when using their ranged weapon froma short distance away and prefer this tactic toclose combat.</p><p>Spell-Like Abilities: A typical brownie scout&#x27;s spell-like abilities (and the mana cost for each) are as follows: camouflage (2), grasping roots (6), panic animal (2), snare (3), and whirling wind (4). As the spells cast by a 3rd-level druid (save DC 12 + spell level) with a pool of 12 mana.</p><p>Brownie Outcast Tiny Fey (Brownie) 16d6+16 (72 hp)</p><p>+8 (+4 Dex, +4 Improved Initiative)</p><p>20 ft.</p><p>16 (+2 size, +4 Dex) Dagger +10/+6 melee; or Tiny dart +14/</p><p>+10 ranged</p><p>Dagger 1d3; Tiny dart Id2</p><p>5 ft. by 5 Ft./5 ft. Spell-Like Abilities SR 25</p><p>Fort +8, Ref +16, Will +16 Str 10, Dex 18, Con 12, Int 12, Wis 18, Cha 11</p><p>Appraise +2, Balance +8, Channeling +14, Gather Information +3, Hide +15, Knowledge (local lore) +3, Knowledge (nature)</p><p>+5, Listen +11, Meditation +12, Sneak +12, Spot +11, Wilderness Lore +10</p><p>Dodge, Great Fortitude, Improved Initiative, Iron Will, Lightning Reflexes</p><p>Temperate forest, hill, marsh, mountains,</p><p>or plains Solitary or pair 16</p><p>Standard</p><p>Usually discordant neutral</p><p>17-24 (Tiny)</p><p>Brownie</p>"
+    }
+  },
+  {
+    "name": "Brute",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 24,
+          "mod": 7
+        },
+        "dex": {
+          "value": 14,
+          "mod": 2
+        },
+        "con": {
+          "value": 26,
+          "mod": 8
+        },
+        "int": {
+          "value": 4,
+          "mod": -3
+        },
+        "wis": {
+          "value": 14,
+          "mod": 2
+        },
+        "cha": {
+          "value": 8,
+          "mod": -1
+        }
+      },
+      "details": {
+        "cr": 7,
+        "size": "Large",
+        "type": "Monstrous Humanoid",
+        "subtypes": "Brute",
+        "faction": "None 4 oe",
+        "alignment": "Always neutral",
+        "speed": 30
+      },
+      "resources": {
+        "hp": {
+          "value": 133,
+          "max": 133,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 22
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 13
+          },
+          "reflex": {
+            "value": 7
+          },
+          "will": {
+            "value": 7
+          }
+        },
+        "initiative": {
+          "value": 2
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "10d8+80 (133 hp)",
+        "speed": "30 ft., climb 20 ft.",
+        "ac": "22 (-1 size, +2 Dex, +11 natural)",
+        "attacks": "2 fists +16 melee; or 2 Fists +14 melee, slam +14 melee",
+        "damage": "Fist 1d8+7; slam 1d6+7",
+        "faceReach": "5 ft. by 5 Ft./10 ft. Special",
+        "specialAttacks": "",
+        "specialQualities": "Scent",
+        "saves": "Fort +13, Ref +7, Will +7",
+        "abilities": "Str 24, Dex 14, Con 26, Int 4, Wis 14, Cha 8",
+        "skills": "Climb +17, Jump +17, Listen +10, Spot +8, Wilderness Lore +8",
+        "feats": "Alertness, Great Fortitude, Slam",
+        "climateTerrain": "Temperate forest, hills, mountains and underground",
+        "organization": "Solitary, pair, band (3-6), pack (5-12)",
+        "treasure": "Half standard",
+        "advancement": "11-20 HD (Large)",
+        "challengeRating": "7",
+        "source": "Monsters of Norrath p. 32",
+        "rawText": "Large Monstrous Humanoid (Brute)\n\nHit Dice: 10d8+80 (133 hp)\n\nInitiative: +2 (Dex)\n\nSpeed: 30 ft., climb 20 ft.\n\nAC: 22 (-1 size, +2 Dex, +11 natural)\n\nAttacks: 2 fists +16 melee; or 2 Fists +14 melee, slam +14\nmelee\n\nDamage: Fist 1d8+7; slam 1d6+7\n\nFace/Reach: 5 ft. by 5 Ft./10 ft.\n\nSpecial Attacks: Berserk\n\nSpecial Qualities: Scent\n\nSaves: Fort +13, Ref +7, Will +7\n\nAbilities: Str 24, Dex 14, Con 26, Int 4, Wis 14, Cha 8\n\nSkills: Climb +17, Jump +17, Listen +10, Spot +8, Wilderness Lore +8\n\nFeats: Alertness, Great Fortitude, Slam\n\nClimate/Terrain: Temperate forest, hills, mountains and underground\n\nOrganization: Solitary, pair, band (3-6), pack (5-12)\n\nChallenge Rating: 7\n\nTreasure: Half standard\n\nAlignment: Always neutral\n\nAdvancement Range: 11-20 HD (Large)\nFaction: None\n\n4 oe\n\nDescription\n\nBrutes are native to the continent of Kunark, living in its\nwestern part for as long as any of the empires that have been there.\n\nBrutes are massive, shaggy humanoid beasts, dense masses of\n\npredatory muscle covered with thick hide and fur. Mature brutes\nare generally about 9 feet tall, but can reach heights of nearly 14\nfeet. They have large barrel chests with short legs and long arms\nthat reach almost to the ground. Their feet are as dexterous as\ntheir hands, and they often eat with their feet while their hands\nperform other duties such as cleaning. Their feet also assist them\nin their superior climbing ability.\n\nBrutes have a primitive society, similar to apes in many ways.\nMales dominate the species and females are rarely seen, left to take\ncare of the young (the runtlings and brutlings) and their homes.\nWhile they roam throughout forests, hills, and mountainous\nareas, they mostly make their homes underground and in caves.\nThey have no real language, but do communicate via simple\ngrunts and growls, which is enough for them.\n\nBrutes are basically clean beasts, although one does occasionally catch a unique disease similar to rabies, at which point that\nindividual is ostracized and eventually driven out from its tribe.\nDiseased brutes are solitary and tend to become quite mad over\ntime as the disease passes into their nervous system. These brutes\nare quite vicious and are generally as fierce as a healthy brute\ndefending its home or young.\n\nCombat\n\nBrutes go after prey or interlopers with great ferocity, leaving\nthe battle only if it goes against them. Mostly, brutes will bash\ntheir prey to death with their powerful fists. On occasion, a\nparticularly wily brute will use a club or greatclub of some sort. In\nany case, they are aggressive, territorial predators who like meat\nof all kinds. They have few enemies within their own territories,\nand other creatures are smart enough to leave them well enough\nalone. Likewise, brutes seem to know which creatures pose a\nthreat to them and leave those creatures well enough alone.\n\n- . - Ty - a\nVe oo ic est\na ee\n\n3\n\nea\nWwe\n\n="
+      },
+      "biography": "<h2>Description</h2><p>Brutes are native to the continent of Kunark, living in its western part for as long as any of the empires that have been there.</p><p>Brutes are massive, shaggy humanoid beasts, dense masses of</p><p>predatory muscle covered with thick hide and fur. Mature brutes are generally about 9 feet tall, but can reach heights of nearly 14 feet. They have large barrel chests with short legs and long arms that reach almost to the ground. Their feet are as dexterous as their hands, and they often eat with their feet while their hands perform other duties such as cleaning. Their feet also assist them in their superior climbing ability.</p><p>Brutes have a primitive society, similar to apes in many ways. Males dominate the species and females are rarely seen, left to take care of the young (the runtlings and brutlings) and their homes. While they roam throughout forests, hills, and mountainous areas, they mostly make their homes underground and in caves. They have no real language, but do communicate via simple grunts and growls, which is enough for them.</p><p>Brutes are basically clean beasts, although one does occasionally catch a unique disease similar to rabies, at which point that individual is ostracized and eventually driven out from its tribe. Diseased brutes are solitary and tend to become quite mad over time as the disease passes into their nervous system. These brutes are quite vicious and are generally as fierce as a healthy brute defending its home or young.</p><h2>Combat</h2><p>Brutes go after prey or interlopers with great ferocity, leaving the battle only if it goes against them. Mostly, brutes will bash their prey to death with their powerful fists. On occasion, a particularly wily brute will use a club or greatclub of some sort. In any case, they are aggressive, territorial predators who like meat of all kinds. They have few enemies within their own territories, and other creatures are smart enough to leave them well enough alone. Likewise, brutes seem to know which creatures pose a threat to them and leave those creatures well enough alone.</p><p>- . - Ty - a Ve oo ic est a ee</p><p>3</p><p>ea Wwe</p><p>=</p>"
+    }
+  },
+  {
+    "name": "Bulthar",
+    "type": "npc",
+    "img": "icons/svg/mystery-man.svg",
+    "system": {
+      "abilities": {
+        "str": {
+          "value": 10,
+          "mod": 0
+        },
+        "dex": {
+          "value": 10,
+          "mod": 0
+        },
+        "con": {
+          "value": 10,
+          "mod": 0
+        },
+        "int": {
+          "value": 10,
+          "mod": 0
+        },
+        "wis": {
+          "value": 10,
+          "mod": 0
+        },
+        "cha": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "details": {
+        "cr": 0,
+        "size": "",
+        "type": "",
+        "subtypes": "",
+        "faction": "",
+        "alignment": "",
+        "speed": 0
+      },
+      "resources": {
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "temp": 0,
+          "bonus": 0
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "combat": {
+        "ac": {
+          "value": 10
+        },
+        "bab": 0,
+        "saves": {
+          "fortitude": {
+            "value": 0
+          },
+          "reflex": {
+            "value": 0
+          },
+          "will": {
+            "value": 0
+          }
+        },
+        "initiative": {
+          "value": 0
+        },
+        "attackMisc": 0,
+        "magicSaveBonus": 0
+      },
+      "statblock": {
+        "hitDice": "",
+        "speed": "",
+        "ac": "",
+        "attacks": "",
+        "damage": "",
+        "faceReach": "",
+        "specialAttacks": "",
+        "specialQualities": "",
+        "saves": "",
+        "abilities": "",
+        "skills": "",
+        "feats": "",
+        "climateTerrain": "",
+        "organization": "",
+        "treasure": "",
+        "advancement": "",
+        "challengeRating": "",
+        "source": "Monsters of Norrath p. 33",
+        "rawText": "Bulthar\n\non\no |\n\nDescription\n\nBulthar are an aggressive race of massive humanoids who carve\nout tribal territories on the coasts of Norrath's arctic waters. These\nlarge, squat creatures resemble a cross between a human and an\nelephant seal. A thick layer of fat and fur allows the bulthar to\nsurvive in Norrath's coldest waters. They have a broad torso, long\npowerful arms with webbed claws, and short stubby feet that still\nmove them quite quickly despite their massive bulk. Their neck\nis so thick and short that their head seems to jut straight out from\nthe top of their torso. They have a stunted elephantine trunk in\nbetween two beady black eyes and right above the mouth.\n\nThe bulthar have a primitive society and, though intelligent,\nstill have many animalistic behaviors such as gathering in herds\nin which the strongest male leads and takes a harem of mates.\nBulthar do little other than eat, sleep, or make war upon those\naround them. What society they possess has just not advanced\nenough for anything else. Rival bulthar herds will go to war, and\nthe survivors among the losing herd are brought into the winning\nherd. The Bulthar also attack othmir, aqua goblins, or any\nhumanoid settlements on the coast or in costal waters. They also\nattack merchant ships and fishing vessels to consume crew and\nany edible cargo.\n\nBulthar live on the fish of the sea and occasionally other sorts\nof food. Though they cannot breathe underwater, they can hold\ntheir breaths for extended durations and make dives as deep as a\nmile into the ocean in search of food.\n\nA few bulthar can speak a pidgin of Common, otherwise they\ncommunicate primitively among themselves with grunts and odd\nsounding howls that often echo off the cliffs of the Cobalt Scar in\nVelious and other places that bulthar herds are found.\n\nCombat\n\nA bulthar is always looking for a fight, if not from its own kind\nthen from others in its territory. Bulthar aggressively defend what\nthey consider their territory. Herd leaders are especially territorial\nand view any trespass as an attempt to challenge their position. In\ncombat, bulthar charge opponents and then smash them with\ntheir powerful fists until their enemies are dead. If seriously hurt,\nbulthar will attempt to flee the flight, usually into any water (if\nfighting on land) or onto the beach (if fighting in the water).\n\nCharge (Ex): Due to its great mass, a bulthar deals double\ndamage on a successful charge action.\n\nResistances (Ex): Bulthars have bonuses of acid, disease,\n\nelectricity, fire, magic, poison and, sonic resistance (20), and cold\nresistance (50).\n\nGreat Mass (Ex): A bulthar is enormously heavy and asa result\nis difficult to restrain or push about. It gains a +5 bonus on all\nsaving throws to resist effects that would hamper or halt its\n\nae \\ i"
+      },
+      "biography": "<h2>Description</h2><p>Bulthar are an aggressive race of massive humanoids who carve out tribal territories on the coasts of Norrath&#x27;s arctic waters. These large, squat creatures resemble a cross between a human and an elephant seal. A thick layer of fat and fur allows the bulthar to survive in Norrath&#x27;s coldest waters. They have a broad torso, long powerful arms with webbed claws, and short stubby feet that still move them quite quickly despite their massive bulk. Their neck is so thick and short that their head seems to jut straight out from the top of their torso. They have a stunted elephantine trunk in between two beady black eyes and right above the mouth.</p><p>The bulthar have a primitive society and, though intelligent, still have many animalistic behaviors such as gathering in herds in which the strongest male leads and takes a harem of mates. Bulthar do little other than eat, sleep, or make war upon those around them. What society they possess has just not advanced enough for anything else. Rival bulthar herds will go to war, and the survivors among the losing herd are brought into the winning herd. The Bulthar also attack othmir, aqua goblins, or any humanoid settlements on the coast or in costal waters. They also attack merchant ships and fishing vessels to consume crew and any edible cargo.</p><p>Bulthar live on the fish of the sea and occasionally other sorts of food. Though they cannot breathe underwater, they can hold their breaths for extended durations and make dives as deep as a mile into the ocean in search of food.</p><p>A few bulthar can speak a pidgin of Common, otherwise they communicate primitively among themselves with grunts and odd sounding howls that often echo off the cliffs of the Cobalt Scar in Velious and other places that bulthar herds are found.</p><h2>Combat</h2><p>A bulthar is always looking for a fight, if not from its own kind then from others in its territory. Bulthar aggressively defend what they consider their territory. Herd leaders are especially territorial and view any trespass as an attempt to challenge their position. In combat, bulthar charge opponents and then smash them with their powerful fists until their enemies are dead. If seriously hurt, bulthar will attempt to flee the flight, usually into any water (if fighting on land) or onto the beach (if fighting in the water).</p><p>Charge (Ex): Due to its great mass, a bulthar deals double damage on a successful charge action.</p><p>Resistances (Ex): Bulthars have bonuses of acid, disease,</p><p>electricity, fire, magic, poison and, sonic resistance (20), and cold resistance (50).</p><p>Great Mass (Ex): A bulthar is enormously heavy and asa result is difficult to restrain or push about. It gains a +5 bonus on all saving throws to resist effects that would hamper or halt its</p><p>ae \\ i</p>"
+    }
+  }
+];

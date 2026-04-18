@@ -117,7 +117,9 @@ export class NPCData extends foundry.abstract.TypeDataModel {
 
       details: new SchemaField({
         cr: new NumberField({ required: true, integer: true, min: 0, initial: 1 }),
+        size: new StringField({ initial: "" }),
         type: new StringField({ initial: "" }),
+        subtypes: new StringField({ initial: "" }),
         faction: new StringField({ initial: "" }),
         alignment: new StringField({ initial: "" }),
         speed: new NumberField({ required: true, integer: true, min: 0, initial: 30 }),
@@ -151,6 +153,28 @@ export class NPCData extends foundry.abstract.TypeDataModel {
         }),
         attackMisc: new NumberField({ required: true, integer: true, initial: 0 }),
         magicSaveBonus: new NumberField({ required: true, integer: true, initial: 0 }),
+      }),
+
+      statblock: new SchemaField({
+        hitDice: new StringField({ initial: "" }),
+        speed: new StringField({ initial: "" }),
+        ac: new StringField({ initial: "" }),
+        attacks: new StringField({ initial: "" }),
+        damage: new StringField({ initial: "" }),
+        faceReach: new StringField({ initial: "" }),
+        specialAttacks: new StringField({ initial: "" }),
+        specialQualities: new StringField({ initial: "" }),
+        saves: new StringField({ initial: "" }),
+        abilities: new StringField({ initial: "" }),
+        skills: new StringField({ initial: "" }),
+        feats: new StringField({ initial: "" }),
+        climateTerrain: new StringField({ initial: "" }),
+        organization: new StringField({ initial: "" }),
+        treasure: new StringField({ initial: "" }),
+        advancement: new StringField({ initial: "" }),
+        challengeRating: new StringField({ initial: "" }),
+        source: new StringField({ initial: "" }),
+        rawText: new StringField({ initial: "" }),
       }),
 
       biography: new HTMLField({ initial: "" }),

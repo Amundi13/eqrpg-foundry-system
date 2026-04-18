@@ -1,5 +1,67 @@
 <section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="actions" id="{{partId}}">
 
+  <div class="inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.QuickActions"}}</h3>
+    </div>
+    <div class="npc-quick-actions">
+      <section class="npc-quick-action-block">
+        <div class="npc-quick-action-header">{{localize "EQRPG.QuickAttacks"}}</div>
+        {{#if statblockAttacks.length}}
+        <div class="npc-quick-action-list">
+          {{#each statblockAttacks as |attack|}}
+          <div class="npc-quick-action-row">
+            <div class="npc-quick-action-copy">
+              <span class="npc-quick-action-name">{{attack.label}}</span>
+              <span class="npc-quick-action-detail">{{attack.attackText}}</span>
+              {{#if attack.damageText}}
+              <span class="npc-quick-action-detail dim">{{attack.damageText}}</span>
+              {{/if}}
+            </div>
+            <div class="npc-quick-action-controls">
+              <button type="button" class="roll-btn atk-btn"
+                      data-action="rollStatblockAttack" data-attack-id="{{attack.id}}">ATK</button>
+              {{#if attack.damageFormula}}
+              <button type="button" class="roll-btn dmg-btn"
+                      data-action="rollStatblockDamage" data-attack-id="{{attack.id}}">DMG</button>
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{else}}
+        <p class="empty-list">{{localize "EQRPG.NoStatblockAttacks"}}</p>
+        {{/if}}
+      </section>
+
+      <section class="npc-quick-action-block">
+        <div class="npc-quick-action-header">{{localize "EQRPG.SpecialAbilities"}}</div>
+        {{#if specialAbilities.length}}
+        <div class="npc-quick-action-list">
+          {{#each specialAbilities as |ability|}}
+          <div class="npc-quick-action-row">
+            <div class="npc-quick-action-copy">
+              <span class="npc-quick-action-name">{{ability.label}}</span>
+              {{#if ability.description}}
+              <span class="npc-quick-action-detail">{{ability.description}}</span>
+              {{/if}}
+            </div>
+            <div class="npc-quick-action-controls">
+              <button type="button" class="roll-btn cast-btn"
+                      data-action="useSpecialAbility" data-ability-id="{{ability.id}}">
+                {{localize "EQRPG.Use"}}
+              </button>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{else}}
+        <p class="empty-list">{{localize "EQRPG.NoSpecialAbilities"}}</p>
+        {{/if}}
+      </section>
+    </div>
+  </div>
+
   {{!-- Weapons --}}
   <div class="inventory-section">
     <div class="section-header">

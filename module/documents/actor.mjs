@@ -3,6 +3,22 @@
  */
 export class EQActor extends Actor {
 
+  static _normalizeNPCActionName(name = "") {
+    return String(name)
+      .toLowerCase()
+      .replace(/\([^)]*\)/g, " ")
+      .replace(/[^a-z0-9]+/g, " ")
+      .replace(/\b(attacks?|melee|ranged|touch|slam)\b/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/\bclaws\b/g, "claw")
+      .replace(/\bbites\b/g, "bite");
+  }
+
+  static _escapeRegex(text = "") {
+    return String(text).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
   // ---------------------------------------------------------------------------
   // Shared Chat Panel Helpers (mirrors EQItem equivalents, no circular import)
   // ---------------------------------------------------------------------------
@@ -154,6 +170,165 @@ export class EQActor extends Actor {
       rollMode: game.settings.get("core", "rollMode"),
     });
     return roll;
+  }
+
+  getNPCStatblockAttacks() {
+    if (this.type !== "npc") return [];
+
+    const attackText = String(this.system?.statblock?.attacks ?? "").trim();
+    const damageText = String(this.system?.statblock?.damage ?? "").trim();
+    if (!attackText) return [];
+
+    const damageMap = new Map();
+    for (const chunk of damageText.split(",")) {
+      const text = chunk.trim();
+      if (!text) continue;
+      const match = text.match(/^(?:(\d+)\s+)?(.+?)\s+((?:\d+d\d+|\d+)(?:[+-](?:\d+d\d+|\d+))*)(.*)$/i);
+      if (!match) continue;
+      const [, countRaw, rawName, formula, riderRaw] = match;
+      const name = rawName.trim();
+      const count = Number(countRaw || 1);
+      const rider = String(riderRaw ?? "").trim().replace(/^\s*(?:,|and)\s*/i, "");
+      const normalized = EQActor._normalizeNPCActionName(name);
+      damageMap.set(normalized, {
+        name,
+        count,
+        formula: formula.trim(),
+        rider,
+      });
+    }
+
+    const profiles = [];
+    for (const chunk of attackText.split(",")) {
+      const text = chunk.trim();
+      if (!text) continue;
+      const match = text.match(/^(?:(\d+)\s+)?(.+?)\s+([+-]\d+)\s+(.+)$/i);
+      if (!match) continue;
+      const [, countRaw, rawName, attackBonusRaw, mode] = match;
+      const count = Number(countRaw || 1);
+      const name = rawName.trim();
+      const normalized = EQActor._normalizeNPCActionName(name);
+      const damage = damageMap.get(normalized) ?? null;
+      profiles.push({
+        id: normalized || `attack-${profiles.length + 1}`,
+        name,
+        count,
+        label: count > 1 ? `${name} x${count}` : name,
+        attackBonus: Number(attackBonusRaw),
+        attackText: text,
+        mode: mode.trim(),
+        damageFormula: damage?.formula ?? "",
+        damageText: damage ? `${damage.formula}${damage.rider ? ` ${damage.rider}` : ""}` : "",
+      });
+    }
+
+    return profiles;
+  }
+
+  getNPCSpecialAbilities() {
+    if (this.type !== "npc") return [];
+
+    const names = [
+      ...String(this.system?.statblock?.specialAttacks ?? "").split(","),
+      ...String(this.system?.statblock?.specialQualities ?? "").split(","),
+    ]
+      .map((value) => value.trim())
+      .filter(Boolean);
+
+    const rawText = String(this.system?.statblock?.rawText ?? "");
+    const deduped = new Set();
+    const abilities = [];
+
+    for (const name of names) {
+      const normalized = EQActor._normalizeNPCActionName(name);
+      if (!normalized || deduped.has(normalized)) continue;
+      deduped.add(normalized);
+
+      const pattern = new RegExp(
+        `(?:^|\\n)${EQActor._escapeRegex(name)}(?:\\s*\\([^)]+\\))?:\\s*(.*?)(?=\\n[A-Z][A-Za-z' -]{2,}(?:\\s*\\([A-Za-z]+\\))?:|\\n(?:Description|Combat|Habitat\\/Society)\\b|$)`,
+        "is",
+      );
+      const match = rawText.match(pattern);
+      const description = String(match?.[1] ?? "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      abilities.push({
+        id: normalized,
+        name,
+        label: name.replace(/\b\w/g, (char) => char.toUpperCase()),
+        description,
+      });
+    }
+
+    return abilities;
+  }
+
+  async rollNPCStatblockAttack(attackId) {
+    const profile = this.getNPCStatblockAttacks().find((entry) => entry.id === attackId);
+    if (!profile) return null;
+
+    const roll = await new Roll(`1d20 + ${profile.attackBonus}`, this.getRollData()).evaluate();
+    const sign = profile.attackBonus >= 0 ? "+" : "";
+    const content = `<div class="eq-chat-card eq-weapon-card">`
+      + this._buildActorCardHeader(`<strong>${profile.label}</strong> ${game.i18n.localize("EQRPG.RollAttack")}`)
+      + `<div class="eq-card-body">`
+      + `<div class="eq-weapon-meta">`
+      + `<span class="eq-badge">${sign}${profile.attackBonus} ${profile.mode}</span>`
+      + (profile.count > 1 ? `<span class="eq-badge">${profile.count} attacks</span>` : "")
+      + `</div>`
+      + `<div class="eq-roll-summary">${profile.attackText}</div>`
+      + `</div></div>`;
+
+    await roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      flavor: content,
+      rollMode: game.settings.get("core", "rollMode"),
+    });
+    return roll;
+  }
+
+  async rollNPCStatblockDamage(attackId) {
+    const profile = this.getNPCStatblockAttacks().find((entry) => entry.id === attackId);
+    if (!profile?.damageFormula) return null;
+
+    const roll = await new Roll(profile.damageFormula, this.getRollData()).evaluate();
+    const content = `<div class="eq-chat-card eq-damage-card">`
+      + this._buildActorCardHeader(`<strong>${profile.label}</strong> ${game.i18n.localize("EQRPG.RollDamage")}`)
+      + `<div class="eq-card-body">`
+      + `<div class="eq-roll-summary">${profile.damageText || profile.damageFormula}</div>`
+      + `</div></div>`;
+
+    await roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      flavor: content,
+      rollMode: game.settings.get("core", "rollMode"),
+    });
+
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      content: EQActor._buildApplyDamagePanel(roll.total),
+      rollMode: game.settings.get("core", "rollMode"),
+    });
+    return roll;
+  }
+
+  async useNPCSpecialAbility(abilityId) {
+    const ability = this.getNPCSpecialAbilities().find((entry) => entry.id === abilityId);
+    if (!ability) return null;
+
+    const content = `<div class="eq-chat-card eq-spell-card">`
+      + this._buildActorCardHeader(`<strong>${ability.label}</strong>`)
+      + `<div class="eq-card-body">`
+      + `<div class="eq-effect-text">${ability.description || game.i18n.localize("EQRPG.NoAbilityDetail")}</div>`
+      + `</div></div>`;
+
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      content,
+      rollMode: game.settings.get("core", "rollMode"),
+    });
+    return ability;
   }
 
   // ---------------------------------------------------------------------------

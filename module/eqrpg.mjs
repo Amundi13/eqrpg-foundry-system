@@ -30,7 +30,7 @@ import { EQRPG } from "./helpers/config.mjs";
 // Compendium sample data
 import {
   SAMPLE_SPELLS, SAMPLE_FEATS, SAMPLE_SKILLS,
-  SAMPLE_WEAPONS, SAMPLE_ARMOR, SAMPLE_EQUIPMENT, SAMPLE_CONSUMABLES,
+  SAMPLE_WEAPONS, SAMPLE_ARMOR, SAMPLE_EQUIPMENT, SAMPLE_CONSUMABLES, SAMPLE_MONSTERS,
 }
   from "./packs/sample-data.mjs";
 import { PHB_JOURNALS } from "./packs/phb-data.mjs";
@@ -574,6 +574,42 @@ async function _populatePack(packId, data, force = false) {
   }
 }
 
+async function _populateActorPack(packId, data, force = false) {
+  const pack = game.packs.get(packId);
+  if (!pack) {
+    console.warn(`EQRPG | Actor pack not found: ${packId}`);
+    return;
+  }
+
+  const wasLocked = pack.locked;
+  if (wasLocked) {
+    try { await pack.configure({ locked: false }); } catch (_e) { /* ignore */ }
+    if (pack.locked) pack.locked = false;
+  }
+
+  try {
+    const existing = await pack.getDocuments();
+    if (existing.length > 0 && !force) return;
+    if (!data.length) return;
+
+    if (existing.length > 0 && force) {
+      console.log(`EQRPG | Clearing ${existing.length} existing actors from ${packId} …`);
+      const ids = existing.map((d) => d.id);
+      await Actor.deleteDocuments(ids, { pack: pack.collection });
+    }
+
+    console.log(`EQRPG | Populating ${packId} with ${data.length} actors …`);
+    await Actor.createDocuments(data, { pack: pack.collection });
+    console.log(`EQRPG | ✓ Populated ${data.length} actors → ${packId}`);
+  } catch (err) {
+    console.error(`EQRPG | Failed to populate actor pack ${packId}:`, err);
+  } finally {
+    if (wasLocked) {
+      try { await pack.configure({ locked: true }); } catch (_e) { /* ignore */ }
+    }
+  }
+}
+
 /**
  * Create JournalEntry documents in a compendium pack if it is empty.
  * Each entry in `data` is { name, pages: [{name, type, sort, text:{format,content}}] }.
@@ -624,6 +660,7 @@ Hooks.once("ready", async () => {
   await _populatePack("eqrpg.eqrpg-consumables", SAMPLE_CONSUMABLES);
   await _populatePack("eqrpg.eqrpg-feats",       SAMPLE_FEATS);
   await _populateJournalPack("eqrpg.eqrpg-phb",  PHB_JOURNALS);
+  await _populateActorPack("eqrpg.eqrpg-monsters", SAMPLE_MONSTERS);
 
   // Expose repopulate helper for GM use in the browser console:
   // game.eqrpg.repopulatePacks()
@@ -638,6 +675,7 @@ Hooks.once("ready", async () => {
     await _populatePack("eqrpg.eqrpg-consumables", SAMPLE_CONSUMABLES, true);
     await _populatePack("eqrpg.eqrpg-feats",       SAMPLE_FEATS,       true);
     await _populateJournalPack("eqrpg.eqrpg-phb",  PHB_JOURNALS,       true);
+    await _populateActorPack("eqrpg.eqrpg-monsters", SAMPLE_MONSTERS,  true);
     ui.notifications.info("EQRPG | ✓ All packs repopulated.");
   };
 });
