@@ -7,10 +7,25 @@ const { ActorSheetV2 } = foundry.applications.sheets;
  */
 export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
+  static _getEffectiveSpellLevel(spell, actor) {
+    const fallback = Number(spell?.system?.spellLevel ?? 1) || 1;
+    const classKey = actor?.system?.details?.class ?? "";
+    const entries = Array.isArray(spell?.system?.classLevels) ? spell.system.classLevels : [];
+    if (!classKey || !entries.length) return fallback;
+
+    for (const entry of entries) {
+      const match = String(entry).match(/^([^:]+):(\d+)$/);
+      if (!match) continue;
+      if (match[1] === classKey) return Number(match[2]) || fallback;
+    }
+
+    return fallback;
+  }
+
   static DEFAULT_OPTIONS = {
     classes: ["eqrpg", "actor-sheet", "character-sheet"],
     tag: "form",
-    position: { width: 740, height: 720 },
+    position: { width: 980, height: 860 },
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
@@ -23,6 +38,7 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollInitiative:   EQCharacterSheet._onRollInitiative,
       rollAttack:       EQCharacterSheet._onRollAttack,
       rollDamage:       EQCharacterSheet._onRollDamage,
+      rollManeuver:     EQCharacterSheet._onRollManeuver,
       rollSkill:        EQCharacterSheet._onRollSkill,
       // Inventory
       createItem:    EQCharacterSheet._onCreateItem,
@@ -42,8 +58,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       levelUp:             EQCharacterSheet._onLevelUp,
       // Class features
       layOnHands:          EQCharacterSheet._onLayOnHands,
+      rollHarmTouch:       EQCharacterSheet._onRollHarmTouch,
       rollSneakDamage:     EQCharacterSheet._onRollSneakDamage,
-      rollRageDamage:      EQCharacterSheet._onRollRageDamage,
       rollLifetap:         EQCharacterSheet._onRollLifetap,
       rollUnarmedStrike:   EQCharacterSheet._onRollUnarmedStrike,
       // Factions
@@ -67,6 +83,9 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     attributes: {
       template: "systems/eqrpg/templates/actor/parts/attributes.hbs",
     },
+    records: {
+      template: "systems/eqrpg/templates/actor/parts/records.hbs",
+    },
     combat: {
       template: "systems/eqrpg/templates/actor/parts/combat.hbs",
     },
@@ -88,7 +107,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       group: "sheet",
       initial: "attributes",
       tabs: [
-        { id: "attributes", group: "sheet", label: "EQRPG.TabAttributes" },
+        { id: "attributes", group: "sheet", label: "EQRPG.TabSheet" },
+        { id: "records", group: "sheet", label: "EQRPG.TabRecords" },
         { id: "combat", group: "sheet", label: "EQRPG.TabCombat" },
         { id: "spells", group: "sheet", label: "EQRPG.TabSpells" },
         { id: "inventory", group: "sheet", label: "EQRPG.TabInventory" },
@@ -133,7 +153,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // varies between Foundry versions, so we build our own.
     const activeTab = this.tabGroups?.sheet ?? "attributes";
     const tabDefs = [
-      { id: "attributes", label: "EQRPG.TabAttributes" },
+      { id: "attributes", label: "EQRPG.TabSheet" },
+      { id: "records", label: "EQRPG.TabRecords" },
       { id: "combat", label: "EQRPG.TabCombat" },
       { id: "spells", label: "EQRPG.TabSpells" },
       { id: "inventory", label: "EQRPG.TabInventory" },
@@ -176,12 +197,14 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // because Foundry TypeDataModel SchemaField getters are non-enumerable, so
     // Object.entries() silently returns an empty array on the model instance.
     context.abilities = {};
+    context.abilityList = [];
     for (const key of Object.keys(config.abilities)) {
       const ab = system.abilities[key];
       if (!ab) continue;
       const total = (ab.value != null) ? ab.value : (ab.base + ab.racial + ab.misc);
-      const mod   = (ab.mod  != null) ? ab.mod   : Math.floor((total - 10) / 2);
-      context.abilities[key] = {
+      const mod = (ab.mod != null) ? ab.mod : Math.floor((total - 10) / 2);
+      const display = {
+        key,
         base:    ab.base,
         racial:  ab.racial,
         misc:    ab.misc,
@@ -189,10 +212,14 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         mod:     mod,
         label:   game.i18n.localize(config.abilities[key]),
         abbr:    game.i18n.localize(config.abilityAbbreviations[key]),
+        miscField: `system.abilities.${key}.misc`,
         canIncrement: this._canIncrementAbility(key),
         canDecrement: ab.base > 8,
       };
+      context.abilities[key] = display;
+      context.abilityList.push(display);
     }
+    context.frontsheetAbilities = context.abilityList;
 
     // Point-buy info
     context.pointBuy = system.pointBuy;
@@ -211,22 +238,65 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       selected: system.details.deity === key,
     }));
     context.selectedDeity = config.deities?.[system.details.deity] ?? null;
+    context.selectedRaceLabel = context.raceOptions.find((option) => option.selected)?.label ?? "-";
+    context.selectedClassLabel = context.classOptions.find((option) => option.selected)?.label ?? "-";
+    context.selectedAlignmentLabel = context.alignmentOptions.find((option) => option.selected)?.label ?? "-";
+
+    const decorateItem = (item) => {
+      const properties = new Set((item.system.properties ?? []).map((prop) => String(prop).toLowerCase()));
+      item.canTrip = properties.has("trip");
+      item.canDisarm = properties.has("disarm");
+      item.ammoType = [...properties].find((prop) => prop.startsWith("ammo:"))?.slice(5) ?? "";
+      item.isNet = item.type === "weapon" && (item.name === "Net" || (properties.has("entangle") && properties.has("ranged-touch")));
+      item.canBash = item.type === "armor" && item.system.type === "shield" && item.system.shieldCategory !== "tower";
+      item.itemCategoryLabel = item.system.itemCategory ? String(item.system.itemCategory) : "";
+      item.ammoLabel = item.system.ammoType ? String(item.system.ammoType) : "";
+      return item;
+    };
 
     // Items grouped by type
-    context.weapons = this.actor.items.filter((i) => i.type === "weapon");
-    context.armor = this.actor.items.filter((i) => i.type === "armor");
-    context.spells = this.actor.items.filter((i) => i.type === "spell");
+    context.weapons = this.actor.items.filter((i) => i.type === "weapon").map(decorateItem);
+    context.armor = this.actor.items.filter((i) => i.type === "armor").map(decorateItem);
+    context.spells = this.actor.items
+      .filter((i) => i.type === "spell")
+      .map((spell) => {
+        spell.system.effectiveSpellLevel = EQCharacterSheet._getEffectiveSpellLevel(spell, this.actor);
+        return spell;
+      });
     context.skills = this.actor.items.filter((i) => i.type === "skill");
-    context.consumables = this.actor.items.filter((i) => i.type === "consumable");
-    context.equipment = this.actor.items.filter((i) => i.type === "equipment");
+    context.consumables = this.actor.items.filter((i) => i.type === "consumable").map(decorateItem);
+    context.equipment = this.actor.items
+      .filter((i) => i.type === "equipment")
+      .map(decorateItem)
+      .sort((a, b) =>
+        String(a.system.itemCategory ?? "").localeCompare(String(b.system.itemCategory ?? ""))
+        || a.name.localeCompare(b.name)
+      );
     context.feats     = this.actor.items
       .filter((i) => i.type === "feat")
       .sort((a, b) => {
-        const catOrder = ["general","combat","magic","metamagic","itemCreation","racial"];
+        const catOrder = ["general", "combat", "mystic", "metamagic"];
         const ai = catOrder.indexOf(a.system.category ?? "general");
         const bi = catOrder.indexOf(b.system.category ?? "general");
         return ai - bi || a.name.localeCompare(b.name);
       });
+    context.combatWeapons = [...context.weapons].sort((a, b) => {
+      const aEquipped = a.system.equipped ? 1 : 0;
+      const bEquipped = b.system.equipped ? 1 : 0;
+      return bEquipped - aEquipped || a.name.localeCompare(b.name);
+    });
+    context.combatShields = [...context.armor]
+      .filter((item) => item.canBash && item.system.equipped)
+      .sort((a, b) => a.name.localeCompare(b.name));
+    context.mainSheetSkills = [...context.skills]
+      .sort((a, b) => {
+        const aClass = a.system.classSkill ? 1 : 0;
+        const bClass = b.system.classSkill ? 1 : 0;
+        const aRanks = a.system.ranks ?? 0;
+        const bRanks = b.system.ranks ?? 0;
+        return bClass - aClass || bRanks - aRanks || a.name.localeCompare(b.name);
+      })
+      .slice(0, 10);
 
     // Factions — sorted by standing descending, enriched with standing tier info
     context.factions = this.actor.items
@@ -244,6 +314,17 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
           standingClass: tier.css,
         };
       });
+
+    context.sheetCounts = {
+      weapons: context.weapons.length,
+      armor: context.armor.length,
+      equipment: context.equipment.length,
+      consumables: context.consumables.length,
+      skills: context.skills.length,
+      feats: context.feats.length,
+      spells: context.spells.length,
+      factions: context.factions.length,
+    };
 
     // XP progress toward next level
     context.xpProgress = system.xpProgress ?? {};
@@ -264,7 +345,7 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         itemId:            id,
         cooldownRemaining: cd,
         spellName:         spell?.name ?? null,
-        spellLevel:        spell?.system.spellLevel ?? null,
+        spellLevel:        spell ? EQCharacterSheet._getEffectiveSpellLevel(spell, this.actor) : null,
         manaCost:          spell?.system.manaCost ?? null,
         onCooldown:        cd > 0,
         canCast:           !!spell && cd === 0,
@@ -279,6 +360,41 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Class features and race abilities (PHB-derived)
     context.classFeatures = system.classFeatures ?? {};
+    context.frontSheetFeatures = [];
+    if (context.classFeatures.sneakAttackDice) {
+      context.frontSheetFeatures.push({
+        label: game.i18n.localize("EQRPG.SneakAttack"),
+        value: `${context.classFeatures.sneakAttackDice}d6`,
+      });
+    }
+    if (context.classFeatures.unarmedDamageDie) {
+      context.frontSheetFeatures.push({
+        label: game.i18n.localize("EQRPG.UnarmedDamage"),
+        value: `1d${context.classFeatures.unarmedDamageDie}`,
+        action: "rollUnarmedStrike",
+        actionLabel: game.i18n.localize("EQRPG.UnarmedStrike"),
+      });
+    }
+    if (context.classFeatures.layOnHandsPool) {
+      context.frontSheetFeatures.push({
+        label: game.i18n.localize("EQRPG.LayOnHands"),
+        value: `${context.classFeatures.layOnHandsPool} HP`,
+        action: "layOnHands",
+        actionLabel: game.i18n.localize("EQRPG.UseLayOnHands"),
+      });
+    }
+    if (context.classFeatures.harmTouchDamage) {
+      context.frontSheetFeatures.push({
+        label: game.i18n.localize("EQRPG.HarmTouch"),
+        value: `${context.classFeatures.harmTouchDamage} dmg / DC ${context.classFeatures.harmTouchDC ?? "-"}`,
+      });
+    }
+    if (context.classFeatures.leechTouch) {
+      context.frontSheetFeatures.push({
+        label: game.i18n.localize("EQRPG.LeechTouch"),
+        value: game.i18n.localize("EQRPG.Active"),
+      });
+    }
 
     // Transform raw ability key strings into display objects using raceAbilities dict
     const raDict = CONFIG.EQRPG.raceAbilities ?? {};
@@ -300,6 +416,9 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const mana = system.resources.mana;
     context.hpPercent   = hp.max   > 0 ? Math.round(Math.min(100, (hp.value   / hp.max)   * 100)) : 0;
     context.manaPercent = mana.max > 0 ? Math.round(Math.min(100, (mana.value / mana.max) * 100)) : 0;
+    context.attackSequence = (system.combat.attackArray ?? [])
+      .map((bonus) => `${bonus >= 0 ? "+" : ""}${bonus}`)
+      .join(" / ") || "-";
 
     return context;
   }
@@ -368,6 +487,61 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         await EQCharacterSheet._onSelectClass.call(this, e, e.target);
       });
     }
+
+    const wizardButton = this.element.querySelector(".wizard-launch-btn");
+    if (wizardButton) {
+      wizardButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        EQCharacterSheet._onOpenWizard.call(this, e, e.currentTarget);
+      });
+    }
+
+    for (const input of this.element.querySelectorAll("input.save-misc")) {
+      const normalize = () => {
+        if (input.value === "" || input.value == null) input.value = "0";
+      };
+      input.addEventListener("blur", normalize);
+      input.addEventListener("change", normalize);
+    }
+  }
+
+  /** @override */
+  _prepareSubmitData(event, form, formData, ...rest) {
+    const keys = [
+      "system.combat.saves.fortitude.misc",
+      "system.combat.saves.reflex.misc",
+      "system.combat.saves.will.misc",
+    ];
+
+    const normalizeContainer = (container) => {
+      if (!container) return;
+      for (const key of keys) {
+        const flatValue = container[key];
+        if (flatValue === "" || flatValue == null) {
+          container[key] = 0;
+        }
+
+        const nestedValue = foundry.utils.getProperty(container, key);
+        if (nestedValue === "" || nestedValue == null) {
+          foundry.utils.setProperty(container, key, 0);
+        }
+      }
+    };
+
+    normalizeContainer(formData);
+    normalizeContainer(formData?.object);
+    normalizeContainer(formData?.fields);
+
+    const liveForm = form ?? this.element;
+    for (const key of keys) {
+      const input = liveForm?.querySelector?.(`[name="${key}"]`);
+      if (input && (input.value === "" || input.value == null)) {
+        input.value = "0";
+      }
+    }
+
+    return super._prepareSubmitData(event, form, formData, ...rest);
   }
 
   // -------------------------------------------------------------------------
@@ -504,6 +678,12 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await item?.rollDamage();
   }
 
+  static async _onRollManeuver(event, target) {
+    const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+    const maneuver = target.dataset.maneuver ?? "trip";
+    await item?.rollCombatManeuver(maneuver);
+  }
+
   static async _onRollSkill(event, target) {
     const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     await item?.rollSkill();
@@ -615,8 +795,20 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   // Character Wizard
   // -------------------------------------------------------------------------
 
-  static _onOpenWizard() {
+  static _onOpenWizard(event) {
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
+
+    const existingWizard = Object.values(ui.windows ?? {}).find((app) =>
+      app instanceof game.eqrpg.CharacterWizard && app.actor?.id === this.actor.id
+    );
+    if (existingWizard) {
+      existingWizard.render(true);
+      return;
+    }
+
     const wizard = new game.eqrpg.CharacterWizard(this.actor);
+    this._wizardApp = wizard;
     wizard.render(true);
   }
 
@@ -630,13 +822,15 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await this.actor.layOnHands(targetActor);
   }
 
+  static async _onRollHarmTouch(event, target) {
+    const targets     = [...(game.user?.targets ?? [])];
+    const targetActor = targets[0]?.actor ?? null;
+    await this.actor.rollHarmTouch(targetActor);
+  }
+
   static async _onRollSneakDamage(event, target) {
     const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     await item?.rollSneakDamage();
-  }
-
-  static async _onRollRageDamage(event, target) {
-    await this.actor.rollRageDamage();
   }
 
   static async _onRollLifetap(event, target) {

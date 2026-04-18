@@ -71,6 +71,75 @@
       </div>
     </div>
 
+    {{!-- Weapon Attacks --}}
+    <div class="combat-block weapons-block">
+      <h3>{{localize "EQRPG.WeaponAttacks"}}</h3>
+      {{#if combatWeapons.length}}
+      <ol class="combat-item-list">
+        {{#each combatWeapons as |item|}}
+        <li class="combat-item-row {{#if item.system.equipped}}combat-item-equipped{{/if}}" data-item-id="{{item.id}}">
+          <div class="combat-item-main">
+            <span class="combat-item-name">{{item.name}}</span>
+            <span class="combat-item-meta">
+              {{item.system.damage}}
+              {{#if item.system.damageType}}{{item.system.damageType}}{{/if}}
+              {{#if item.system.delay}} / DLY {{item.system.delay}}{{/if}}
+              {{#if item.system.range}} / RNG {{item.system.range}}{{/if}}
+            </span>
+          </div>
+          <div class="combat-item-actions">
+            <button type="button" class="roll-btn combat-roll-btn"
+                    data-action="rollAttack" title="{{localize 'EQRPG.RollAttack'}}">ATK</button>
+            {{#unless item.isNet}}
+            <button type="button" class="roll-btn combat-roll-btn"
+                    data-action="rollDamage" title="{{localize 'EQRPG.RollDamage'}}">DMG</button>
+            {{/unless}}
+            {{#if item.canTrip}}
+            <button type="button" class="roll-btn combat-roll-btn"
+                    data-action="rollManeuver" data-maneuver="trip" title="{{localize 'EQRPG.Trip'}}">TRIP</button>
+            {{/if}}
+            {{#if item.canDisarm}}
+            <button type="button" class="roll-btn combat-roll-btn"
+                    data-action="rollManeuver" data-maneuver="disarm" title="{{localize 'EQRPG.Disarm'}}">DIS</button>
+            {{/if}}
+            {{#if (eq @root.system.details.class "rogue")}}
+            <button type="button" class="roll-btn combat-roll-btn"
+                    data-action="rollSneakDamage" title="{{localize 'EQRPG.RollSneakAttack'}}">SA</button>
+            {{/if}}
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+      {{else}}
+      <p class="empty-list">{{localize "EQRPG.NoWeapons"}}</p>
+      {{/if}}
+    </div>
+
+    {{!-- Shield Bash --}}
+    <div class="combat-block weapons-block">
+      <h3>{{localize "EQRPG.ShieldBash"}}</h3>
+      {{#if combatShields.length}}
+      <ol class="combat-item-list">
+        {{#each combatShields as |item|}}
+        <li class="combat-item-row combat-item-equipped" data-item-id="{{item.id}}">
+          <div class="combat-item-main">
+            <span class="combat-item-name">{{item.name}}</span>
+            <span class="combat-item-meta">1d4 bludgeoning / DLY 5</span>
+          </div>
+          <div class="combat-item-actions">
+            <button type="button" class="roll-btn combat-roll-btn"
+                    data-action="rollAttack" title="{{localize 'EQRPG.ShieldBash'}}">BASH</button>
+            <button type="button" class="roll-btn combat-roll-btn"
+                    data-action="rollDamage" title="{{localize 'EQRPG.RollDamage'}}">DMG</button>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+      {{else}}
+      <p class="empty-list">{{localize "EQRPG.NoArmor"}}</p>
+      {{/if}}
+    </div>
+
     {{!-- Saving Throws --}}
     <div class="combat-block saves-block">
       <h3>{{localize "EQRPG.SavingThrows"}}</h3>
@@ -87,7 +156,7 @@
             {{system.combat.saves.fortitude.base}} base +
             {{#if (gte abilities.con.mod 0)}}+{{/if}}{{abilities.con.mod}} CON +
             <input type="number" name="system.combat.saves.fortitude.misc"
-                   value="{{system.combat.saves.fortitude.misc}}" class="save-misc"
+                   value="{{system.combat.saves.fortitude.misc}}" class="save-misc" data-dtype="Number"
                    {{#unless isEditable}}disabled{{/unless}} /> misc
           </span>
         </div>
@@ -103,7 +172,7 @@
             {{system.combat.saves.reflex.base}} base +
             {{#if (gte abilities.dex.mod 0)}}+{{/if}}{{abilities.dex.mod}} DEX +
             <input type="number" name="system.combat.saves.reflex.misc"
-                   value="{{system.combat.saves.reflex.misc}}" class="save-misc"
+                   value="{{system.combat.saves.reflex.misc}}" class="save-misc" data-dtype="Number"
                    {{#unless isEditable}}disabled{{/unless}} /> misc
           </span>
         </div>
@@ -119,7 +188,7 @@
             {{system.combat.saves.will.base}} base +
             {{#if (gte abilities.wis.mod 0)}}+{{/if}}{{abilities.wis.mod}} WIS +
             <input type="number" name="system.combat.saves.will.misc"
-                   value="{{system.combat.saves.will.misc}}" class="save-misc"
+                   value="{{system.combat.saves.will.misc}}" class="save-misc" data-dtype="Number"
                    {{#unless isEditable}}disabled{{/unless}} /> misc
           </span>
         </div>
@@ -129,7 +198,7 @@
 
     {{!-- Class Features --}}
     {{#if classFeatures}}
-    {{#if (or classFeatures.sneakAttackDice classFeatures.unarmedDamageDie classFeatures.layOnHandsPool classFeatures.rageDice classFeatures.lifetapDice)}}
+    {{#if (or classFeatures.sneakAttackDice classFeatures.unarmedDamageDie classFeatures.layOnHandsPool classFeatures.harmTouchDamage classFeatures.leechTouch)}}
     <div class="combat-block features-block">
       <h3>{{localize "EQRPG.ClassFeatures"}}</h3>
 
@@ -160,23 +229,24 @@
       </div>
       {{/if}}
 
-      {{#if classFeatures.rageDice}}
+      {{#if classFeatures.harmTouchDamage}}
       <div class="combat-row">
-        <label>{{localize "EQRPG.Rage"}}</label>
-        <span class="combat-value">+{{classFeatures.rageDice}}d6</span>
+        <label>{{localize "EQRPG.HarmTouch"}}</label>
+        <span class="combat-value">{{classFeatures.harmTouchDamage}} dmg</span>
+        <span class="combat-value combat-value-dim">DC {{classFeatures.harmTouchDC}}</span>
         <button type="button" class="roll-btn"
-                data-action="rollRageDamage"
-                title="Roll Berserker Rage Bonus Damage">⚔</button>
+                data-action="rollHarmTouch"
+                title="{{localize 'EQRPG.UseHarmTouch'}}">HT</button>
       </div>
       {{/if}}
 
-      {{#if classFeatures.lifetapDice}}
+      {{#if classFeatures.leechTouch}}
       <div class="combat-row">
-        <label>{{localize "EQRPG.Lifetap"}}</label>
-        <span class="combat-value">{{classFeatures.lifetapDice}}d6</span>
+        <label>{{localize "EQRPG.LeechTouch"}}</label>
+        <span class="combat-value">{{localize "EQRPG.Active"}}</span>
         <button type="button" class="roll-btn"
-                data-action="rollLifetap"
-                title="Roll Lifetap (requires targeted token)">🩸</button>
+                data-action="rollHarmTouch"
+                title="{{localize 'EQRPG.UseLeechTouch'}}">LT</button>
       </div>
       {{/if}}
 

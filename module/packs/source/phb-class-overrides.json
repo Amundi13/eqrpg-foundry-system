@@ -1,0 +1,31 @@
+{
+  "druid": {
+    "1": [
+      "Burst of Flame",
+      "Dance of the Fireflies",
+      "Endure Fire",
+      "Flame Lick",
+      "Lull Animal",
+      "Minor Healing",
+      "Panic Animal",
+      "Sense Animal",
+      "Skin Like Wood",
+      "Snare",
+      "True North"
+    ]
+  },
+  "necromancer": {
+    "1": [
+      "Cavorting Bones",
+      "Coldlight",
+      "Disease Cloud",
+      "Endure Cold",
+      "Invisibility to Undead",
+      "Lifetap",
+      "Locate Corpse",
+      "Minor Shielding",
+      "Reclaim Energy",
+      "Siphon Strength"
+    ]
+  }
+}

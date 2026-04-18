@@ -11,6 +11,8 @@ export class SkillData extends foundry.abstract.TypeDataModel {
       classSkill: new BooleanField({ initial: false }),
       isTradeskill: new BooleanField({ initial: false }),
       armorCheckPenalty: new BooleanField({ initial: false }),
+      trainedOnly: new BooleanField({ initial: false }),
+      languageDependent: new BooleanField({ initial: false }),
     };
   }
 }

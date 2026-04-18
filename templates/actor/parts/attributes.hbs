@@ -1,51 +1,251 @@
 <section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="attributes">
-  <div class="point-buy-info">
-    <span class="point-buy-label">{{localize "EQRPG.PointBuy"}}:</span>
-    <span class="point-buy-remaining {{#if (lt pointBuy.remaining 0)}}over-budget{{/if}}">
-      {{pointBuy.remaining}} / {{config.pointBuyTotal}}
-    </span>
-    <span class="point-buy-hint">{{localize "EQRPG.PointsRemaining"}}</span>
-  </div>
+  <div class="frontsheet-layout">
+    <div class="frontsheet-main">
+      <section class="frontsheet-panel frontsheet-panel-abilities">
+        <div class="point-buy-info point-buy-ribbon">
+          <span class="point-buy-label">{{localize "EQRPG.PointBuy"}}</span>
+          <span class="point-buy-remaining {{#if (lt pointBuy.remaining 0)}}over-budget{{/if}}">
+            {{pointBuy.remaining}} / {{config.pointBuyTotal}}
+          </span>
+          <span class="point-buy-hint">{{localize "EQRPG.PointsRemaining"}}</span>
+        </div>
 
-  <div class="abilities-grid">
-    {{#each abilities as |ability key|}}
-    <div class="ability-block">
-      <div class="ability-header">{{ability.abbr}}</div>
-      <div class="ability-score">
-        <span class="ability-total">{{ability.value}}</span>
-      </div>
-      {{!-- Modifier circle — click to roll ability check --}}
-      <div class="ability-modifier">
-        <button type="button" class="mod-value roll-btn"
-                data-action="rollAbility" data-ability="{{key}}"
-                title="Roll {{ability.label}} Check">
-          {{#if (gte ability.mod 0)}}+{{/if}}{{ability.mod}}
-        </button>
-      </div>
-      <div class="ability-breakdown">
-        <div class="ability-row">
-          <label>{{localize "EQRPG.Base"}}</label>
-          <div class="point-buy-controls">
-            <button type="button" class="adj-btn decrement"
-                    data-action="decrementAbility" data-ability="{{key}}"
-                    {{#unless ability.canDecrement}}disabled{{/unless}}>−</button>
-            <span class="base-value">{{ability.base}}</span>
-            <button type="button" class="adj-btn increment"
-                    data-action="incrementAbility" data-ability="{{key}}"
-                    {{#unless ability.canIncrement}}disabled{{/unless}}>+</button>
+        <div class="frontsheet-ability-grid">
+          {{#each frontsheetAbilities}}
+          <article class="frontsheet-ability-card">
+            <header class="frontsheet-ability-head">
+              <div class="frontsheet-ability-labels">
+                <span class="frontsheet-ability-abbr">{{this.abbr}}</span>
+                <span class="frontsheet-ability-name">{{this.label}}</span>
+              </div>
+              <div class="frontsheet-ability-total">{{this.value}}</div>
+            </header>
+
+            <div class="frontsheet-ability-mod">
+              <button type="button" class="mod-value roll-btn"
+                      data-action="rollAbility" data-ability="{{this.key}}"
+                      title="{{localize 'EQRPG.RollAbility'}}">
+                {{#if (gte this.mod 0)}}+{{/if}}{{this.mod}}
+              </button>
+            </div>
+
+            <div class="frontsheet-ability-breakdown">
+              <div class="frontsheet-ability-row">
+                <label>{{localize "EQRPG.Base"}}</label>
+                <div class="point-buy-controls">
+                  <button type="button" class="adj-btn decrement"
+                          data-action="decrementAbility" data-ability="{{this.key}}"
+                          {{#unless this.canDecrement}}disabled{{/unless}}>-</button>
+                  <span class="base-value">{{this.base}}</span>
+                  <button type="button" class="adj-btn increment"
+                          data-action="incrementAbility" data-ability="{{this.key}}"
+                          {{#unless this.canIncrement}}disabled{{/unless}}>+</button>
+                </div>
+              </div>
+              <div class="frontsheet-ability-row">
+                <label>{{localize "EQRPG.Racial"}}</label>
+                <span class="racial-value">{{#if (gte this.racial 0)}}+{{/if}}{{this.racial}}</span>
+              </div>
+              <div class="frontsheet-ability-row">
+                <label>{{localize "EQRPG.Misc"}}</label>
+                <input type="number" name="{{this.miscField}}"
+                       value="{{this.misc}}" {{#unless @root.isEditable}}disabled{{/unless}} />
+              </div>
+            </div>
+          </article>
+          {{/each}}
+        </div>
+      </section>
+
+      <section class="frontsheet-panel frontsheet-panel-hero">
+        <div class="frontsheet-panel-title">{{localize "EQRPG.CombatSummary"}}</div>
+        <div class="frontsheet-summary-grid">
+          <div class="frontsheet-summary-stat">
+            <span class="frontsheet-summary-label">{{localize "EQRPG.AC"}}</span>
+            <span class="frontsheet-summary-value">{{system.combat.ac.value}}</span>
+            <span class="frontsheet-summary-note">
+              {{system.combat.ac.base}} + {{system.combat.ac.armor}} + {{system.combat.ac.shield}}
+              {{#if system.combat.ac.natural}} + {{system.combat.ac.natural}}{{/if}}
+              {{#if system.combat.ac.monkBonus}} + {{system.combat.ac.monkBonus}}{{/if}}
+            </span>
+          </div>
+          <div class="frontsheet-summary-stat">
+            <span class="frontsheet-summary-label">{{localize "EQRPG.BAB"}}</span>
+            <span class="frontsheet-summary-value">{{#if (gte system.combat.bab 0)}}+{{/if}}{{system.combat.bab}}</span>
+            <span class="frontsheet-summary-note">{{attackSequence}}</span>
+          </div>
+          <div class="frontsheet-summary-stat">
+            <span class="frontsheet-summary-label">{{localize "EQRPG.Initiative"}}</span>
+            <button type="button" class="frontsheet-summary-roll"
+                    data-action="rollInitiative"
+                    title="{{localize 'EQRPG.RollInitiative'}}">
+              {{#if (gte system.combat.initiative.value 0)}}+{{/if}}{{system.combat.initiative.value}}
+            </button>
+            <span class="frontsheet-summary-note">
+              {{localize "EQRPG.DexMod"}} {{#if (gte abilities.dex.mod 0)}}+{{/if}}{{abilities.dex.mod}}
+              / {{localize "EQRPG.Misc"}} {{#if (gte system.combat.initiative.misc 0)}}+{{/if}}{{system.combat.initiative.misc}}
+            </span>
+          </div>
+          <div class="frontsheet-summary-stat">
+            <span class="frontsheet-summary-label">{{localize "EQRPG.Encumbrance"}}</span>
+            <span class="frontsheet-summary-value">{{encumbrance.current}}</span>
+            <span class="frontsheet-summary-note">{{encumbrance.max}} {{localize "EQRPG.Lbs"}} max</span>
           </div>
         </div>
-        <div class="ability-row">
-          <label>{{localize "EQRPG.Racial"}}</label>
-          <span class="racial-value">{{#if (gte ability.racial 0)}}+{{/if}}{{ability.racial}}</span>
+
+        <div class="frontsheet-resource-strip">
+          <div class="frontsheet-resource-card hp">
+            <span class="frontsheet-resource-label">{{localize "EQRPG.HP"}}</span>
+            <span class="frontsheet-resource-value">{{system.resources.hp.value}} / {{system.resources.hp.max}}</span>
+          </div>
+          <div class="frontsheet-resource-card mana">
+            <span class="frontsheet-resource-label">{{localize "EQRPG.Mana"}}</span>
+            <span class="frontsheet-resource-value">{{system.resources.mana.value}} / {{system.resources.mana.max}}</span>
+          </div>
+          <div class="frontsheet-resource-card xp">
+            <span class="frontsheet-resource-label">{{localize "EQRPG.XP"}}</span>
+            <span class="frontsheet-resource-value">{{system.resources.xp}}</span>
+          </div>
         </div>
-        <div class="ability-row">
-          <label>{{localize "EQRPG.Misc"}}</label>
-          <input type="number" name="system.abilities.{{key}}.misc"
-                 value="{{ability.misc}}" {{#unless @root.isEditable}}disabled{{/unless}} />
-        </div>
-      </div>
+      </section>
+
+      <section class="frontsheet-columns">
+        <section class="frontsheet-panel frontsheet-panel-saves">
+          <div class="frontsheet-panel-title">{{localize "EQRPG.SavingThrows"}}</div>
+          <div class="frontsheet-save-list">
+            <div class="frontsheet-save-row">
+              <span class="frontsheet-save-name">{{localize "EQRPG.Fortitude"}}</span>
+              <button type="button" class="frontsheet-save-total"
+                      data-action="rollSave" data-save="fortitude"
+                      title="{{localize 'EQRPG.RollFortitude'}}">
+                {{#if (gte system.combat.saves.fortitude.value 0)}}+{{/if}}{{system.combat.saves.fortitude.value}}
+              </button>
+              <span class="frontsheet-save-breakdown">
+                {{system.combat.saves.fortitude.base}} + {{#if (gte abilities.con.mod 0)}}+{{/if}}{{abilities.con.mod}} + 
+                <span class="save-misc-readout">{{system.combat.saves.fortitude.misc}}</span>
+              </span>
+            </div>
+            <div class="frontsheet-save-row">
+              <span class="frontsheet-save-name">{{localize "EQRPG.Reflex"}}</span>
+              <button type="button" class="frontsheet-save-total"
+                      data-action="rollSave" data-save="reflex"
+                      title="{{localize 'EQRPG.RollReflex'}}">
+                {{#if (gte system.combat.saves.reflex.value 0)}}+{{/if}}{{system.combat.saves.reflex.value}}
+              </button>
+              <span class="frontsheet-save-breakdown">
+                {{system.combat.saves.reflex.base}} + {{#if (gte abilities.dex.mod 0)}}+{{/if}}{{abilities.dex.mod}} + 
+                <span class="save-misc-readout">{{system.combat.saves.reflex.misc}}</span>
+              </span>
+            </div>
+            <div class="frontsheet-save-row">
+              <span class="frontsheet-save-name">{{localize "EQRPG.Will"}}</span>
+              <button type="button" class="frontsheet-save-total"
+                      data-action="rollSave" data-save="will"
+                      title="{{localize 'EQRPG.RollWill'}}">
+                {{#if (gte system.combat.saves.will.value 0)}}+{{/if}}{{system.combat.saves.will.value}}
+              </button>
+              <span class="frontsheet-save-breakdown">
+                {{system.combat.saves.will.base}} + {{#if (gte abilities.wis.mod 0)}}+{{/if}}{{abilities.wis.mod}} + 
+                <span class="save-misc-readout">{{system.combat.saves.will.misc}}</span>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <section class="frontsheet-panel frontsheet-panel-identity">
+          <div class="frontsheet-panel-title">{{localize "EQRPG.Identity"}}</div>
+          <div class="frontsheet-detail-grid">
+            <div class="frontsheet-detail-row">
+              <span class="frontsheet-detail-label">{{localize "EQRPG.Race"}}</span>
+              <span class="frontsheet-detail-value">{{selectedRaceLabel}}</span>
+            </div>
+            <div class="frontsheet-detail-row">
+              <span class="frontsheet-detail-label">{{localize "EQRPG.Class"}}</span>
+              <span class="frontsheet-detail-value">{{selectedClassLabel}}</span>
+            </div>
+            <div class="frontsheet-detail-row">
+              <span class="frontsheet-detail-label">{{localize "EQRPG.Level"}}</span>
+              <span class="frontsheet-detail-value">{{system.details.level}}</span>
+            </div>
+            <div class="frontsheet-detail-row">
+              <span class="frontsheet-detail-label">{{localize "EQRPG.Alignment"}}</span>
+              <span class="frontsheet-detail-value">{{selectedAlignmentLabel}}</span>
+            </div>
+            <div class="frontsheet-detail-row">
+              <span class="frontsheet-detail-label">{{localize "EQRPG.Deity"}}</span>
+              <span class="frontsheet-detail-value">{{#if selectedDeity}}{{selectedDeity.label}}{{else}}-{{/if}}</span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="frontsheet-columns frontsheet-columns-lower">
+        <section class="frontsheet-panel frontsheet-panel-features">
+          <div class="frontsheet-panel-title">{{localize "EQRPG.ClassFeatures"}}</div>
+          {{#if frontSheetFeatures.length}}
+          <div class="frontsheet-feature-list">
+            {{#each frontSheetFeatures as |feature|}}
+            <div class="frontsheet-feature-row">
+              <span class="frontsheet-feature-name">{{feature.label}}</span>
+              <span class="frontsheet-feature-value">{{feature.value}}</span>
+              {{#if feature.action}}
+              <button type="button" class="frontsheet-inline-action"
+                      data-action="{{feature.action}}"
+                      title="{{feature.actionLabel}}">
+                {{localize "EQRPG.Use"}}
+              </button>
+              {{/if}}
+            </div>
+            {{/each}}
+          </div>
+          {{else}}
+          <p class="frontsheet-empty">{{localize "EQRPG.NoClassFeaturesFrontsheet"}}</p>
+          {{/if}}
+        </section>
+      </section>
+
+      <section class="frontsheet-columns frontsheet-columns-bottom">
+        <section class="frontsheet-panel frontsheet-panel-race">
+          <div class="frontsheet-panel-title">{{localize "EQRPG.RaceAbilities"}}</div>
+          {{#if raceAbilities.length}}
+          <div class="frontsheet-tag-list">
+            {{#each raceAbilities as |ab|}}
+            <div class="frontsheet-tag-row">
+              <span class="ability-tag ability-tag-{{ab.type}}">{{ab.label}}</span>
+              {{#if ab.note}}<span class="frontsheet-tag-note">{{ab.note}}</span>{{/if}}
+            </div>
+            {{/each}}
+          </div>
+          {{else}}
+          <p class="frontsheet-empty">{{localize "EQRPG.NoRaceAbilitiesFrontsheet"}}</p>
+          {{/if}}
+        </section>
+
+        <section class="frontsheet-panel frontsheet-panel-skills">
+          <div class="frontsheet-panel-title">{{localize "EQRPG.SkillQuickRolls"}}</div>
+          {{#if mainSheetSkills.length}}
+          <div class="frontsheet-skill-list">
+            {{#each mainSheetSkills as |item|}}
+            <div class="frontsheet-skill-row" data-item-id="{{item.id}}">
+              <span class="frontsheet-skill-name">{{item.name}}</span>
+              <span class="frontsheet-skill-meta">
+                {{item.system.ranks}} {{localize "EQRPG.Ranks"}}
+                {{#if item.system.classSkill}} / {{localize "EQRPG.ClassSkill"}}{{/if}}
+              </span>
+              <button type="button" class="frontsheet-inline-action"
+                      data-action="rollSkill"
+                      title="{{localize 'EQRPG.RollSkill'}}">
+                {{localize "EQRPG.Roll"}}
+              </button>
+            </div>
+            {{/each}}
+          </div>
+          <p class="frontsheet-note">{{localize "EQRPG.FrontsheetSkillNote"}}</p>
+          {{else}}
+          <p class="frontsheet-empty">{{localize "EQRPG.NoSkills"}}</p>
+          {{/if}}
+        </section>
+      </section>
     </div>
-    {{/each}}
   </div>
 </section>

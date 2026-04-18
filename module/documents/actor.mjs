@@ -22,6 +22,28 @@ export class EQActor extends Actor {
       + `</div></div>`;
   }
 
+  static _buildTargetedStatusPanel(targets, statusId, label, title = "") {
+    const rows = targets
+      .filter((target) => (target?.document?.uuid ?? target?.uuid))
+      .map((target) => {
+        const tokenUuid = target.document?.uuid ?? target.uuid;
+        return `<div class="eq-apply-target-row">`
+          + `<span class="eq-apply-target-name">${target.name}</span>`
+          + `<div class="eq-apply-btns">`
+          + `<button class="eq-apply-btn eq-apply-full" data-toggle-status-uuid="${tokenUuid}" data-status-id="${statusId}" title="${title || label}">`
+          + `${label}</button>`
+          + `</div>`
+          + `</div>`;
+      })
+      .join("");
+
+    if (!rows) return "";
+    return `<div class="eq-apply-panel eq-targeted-panel">`
+      + `<span class="eq-apply-label">${game.i18n.localize("EQRPG.ApplyPerTarget")}:</span>`
+      + rows
+      + `</div>`;
+  }
+
   /** @override */
   getRollData() {
     const data = super.getRollData();
@@ -299,9 +321,16 @@ export class EQActor extends Actor {
    * @returns {number}       New HP value
    */
   async applyDamage(amount) {
-    const current  = this.system.resources.hp.value;
-    const newValue = Math.max(0, current - amount);
-    await this.update({ "system.resources.hp.value": newValue });
+    const currentHP = this.system.resources.hp.value;
+    const currentTemp = this.system.resources.hp.temp ?? 0;
+    const absorbed = Math.min(currentTemp, amount);
+    const remaining = Math.max(0, amount - absorbed);
+    const newTemp = Math.max(0, currentTemp - absorbed);
+    const newValue = Math.max(0, currentHP - remaining);
+    await this.update({
+      "system.resources.hp.temp": newTemp,
+      "system.resources.hp.value": newValue,
+    });
     return newValue;
   }
 
@@ -316,6 +345,96 @@ export class EQActor extends Actor {
     const newValue = Math.min(max, current + amount);
     await this.update({ "system.resources.hp.value": newValue });
     return newValue;
+  }
+
+  async toggleSpellEffect(effectData = {}) {
+    const label = String(effectData.label ?? "").trim();
+    if (!label) return null;
+    const effectKey = String(effectData.effectKey ?? label.toLowerCase()).trim();
+    const existing = this.effects.find((effect) => effect.name === label || effect.flags?.eqrpg?.effectKey === effectKey);
+    if (existing) {
+      await existing.delete();
+      await this._setTokenStatuses(effectData.statuses ?? effectData.statusIds ?? [], false);
+      return null;
+    }
+
+    const changes = Array.isArray(effectData.changes) ? effectData.changes.filter(Boolean) : [];
+    const createData = {
+      name: label,
+      icon: effectData.icon || "icons/svg/aura.svg",
+      origin: effectData.origin || this.uuid,
+      duration: effectData.duration ?? {},
+      disabled: false,
+      changes,
+      description: effectData.description ?? "",
+      flags: foundry.utils.mergeObject(effectData.flags ?? {}, {
+        eqrpg: {
+          spellEffect: true,
+          effectKey,
+          hasteRank: Number(effectData.hasteRank ?? 0) || 0,
+          hasteSource: effectData.hasteSource ?? "spell",
+          slowRank: Number(effectData.slowRank ?? 0) || 0,
+          manaPerRound: Number(effectData.manaPerRound ?? 0) || 0,
+          speedPct: Number(effectData.speedPct ?? 0) || 0,
+          breaksOnAttack: !!effectData.breaksOnAttack,
+          breaksOnCast: !!effectData.breaksOnCast,
+        },
+      }),
+    };
+
+    const [created] = await this.createEmbeddedDocuments("ActiveEffect", [createData]);
+    await this._setTokenStatuses(effectData.statuses ?? effectData.statusIds ?? [], true);
+    return created ?? null;
+  }
+
+  async _setTokenStatuses(statusIds = [], active = true) {
+    const ids = Array.isArray(statusIds) ? statusIds.filter(Boolean) : [statusIds].filter(Boolean);
+    if (!ids.length) return;
+    const tokenDocs = this.getActiveTokens(false, true);
+    for (const tokenDoc of tokenDocs) {
+      for (const statusId of ids) {
+        const status = CONFIG.statusEffects?.find((entry) => entry.id === statusId) ?? { id: statusId };
+        const hasIt = tokenDoc.hasStatusEffect?.(statusId)
+          ?? tokenDoc.actor?.statuses?.has(statusId)
+          ?? false;
+        if (hasIt !== active) {
+          await tokenDoc.toggleActiveEffect(status, { active });
+        }
+      }
+    }
+  }
+
+  async breakInvisibility(reason = "attack") {
+    const breakFlag = reason === "cast" ? "breaksOnCast" : "breaksOnAttack";
+    const effectsToRemove = this.effects.filter((effect) => {
+      if (effect.disabled) return false;
+      const flags = effect.flags?.eqrpg ?? {};
+      const key = String(flags.effectKey ?? effect.name ?? "").toLowerCase();
+      return flags[breakFlag] || key.includes("invisibility");
+    });
+
+    if (effectsToRemove.length) {
+      await this.deleteEmbeddedDocuments("ActiveEffect", effectsToRemove.map((effect) => effect.id));
+    }
+    await this._setTokenStatuses(["invisible"], false);
+  }
+
+  getCombatEffectSummary() {
+    const effects = this.effects ?? [];
+    let manaPerRound = 0;
+    for (const effect of effects) {
+      if (effect.disabled) continue;
+      manaPerRound += Number(effect.flags?.eqrpg?.manaPerRound ?? 0) || 0;
+    }
+    return { manaPerRound };
+  }
+
+  async disarmPrimaryWeapon() {
+    const weapon = this.items.find((item) => item.type === "weapon" && item.system.equipped)
+      ?? this.items.find((item) => item.type === "weapon");
+    if (!weapon) return null;
+    await weapon.update({ "system.equipped": false });
+    return weapon;
   }
 
   // ---------------------------------------------------------------------------
@@ -349,49 +468,19 @@ export class EQActor extends Actor {
     await this.update({ "system.resources.hp.value": Math.min(max, cur + rate) });
   }
 
+  async regenManaCombat() {
+    const perRound = this.getCombatEffectSummary().manaPerRound ?? 0;
+    if (perRound <= 0) return;
+    const cur = this.system.resources.mana.value;
+    const max = this.system.resources.mana.max;
+    if (cur >= max) return;
+    await this.update({ "system.resources.mana.value": Math.min(max, cur + perRound) });
+  }
+
   /**
    * Paladin Lay on Hands — restore HP to a target equal to level × CHA mod.
    * @param {EQActor|null} targetActor  Target to heal; heals self if null/undefined.
    */
-  // ---------------------------------------------------------------------------
-  // Berserker Rage
-  // ---------------------------------------------------------------------------
-
-  /**
-   * Roll Berserker rage bonus damage.
-   * Rage damage = rageDice d6 (computed at level 1 = 1d6, +1d6 every 5 levels).
-   * Posts a chat card with an apply-damage panel.
-   */
-  async rollRageDamage() {
-    const rageDice = this.system.classFeatures?.rageDice ?? 0;
-    if (!rageDice) {
-      ui.notifications.warn(game.i18n.localize("EQRPG.NoRage"));
-      return;
-    }
-
-    const roll = await new Roll(`${rageDice}d6`, this.getRollData()).evaluate();
-
-    const content = `<div class="eq-chat-card eq-rage-card">`
-      + this._buildActorCardHeader(`Berserker Rage`)
-      + `<div class="eq-card-body">`
-      + `<span class="eq-rage-dice">${rageDice}d6</span>`
-      + ` <span class="eq-roll-arrow">→</span> `
-      + `<span class="eq-roll-total">${roll.total}</span>`
-      + `</div></div>`;
-
-    await ChatMessage.create({
-      speaker:  ChatMessage.getSpeaker({ actor: this }),
-      content,
-      rolls:    [roll],
-      rollMode: game.settings.get("core", "rollMode"),
-    });
-    await ChatMessage.create({
-      speaker:  ChatMessage.getSpeaker({ actor: this }),
-      content:  EQActor._buildApplyDamagePanel(roll.total),
-      rollMode: game.settings.get("core", "rollMode"),
-    });
-    return roll;
-  }
 
   // ---------------------------------------------------------------------------
   // Shadow Knight Lifetap
@@ -447,6 +536,7 @@ export class EQActor extends Actor {
    * to a standard weapon attack.
    */
   async rollUnarmedStrike() {
+    await this.breakInvisibility("attack");
     const unarmedDie  = this.system.classFeatures?.unarmedDamageDie ?? 4;
     const attackArray = this.system.combat?.attackArray ?? [this.system.combat?.bab ?? 0];
     const strMod      = this.system.abilities?.str?.mod ?? 0;
@@ -581,13 +671,59 @@ export class EQActor extends Actor {
     });
   }
 
-  async regenManaInCombat() {
-    const regenRate = this.system.manaRegen ?? 0;
-    if (regenRate <= 0) return;
-    const current = this.system.resources.mana.value;
-    const max     = this.system.resources.mana.max;
-    if (current >= max) return;
-    await this.update({ "system.resources.mana.value": Math.min(max, current + regenRate) });
+  async rollHarmTouch(targetActor = null) {
+    const damage = this.system.classFeatures?.harmTouchDamage ?? 0;
+    const dc = this.system.classFeatures?.harmTouchDC ?? 0;
+    const leechTouch = !!this.system.classFeatures?.leechTouch;
+    if (damage <= 0) {
+      ui.notifications.warn(game.i18n.localize("EQRPG.NoHarmTouch"));
+      return null;
+    }
+
+    const target = targetActor ?? [...(game.user?.targets ?? [])][0]?.actor ?? null;
+    if (!target) {
+      ui.notifications.warn(game.i18n.localize("EQRPG.NoTargets"));
+      return null;
+    }
+    await this.breakInvisibility("attack");
+
+    const saveBonus = target.system?.combat?.saves?.will?.value ?? 0;
+    const saveRoll = await new Roll(`1d20 + ${saveBonus}`, target.getRollData?.() ?? {}).evaluate();
+    const saved = saveRoll.total >= dc;
+    const appliedDamage = saved ? Math.floor(damage / 2) : damage;
+
+    await target.applyDamage(appliedDamage);
+    if (leechTouch && appliedDamage > 0) {
+      await this.applyHealing(appliedDamage);
+    }
+
+    const content = `<div class="eq-chat-card eq-attack-card">`
+      + this._buildActorCardHeader(`Harm Touch`)
+      + `<div class="eq-card-body">`
+      + `<div class="attack-line">`
+      + `<span class="attack-label">${target.name}</span>`
+      + `<span class="attack-bonus">DC ${dc}</span>`
+      + `<span class="attack-arrow">→</span>`
+      + `<span class="attack-total">${saveRoll.total}</span>`
+      + `<span class="eq-badge ${saved ? "eq-hit" : "eq-miss"}">${game.i18n.localize(saved ? "EQRPG.SaveSucceeded" : "EQRPG.SaveFailed")}</span>`
+      + `</div>`
+      + `<div class="eq-effect-text">${game.i18n.format("EQRPG.HarmTouchResult", {
+        name: target.name,
+        amount: appliedDamage,
+      })}</div>`
+      + (leechTouch
+        ? `<div class="eq-effect-text">${game.i18n.format("EQRPG.LeechTouchResult", { amount: appliedDamage })}</div>`
+        : "")
+      + `</div></div>`;
+
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      content,
+      rolls: [saveRoll],
+      rollMode: game.settings.get("core", "rollMode"),
+    });
+
+    return saveRoll;
   }
 
   /**

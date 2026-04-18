@@ -1,0 +1,2376 @@
+[
+  {
+    "name": "Club",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A rough wooden club. The PHB treats it as a simple blunt weapon that can also be thrown.</p>",
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 10,
+      "weight": 3,
+      "price": 0,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "thrown"
+      ],
+      "phbName": "Club",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Light Mace",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A simple light mace with a balanced head for one-handed strikes.</p>",
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 6,
+      "price": 5,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Mace, light",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Heavy Mace",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A heavier mace for crushing armor and bone.</p>",
+      "damage": "1d8",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 12,
+      "price": 12,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Mace, heavy",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Morningstar",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A spiked mace head that deals both blunt and piercing damage.</p>",
+      "damage": "1d10",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning",
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 8,
+      "price": 8,
+      "delay": 6,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "dual-damage"
+      ],
+      "phbName": "Morningstar",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Dagger",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A short utility blade favored as a backup or throwing weapon.</p>",
+      "damage": "1d3",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 10,
+      "weight": 1,
+      "price": 2,
+      "delay": 4,
+      "critRange": 19,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "thrown",
+        "finesse"
+      ],
+      "phbName": "Dagger",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "tiny",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Shortspear",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A one-handed spear that may also be thrown.</p>",
+      "damage": "1d6",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 20,
+      "weight": 3,
+      "price": 2,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "thrown",
+        "brace"
+      ],
+      "phbName": "Shortspear",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Quarterstaff",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A double weapon. The current automation uses the primary 1d6 end and notes the off-hand end in its properties.</p>",
+      "damage": "1d6",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 4,
+      "price": 0,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "double"
+      ],
+      "phbName": "Quarterstaff",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "double",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Double weapon. Off-hand attack uses the second 1d6 end and two-weapon rules."
+      }
+    }
+  },
+  {
+    "name": "Spear",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A two-handed spear suitable for melee or throwing.</p>",
+      "damage": "1d8",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 20,
+      "weight": 5,
+      "price": 4,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "thrown"
+      ],
+      "phbName": "Spear",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Dart",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A weighted throwing dart, effectively a very small javelin.</p>",
+      "damage": "1d3",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 20,
+      "weight": 0.5,
+      "price": 0.5,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "thrown"
+      ],
+      "phbName": "Dart",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "ranged",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Sling",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A simple sling. Stones are weaker than bullets, but the base profile assumes sling bullets.</p>",
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 50,
+      "weight": 0,
+      "price": 0,
+      "delay": 6,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "projectile",
+        "ammo:sling-bullets"
+      ],
+      "phbName": "Sling",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "ranged",
+      "size": "small",
+      "handedness": "ranged",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Primary damage assumes sling bullets. Stones are a weaker improvised ammunition option."
+      }
+    }
+  },
+  {
+    "name": "Javelin",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A light flexible spear designed for throwing. In melee it is nonproficient by the PHB.</p>",
+      "damage": "1d6",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 30,
+      "weight": 2,
+      "price": 1,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "thrown"
+      ],
+      "phbName": "Javelin",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "ranged",
+      "size": "medium",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "PHB notes melee use is nonproficient and suffers a -4 attack penalty."
+      }
+    }
+  },
+  {
+    "name": "Gauntlet",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>Metal gloves that let unarmed strikes deal normal rather than subdual damage.</p>",
+      "damage": "1d3",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 2,
+      "price": 2,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Gauntlet",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "tiny",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Brass Knuckles",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A fitted ring of heavy metal that adds crushing force to punches.</p>",
+      "damage": "1d3",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 2,
+      "price": 1,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Brass knuckles",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "tiny",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Punching Dagger",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A punch dagger that drives the blade with the force of the wielder's strike.</p>",
+      "damage": "1d3",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 2,
+      "price": 2,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Dagger, punching",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "tiny",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Spiked Gauntlet",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A spiked gauntlet counts as an armed attack and cannot be disarmed normally.</p>",
+      "damage": "1d3",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 2,
+      "price": 5,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Gauntlet, spiked",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "simple",
+      "combatClass": "melee",
+      "size": "tiny",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Kukri",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A heavy curved dagger with an inward cutting edge.</p>",
+      "damage": "1d4",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 3,
+      "price": 8,
+      "delay": 4,
+      "critRange": 18,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Kukri",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "tiny",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Throwing Axe",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A lighter axe balanced specifically for throwing.</p>",
+      "damage": "1d6",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 10,
+      "weight": 4,
+      "price": 8,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "thrown"
+      ],
+      "phbName": "Axe, throwing",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Clawed Handwrap",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>Three claw-like blades fixed to the back of the hand.</p>",
+      "damage": "1d4",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 2,
+      "price": 12,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Clawed handwrap",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Light Hammer",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A small war hammer light enough to throw.</p>",
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 20,
+      "weight": 2,
+      "price": 1,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "thrown"
+      ],
+      "phbName": "Hammer, light",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Handaxe",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A one-handed axe suited for close combat.</p>",
+      "damage": "1d6",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 5,
+      "price": 6,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Handaxe",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Kama",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A short sickle-like martial weapon.</p>",
+      "damage": "1d4",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 2,
+      "price": 2,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Kama",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Nunchaku",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>Two short sticks linked by rope or chain.</p>",
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 2,
+      "price": 2,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Nunchaku",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Light Pick",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A light war pick focused on armor-piercing strikes.</p>",
+      "damage": "1d4",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 4,
+      "price": 4,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 4,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Pick, light",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Sap",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A weighted club used for knocking targets out instead of killing them.</p>",
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 3,
+      "price": 1,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "subdual"
+      ],
+      "phbName": "Sap",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Deals subdual damage only."
+      }
+    }
+  },
+  {
+    "name": "Siangham",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A short piercing martial weapon.</p>",
+      "damage": "1d4",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 1,
+      "price": 3,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Siangham",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Short Sword",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A compact sword ideal for close fighting or off-hand use.</p>",
+      "damage": "1d6",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 3,
+      "price": 10,
+      "delay": 4,
+      "critRange": 19,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Sword, short",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Battleaxe",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A standard martial axe with strong chopping power.</p>",
+      "damage": "1d8",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 7,
+      "price": 10,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Battleaxe",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Broad Sword",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A broad-bladed sword optimized for hacking cuts.</p>",
+      "damage": "1d10",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 6,
+      "price": 13,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Broad sword",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Light Flail",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A lighter flail that excels at tripping and disarming.</p>",
+      "damage": "1d8",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 5,
+      "price": 8,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "trip",
+        "disarm"
+      ],
+      "phbName": "Flail, light",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Supports trip and disarm bonuses that are not yet automated."
+      }
+    }
+  },
+  {
+    "name": "Longsword",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A straight, reliable martial sword.</p>",
+      "damage": "1d8",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 4,
+      "price": 15,
+      "delay": 5,
+      "critRange": 19,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Longsword",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Heavy Pick",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A heavier war pick designed to punch through armor.</p>",
+      "damage": "1d8",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 6,
+      "price": 8,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 4,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Pick, heavy",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Rapier",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A light thrusting sword suited to precise fencing.</p>",
+      "damage": "1d4",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 3,
+      "price": 20,
+      "delay": 4,
+      "critRange": 18,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "finesse"
+      ],
+      "phbName": "Rapier",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Scimitar",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A curved blade with an especially keen edge.</p>",
+      "damage": "1d6",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 4,
+      "price": 15,
+      "delay": 4,
+      "critRange": 18,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Scimitar",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Trident",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A three-pronged spear that can be thrown or braced.</p>",
+      "damage": "1d10",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 10,
+      "weight": 5,
+      "price": 15,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "thrown",
+        "brace"
+      ],
+      "phbName": "Trident",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Warhammer",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A heavy hammer built for war.</p>",
+      "damage": "1d8",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 8,
+      "price": 12,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Warhammer",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Spiked Chain",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A chain with wicked barbs. It can attack at reach or adjacent and grants trip and disarm options.</p>",
+      "damage": "2d4",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing",
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 15,
+      "price": 325,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "reach",
+        "adjacent",
+        "trip",
+        "disarm",
+        "finesse"
+      ],
+      "phbName": "Chain, spiked",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Reach, adjacent attacks, trip, disarm, and finesse interactions need dedicated handling."
+      }
+    }
+  },
+  {
+    "name": "Falchion",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A two-handed curved blade, essentially a large war scimitar.</p>",
+      "damage": "2d4",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 16,
+      "price": 75,
+      "delay": 6,
+      "critRange": 18,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Falchion",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Heavy Flail",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A two-handed flail with strong trip and disarm utility.</p>",
+      "damage": "1d10",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 20,
+      "price": 15,
+      "delay": 6,
+      "critRange": 19,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "trip",
+        "disarm"
+      ],
+      "phbName": "Flail, heavy",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Trip and disarm bonuses are not yet automated."
+      }
+    }
+  },
+  {
+    "name": "Glaive",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A polearm that attacks at reach but not adjacent.</p>",
+      "damage": "1d12",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 15,
+      "price": 8,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "reach"
+      ],
+      "phbName": "Glaive",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Reach-only targeting is not yet enforced."
+      }
+    }
+  },
+  {
+    "name": "Greataxe",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A massive two-handed axe.</p>",
+      "damage": "2d6",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 20,
+      "price": 20,
+      "delay": 6,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Greataxe",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Greatclub",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A huge club reinforced for war.</p>",
+      "damage": "1d12",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 10,
+      "price": 5,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Greatclub",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Greatsword",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A massive two-handed blade.</p>",
+      "damage": "2d6",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 15,
+      "price": 50,
+      "delay": 6,
+      "critRange": 19,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Greatsword",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Guisarme",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A reach polearm with a hooked blade for tripping.</p>",
+      "damage": "2d4",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 15,
+      "price": 9,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "reach",
+        "trip"
+      ],
+      "phbName": "Guisarme",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Reach-only attacks and trip handling need dedicated support."
+      }
+    }
+  },
+  {
+    "name": "Halberd",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A polearm with axe head, hook, and spike for trip and brace actions.</p>",
+      "damage": "1d12",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing",
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 15,
+      "price": 10,
+      "delay": 6,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "trip",
+        "brace"
+      ],
+      "phbName": "Halberd",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Trip and brace options are not yet automated."
+      }
+    }
+  },
+  {
+    "name": "Longspear",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A long spear used at reach and especially deadly against chargers.</p>",
+      "damage": "1d8",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 9,
+      "price": 5,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "reach",
+        "brace"
+      ],
+      "phbName": "Longspear",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Reach-only attacks and brace vs. charge are not yet automated."
+      }
+    }
+  },
+  {
+    "name": "Ranseur",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A reach polearm with a strong disarming hook.</p>",
+      "damage": "1d10",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 15,
+      "price": 10,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "reach",
+        "disarm"
+      ],
+      "phbName": "Ranseur",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Reach-only attacks and disarm bonuses are not yet automated."
+      }
+    }
+  },
+  {
+    "name": "Scythe",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A war scythe focused on devastating critical hits.</p>",
+      "damage": "1d10",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing",
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 12,
+      "price": 18,
+      "delay": 6,
+      "critRange": 20,
+      "critMult": 4,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Scythe",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Bastard Sword",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>PHB special case: a Medium wielder with Strength 17+ and Weapon Focus (bastard sword) may use it one-handed.</p>",
+      "damage": "1d10",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 10,
+      "price": 35,
+      "delay": 5,
+      "critRange": 19,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "special-strength-17"
+      ],
+      "phbName": "Sword, bastard",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "versatile",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "One-handed use depends on the PHB special Strength 17+ and Weapon Focus rule."
+      }
+    }
+  },
+  {
+    "name": "Two-Handed Hammer",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A massive maul that smashes armor and bone.</p>",
+      "damage": "2d6",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 15,
+      "price": 20,
+      "delay": 6,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "Two-handed hammer",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "large",
+      "handedness": "two-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Net",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A fighting net used to entangle foes rather than deal damage.</p>",
+      "damage": "",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 10,
+      "weight": 6,
+      "price": 20,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "ranged-touch",
+        "entangle"
+      ],
+      "phbName": "Net",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "medium",
+      "handedness": "ranged",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": true,
+        "needsToggle": true,
+        "notes": "Requires ranged touch handling, entangled condition, rope control, and refolding rules."
+      }
+    }
+  },
+  {
+    "name": "Whip",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A whip deals subdual damage and has several special combat rules.</p>",
+      "damage": "1d2",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 15,
+      "weight": 2,
+      "price": 1,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "subdual",
+        "trip",
+        "disarm"
+      ],
+      "phbName": "Whip",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "small",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": true,
+        "needsToggle": true,
+        "notes": "Whip damage restrictions, trip, disarm, and ranged-melee special handling need dedicated automation."
+      }
+    }
+  },
+  {
+    "name": "Shuriken",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>Thrown stars. The PHB allows up to three thrown per attack.</p>",
+      "damage": "1",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 10,
+      "weight": 0.5,
+      "price": 1,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "thrown",
+        "volley"
+      ],
+      "phbName": "Shuriken",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "tiny",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "PHB allows up to three shuriken per attack and ignores Strength to damage."
+      }
+    }
+  },
+  {
+    "name": "Shortbow",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A martial shortbow.</p>",
+      "damage": "1d6",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 60,
+      "weight": 2,
+      "price": 30,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "projectile",
+        "ammo:arrows"
+      ],
+      "phbName": "Shortbow",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "medium",
+      "handedness": "ranged",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Uses arrows as ammunition."
+      }
+    }
+  },
+  {
+    "name": "Composite Shortbow",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A recurved composite shortbow. Special Strength pull variants are not yet modeled.</p>",
+      "damage": "1d6",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 70,
+      "weight": 3,
+      "price": 75,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "projectile",
+        "ammo:arrows",
+        "strength-rated"
+      ],
+      "phbName": "Shortbow, composite",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "medium",
+      "handedness": "ranged",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": true,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Uses arrows. Strength-rated variants are not yet modeled separately."
+      }
+    }
+  },
+  {
+    "name": "Longbow",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A full-size war bow for long-ranged shooting.</p>",
+      "damage": "1d8",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 100,
+      "weight": 3,
+      "price": 75,
+      "delay": 6,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "projectile",
+        "ammo:arrows"
+      ],
+      "phbName": "Longbow",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "large",
+      "handedness": "ranged",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Uses arrows as ammunition."
+      }
+    }
+  },
+  {
+    "name": "Composite Longbow",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A recurved composite longbow. Strength pull variants are a future automation layer.</p>",
+      "damage": "1d8",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 110,
+      "weight": 3,
+      "price": 100,
+      "delay": 6,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [
+        "projectile",
+        "ammo:arrows",
+        "strength-rated"
+      ],
+      "phbName": "Longbow, composite",
+      "phbTable": "Table 7-5",
+      "source": "phb",
+      "phbCore": true,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "large",
+      "handedness": "ranged",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": true,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Uses arrows. Strength-rated variants are not yet modeled separately."
+      }
+    }
+  },
+  {
+    "name": "Hand Wraps",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>System convenience weapon for monks and martial artists. Not a PHB table entry.</p>",
+      "damage": "1d4",
+      "damageType": "bludgeoning",
+      "damageTypes": [
+        "bludgeoning"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 1,
+      "price": 1,
+      "delay": 4,
+      "critRange": 20,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [],
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "small",
+      "handedness": "light",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "War Axe",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>A retained legacy entry outside the PHB weapon table.</p>",
+      "damage": "1d8",
+      "damageType": "slashing",
+      "damageTypes": [
+        "slashing"
+      ],
+      "attackBonus": 0,
+      "range": 0,
+      "weight": 8,
+      "price": 20,
+      "delay": 5,
+      "critRange": 20,
+      "critMult": 3,
+      "equipped": false,
+      "properties": [],
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "proficiency": "martial",
+      "combatClass": "melee",
+      "size": "medium",
+      "handedness": "one-handed",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Light Crossbow",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>Retained legacy crossbow entry. Crossbows are not on the PHB Chapter 7 weapon table used for this audit.</p>",
+      "damage": "1d8",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 80,
+      "weight": 6,
+      "price": 35,
+      "delay": 5,
+      "critRange": 19,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "projectile",
+        "ammo:bolts"
+      ],
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "proficiency": "martial",
+      "combatClass": "ranged",
+      "size": "medium",
+      "handedness": "ranged",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Hand Crossbow",
+    "type": "weapon",
+    "img": "",
+    "system": {
+      "description": "<p>Retained legacy hand crossbow entry outside the PHB Chapter 7 table.</p>",
+      "damage": "1d4",
+      "damageType": "piercing",
+      "damageTypes": [
+        "piercing"
+      ],
+      "attackBonus": 0,
+      "range": 30,
+      "weight": 2,
+      "price": 100,
+      "delay": 4,
+      "critRange": 19,
+      "critMult": 2,
+      "equipped": false,
+      "properties": [
+        "projectile",
+        "ammo:bolts"
+      ],
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "proficiency": "exotic",
+      "combatClass": "ranged",
+      "size": "small",
+      "handedness": "ranged",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  }
+]

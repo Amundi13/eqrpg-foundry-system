@@ -468,6 +468,30 @@
   .eqrpg .point-buy-remaining.over-budget { color: var(--eq-red); }
   .eqrpg .point-buy-hint { font-size: 0.82em; color: var(--eq-text-dim); }
 
+  .eqrpg .inventory-wealth-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    padding: 6px 8px;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+  }
+
+  .eqrpg .inventory-wealth-label {
+    color: var(--eq-gold);
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .eqrpg .inventory-wealth-note {
+    color: var(--eq-text-dim);
+    font-size: 0.78em;
+  }
+
   .eqrpg .abilities-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -591,6 +615,411 @@
   }
 
   /* -------------------------------------------------------------------------
+     Front Sheet Layout
+  -------------------------------------------------------------------------- */
+  .eqrpg .frontsheet-layout {
+    display: block;
+  }
+
+  .eqrpg .frontsheet-main {
+    min-width: 0;
+  }
+
+  .eqrpg .point-buy-ribbon {
+    justify-content: space-between;
+    padding: 7px 10px;
+    margin-bottom: 10px;
+    background:
+      linear-gradient(135deg, rgba(201,168,76,0.14) 0%, rgba(42,34,24,0.95) 45%, rgba(21,18,16,0.95) 100%);
+    border-color: var(--eq-gold-dim);
+  }
+
+  .eqrpg .frontsheet-records {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: start;
+  }
+
+  .eqrpg .frontsheet-ability-card,
+  .eqrpg .frontsheet-panel {
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(70,56,38,0.62) 0%, rgba(42,34,24,0.96) 16%, rgba(25,21,18,0.98) 100%);
+    border: 1px solid var(--eq-border-light);
+    border-radius: 5px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.05),
+      0 2px 6px rgba(0,0,0,0.18);
+  }
+
+  .eqrpg .frontsheet-ability-card::before,
+  .eqrpg .frontsheet-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(232,201,90,0.55) 50%, transparent 100%);
+  }
+
+  .eqrpg .frontsheet-ability-card {
+    padding: 8px;
+  }
+
+  .eqrpg .frontsheet-ability-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .eqrpg .frontsheet-ability-labels {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .eqrpg .frontsheet-ability-abbr {
+    color: var(--eq-gold);
+    font-size: 1.1em;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+  }
+
+  .eqrpg .frontsheet-ability-name {
+    color: var(--eq-text-dim);
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+  }
+
+  .eqrpg .frontsheet-ability-total {
+    min-width: 46px;
+    text-align: center;
+    color: var(--eq-text-bright);
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .eqrpg .frontsheet-ability-mod {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7px;
+  }
+
+  .eqrpg .frontsheet-ability-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 7px;
+    border-top: 1px solid rgba(122,110,90,0.45);
+  }
+
+  .eqrpg .frontsheet-ability-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .eqrpg .frontsheet-ability-row label {
+    color: var(--eq-text-dim);
+    font-size: 0.78em;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .eqrpg .frontsheet-ability-row input[type="number"] {
+    width: 44px;
+  }
+
+  .eqrpg .frontsheet-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .eqrpg .frontsheet-panel-abilities {
+    padding-top: 8px;
+  }
+
+  .eqrpg .frontsheet-ability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .eqrpg .frontsheet-panel {
+    padding: 10px 12px 12px;
+  }
+
+  .eqrpg .frontsheet-panel-title {
+    color: var(--eq-gold);
+    font-size: 0.82em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(122,110,90,0.45);
+  }
+
+  .eqrpg .frontsheet-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .eqrpg .frontsheet-summary-stat,
+  .eqrpg .frontsheet-reference-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 9px 10px;
+    background: rgba(15,12,10,0.32);
+    border: 1px solid rgba(122,110,90,0.38);
+    border-radius: 4px;
+    min-width: 0;
+  }
+
+  .eqrpg .frontsheet-summary-label,
+  .eqrpg .frontsheet-reference-label,
+  .eqrpg .frontsheet-resource-label {
+    color: var(--eq-text-dim);
+    font-size: 0.68em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .eqrpg .frontsheet-summary-value,
+  .eqrpg .frontsheet-reference-value,
+  .eqrpg .frontsheet-resource-value {
+    color: var(--eq-text-bright);
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.1;
+  }
+
+  .eqrpg .frontsheet-summary-note,
+  .eqrpg .frontsheet-note,
+  .eqrpg .frontsheet-tag-note,
+  .eqrpg .frontsheet-save-breakdown {
+    color: var(--eq-text-dim);
+    font-size: 0.77em;
+    line-height: 1.4;
+  }
+
+  .eqrpg .frontsheet-summary-roll,
+  .eqrpg .frontsheet-save-total,
+  .eqrpg .frontsheet-inline-action {
+    align-self: flex-start;
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 3px;
+    background: rgba(201,168,76,0.1);
+    color: var(--eq-text-bright);
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .eqrpg .frontsheet-summary-roll,
+  .eqrpg .frontsheet-save-total {
+    padding: 3px 9px;
+    font-size: 1.15em;
+    font-weight: bold;
+  }
+
+  .eqrpg .frontsheet-inline-action {
+    padding: 2px 7px;
+    font-size: 0.72em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .eqrpg .frontsheet-summary-roll:hover,
+  .eqrpg .frontsheet-save-total:hover,
+  .eqrpg .frontsheet-inline-action:hover {
+    background: rgba(201,168,76,0.2);
+    color: var(--eq-gold-bright);
+  }
+
+  .eqrpg .frontsheet-resource-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .eqrpg .frontsheet-resource-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(122,110,90,0.38);
+    background: rgba(0,0,0,0.22);
+  }
+
+  .eqrpg .frontsheet-resource-card.hp {
+    box-shadow: inset 0 0 0 1px rgba(196,64,64,0.08);
+  }
+
+  .eqrpg .frontsheet-resource-card.mana {
+    box-shadow: inset 0 0 0 1px rgba(74,138,196,0.08);
+  }
+
+  .eqrpg .frontsheet-resource-card.xp {
+    box-shadow: inset 0 0 0 1px rgba(201,168,76,0.08);
+  }
+
+  .eqrpg .frontsheet-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 10px;
+  }
+
+  .eqrpg .frontsheet-save-list,
+  .eqrpg .frontsheet-detail-grid,
+  .eqrpg .frontsheet-feature-list,
+  .eqrpg .frontsheet-tag-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .eqrpg .frontsheet-save-row,
+  .eqrpg .frontsheet-detail-row,
+  .eqrpg .frontsheet-feature-row,
+  .eqrpg .frontsheet-tag-row {
+    display: grid;
+    grid-template-columns: 92px 88px minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.18);
+    border: 1px solid rgba(122,110,90,0.24);
+  }
+
+  .eqrpg .frontsheet-detail-row,
+  .eqrpg .frontsheet-feature-row,
+  .eqrpg .frontsheet-tag-row {
+    grid-template-columns: 116px minmax(0, 1fr) auto;
+  }
+
+  .eqrpg .frontsheet-save-name,
+  .eqrpg .frontsheet-detail-label,
+  .eqrpg .frontsheet-feature-name {
+    color: var(--eq-gold-dim);
+    font-size: 0.76em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .eqrpg .frontsheet-detail-value,
+  .eqrpg .frontsheet-feature-value {
+    color: var(--eq-text-bright);
+    font-size: 0.95em;
+    font-weight: bold;
+  }
+
+  .eqrpg .frontsheet-reference-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .eqrpg .frontsheet-skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .eqrpg .frontsheet-skill-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.18);
+    border: 1px solid rgba(122,110,90,0.24);
+  }
+
+  .eqrpg .frontsheet-skill-name {
+    color: var(--eq-text-bright);
+    font-size: 0.92em;
+    font-weight: bold;
+  }
+
+  .eqrpg .frontsheet-skill-meta {
+    color: var(--eq-text-dim);
+    font-size: 0.76em;
+    text-align: right;
+  }
+
+  .eqrpg .frontsheet-empty {
+    margin: 0;
+    color: var(--eq-text-dim);
+    font-style: italic;
+  }
+
+  .eqrpg .frontsheet-note {
+    margin: 10px 0 0;
+  }
+
+  .eqrpg .frontsheet-tag-row .ability-tag {
+    justify-self: start;
+  }
+
+  .eqrpg .frontsheet-panel-reference .frontsheet-reference-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (max-width: 900px) {
+    .eqrpg .frontsheet-records,
+    .eqrpg .frontsheet-ability-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .eqrpg .frontsheet-summary-grid,
+    .eqrpg .frontsheet-resource-strip,
+    .eqrpg .frontsheet-columns,
+    .eqrpg .frontsheet-panel-reference .frontsheet-reference-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .eqrpg .frontsheet-records,
+    .eqrpg .frontsheet-ability-grid,
+    .eqrpg .frontsheet-summary-grid,
+    .eqrpg .frontsheet-resource-strip,
+    .eqrpg .frontsheet-columns,
+    .eqrpg .frontsheet-reference-grid,
+    .eqrpg .frontsheet-panel-reference .frontsheet-reference-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .eqrpg .frontsheet-save-row,
+    .eqrpg .frontsheet-detail-row,
+    .eqrpg .frontsheet-feature-row,
+    .eqrpg .frontsheet-tag-row,
+    .eqrpg .frontsheet-skill-row,
+    .eqrpg .combat-item-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* -------------------------------------------------------------------------
      Combat Tab
   -------------------------------------------------------------------------- */
   .eqrpg .combat-grid {
@@ -642,7 +1071,57 @@
     font-size: 1.1em;
     color: var(--eq-text-bright);
   }
+  .eqrpg .combat-value-dim {
+    color: var(--eq-text-dim);
+    font-size: 0.85em;
+  }
   .eqrpg .combat-row input[type="number"] { width: 40px; height: 20px; font-size: 0.85em; }
+
+  .eqrpg .weapons-block { grid-column: 1 / -1; }
+  .eqrpg .combat-item-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .eqrpg .combat-item-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: center;
+    padding: 7px 8px;
+    border-radius: 4px;
+    background: var(--eq-bg-raised);
+    border: 1px solid rgba(122,110,90,0.24);
+  }
+  .eqrpg .combat-item-equipped {
+    box-shadow: inset 0 0 0 1px rgba(201,168,76,0.18);
+  }
+  .eqrpg .combat-item-main {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .eqrpg .combat-item-name {
+    color: var(--eq-text-bright);
+    font-weight: bold;
+  }
+  .eqrpg .combat-item-meta {
+    color: var(--eq-text-dim);
+    font-size: 0.78em;
+  }
+  .eqrpg .combat-item-actions {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .eqrpg .combat-roll-btn {
+    min-width: 40px;
+    font-size: 0.76em;
+  }
 
   .eqrpg .saves-block { grid-column: 1 / -1; }
   .eqrpg .saves-grid { display: flex; flex-direction: column; gap: 2px; }
@@ -2743,6 +3222,41 @@
     border-color: var(--eq-gold-dim);
   }
   .character-wizard .wiz-optional { font-weight: normal; color: var(--eq-text-dim); }
+
+  .character-wizard .wiz-loadout-choice {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .character-wizard .wiz-loadout-card {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 6px 10px;
+    align-items: start;
+    padding: 8px 10px;
+    background: var(--eq-bg-dark);
+    border: 1px solid var(--eq-border);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .character-wizard .wiz-loadout-card input[type="radio"] {
+    margin-top: 2px;
+  }
+
+  .character-wizard .wiz-loadout-title {
+    color: var(--eq-gold);
+    font-weight: bold;
+    font-size: 0.88em;
+  }
+
+  .character-wizard .wiz-loadout-note {
+    grid-column: 2;
+    color: var(--eq-text-dim);
+    font-size: 0.77em;
+    line-height: 1.35;
+  }
 
   /* Review summary panel */
   .character-wizard .wiz-summary {

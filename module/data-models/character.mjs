@@ -1,7 +1,124 @@
 const {
   NumberField, StringField, SchemaField, HTMLField,
-  ArrayField, BooleanField,
+  ArrayField,
 } = foundry.data.fields;
+
+function getCombatRound() {
+  return Math.max(1, Number(game?.combat?.round ?? 1) || 1);
+}
+
+function collectEffectSummary(actor) {
+  const effects = actor?.effects ?? [];
+  const hasteBySource = new Map();
+  let slowRank = 0;
+  let manaPerRound = 0;
+  let speedPct = 0;
+
+  for (const effect of effects) {
+    if (effect.disabled) continue;
+    const flags = effect.flags?.eqrpg ?? {};
+    const hasteRank = Number(flags.hasteRank ?? 0) || 0;
+    const hasteSource = String(flags.hasteSource ?? "spell");
+    const slow = Number(flags.slowRank ?? 0) || 0;
+    const mana = Number(flags.manaPerRound ?? 0) || 0;
+    const speed = Number(flags.speedPct ?? 0) || 0;
+
+    if (hasteRank > 0) {
+      hasteBySource.set(hasteSource, Math.max(hasteBySource.get(hasteSource) ?? 0, hasteRank));
+    }
+    slowRank = Math.max(slowRank, slow);
+    manaPerRound += mana;
+    speedPct = Math.max(speedPct, speed);
+  }
+
+  const hasteRank = Math.min(9, [...hasteBySource.values()].reduce((sum, rank) => sum + rank, 0));
+  const net = hasteRank - slowRank;
+  return {
+    hasteRank,
+    slowRank,
+    netHasteRank: net > 0 ? net : 0,
+    netSlowRank: net < 0 ? Math.abs(net) : 0,
+    manaPerRound,
+    speedPct,
+  };
+}
+
+function getHasteACBonus(rank) {
+  if (rank >= 7) return 3;
+  if (rank >= 4) return 2;
+  if (rank >= 1) return 1;
+  return 0;
+}
+
+function getSlowACPenalty(rank) {
+  if (rank >= 5) return 3;
+  if (rank >= 3) return 2;
+  if (rank >= 1) return 1;
+  return 0;
+}
+
+function getWeaponDelayMod(netHasteRank, netSlowRank) {
+  if (netHasteRank && [1, 3, 6, 8].includes(netHasteRank)) return -1;
+  if (netSlowRank && [1, 2].includes(netSlowRank)) return 1;
+  return 0;
+}
+
+function getHasteExtraAttacks(rank, round) {
+  if (rank >= 9) return 2;
+  if (rank >= 7) return (round % 2 === 1) ? 1 : 2;
+  if (rank >= 5) return 1;
+  if (rank >= 4) return (round % 2 === 1) ? 1 : 0;
+  if (rank >= 2) return ((round - 1) % 3 === 0) ? 1 : 0;
+  return 0;
+}
+
+function getSlowAttackLoss(rank, round) {
+  if (rank >= 6) return (round % 2 === 1) ? 1 : 0;
+  if (rank >= 4) return ((round - 1) % 3 === 0) ? 1 : 0;
+  return 0;
+}
+
+function buildAttackArray(bab, netHasteRank = 0, netSlowRank = 0, round = 1) {
+  const attacks = [];
+  if (bab >= 1) attacks.push(bab);
+  if (bab >= 6) attacks.push(bab - 5);
+  if (bab >= 11) attacks.push(bab - 10);
+  if (bab >= 16) attacks.push(bab - 15);
+  if (!attacks.length) attacks.push(bab ?? 0);
+
+  let sequence = attacks;
+  if (netSlowRank >= 3) sequence = sequence.slice(0, 1);
+
+  const extraAttacks = getHasteExtraAttacks(netHasteRank, round);
+  if (sequence.length && extraAttacks > 0) {
+    sequence = [...Array.from({ length: extraAttacks }, () => sequence[0]), ...sequence];
+  }
+
+  const attacksLost = getSlowAttackLoss(netSlowRank, round);
+  if (attacksLost > 0) {
+    sequence = sequence.slice(0, Math.max(0, sequence.length - attacksLost));
+  }
+
+  return sequence;
+}
+
+function describeTempo(netHasteRank = 0, netSlowRank = 0, round = 1) {
+  if (netHasteRank > 0) {
+    if (netHasteRank >= 9) return "2 extra attacks each round";
+    if (netHasteRank >= 7) return (round % 2 === 1) ? "1 extra attack this round" : "2 extra attacks this round";
+    if (netHasteRank >= 5) return "1 extra attack each round";
+    if (netHasteRank >= 4) return (round % 2 === 1) ? "1 extra attack this round" : "no extra attack this round";
+    if (netHasteRank >= 2) return ((round - 1) % 3 === 0) ? "1 extra attack this round" : "no extra attack this round";
+    return "faster weapon delay";
+  }
+  if (netSlowRank > 0) {
+    if (netSlowRank >= 6) return (round % 2 === 1) ? "lose 1 attack this round" : "reduced attack rate";
+    if (netSlowRank >= 4) return ((round - 1) % 3 === 0) ? "lose 1 attack this round" : "reduced attack rate";
+    if (netSlowRank >= 3) return "cannot make full attacks";
+    return "slowed weapon delay";
+  }
+  return "";
+}
 
 /**
  * Data model for EverQuest RPG player characters.
@@ -46,6 +163,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           value: new NumberField({ required: true, integer: true, initial: 10 }),
           max: new NumberField({ required: true, integer: true, initial: 10 }),
           temp: new NumberField({ required: true, integer: true, initial: 0 }),
+          bonus: new NumberField({ required: true, integer: true, initial: 0 }),
         }),
         mana: new SchemaField({
           value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
@@ -54,27 +172,33 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         xp: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
       }),
 
+      wealth: new SchemaField({
+        gold: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+      }),
+
       // --- Combat ---
       combat: new SchemaField({
         ac: new SchemaField({
-          base:    new NumberField({ required: true, integer: true, initial: 10 }),
-          armor:   new NumberField({ required: true, integer: true, initial: 0 }),
-          shield:  new NumberField({ required: true, integer: true, initial: 0 }),
+          base: new NumberField({ required: true, integer: true, initial: 10 }),
+          armor: new NumberField({ required: true, integer: true, initial: 0 }),
+          shield: new NumberField({ required: true, integer: true, initial: 0 }),
           natural: new NumberField({ required: true, integer: true, initial: 0 }),
-          misc:    new NumberField({ required: true, integer: true, initial: 0 }),
+          misc: new NumberField({ required: true, integer: true, initial: 0 }),
         }),
         bab: new NumberField({ required: true, integer: true, initial: 0 }),
         saves: new SchemaField({
           fortitude: saveField(),
-          reflex:    saveField(),
-          will:      saveField(),
+          reflex: saveField(),
+          will: saveField(),
         }),
         initiative: new SchemaField({
           misc: new NumberField({ required: true, integer: true, initial: 0 }),
         }),
+        attackMisc: new NumberField({ required: true, integer: true, initial: 0 }),
+        magicSaveBonus: new NumberField({ required: true, integer: true, initial: 0 }),
       }),
 
-      // --- Spell Memorization (8 slots) ---
+      // --- Spell Memorization ---
       spellSlots: new ArrayField(
         new SchemaField({
           itemId: new StringField({ initial: "" }),
@@ -88,50 +212,53 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     };
   }
 
-  // -------------------------------------------------------------------------
-  // Derived Data
-  // -------------------------------------------------------------------------
-
   prepareDerivedData() {
     const config = CONFIG.EQRPG;
 
-    // Ability totals and modifiers
     for (const key of Object.keys(this.abilities)) {
       const ab = this.abilities[key];
       ab.value = ab.base + ab.racial + ab.misc;
       ab.mod = Math.floor((ab.value - 10) / 2);
     }
 
-    const level     = this.details.level;
-    const classKey  = this.details.class;
-    const raceKey   = this.details.race;
+    const level = this.details.level;
+    const classKey = this.details.class;
+    const raceKey = this.details.race;
     const classConfig = config.classes?.[classKey];
 
-    // BAB
     if (classConfig) {
       const babFn = config.babProgression[classConfig.babProgression];
       this.combat.bab = babFn ? babFn(level) : 0;
     }
 
-    // Iterative attack array (PHB: second attack at BAB 6, third at 11, fourth at 16)
-    const bab = this.combat.bab;
-    const attacks = [];
-    if (bab >= 1)  attacks.push(bab);
-    if (bab >= 6)  attacks.push(bab - 5);
-    if (bab >= 11) attacks.push(bab - 10);
-    if (bab >= 16) attacks.push(bab - 15);
-    this.combat.attackArray = attacks;
+    const effectSummary = collectEffectSummary(this.parent);
+    const combatRound = getCombatRound();
+    this.effectSummary = effectSummary;
+    this.combat.attackArray = buildAttackArray(
+      this.combat.bab,
+      effectSummary.netHasteRank,
+      effectSummary.netSlowRank,
+      combatRound,
+    );
+    this.combat.tempo = {
+      round: combatRound,
+      hasteRank: effectSummary.hasteRank,
+      slowRank: effectSummary.slowRank,
+      netHasteRank: effectSummary.netHasteRank,
+      netSlowRank: effectSummary.netSlowRank,
+      acBonus: getHasteACBonus(effectSummary.netHasteRank) - getSlowACPenalty(effectSummary.netSlowRank),
+      weaponDelayMod: getWeaponDelayMod(effectSummary.netHasteRank, effectSummary.netSlowRank),
+      note: describeTempo(effectSummary.netHasteRank, effectSummary.netSlowRank, combatRound),
+    };
 
-    // Saves
-    // Halfling luck: +1 racial bonus to all saves
     const raceAbilitiesList = config.races?.[raceKey]?.abilities ?? [];
     const luckBonus = raceAbilitiesList.includes("luck") ? 1 : 0;
 
     if (classConfig) {
       for (const [saveKey, save] of Object.entries(this.combat.saves)) {
         const progression = classConfig.saves[saveKey];
-        const progFn = config.saveProgression[progression];
-        save.base  = progFn ? progFn(level) : 0;
+        const progTable = config.saveProgression[progression];
+        save.base = Array.isArray(progTable) ? (progTable[level] ?? 0) : 0;
         save.value = save.base + this._getSaveAbilityMod(saveKey) + save.misc + luckBonus;
       }
     } else {
@@ -140,47 +267,66 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       }
     }
 
-    // Equipment effects + feat passive bonuses — single pass over all items
     const items = this.parent?.items;
-    let featFort = 0, featReflex = 0, featWill = 0, featInit = 0, featAC = 0, featHP = 0;
+    this.combat.ac.maxDexBonus = null;
+    this.combat.ac.dex = this.abilities.dex.mod;
+    this.combat.armorCheckPenalty = 0;
+    this.combat.spellFailure = 0;
+    let featFort = 0, featReflex = 0, featWill = 0, featInit = 0, featAC = 0, featHP = 0, featAttack = 0;
     if (items) {
-      let armorBonus  = 0;
+      let armorBonus = 0;
       let shieldBonus = 0;
+      let maxDexBonus = null;
+      let armorCheckPenalty = 0;
+      let armorAttackPenalty = 0;
+      let spellFailure = 0;
       for (const item of items) {
         if (item.type === "armor" && item.system.equipped) {
           if (item.system.type === "shield") {
             shieldBonus = Math.max(shieldBonus, item.system.acBonus);
           } else {
             armorBonus = Math.max(armorBonus, item.system.acBonus);
+            const itemMaxDex = Number.isInteger(item.system.maxDexBonus) ? item.system.maxDexBonus : null;
+            if (itemMaxDex !== null) {
+              maxDexBonus = maxDexBonus === null ? itemMaxDex : Math.min(maxDexBonus, itemMaxDex);
+            }
           }
+          armorCheckPenalty += item.system.checkPenalty ?? 0;
+          armorAttackPenalty += item.system.attackPenalty ?? 0;
+          spellFailure += item.system.spellFailure ?? 0;
         }
         if (item.type === "feat") {
           const b = item.system.bonuses;
-          featFort   += b?.fort   ?? 0;
+          featFort += b?.fort ?? 0;
           featReflex += b?.reflex ?? 0;
-          featWill   += b?.will   ?? 0;
-          featInit   += b?.init   ?? 0;
-          featAC     += b?.ac     ?? 0;
-          featHP     += b?.hp     ?? 0;
+          featWill += b?.will ?? 0;
+          featInit += b?.init ?? 0;
+          featAC += b?.ac ?? 0;
+          featHP += b?.hp ?? 0;
+          featAttack += b?.attack ?? 0;
         }
       }
-      this.combat.ac.armor  = armorBonus;
+      this.combat.ac.armor = armorBonus;
       this.combat.ac.shield = shieldBonus;
+      this.combat.ac.maxDexBonus = maxDexBonus;
+      this.combat.armorCheckPenalty = armorCheckPenalty;
+      this.combat.spellFailure = spellFailure;
+      featAttack += armorAttackPenalty;
     }
 
-    // Apply feat save bonuses to already-computed save values
     this.combat.saves.fortitude.value += featFort;
-    this.combat.saves.reflex.value    += featReflex;
-    this.combat.saves.will.value      += featWill;
+    this.combat.saves.reflex.value += featReflex;
+    this.combat.saves.will.value += featWill;
 
-    // Natural AC from race (Iksar: +4 natural armor per PHB)
     this.combat.ac.natural = config.raceNaturalAC?.[raceKey] ?? 0;
 
-    // AC total (base + armor + shield + natural + DEX mod + misc)
     const ac = this.combat.ac;
-    ac.value = ac.base + ac.armor + ac.shield + ac.natural + this.abilities.dex.mod + ac.misc;
+    const dexToAC = Number.isInteger(ac.maxDexBonus)
+      ? Math.min(this.abilities.dex.mod, ac.maxDexBonus)
+      : this.abilities.dex.mod;
+    ac.dex = dexToAC;
+    ac.value = ac.base + ac.armor + ac.shield + ac.natural + dexToAC + ac.misc;
 
-    // Monk unarmored AC bonus: WIS mod + floor(level/5) when no armor or shield equipped
     if (classKey === "monk" && ac.armor === 0 && ac.shield === 0) {
       const monkBonus = this.abilities.wis.mod + Math.floor(level / 5);
       ac.monkBonus = monkBonus;
@@ -188,43 +334,35 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     } else {
       ac.monkBonus = 0;
     }
-    // Feat AC bonus
     ac.value += featAC;
+    ac.value += this.combat.tempo.acBonus;
 
-    // Initiative
     this.combat.initiative.value = this.abilities.dex.mod + this.combat.initiative.misc + featInit;
+    this.combat.attackBonus = featAttack + (this.combat.attackMisc ?? 0);
+    this.combat.weaponDelayMod = this.combat.tempo.weaponDelayMod;
 
-    // HP max = hitDie at level 1 + avg(hitDie) per additional level + CON mod * level
     if (classConfig) {
-      const hitDie      = classConfig.hitDie;
+      const hitDie = classConfig.hitDie;
       const avgPerLevel = Math.floor(hitDie / 2) + 1;
       this.resources.hp.max = hitDie + (avgPerLevel * (level - 1)) + (this.abilities.con.mod * level);
       if (this.resources.hp.max < 1) this.resources.hp.max = 1;
     }
-    // Feat HP bonus (Toughness etc.)
-    this.resources.hp.max += featHP;
+    this.resources.hp.max += featHP + (this.resources.hp.bonus ?? 0);
 
-    // Mana max and regen rate (casters only)
-    // PHB formula: mana max = (spellcasting ability modifier × 2) × effective caster level
-    // Hybrid classes (Beastlord, Paladin, Ranger, Shadow Knight) start casting at level 5;
-    // their effective caster level = class level − 4 (they have no mana until level 5).
     if (classConfig?.spellcastingAbility) {
       const castAbility = classConfig.spellcastingAbility;
-      const castMod     = this.abilities[castAbility].mod;
+      const castMod = this.abilities[castAbility].mod;
+      const manaMultiplier = ["paladin", "ranger", "shadowknight", "beastlord"].includes(classKey) ? 2 : 3;
 
-      const hybridClasses = ["beastlord", "paladin", "ranger", "shadowknight"];
-      const isHybrid = hybridClasses.includes(classKey);
-      const effectiveCasterLevel = isHybrid ? Math.max(0, level - 4) : level;
-
-      this.resources.mana.max = (castMod > 0 && effectiveCasterLevel > 0)
-        ? (castMod * 2) * effectiveCasterLevel
+      this.resources.mana.max = (castMod > 0 && level > 0)
+        ? (castMod * manaMultiplier) * level
         : 0;
 
-      const baseRegen = Math.max(1, Math.floor(level / 5));
+      const baseRegen = classKey === "bard" ? 0 : Math.max(1, Math.floor(level / 5));
       let meditateBonus = 0;
-      if (items) {
+      if (items && classKey !== "bard") {
         for (const item of items) {
-          if (item.type === "skill" && item.name.toLowerCase().includes("meditate")) {
+          if (item.type === "skill" && item.name.toLowerCase().includes("meditation")) {
             meditateBonus = Math.floor((item.system.ranks ?? 0) / 5);
             break;
           }
@@ -235,26 +373,27 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       this.resources.mana.max = 0;
       this.manaRegen = 0;
     }
+    this.combatManaRegen = effectSummary.manaPerRound;
+    this.details.speed = config.races?.[raceKey]?.speed ?? 30;
+    this.details.speedModified = Math.round(this.details.speed * (1 + (effectSummary.speedPct / 100)));
 
-    // XP progress toward next level
-    const currentXP   = this.resources.xp;
-    const xpTable     = config.xpThresholds ?? {};
-    const thisLevelXP = xpTable[level]     ?? 0;
+    const currentXP = this.resources.xp;
+    const xpTable = config.xpThresholds ?? {};
+    const thisLevelXP = xpTable[level] ?? 0;
     const nextLevelXP = xpTable[level + 1] ?? null;
-    const xpRange     = nextLevelXP !== null ? (nextLevelXP - thisLevelXP) : 1;
-    const xpEarned    = Math.max(0, currentXP - thisLevelXP);
+    const xpRange = nextLevelXP !== null ? (nextLevelXP - thisLevelXP) : 1;
+    const xpEarned = Math.max(0, currentXP - thisLevelXP);
     this.xpProgress = {
-      current:   currentXP,
+      current: currentXP,
       thisLevel: thisLevelXP,
       nextLevel: nextLevelXP,
-      earned:    xpEarned,
-      range:     xpRange,
-      percent:   nextLevelXP !== null ? Math.min(100, (xpEarned / xpRange) * 100) : 100,
-      ready:     nextLevelXP !== null && currentXP >= nextLevelXP,
-      maxLevel:  nextLevelXP === null,
+      earned: xpEarned,
+      range: xpRange,
+      percent: nextLevelXP !== null ? Math.min(100, (xpEarned / xpRange) * 100) : 100,
+      ready: nextLevelXP !== null && currentXP >= nextLevelXP,
+      maxLevel: nextLevelXP === null,
     };
 
-    // Point-buy tracking (not stored, computed for display)
     this.pointBuy = { spent: 0, remaining: config.pointBuyTotal };
     for (const key of Object.keys(this.abilities)) {
       const base = this.abilities[key].base;
@@ -263,76 +402,65 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     }
     this.pointBuy.remaining = config.pointBuyTotal - this.pointBuy.spent;
 
-    // Encumbrance
+    const classSkillPoints = classConfig?.skillPoints ?? 0;
+    const intMod = this.abilities.int.mod;
+    this.skillProgression = {
+      firstLevel: Math.max(0, (classSkillPoints + intMod) * 4),
+      perLevel: Math.max(0, classSkillPoints + intMod),
+      classBase: classSkillPoints,
+    };
+
     this.encumbrance = { current: 0, max: 15 * this.abilities.str.value };
     if (items) {
       for (const item of items) {
         const weight = item.system.weight ?? 0;
-        const qty    = item.system.quantity ?? 1;
+        const qty = item.system.quantity ?? 1;
         this.encumbrance.current += weight * qty;
       }
       this.encumbrance.current = Math.round(this.encumbrance.current * 10) / 10;
     }
 
-    // -------------------------------------------------------------------------
-    // Class Features (PHB)
-    // -------------------------------------------------------------------------
     this.classFeatures = {};
 
     if (classKey === "rogue") {
-      // Sneak Attack: +1d6 at level 1, +1d6 every 2 levels
       this.classFeatures.sneakAttackDice = Math.ceil(level / 2);
     }
 
     if (classKey === "monk") {
-      // Unarmed damage die scales with level
-      const dieTable = [0,4,4,4,6,6,6,8,8,8,8,10,10,10,10,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12];
+      const dieTable = [0, 4, 4, 4, 6, 6, 6, 8, 8, 8, 8, 10, 10, 10, 10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12];
       this.classFeatures.unarmedDamageDie = dieTable[level] ?? 4;
     }
 
     if (classKey === "paladin") {
-      // Lay on Hands: level × CHA modifier HP (0 if CHA mod ≤ 0)
-      this.classFeatures.layOnHandsPool = Math.max(0, level * Math.max(0, this.abilities.cha.mod));
-    }
-
-    if (classKey === "berserker") {
-      // Rage: +1d6 bonus damage at level 1, +1d6 per 5 levels
-      this.classFeatures.rageDice = Math.floor(level / 5) + 1;
+      const layMod = this.abilities.wis.mod + this.abilities.cha.mod;
+      this.classFeatures.layOnHandsPool = Math.max(0, layMod * level);
     }
 
     if (classKey === "shadowknight") {
-      // Lifetap: drain Nd6 HP from target and heal self
-      this.classFeatures.lifetapDice = Math.ceil(level / 3);
+      this.classFeatures.harmTouchDamage = level * 3;
+      this.classFeatures.harmTouchDC = 10 + this.abilities.int.mod + Math.floor(level / 2);
+      this.classFeatures.leechTouch = level >= 20;
     }
 
-    // -------------------------------------------------------------------------
-    // Race Abilities (passive list + mechanical flags)
-    // -------------------------------------------------------------------------
-    this.raceAbilities      = config.races?.[raceKey]?.abilities ?? [];
-    this.hasRegeneration    = this.raceAbilities.includes("regeneration");
-    this.regenRate          = this.hasRegeneration ? 1 : 0;  // HP per combat round
-    this.hasStunImmunity    = this.raceAbilities.includes("stun_immunity");
-    this.hasColdResistance  = this.raceAbilities.includes("coldResistance");
-    this.coldResistBonus    = this.hasColdResistance ? 4 : 0;  // +4 Fort vs cold effects
-    this.hasSpellShielding  = this.raceAbilities.includes("spellShielding");
-    this.luckBonus          = luckBonus;  // +1 all saves (Halfling)
+    this.raceAbilities = config.races?.[raceKey]?.abilities ?? [];
+    this.hasRegeneration = this.raceAbilities.includes("regeneration");
+    this.regenRate = this.hasRegeneration ? 1 : 0;
+    this.hasStunImmunity = this.raceAbilities.includes("stun_immunity");
+    this.hasColdResistance = this.raceAbilities.includes("coldResistance");
+    this.coldResistBonus = this.hasColdResistance ? 4 : 0;
+    this.hasSpellShielding = this.raceAbilities.includes("spellShielding");
+    this.luckBonus = luckBonus;
   }
 
-  /**
-   * Get the ability modifier used for a saving throw.
-   */
   _getSaveAbilityMod(saveKey) {
     switch (saveKey) {
       case "fortitude": return this.abilities.con.mod;
-      case "reflex":    return this.abilities.dex.mod;
-      case "will":      return this.abilities.wis.mod;
-      default:          return 0;
+      case "reflex": return this.abilities.dex.mod;
+      case "will": return this.abilities.wis.mod;
+      default: return 0;
     }
   }
 
-  /**
-   * Provide data for roll formulas.
-   */
   getRollData() {
     const data = { ...this };
     return data;

@@ -110,6 +110,21 @@
         <div class="item-prop-section">
           <div class="item-prop-title">{{localize "EQRPG.Properties"}}</div>
           <div class="field-group">
+            <label>{{localize "EQRPG.ArmorCheckPenalty"}}</label>
+            <input type="number" name="system.checkPenalty" value="{{system.checkPenalty}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.ArmorAttackPenalty"}}</label>
+            <input type="number" name="system.attackPenalty" value="{{system.attackPenalty}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SpellFailure"}}</label>
+            <input type="number" name="system.spellFailure" value="{{system.spellFailure}}" min="0" max="100"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
             <label>{{localize "EQRPG.Weight"}}</label>
             <input type="number" name="system.weight" value="{{system.weight}}" step="0.1"
                    {{#unless isEditable}}disabled{{/unless}} />
@@ -184,10 +199,41 @@
                    placeholder="e.g. Fireball"
                    {{#unless isEditable}}disabled{{/unless}} />
           </div>
+          <div class="field-group">
+            <label>Class Levels</label>
+            <input type="text" name="system.classLevels" value="{{system.classLevels}}"
+                   placeholder="wizard:5,magician:3"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
         </div>
 
         <div class="spell-section">
           <div class="spell-section-title">{{localize "EQRPG.SpellEffects"}}</div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SpellDelivery"}}</label>
+            <select name="system.deliveryType" {{#unless isEditable}}disabled{{/unless}}>
+              {{#each deliveryOptions}}
+              <option value="{{this.value}}" {{#if (eq this.value @root.system.deliveryType)}}selected{{/if}}>
+                {{this.label}}
+              </option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SpellAttackType"}}</label>
+            <select name="system.attackMode" {{#unless isEditable}}disabled{{/unless}}>
+              {{#each attackModeOptions}}
+              <option value="{{this.value}}" {{#if (eq this.value @root.system.attackMode)}}selected{{/if}}>
+                {{this.label}}
+              </option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SpellAttackBonus"}}</label>
+            <input type="number" name="system.attackBonus" value="{{system.attackBonus}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
           <div class="field-group">
             <label>{{localize "EQRPG.DamageFormula"}}</label>
             <input type="text" name="system.damageFormula" value="{{system.damageFormula}}"
@@ -216,6 +262,16 @@
             <input type="text" name="system.saveDC" value="{{system.saveDC}}"
                    placeholder="auto or 10+lvl…"
                    {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>{{localize "EQRPG.SaveEffect"}}</label>
+            <select name="system.saveEffect" {{#unless isEditable}}disabled{{/unless}}>
+              {{#each saveEffectOptions}}
+              <option value="{{this.value}}" {{#if (eq this.value @root.system.saveEffect)}}selected{{/if}}>
+                {{this.label}}
+              </option>
+              {{/each}}
+            </select>
           </div>
           <div class="field-group">
             <label>{{localize "EQRPG.SpellEffect"}}</label>
@@ -269,6 +325,16 @@
           <input type="checkbox" name="system.isTradeskill" {{#if system.isTradeskill}}checked{{/if}}
                  {{#unless isEditable}}disabled{{/unless}} />
           <span class="flag-ts">{{localize "EQRPG.Tradeskill"}}</span>
+        </label>
+        <label class="item-flag">
+          <input type="checkbox" name="system.trainedOnly" {{#if system.trainedOnly}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <span class="flag-ts">{{localize "EQRPG.TrainedOnly"}}</span>
+        </label>
+        <label class="item-flag">
+          <input type="checkbox" name="system.languageDependent" {{#if system.languageDependent}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <span class="flag-ts">{{localize "EQRPG.LanguageDependent"}}</span>
         </label>
       </div>
     </div>
@@ -435,6 +501,11 @@
           <div class="feat-bonus-pill">
             <span class="fbp-label">{{localize "EQRPG.BonusHP"}}</span>
             <input type="number" name="system.bonuses.hp" value="{{system.bonuses.hp}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="feat-bonus-pill">
+            <span class="fbp-label">{{localize "EQRPG.AttackBonus"}}</span>
+            <input type="number" name="system.bonuses.attack" value="{{system.bonuses.attack}}"
                    {{#unless isEditable}}disabled{{/unless}} />
           </div>
         </div>

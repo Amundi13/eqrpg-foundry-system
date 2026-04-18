@@ -1,0 +1,653 @@
+[
+  {
+    "name": "Cloth Armor",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Quilted layers of cloth and batting. This is the PHB cloth armor entry.</p>",
+      "acBonus": 1,
+      "type": "light",
+      "maxDexBonus": 8,
+      "checkPenalty": 0,
+      "attackPenalty": 0,
+      "spellFailure": 0,
+      "weight": 10,
+      "price": 5,
+      "equipped": false,
+      "phbName": "Cloth",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Leather Armor",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Boiled and hardened leather over softer backing.</p>",
+      "acBonus": 2,
+      "type": "light",
+      "maxDexBonus": 6,
+      "checkPenalty": 0,
+      "attackPenalty": 0,
+      "spellFailure": 10,
+      "weight": 15,
+      "price": 10,
+      "equipped": false,
+      "phbName": "Leather",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Raw Silk Armor",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>An expensive silk armor listed in the PHB armor table.</p>",
+      "acBonus": 2,
+      "type": "light",
+      "maxDexBonus": 9,
+      "checkPenalty": 0,
+      "attackPenalty": 0,
+      "spellFailure": 0,
+      "weight": 7,
+      "price": 500,
+      "equipped": false,
+      "phbName": "Raw silk",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Studded Leather",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Leather reinforced with metal studs for better protection.</p>",
+      "acBonus": 3,
+      "type": "light",
+      "maxDexBonus": 5,
+      "checkPenalty": -1,
+      "attackPenalty": 0,
+      "spellFailure": 15,
+      "weight": 20,
+      "price": 25,
+      "equipped": false,
+      "phbName": "Studded leather",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Chain Shirt",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>A torso-only mail shirt with good mobility.</p>",
+      "acBonus": 4,
+      "type": "light",
+      "maxDexBonus": 4,
+      "checkPenalty": -2,
+      "attackPenalty": 0,
+      "spellFailure": 20,
+      "weight": 25,
+      "price": 100,
+      "equipped": false,
+      "phbName": "Chain shirt",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Hide Armor",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Patchwork-sewn hides hardened into crude but durable armor.</p>",
+      "acBonus": 3,
+      "type": "medium",
+      "maxDexBonus": 4,
+      "checkPenalty": -3,
+      "attackPenalty": 0,
+      "spellFailure": 20,
+      "weight": 25,
+      "price": 15,
+      "equipped": false,
+      "phbName": "Hide",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 20,
+      "speed20": 15,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Scale Mail",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Leather and overlapping metal scales.</p>",
+      "acBonus": 4,
+      "type": "medium",
+      "maxDexBonus": 3,
+      "checkPenalty": -4,
+      "attackPenalty": 0,
+      "spellFailure": 25,
+      "weight": 30,
+      "price": 50,
+      "equipped": false,
+      "phbName": "Scale mail",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 20,
+      "speed20": 15,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Chainmail",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>A full suit of interlocking rings with quilted backing.</p>",
+      "acBonus": 5,
+      "type": "medium",
+      "maxDexBonus": 2,
+      "checkPenalty": -5,
+      "attackPenalty": 0,
+      "spellFailure": 30,
+      "weight": 40,
+      "price": 150,
+      "equipped": false,
+      "phbName": "Chainmail",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 20,
+      "speed20": 15,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Breastplate",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>A fitted torso plate with flexible protection for the limbs.</p>",
+      "acBonus": 5,
+      "type": "medium",
+      "maxDexBonus": 3,
+      "checkPenalty": -4,
+      "attackPenalty": 0,
+      "spellFailure": 25,
+      "weight": 30,
+      "price": 200,
+      "equipped": false,
+      "phbName": "Breastplate",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 20,
+      "speed20": 15,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Banded Mail",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Broad overlapping steel bands over chain backing.</p>",
+      "acBonus": 6,
+      "type": "heavy",
+      "maxDexBonus": 1,
+      "checkPenalty": -6,
+      "attackPenalty": 0,
+      "spellFailure": 35,
+      "weight": 35,
+      "price": 250,
+      "equipped": false,
+      "phbName": "Banded mail",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 20,
+      "speed20": 15,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Splint Mail",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Strips of metal splinted onto backing and chain.</p>",
+      "acBonus": 6,
+      "type": "heavy",
+      "maxDexBonus": 0,
+      "checkPenalty": -7,
+      "attackPenalty": 0,
+      "spellFailure": 40,
+      "weight": 45,
+      "price": 200,
+      "equipped": false,
+      "phbName": "Splint mail",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 20,
+      "speed20": 15,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Half-Plate",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>A loose mix of plate pieces and chain covering vital areas.</p>",
+      "acBonus": 7,
+      "type": "heavy",
+      "maxDexBonus": 0,
+      "checkPenalty": -7,
+      "attackPenalty": 0,
+      "spellFailure": 40,
+      "weight": 50,
+      "price": 600,
+      "equipped": false,
+      "phbName": "Half-plate",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 20,
+      "speed20": 15,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Full Plate",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Master-fitted plate armor covering the entire body.</p>",
+      "acBonus": 8,
+      "type": "heavy",
+      "maxDexBonus": 1,
+      "checkPenalty": -6,
+      "attackPenalty": 0,
+      "spellFailure": 35,
+      "weight": 50,
+      "price": 1500,
+      "equipped": false,
+      "phbName": "Full plate",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "",
+      "speed30": 20,
+      "speed20": 15,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Buckler",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>A forearm-strapped shield. PHB attack penalty applies only when using an off-hand weapon.</p>",
+      "acBonus": 1,
+      "type": "shield",
+      "maxDexBonus": null,
+      "checkPenalty": -1,
+      "attackPenalty": 0,
+      "spellFailure": 5,
+      "weight": 5,
+      "price": 15,
+      "equipped": false,
+      "phbName": "Buckler",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "buckler",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Buckler attack penalty is situational and applies only when using the off-hand for a weapon."
+      }
+    }
+  },
+  {
+    "name": "Small Steel Shield",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>A small steel shield with the standard PHB shield values.</p>",
+      "acBonus": 1,
+      "type": "shield",
+      "maxDexBonus": null,
+      "checkPenalty": -1,
+      "attackPenalty": 0,
+      "spellFailure": 5,
+      "weight": 6,
+      "price": 9,
+      "equipped": false,
+      "phbName": "Shield, small, steel",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "small",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Small Wooden Shield",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>A small wooden shield from the PHB armor table.</p>",
+      "acBonus": 1,
+      "type": "shield",
+      "maxDexBonus": null,
+      "checkPenalty": -1,
+      "attackPenalty": 0,
+      "spellFailure": 5,
+      "weight": 5,
+      "price": 3,
+      "equipped": false,
+      "phbName": "Shield, small, wooden",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "small",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Large Steel Shield",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>A large steel shield. The PHB notes the shield hand cannot do anything else.</p>",
+      "acBonus": 2,
+      "type": "shield",
+      "maxDexBonus": null,
+      "checkPenalty": -2,
+      "attackPenalty": 0,
+      "spellFailure": 15,
+      "weight": 15,
+      "price": 20,
+      "equipped": false,
+      "phbName": "Shield, large, steel",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "large",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Large Wooden Shield",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>A large wooden shield from the PHB armor table.</p>",
+      "acBonus": 2,
+      "type": "shield",
+      "maxDexBonus": null,
+      "checkPenalty": -2,
+      "attackPenalty": 0,
+      "spellFailure": 15,
+      "weight": 10,
+      "price": 7,
+      "equipped": false,
+      "phbName": "Shield, large, wooden",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "large",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Tower Shield",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>PHB tower shields provide cover rather than a normal armor bonus. The current system approximates that with +4 AC and the listed attack penalty.</p>",
+      "acBonus": 4,
+      "type": "shield",
+      "maxDexBonus": null,
+      "checkPenalty": -10,
+      "attackPenalty": -2,
+      "spellFailure": 50,
+      "weight": 45,
+      "price": 30,
+      "equipped": false,
+      "phbName": "Shield, tower",
+      "phbTable": "Table 7-7",
+      "source": "phb",
+      "phbCore": true,
+      "shieldCategory": "tower",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "PHB tower shield rules are cover-based. Current implementation approximates them as +4 AC and -2 attack while carried."
+      }
+    }
+  },
+  {
+    "name": "Padded Armor",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Retained legacy armor entry outside the PHB EverQuest table.</p>",
+      "acBonus": 1,
+      "type": "light",
+      "maxDexBonus": 8,
+      "checkPenalty": 0,
+      "attackPenalty": 0,
+      "spellFailure": 0,
+      "weight": 10,
+      "price": 5,
+      "equipped": false,
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "shieldCategory": "",
+      "speed30": 30,
+      "speed20": 20,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Ring Mail",
+    "type": "armor",
+    "img": "",
+    "system": {
+      "description": "<p>Retained legacy armor entry outside the PHB EverQuest table.</p>",
+      "acBonus": 3,
+      "type": "medium",
+      "maxDexBonus": 6,
+      "checkPenalty": -2,
+      "attackPenalty": 0,
+      "spellFailure": 20,
+      "weight": 40,
+      "price": 50,
+      "equipped": false,
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "shieldCategory": "",
+      "speed30": 20,
+      "speed20": 15,
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  }
+]

@@ -7,9 +7,6 @@
       <div class="mana-fill" style="width: {{#if system.resources.mana.max}}{{math (math system.resources.mana.value "/" system.resources.mana.max) "*" 100}}{{else}}0{{/if}}%"></div>
     </div>
     <span class="mana-value">{{system.resources.mana.value}} / {{system.resources.mana.max}}</span>
-    {{#if system.manaRegen}}
-    <span class="mana-regen" title="{{localize 'EQRPG.ManaRegenTitle'}}">+{{system.manaRegen}}/rnd</span>
-    {{/if}}
   </div>
   <div class="rest-controls">
     <button type="button" data-action="recoverSpells" class="recover-btn"
@@ -69,7 +66,7 @@
       <li class="item" data-item-id="{{spell.id}}">
         <img src="{{spell.img}}" class="item-img" width="24" height="24" data-action="editItem" />
         <span class="item-name" data-action="editItem">{{spell.name}}</span>
-        <span class="item-detail">Lvl {{spell.system.spellLevel}}</span>
+        <span class="item-detail">Lvl {{spell.system.effectiveSpellLevel}}</span>
         <span class="item-detail">{{spell.system.manaCost}} mana</span>
         {{#if spell.system.recastTime}}
         <span class="item-detail spell-recast">{{spell.system.recastTime}}rnd</span>

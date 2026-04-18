@@ -65,6 +65,13 @@
       "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
     },
     {
+      "name": "eqrpg-equipment",
+      "label": "EQ Equipment",
+      "path": "packs/eqrpg-equipment",
+      "type": "Item",
+      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+    },
+    {
       "name": "eqrpg-consumables",
       "label": "EQ Consumables",
       "path": "packs/eqrpg-consumables",

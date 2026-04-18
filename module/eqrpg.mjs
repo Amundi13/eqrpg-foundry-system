@@ -28,9 +28,11 @@ import { CharacterWizard } from "./apps/character-wizard.mjs";
 import { EQRPG } from "./helpers/config.mjs";
 
 // Compendium sample data
-import { SAMPLE_SPELLS, SAMPLE_SKILLS, SAMPLE_WEAPONS, SAMPLE_ARMOR, SAMPLE_CONSUMABLES }
+import {
+  SAMPLE_SPELLS, SAMPLE_FEATS, SAMPLE_SKILLS,
+  SAMPLE_WEAPONS, SAMPLE_ARMOR, SAMPLE_EQUIPMENT, SAMPLE_CONSUMABLES,
+}
   from "./packs/sample-data.mjs";
-import { SAMPLE_FEATS } from "./packs/feats-data.mjs";
 import { PHB_JOURNALS } from "./packs/phb-data.mjs";
 
 /* ========================================================================== */
@@ -78,7 +80,9 @@ Hooks.once("init", () => {
   });
 
   // Expose config globally
-  game.eqrpg = { config: EQRPG };
+  game.eqrpg = game.eqrpg ?? {};
+  game.eqrpg.config = EQRPG;
+  game.eqrpg.CharacterWizard = CharacterWizard;
   CONFIG.EQRPG = EQRPG;
 
   // Register document classes
@@ -146,9 +150,19 @@ function _onRenderChatMessage(message, html) {
   const root = (html instanceof HTMLElement) ? html : (html?.[0] ?? html);
   if (!root?.querySelectorAll) return;
 
+  const resolveTargetDoc = async (uuid) => {
+    if (!uuid) return null;
+    try {
+      return await fromUuid(uuid);
+    } catch (_err) {
+      return null;
+    }
+  };
+
   // Apply damage buttons (Full / ½ / ×2)
   root.querySelectorAll("[data-apply-damage]").forEach(btn => {
     btn.addEventListener("click", async () => {
+      if (btn.dataset.applyDamageUuid) return;
       const amount  = parseInt(btn.dataset.applyDamage) || 0;
       const targets = [...(game.user?.targets ?? [])];
       if (targets.length === 0) {
@@ -176,6 +190,20 @@ function _onRenderChatMessage(message, html) {
       const item = actor.items.get(itemId);
       if (!item)  { ui.notifications.warn(game.i18n.localize("EQRPG.ItemNotFound"));  return; }
       await item.rollDamage({ critMult });
+    });
+  });
+
+  // Inline combat maneuver buttons on attack cards
+  root.querySelectorAll("[data-roll-maneuver-item]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const actorId  = btn.dataset.actorId;
+      const itemId   = btn.dataset.rollManeuverItem;
+      const maneuver = btn.dataset.maneuver ?? "trip";
+      const actor    = game.actors.get(actorId);
+      if (!actor) { ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound")); return; }
+      const item = actor.items.get(itemId);
+      if (!item)  { ui.notifications.warn(game.i18n.localize("EQRPG.ItemNotFound"));  return; }
+      await item.rollCombatManeuver(maneuver);
     });
   });
 
@@ -225,6 +253,7 @@ function _onRenderChatMessage(message, html) {
   // Apply healing button
   root.querySelectorAll("[data-apply-heal]").forEach(btn => {
     btn.addEventListener("click", async () => {
+      if (btn.dataset.applyHealUuid) return;
       const amount  = parseInt(btn.dataset.applyHeal) || 0;
       const targets = [...(game.user?.targets ?? [])];
       if (targets.length === 0) {
@@ -237,6 +266,95 @@ function _onRenderChatMessage(message, html) {
       }
       ui.notifications.info(
         game.i18n.format("EQRPG.HealApplied", { amount, count: applied })
+      );
+    });
+  });
+
+  root.querySelectorAll("[data-apply-damage-uuid]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const amount = parseInt(btn.dataset.applyDamage) || 0;
+      const uuid = btn.dataset.applyDamageUuid;
+      const doc = await resolveTargetDoc(uuid);
+      const actor = doc?.actor ?? doc;
+      if (!actor?.applyDamage) {
+        ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound"));
+        return;
+      }
+      await actor.applyDamage(amount);
+      ui.notifications.info(
+        game.i18n.format("EQRPG.DamageAppliedSingle", { amount, name: actor.name })
+      );
+    });
+  });
+
+  root.querySelectorAll("[data-apply-heal-uuid]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const amount = parseInt(btn.dataset.applyHeal) || 0;
+      const uuid = btn.dataset.applyHealUuid;
+      const doc = await resolveTargetDoc(uuid);
+      const actor = doc?.actor ?? doc;
+      if (!actor?.applyHealing) {
+        ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound"));
+        return;
+      }
+      await actor.applyHealing(amount);
+      ui.notifications.info(
+        game.i18n.format("EQRPG.HealAppliedSingle", { amount, name: actor.name })
+      );
+    });
+  });
+
+  root.querySelectorAll("[data-toggle-status-uuid]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const uuid = btn.dataset.toggleStatusUuid;
+      const statusId = btn.dataset.statusId;
+      const doc = await resolveTargetDoc(uuid);
+      if (!doc?.toggleActiveEffect || !statusId) {
+        ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound"));
+        return;
+      }
+      const status = CONFIG.statusEffects?.find((entry) => entry.id === statusId) ?? { id: statusId };
+      await doc.toggleActiveEffect(status);
+      ui.notifications.info(
+        game.i18n.format("EQRPG.StatusToggled", { status: statusId, name: doc.name ?? "target" })
+      );
+    });
+  });
+
+  root.querySelectorAll("[data-apply-effect-uuid]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const uuid = btn.dataset.applyEffectUuid;
+      const rawConfig = btn.dataset.effectConfig ?? "";
+      const doc = await resolveTargetDoc(uuid);
+      const actor = doc?.actor ?? doc;
+      if (!actor?.toggleSpellEffect || !rawConfig) {
+        ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound"));
+        return;
+      }
+      const config = JSON.parse(decodeURIComponent(rawConfig));
+      await actor.toggleSpellEffect(config);
+      ui.notifications.info(
+        game.i18n.format("EQRPG.EffectToggled", { effect: config.label ?? "effect", name: actor.name })
+      );
+    });
+  });
+
+  root.querySelectorAll("[data-disarm-actor-uuid]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const uuid = btn.dataset.disarmActorUuid;
+      const doc = await resolveTargetDoc(uuid);
+      const actor = doc?.actor ?? doc;
+      if (!actor?.disarmPrimaryWeapon) {
+        ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound"));
+        return;
+      }
+      const weapon = await actor.disarmPrimaryWeapon();
+      if (!weapon) {
+        ui.notifications.info(game.i18n.format("EQRPG.NoWeaponToDisarm", { name: actor.name }));
+        return;
+      }
+      ui.notifications.info(
+        game.i18n.format("EQRPG.DisarmApplied", { target: actor.name, weapon: weapon.name })
       );
     });
   });
@@ -287,10 +405,10 @@ Hooks.on("updateCombat", async (combat, updateData, options, userId) => {
   const actor = combatant?.actor;
   if (!actor || actor.type !== "character") return;
 
-  // Tick spell cooldowns, regenerate mana, apply racial HP regen (e.g. Troll +1 HP/round)
+  // Tick spell cooldowns and apply racial HP regen (e.g. Troll +1 HP/round)
   await actor.tickSpellCooldowns();
-  await actor.regenManaInCombat();
   await actor.regenHP();
+  await actor.regenManaCombat?.();
 });
 
 // ---------------------------------------------------------------------------
@@ -502,6 +620,7 @@ Hooks.once("ready", async () => {
   await _populatePack("eqrpg.eqrpg-skills",      SAMPLE_SKILLS);
   await _populatePack("eqrpg.eqrpg-weapons",     SAMPLE_WEAPONS);
   await _populatePack("eqrpg.eqrpg-armor",       SAMPLE_ARMOR);
+  await _populatePack("eqrpg.eqrpg-equipment",   SAMPLE_EQUIPMENT);
   await _populatePack("eqrpg.eqrpg-consumables", SAMPLE_CONSUMABLES);
   await _populatePack("eqrpg.eqrpg-feats",       SAMPLE_FEATS);
   await _populateJournalPack("eqrpg.eqrpg-phb",  PHB_JOURNALS);
@@ -515,6 +634,7 @@ Hooks.once("ready", async () => {
     await _populatePack("eqrpg.eqrpg-skills",      SAMPLE_SKILLS,      true);
     await _populatePack("eqrpg.eqrpg-weapons",     SAMPLE_WEAPONS,     true);
     await _populatePack("eqrpg.eqrpg-armor",       SAMPLE_ARMOR,       true);
+    await _populatePack("eqrpg.eqrpg-equipment",   SAMPLE_EQUIPMENT,   true);
     await _populatePack("eqrpg.eqrpg-consumables", SAMPLE_CONSUMABLES, true);
     await _populatePack("eqrpg.eqrpg-feats",       SAMPLE_FEATS,       true);
     await _populateJournalPack("eqrpg.eqrpg-phb",  PHB_JOURNALS,       true);

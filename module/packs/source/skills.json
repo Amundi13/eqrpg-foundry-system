@@ -1,0 +1,666 @@
+[
+  {
+    "name": "Alcohol Tolerance",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "con",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Resist the effects of drink and other bodily impairments brought on by heavy alcohol consumption.</p>"
+    }
+  },
+  {
+    "name": "Animal Empathy",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Influence the attitude of animals and calm or direct them without violence.</p>"
+    }
+  },
+  {
+    "name": "Appraise",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Estimate the market value of goods, art objects, jewelry, and other valuables.</p>"
+    }
+  },
+  {
+    "name": "Balance",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": true,
+      "description": "<p>Keep your footing on narrow, angled, or slippery surfaces.</p>"
+    }
+  },
+  {
+    "name": "Bluff",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "languageDependent": true,
+      "description": "<p>Mislead, feint, or otherwise deceive another creature through word and demeanor.</p>"
+    }
+  },
+  {
+    "name": "Channeling",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "con",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Maintain the focus needed to complete a spell while distracted, endangered, or physically threatened.</p>"
+    }
+  },
+  {
+    "name": "Climb",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "str",
+      "classSkill": false,
+      "armorCheckPenalty": true,
+      "description": "<p>Scale walls, ropes, trees, cliffs, and other steep surfaces.</p>"
+    }
+  },
+  {
+    "name": "Diplomacy",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "languageDependent": true,
+      "description": "<p>Negotiate, haggle, persuade, or beg without resorting to threats or force.</p>"
+    }
+  },
+  {
+    "name": "Disable Device",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Disarm, jam, or sabotage locks, traps, and delicate mechanisms.</p>"
+    }
+  },
+  {
+    "name": "Disguise",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "languageDependent": true,
+      "description": "<p>Alter your appearance convincingly enough to pass as someone or something else.</p>"
+    }
+  },
+  {
+    "name": "Escape Artist",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": true,
+      "description": "<p>Slip out of bonds, shackles, grapples, and other restraints.</p>"
+    }
+  },
+  {
+    "name": "Forgery",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Create or detect false documents, seals, and handwriting.</p>"
+    }
+  },
+  {
+    "name": "Gather Information",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "languageDependent": true,
+      "description": "<p>Learn rumors, secrets, and local talk by asking around and listening well.</p>"
+    }
+  },
+  {
+    "name": "Handle Animal",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Rear, train, calm, and direct domestic animals and beasts under your care.</p>"
+    }
+  },
+  {
+    "name": "Heal",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "wis",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Stabilize allies, bind wounds, provide long-term care, and treat disease or poison.</p>"
+    }
+  },
+  {
+    "name": "Hide",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": true,
+      "description": "<p>Remain unseen by using cover, shadows, and concealment.</p>"
+    }
+  },
+  {
+    "name": "Intimidate",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "languageDependent": true,
+      "description": "<p>Threaten, cow, or bully another creature into backing down.</p>"
+    }
+  },
+  {
+    "name": "Jump",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "str",
+      "classSkill": false,
+      "armorCheckPenalty": true,
+      "description": "<p>Leap over gaps, obstacles, and hazards, or spring upward to higher ledges.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Art and Literature)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall artists, texts, songs, ballads, legends, and other cultural works.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Folklore)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall myths, superstitions, folk remedies, and cultural tales.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Geography)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall lands, cities, landmarks, routes, and the peoples who dwell there.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Local Lore)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall local customs, laws, notable residents, and city politics.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Monster Lore)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall a creature type's habits, habitat, strengths, and weaknesses.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Mysticism)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall magical traditions, symbols, prophecy, and arcane mysteries.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Nature)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall flora, fauna, weather, seasons, and other natural cycles.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Planar Travel)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall planes, planar hazards, inhabitants, and methods of travel between them.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Religion)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall gods, churches, dogma, sacred history, and religious practices.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Street Smarts)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall gangs, fences, criminal customs, and the unwritten rules of the streets.</p>"
+    }
+  },
+  {
+    "name": "Knowledge (Warcraft)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recall tactics, commanders, battle doctrine, and the history of war.</p>"
+    }
+  },
+  {
+    "name": "Language",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Speak, understand, or decipher tongues beyond the ones you begin with.</p>"
+    }
+  },
+  {
+    "name": "Listen",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "wis",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Notice distant, faint, or hidden sounds.</p>"
+    }
+  },
+  {
+    "name": "Meditation",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Recover mana through focused rest; in play this follows the caster's appropriate casting tradition.</p>"
+    }
+  },
+  {
+    "name": "Perform",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Entertain through song, story, acting, dance, or other performance arts.</p>"
+    }
+  },
+  {
+    "name": "Pick Lock",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Open mechanical locks using thieves' tools and a practiced hand.</p>"
+    }
+  },
+  {
+    "name": "Pick Pocket",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Lift small items from another creature without being noticed.</p>"
+    }
+  },
+  {
+    "name": "Play Brass Instrument",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "con",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Play horns and other brass instruments with proper breath, tone, and control.</p>"
+    }
+  },
+  {
+    "name": "Play Percussion Instrument",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Play drums and other percussion instruments with rhythm and precision.</p>"
+    }
+  },
+  {
+    "name": "Play String Instrument",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Play lutes, harps, and other stringed instruments with practiced technique.</p>"
+    }
+  },
+  {
+    "name": "Play Wind Instrument",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Play flutes and other wind instruments with clean control and articulation.</p>"
+    }
+  },
+  {
+    "name": "Profession",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "wis",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Practice a trade or calling such as sailor, herbalist, miner, or scribe.</p>"
+    }
+  },
+  {
+    "name": "Read Lips",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "languageDependent": true,
+      "description": "<p>Infer speech by carefully observing a speaker's mouth and expression.</p>"
+    }
+  },
+  {
+    "name": "Ride",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Guide, control, and fight effectively from the saddle.</p>"
+    }
+  },
+  {
+    "name": "Safe Fall",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": true,
+      "description": "<p>Reduce falling damage and land more safely when dropped from height.</p>"
+    }
+  },
+  {
+    "name": "Search",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Find hidden doors, concealed objects, and careful signs of tampering.</p>"
+    }
+  },
+  {
+    "name": "Sense Heading",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "wis",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Maintain your bearings and know direction without obvious markers.</p>"
+    }
+  },
+  {
+    "name": "Sense Motive",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "wis",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Discern lies, hostility, hidden agendas, and social intent.</p>"
+    }
+  },
+  {
+    "name": "Sneak",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": true,
+      "description": "<p>Move quietly enough to avoid notice while traveling or closing on a target.</p>"
+    }
+  },
+  {
+    "name": "Spellcraft",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Identify spells, understand magical workings, and interpret arcane signs.</p>"
+    }
+  },
+  {
+    "name": "Spot",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "wis",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Notice hidden creatures, small details, and things out of place.</p>"
+    }
+  },
+  {
+    "name": "Swim",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "str",
+      "classSkill": false,
+      "armorCheckPenalty": true,
+      "description": "<p>Move through water, keep afloat, and survive strong currents.</p>"
+    }
+  },
+  {
+    "name": "Taunt",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Draw attention, provoke an enemy, or goad a foe into reacting badly.</p>"
+    }
+  },
+  {
+    "name": "Trade Skill",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "isTradeskill": true,
+      "trainedOnly": true,
+      "description": "<p>Practice a chosen craft or trade; this broad entry covers the standard non-specialized crafts of Norrath.</p>"
+    }
+  },
+  {
+    "name": "Trade Skill (Alchemy)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "isTradeskill": true,
+      "trainedOnly": true,
+      "description": "<p>Mix magical compounds, tonics, reagents, and other alchemical creations.</p>"
+    }
+  },
+  {
+    "name": "Trade Skill (Tinkering)",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "int",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "isTradeskill": true,
+      "trainedOnly": true,
+      "description": "<p>Construct and repair intricate mechanisms, gadgets, and gnomish devices.</p>"
+    }
+  },
+  {
+    "name": "Tumble",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": true,
+      "trainedOnly": true,
+      "description": "<p>Roll, dive, and twist through danger without exposing yourself to easy strikes.</p>"
+    }
+  },
+  {
+    "name": "Undead Empathy",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "cha",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "trainedOnly": true,
+      "description": "<p>Influence the behavior of mindless undead through force of presence and necromantic understanding.</p>"
+    }
+  },
+  {
+    "name": "Use Rope",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "dex",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Tie secure knots, lash gear, and work quickly with rope under pressure.</p>"
+    }
+  },
+  {
+    "name": "Wilderness Lore",
+    "type": "skill",
+    "img": "",
+    "system": {
+      "ability": "wis",
+      "classSkill": false,
+      "armorCheckPenalty": false,
+      "description": "<p>Read terrain, survive in the wild, and follow signs left by creatures and weather.</p>"
+    }
+  }
+]

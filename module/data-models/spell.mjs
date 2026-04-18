@@ -7,7 +7,7 @@ export class SpellData extends foundry.abstract.TypeDataModel {
     return {
       description: new HTMLField({ initial: "" }),
       spellLevel: new NumberField({ required: true, integer: true, min: 1, max: 15, initial: 1 }),
-      manaCost: new NumberField({ required: true, integer: true, min: 1, initial: 2 }),
+      manaCost: new NumberField({ required: true, integer: true, min: 0, initial: 2 }),
       castingTime: new StringField({ initial: "1 action" }),
       range: new StringField({ initial: "touch" }),
       duration: new StringField({ initial: "instant" }),
@@ -16,10 +16,15 @@ export class SpellData extends foundry.abstract.TypeDataModel {
       healFormula: new StringField({ initial: "" }),
       school: new StringField({ initial: "" }),
       classes: new ArrayField(new StringField()),
+      classLevels: new ArrayField(new StringField()),
       spellLine: new StringField({ initial: "" }),
       recastTime: new NumberField({ integer: true, min: 0, initial: 0 }),
       savingThrow: new StringField({ initial: "" }),
+      saveEffect: new StringField({ initial: "" }),
       saveDC: new StringField({ initial: "" }),
+      deliveryType: new StringField({ initial: "utility" }),
+      attackMode: new StringField({ initial: "" }),
+      attackBonus: new NumberField({ integer: true, initial: 0 }),
     };
   }
 }

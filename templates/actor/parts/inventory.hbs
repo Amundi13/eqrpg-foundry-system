@@ -9,6 +9,12 @@
     <span class="enc-label">{{encumbrance.current}} / {{encumbrance.max}} {{localize "EQRPG.Lbs"}}</span>
   </div>
 
+  <div class="inventory-wealth-row">
+    <span class="inventory-wealth-label">{{localize "EQRPG.Gold"}}</span>
+    <input type="number" name="system.wealth.gold" value="{{system.wealth.gold}}" min="0" {{#unless isEditable}}disabled{{/unless}} />
+    <span class="inventory-wealth-note">{{localize "EQRPG.StartingLoadout"}} / {{localize "EQRPG.TabInventory"}}</span>
+  </div>
+
   {{!-- Weapons --}}
   <div class="inventory-section">
     <div class="section-header">
@@ -22,14 +28,27 @@
         <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
         <span class="item-name" data-action="editItem">{{item.name}}</span>
         <span class="item-detail">{{item.system.damage}} {{item.system.damageType}}</span>
+        {{#if item.ammoType}}
+        <span class="item-detail dim">AMMO {{item.ammoType}}</span>
+        {{/if}}
         <span class="item-detail dim" title="{{localize 'EQRPG.WeaponDelay'}}">DLY {{item.system.delay}}</span>
         <span class="item-detail dim" title="{{localize 'EQRPG.CritRange'}} / {{localize 'EQRPG.CritMult'}}">
-          {{#if (lt item.system.critRange 20)}}{{item.system.critRange}}–20{{else}}20{{/if}}×{{item.system.critMult}}
+          {{#if (lt item.system.critRange 20)}}{{item.system.critRange}}-20{{else}}20{{/if}}x{{item.system.critMult}}
         </span>
         <button type="button" class="roll-atk-btn roll-btn"
                 data-action="rollAttack" title="{{localize 'EQRPG.RollAttack'}}">ATK</button>
+        {{#unless item.isNet}}
         <button type="button" class="roll-dmg-btn roll-btn"
                 data-action="rollDamage" title="{{localize 'EQRPG.RollDamage'}}">DMG</button>
+        {{/unless}}
+        {{#if item.canTrip}}
+        <button type="button" class="roll-btn"
+                data-action="rollManeuver" data-maneuver="trip" title="{{localize 'EQRPG.Trip'}}">TRIP</button>
+        {{/if}}
+        {{#if item.canDisarm}}
+        <button type="button" class="roll-btn"
+                data-action="rollManeuver" data-maneuver="disarm" title="{{localize 'EQRPG.Disarm'}}">DIS</button>
+        {{/if}}
         {{#if (eq @root.system.details.class "rogue")}}
         <button type="button" class="roll-sa-btn roll-btn"
                 data-action="rollSneakDamage" title="{{localize 'EQRPG.RollSneakAttack'}}">SA</button>
@@ -37,9 +56,9 @@
         <button type="button" data-action="toggleEquip"
                 class="equip-btn {{#if item.system.equipped}}equipped{{/if}}"
                 title="{{localize 'EQRPG.ToggleEquip'}}">
-          {{#if item.system.equipped}}E{{else}}−{{/if}}
+          {{#if item.system.equipped}}E{{else}}-{{/if}}
         </button>
-        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">X</button>
       </li>
       {{/each}}
     </ol>
@@ -61,12 +80,18 @@
         <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
         <span class="item-name" data-action="editItem">{{item.name}}</span>
         <span class="item-detail">AC +{{item.system.acBonus}} ({{item.system.type}})</span>
+        {{#if item.canBash}}
+        <button type="button" class="roll-btn"
+                data-action="rollAttack" title="{{localize 'EQRPG.ShieldBash'}}">BASH</button>
+        <button type="button" class="roll-btn"
+                data-action="rollDamage" title="{{localize 'EQRPG.RollDamage'}}">DMG</button>
+        {{/if}}
         <button type="button" data-action="toggleEquip"
                 class="equip-btn {{#if item.system.equipped}}equipped{{/if}}"
                 title="{{localize 'EQRPG.ToggleEquip'}}">
-          {{#if item.system.equipped}}E{{else}}−{{/if}}
+          {{#if item.system.equipped}}E{{else}}-{{/if}}
         </button>
-        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">X</button>
       </li>
       {{/each}}
     </ol>
@@ -87,13 +112,19 @@
       <li class="item" data-item-id="{{item.id}}">
         <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
         <span class="item-name" data-action="editItem">{{item.name}}</span>
-        <span class="item-detail">×{{item.system.quantity}}</span>
+        {{#if item.itemCategoryLabel}}
+        <span class="item-detail consumable-type-tag">{{item.itemCategoryLabel}}</span>
+        {{/if}}
+        {{#if item.ammoLabel}}
+        <span class="item-detail dim">{{item.ammoLabel}}</span>
+        {{/if}}
+        <span class="item-detail">x{{item.system.quantity}}</span>
         <button type="button" data-action="toggleEquip"
                 class="equip-btn {{#if item.system.equipped}}equipped{{/if}}"
                 title="{{localize 'EQRPG.ToggleEquip'}}">
-          {{#if item.system.equipped}}E{{else}}−{{/if}}
+          {{#if item.system.equipped}}E{{else}}-{{/if}}
         </button>
-        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">X</button>
       </li>
       {{/each}}
     </ol>
@@ -115,13 +146,13 @@
         <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
         <span class="item-name" data-action="editItem">{{item.name}}</span>
         <span class="item-detail consumable-type-tag">{{item.system.consumableType}}</span>
-        <span class="item-detail">×{{item.system.quantity}}</span>
+        <span class="item-detail">x{{item.system.quantity}}</span>
         <button type="button" class="use-btn roll-btn" data-action="useConsumable"
                 title="{{localize 'EQRPG.UseItem'}}"
                 {{#if (eq item.system.quantity 0)}}disabled{{/if}}>
-          🧪 {{localize "EQRPG.Use"}}
+          USE
         </button>
-        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">X</button>
       </li>
       {{/each}}
     </ol>
@@ -149,7 +180,7 @@
         </span>
         <button type="button" class="roll-skill-btn roll-btn"
                 data-action="rollSkill" title="{{localize 'EQRPG.RollSkill'}}">ROLL</button>
-        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">X</button>
       </li>
       {{/each}}
     </ol>
@@ -179,7 +210,7 @@
           {{item.system.prerequisites}}
         </span>
         {{/if}}
-        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">✕</button>
+        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">X</button>
       </li>
       {{/each}}
     </ol>

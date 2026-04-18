@@ -1,0 +1,2675 @@
+[
+  {
+    "name": "Alertness",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are especially perceptive and difficult to surprise.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "You gain a +2 bonus on all Listen and Spot checks.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Ambidexterity",
+    "type": "feat",
+    "system": {
+      "description": "<p>You use either hand with equal confidence.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "Dex 15",
+      "benefit": "You ignore the normal penalties for using your off hand.",
+      "normal": "",
+      "special": "This feat helps offset two-weapon fighting penalties.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Armor Proficiency (heavy)",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is proficient with heavy armors, including banded and plate armors.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Armor Proficiency (light), Armor Proficiency (medium).",
+      "benefit": "When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Pick Pocket, Safe Fall, Sneak, and Tumble checks.",
+      "normal": "A character who is wearing armor with which he is not proficient suffers its armor check penalty on attack rolls and on all skill checks that involve moving, including Ride.",
+      "special": "Instead of an armor check penalty, a swimming character suffers a penalty of -1 to all Swim checks for each 5 pounds of gear she is carrying or wearing.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive armor-use proficiency rules."
+      }
+    }
+  },
+  {
+    "name": "Armor Proficiency (light)",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is proficient with light armors, including cloth and leather armors.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Pick Pocket, Safe Fall, Sneak, and Tumble checks.",
+      "normal": "A character who is wearing armor with which he is not proficient suffers its armor check penalty on attack rolls and on all skill checks that involve moving, including Ride.",
+      "special": "Instead of an armor check penalty, a swimming character suffers a penalty of -1 to all Swim checks for each 5 pounds of gear she is carrying or wearing.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive armor-use proficiency rules."
+      }
+    }
+  },
+  {
+    "name": "Armor Proficiency (medium)",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is proficient with medium armors, including ring mail and chain.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Armor Proficiency (light).",
+      "benefit": "When a character wears a type of armor with which the character is proficient, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Pick Pocket, Safe Fall, Sneak, and Tumble checks.",
+      "normal": "A character who is wearing armor with which she is not proficient suffers its armor check penalty on attack rolls and on all skill checks that involve moving, including Ride.",
+      "special": "Instead of an armor check penalty, a swimming character suffers a penalty of -1 to all Swim checks for each 5 pounds of gear she is carrying or wearing.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive armor-use proficiency rules."
+      }
+    }
+  },
+  {
+    "name": "Bash",
+    "type": "feat",
+    "system": {
+      "description": "<p>You know how to turn a shield into an offensive weapon.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Shield Proficiency",
+      "benefit": "You can make shield bash attacks without losing your shield bonus to AC. Shield bashes deal 1d4 damage for Medium creatures.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Beggar",
+    "type": "feat",
+    "system": {
+      "description": "<p>You know how to draw pity and part strangers from their spare coins.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "You gain a +4 bonus on Diplomacy checks made to beg, and successful begging yields twice the normal coin.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Blind-Fight",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can fight effectively even when vision fails you.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "In melee, you may reroll one miss chance due to concealment and invisible attackers gain fewer advantages against you.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Brutish",
+    "type": "feat",
+    "system": {
+      "description": "<p>Your sheer menace carries more weight than polished words.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "You may use your Strength modifier instead of Charisma on Intimidate checks.",
+      "normal": "",
+      "special": "Ogres and trolls may add both Strength and Charisma modifiers on Intimidate checks if they wish.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Cleave",
+    "type": "feat",
+    "system": {
+      "description": "<p>You carry a killing blow through into the next enemy.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Str 13, Power Attack",
+      "benefit": "If you drop a foe in melee, you gain an immediate extra melee attack against another nearby target.",
+      "normal": "",
+      "special": "You may use Cleave once per round.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Combat Casting",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is trained to cast spells in combat.</p>",
+      "category": "mystic",
+      "categories": [
+        "mystic"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character gets a +4 bonus to Channeling checks made to cast a spell while on the defensive.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Only applies while casting defensively."
+      }
+    }
+  },
+  {
+    "name": "Combat Reflexes",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are quick to exploit openings in battle.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character may make a number of additional attacks of opportunity each round equal to her Dexterity modifier, but still may make only one attack of opportunity per enemy. The character may also make attacks of opportunity while flat-footed.",
+      "normal": "A character without this feat can make only one attack of opportunity each round, and cannot do so while flat-footed.",
+      "special": "A rogue with the Combat Reflexes feat who uses her opportunist ability forgoes all other attacks of opportunity in that same round.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Rules engine support needed for extra reactions and flat-footed exceptions."
+      }
+    }
+  },
+  {
+    "name": "Deflect Arrows",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can knock missiles from the air with practiced precision.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Dex 13, Hand to Hand",
+      "benefit": "Once per round, with one hand free, you may deflect one ranged weapon that would otherwise hit you.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Dodge",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are skilled at avoiding an enemy's attacks.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Dex 13",
+      "benefit": "Choose one opponent during your action and gain a +1 dodge bonus to AC against that opponent.",
+      "normal": "",
+      "special": "Dodge bonuses stack with each other, unlike most other types of bonuses.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 1,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": true,
+        "needsToggle": false,
+        "notes": "Requires selecting one opponent each round."
+      }
+    }
+  },
+  {
+    "name": "Double Attack",
+    "type": "feat",
+    "system": {
+      "description": "<p>Your fighting rhythm lets you strike more often than normal.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Monk 9+, paladin 12+, ranger 12+, rogue 11+, shadow knight 12+, or warrior 9+.",
+      "benefit": "Your iterative attacks are calculated as if your weapon delay were one point lower.",
+      "normal": "",
+      "special": "Monks gain this feat as a bonus feat at 9th level.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Derived attack sequence changes by weapon delay."
+      }
+    }
+  },
+  {
+    "name": "Dual Wield",
+    "type": "feat",
+    "system": {
+      "description": "<p>You have developed a naturalized two-weapon fighting style.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Bard 11+, beastlord 8+, monk 1+, ranger 11+, rogue 8+, or warrior 7+.",
+      "benefit": "The character may wield a one-handed melee weapon in each hand. He must declare one weapon to be his primary weapon and the other his off-hand weapon. When taking an attack or full attack action, the character gains one additional attack with his off-hand weapon at his full attack bonus, but with a flat -5 penalty.",
+      "normal": "",
+      "special": "Monks receive this feat as a bonus feat at 1st level. Beastlords receive this feat as a bonus feat at 8th level. A character who possesses both the Improved Two-Weapon Fighting and Dual Wield feats may make two attacks with his off-hand weapon at -5 and -10, respectively.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Needs dual-wield attack mode and off-hand sequence support."
+      }
+    }
+  },
+  {
+    "name": "Endurance",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can keep going long after others would collapse.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "You gain a +4 bonus on checks and saves related to extended physical exertion, and you function better while fatigued or exhausted.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Enlarge Spell",
+    "type": "feat",
+    "system": {
+      "description": "<p>You expand a spell's reach by feeding it extra mana.</p>",
+      "category": "metamagic",
+      "categories": [
+        "metamagic",
+        "mystic"
+      ],
+      "prerequisites": "Ability to cast spells",
+      "benefit": "An enlarged spell has its range doubled. It costs 50% more mana to cast.",
+      "normal": "",
+      "special": "A spellcaster must decide whether he will enhance a spell with a metamagic feat when he prepares the spell, not when he casts it.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Prepared metamagic option that alters range and mana cost."
+      }
+    }
+  },
+  {
+    "name": "Extend Spell",
+    "type": "feat",
+    "system": {
+      "description": "<p>You sustain your spells longer with additional mana.</p>",
+      "category": "metamagic",
+      "categories": [
+        "metamagic",
+        "mystic"
+      ],
+      "prerequisites": "Ability to cast spells",
+      "benefit": "An extended spell lasts 150% of its normal duration. It costs 50% more mana to cast.",
+      "normal": "",
+      "special": "A spellcaster must decide whether he will enhance a spell with a metamagic feat when he prepares the spell, not when he casts it.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Prepared metamagic option that alters duration and mana cost."
+      }
+    }
+  },
+  {
+    "name": "Far Shot",
+    "type": "feat",
+    "system": {
+      "description": "<p>You keep accuracy over much longer ranged shots.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Point Blank Shot",
+      "benefit": "Projectile weapon range increments increase by one-half and thrown weapon range increments are doubled.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Finishing Blow",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character has mastered the art of the lethal blow and often kills or incapacitates a badly wounded creature with a single vicious attack.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Character level 21+.",
+      "benefit": "Any melee attack by the character that successfully reduces a target's current hit points to 25% of its normal total or less has a chance of felling the target instantly. If the 25% current hit point condition is met, the target must make a Fortitude save (DC 10 + 1/2 the attacking character's level) or be reduced instantly to -1 hit points.",
+      "normal": "",
+      "special": "Shadow knights receive this feat as a bonus feat at 4th level, regardless of the feat's usual level requirement.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Triggered on melee damage threshold; requires target HP awareness and forced save resolution."
+      }
+    }
+  },
+  {
+    "name": "Great Cleave",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can cut through groups of enemies without losing momentum.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Str 13, Power Attack, Cleave, BAB +4",
+      "benefit": "As Cleave, except there is no limit to the number of extra attacks you may gain in a round.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Great Fortitude",
+    "type": "feat",
+    "system": {
+      "description": "<p>Your body is especially resilient against poison, disease, and physical hardship.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "You gain a +2 bonus on all Fortitude saving throws.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 2,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive Fortitude save bonus."
+      }
+    }
+  },
+  {
+    "name": "Hand to Hand",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are trained in effective unarmed combat.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character is considered to be armed even when unarmed: armed opponents do not get attacks of opportunity when the character attacks them unarmed, and the character himself gets an attack of opportunity against any opponent who makes an unarmed attack against him.",
+      "normal": "",
+      "special": "Beastlords and monks receive this feat as a bonus feat at 1st level.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive unarmed-threat rules once unarmed automation exists."
+      }
+    }
+  },
+  {
+    "name": "Healing Adept",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is an extremely powerful healer.</p>",
+      "category": "mystic",
+      "categories": [
+        "mystic"
+      ],
+      "prerequisites": "Caster level 21+.",
+      "benefit": "Whenever the character casts a spell that heals hit points, the number of hit points restored by the spell is increased by 25%.",
+      "normal": "",
+      "special": "The prerequisite for this feat refers to caster level, not class level, so hybrid character classes must be 25th level or higher to receive this feat.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive modifier to healing spell totals."
+      }
+    }
+  },
+  {
+    "name": "Heighten Spell",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character has learned to fuel spells with extra mana, making them more powerful.</p>",
+      "category": "metamagic",
+      "categories": [
+        "metamagic",
+        "mystic"
+      ],
+      "prerequisites": "None",
+      "benefit": "A heightened spell has a higher spell level than normal (up to 15th level). Unlike other metamagic feats, Heighten Spell actually increases the effective level of the spell that it modifies. All effects dependent on spell level are calculated according to the heightened level.",
+      "normal": "",
+      "special": "The heightened spell costs 100% more mana to cast for every additional spell level.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Prepared metamagic option that changes effective spell level and mana cost."
+      }
+    }
+  },
+  {
+    "name": "Improved Bash",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character delivers particularly powerful bash attacks.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Str 13+, Bash, base attack bonus +6 or higher.",
+      "benefit": "As the Bash feat, except that damage is increased to 1d8 for Large characters, 1d6 for Medium-size characters, and 1d4 for Small characters, and there is a chance the attack may stun its target. If the shield bash attack does 8 or more points of damage, it forces the target to make a Fortitude save (DC 10 + basher's Str modifier) or be dazed for 1 round.",
+      "normal": "",
+      "special": "The benefits of this feat do not stack with those from the Hand to Hand or Improved Hand to Hand feats. Improved Bash attacks are considered armed attacks.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Extends Bash attack mode with conditional daze rider."
+      }
+    }
+  },
+  {
+    "name": "Improved Critical",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character has learned to strike vital blows more often with a chosen weapon.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Proficient with weapon, base attack bonus +8 or higher.",
+      "benefit": "The character chooses a particular type of weapon. When using this selected type of weapon, the character's threat range is doubled.",
+      "normal": "",
+      "special": "The character can gain this feat multiple times. The effects do not stack. Each time a character takes the feat, it applies to a new weapon. Keen effects are additive to the base threat range rather than multiplicative.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Choice of weapon required; changes critical threat range."
+      }
+    }
+  },
+  {
+    "name": "Improved Disarm",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are especially adept at stripping weapons from opponents.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Parry.",
+      "benefit": "When the character attempts to disarm a defender, he does not draw an attack of opportunity from the defender, nor does the defender have an opportunity to disarm him as a result of the failed disarm attempt.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Only applies when using disarm maneuver flow."
+      }
+    }
+  },
+  {
+    "name": "Improved Dodge",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character can make a special effort to avoid being hit by one or more foes.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Dex 13+, Dodge, base attack bonus +6 or higher.",
+      "benefit": "During the character's action, she designates an opponent and receives a +2 dodge bonus to Armor Class against attacks from that opponent or designates two opponents and receives a +1 dodge bonus against each of them. Because dodge bonuses stack, the character may also apply the bonus gained from the Dodge feat independently.",
+      "normal": "",
+      "special": "A condition that makes a character lose her Dexterity bonus to Armor Class also makes her lose all dodge bonuses. Dodge bonuses stack with each other, unlike most other types of bonuses.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": true,
+        "needsToggle": false,
+        "notes": "Requires selecting one or two opponents each round."
+      }
+    }
+  },
+  {
+    "name": "Improved Hand to Hand",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is a skilled unarmed fighter.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Hand to Hand.",
+      "benefit": "The character's base unarmed damage increases by one die-size increment and the character may choose to deal either real or subdual damage with unarmed attacks at no penalty.",
+      "normal": "",
+      "special": "Beastlords receive this feat as a bonus feat at 3rd level, and monks at 2nd level.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive upgrade to unarmed damage and damage-type choice."
+      }
+    }
+  },
+  {
+    "name": "Improved Healing",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character heals at an unusually fast rate.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "Character level 1+.",
+      "benefit": "When determining how many hit points the character recovers through natural healing, treat him as if he were 5 levels higher.",
+      "normal": "",
+      "special": "A character with fast healing recovers hit points on a per-hour basis rather than per-day; use the same +5 effective levels there as well.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive modifier to natural healing calculations."
+      }
+    }
+  },
+  {
+    "name": "Improved Initiative",
+    "type": "feat",
+    "system": {
+      "description": "<p>You act more quickly than most when battle begins.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "You gain a +4 bonus on initiative checks.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 4,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive initiative bonus."
+      }
+    }
+  },
+  {
+    "name": "Improved Parry",
+    "type": "feat",
+    "system": {
+      "description": "<p>You fight in a highly defensive style without giving up total offense.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Int 13, Parry",
+      "benefit": "When attacking in melee, you may take up to a -10 penalty on attack rolls and gain the same amount as a dodge bonus to AC until your next action.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Expanded Parry option with larger attack-for-AC trade."
+      }
+    }
+  },
+  {
+    "name": "Improved Resistance",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character has developed powerful resistance to one attack form.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "Character level 21+, Resistance (for the same attack type).",
+      "benefit": "The character may select any resistance type for which he has already purchased the Resistance feat and his resistance to that type becomes a bonus of resistance (8). The character's saving throw bonus to that type of attack also increases to +4.",
+      "normal": "",
+      "special": "The character can gain this feat multiple times. The effects do not stack. Each time the character takes the feat, it applies to a new resistance type for which the character must already have the Resistance feat.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Choice of already-owned resistance type required; passive once chosen."
+      }
+    }
+  },
+  {
+    "name": "Improved Slam",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character delivers particularly powerful slam attacks.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Str 13+, Slam feat or natural slam attack, base attack bonus +6 or higher.",
+      "benefit": "The character's slam damage is increased by one die-size increment, and if the slam does 8 or more points of damage it forces the target to make a Fortitude save (DC 10 + attacker's Str modifier) or be dazed for 1 round.",
+      "normal": "",
+      "special": "The benefits of this feat do not stack with those from the Hand to Hand or Improved Hand to Hand feats, as slam attacks are considered armed attacks. Creatures with natural slam attacks can take this feat.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Extends slam attack mode with conditional daze rider."
+      }
+    }
+  },
+  {
+    "name": "Improved Trip",
+    "type": "feat",
+    "system": {
+      "description": "<p>You capitalize instantly when you put an enemy on the ground.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Int 13, Parry",
+      "benefit": "You do not provoke an attack of opportunity when tripping, and if you trip a foe you gain an immediate melee attack against that foe.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Improved Two-Weapon Fighting",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character has trained extensively in the art of fighting with two weapons.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Two-Weapon Fighting and Ambidexterity feats or Dual Wield feat; base attack bonus +9 or higher.",
+      "benefit": "This feat allows a masterful fighter to make an additional off-hand attack whenever he is fighting with two weapons during a full-round iterative attack action. This additional off-hand attack suffers a further -5 penalty in addition to the penalty for the character's first off-hand attack.",
+      "normal": "See \"Attacking with Two Weapons\" in Chapter 12: Combat.",
+      "special": "With Dual Wield and Improved Two-Weapon Fighting, a character makes two additional off-hand attacks at -5 and -10. With Two-Weapon Fighting, Ambidexterity, and Improved Two-Weapon Fighting, the off-hand attacks are at -2 and -7 while primary iterative attacks still take the normal two-weapon penalties.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Adds secondary off-hand attack sequence to full attacks."
+      }
+    }
+  },
+  {
+    "name": "Iron Will",
+    "type": "feat",
+    "system": {
+      "description": "<p>Your force of personality and discipline make you hard to bend.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "You gain a +2 bonus on all Will saving throws.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 2,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive Will save bonus."
+      }
+    }
+  },
+  {
+    "name": "Leadership",
+    "type": "feat",
+    "system": {
+      "description": "<p>Your reputation and bearing inspire others to serve your cause.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "Character level 6",
+      "benefit": "You attract a loyal cohort and followers according to your Leadership score.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Lightning Reflexes",
+    "type": "feat",
+    "system": {
+      "description": "<p>Your reactions are faster than most and you avoid danger instinctively.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "You gain a +2 bonus on all Reflex saving throws.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 2,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive Reflex save bonus."
+      }
+    }
+  },
+  {
+    "name": "Mental Clarity",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character recovers mana at an unusually quick rate.</p>",
+      "category": "mystic",
+      "categories": [
+        "mystic"
+      ],
+      "prerequisites": "Meditation (15+ ranks).",
+      "benefit": "When determining how rapidly the character recovers mana, treat him as if he had 5 more ranks of the Meditation skill than he actually does.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive modifier to mana recovery calculations."
+      }
+    }
+  },
+  {
+    "name": "Mobility",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is trained to avoid dropping guard when moving in melee combat.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Dex 13+, Dodge.",
+      "benefit": "The character gets a +4 dodge bonus to Armor Class against attacks of opportunity provoked by moving out of or within a threatened area.",
+      "normal": "",
+      "special": "A condition that makes a character lose his Dexterity bonus to Armor Class also makes him lose all dodge bonuses. Dodge bonuses stack with each other.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive modifier to movement-provoked attacks of opportunity."
+      }
+    }
+  },
+  {
+    "name": "Mounted Archery",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is trained to make ranged attacks from horseback.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Mounted Combat, Ride (4+ ranks).",
+      "benefit": "The penalty the character suffers when using a ranged weapon from horseback is halved to -2 instead of -4 if her mount is taking a double move, or -4 instead of -8 if her mount is running.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive mounted ranged penalty reduction."
+      }
+    }
+  },
+  {
+    "name": "Mounted Combat",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is trained to fight in melee from a mount.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Ride (4+ ranks).",
+      "benefit": "Once per round when the character's mount is hit in combat, the character may make a Ride check to negate the hit. The hit is negated if the character's Ride check is greater than the attack roll.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Reactive defense against hits on a mount."
+      }
+    }
+  },
+  {
+    "name": "Mystic Capacity",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character has a particularly great capacity for preparing and retaining spells or songs.</p>",
+      "category": "mystic",
+      "categories": [
+        "mystic"
+      ],
+      "prerequisites": "Ability to cast 1st-level spells.",
+      "benefit": "The character gains one additional spell or song preparation slot, allowing the character to have one more prepared at a time.",
+      "normal": "",
+      "special": "This feat may be taken a maximum of eight times.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive increase to prepared spell or song capacity."
+      }
+    }
+  },
+  {
+    "name": "Parry",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are practiced at turning offense into defense.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Int 13",
+      "benefit": "When attacking in melee, you may take up to a -5 penalty on attack rolls and gain the same amount as a dodge bonus to AC until your next action.",
+      "normal": "A character without the Parry feat can fight defensively while using the attack or full attack action, taking a -4 penalty on attacks and thus gaining a +2 dodge bonus to Armor Class.",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "User-selected attack penalty for AC trade each round."
+      }
+    }
+  },
+  {
+    "name": "Point Blank Shot",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are especially accurate with nearby ranged targets.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character gets a +1 bonus to attack and damage rolls with ranged weapons at ranges of up to 30 feet.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive range-based modifier."
+      }
+    }
+  },
+  {
+    "name": "Power Attack",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can trade accuracy for devastating force.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Str 13",
+      "benefit": "Before making melee attacks, you may take a penalty on attack rolls up to your base attack bonus and add the same number to melee damage rolls.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "User-selected attack penalty to damage trade each round."
+      }
+    }
+  },
+  {
+    "name": "Precise Shot",
+    "type": "feat",
+    "system": {
+      "description": "<p>You place ranged attacks accurately even in crowded fights.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Point Blank Shot",
+      "benefit": "You ignore the normal -4 penalty for firing or throwing into melee.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Quest Spell",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character has learned to buffer spells with extra mana, making them safe for members of a questing group.</p>",
+      "category": "metamagic",
+      "categories": [
+        "metamagic",
+        "mystic"
+      ],
+      "prerequisites": "None",
+      "benefit": "When preparing a spell with the Quest Spell metamagic feat, a spellcaster may designate up to five other creatures as being part of his questing party. Quest spells never harm, affect, or hamper members of the spellcaster's questing party even if they are caught within the spell's area or effect.",
+      "normal": "",
+      "special": "A quest spell requires 50% more mana than the spell normally costs. The caster may apply this feat multiple times to the same casting, selecting 5 additional creatures for the questing party and paying 50% additional mana per use.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Prepared metamagic option that requires selected protected party members."
+      }
+    }
+  },
+  {
+    "name": "Quick Draw",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character can draw a weapon with remarkable speed.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Base attack bonus +1 or higher.",
+      "benefit": "The character can draw a weapon as a free action instead of as a move action.",
+      "normal": "",
+      "special": "The character does not draw attacks of opportunity for doing so.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive action economy rule for drawing weapons."
+      }
+    }
+  },
+  {
+    "name": "Quicken Spell",
+    "type": "feat",
+    "system": {
+      "description": "<p>You unleash prepared magic with startling speed.</p>",
+      "category": "metamagic",
+      "categories": [
+        "metamagic",
+        "mystic"
+      ],
+      "prerequisites": "Ability to cast spells",
+      "benefit": "A spell that normally takes 1 action becomes a free action. A quickened spell costs 300% more mana to cast.",
+      "normal": "",
+      "special": "You may cast only one quickened spell per round.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Prepared metamagic option that changes casting time and mana cost."
+      }
+    }
+  },
+  {
+    "name": "Rapid Shot",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character can make ranged attacks much more quickly than most.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "Dex 13+, Point Blank Shot.",
+      "benefit": "The character may make one extra attack per round with a ranged weapon. The attack is at the character's highest base attack bonus, but each attack (the extra one and the normal ones) suffers a -2 penalty. The character must take a full attack action to use this feat.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Optional ranged full-attack mode that changes attack sequence and penalties."
+      }
+    }
+  },
+  {
+    "name": "Resistance",
+    "type": "feat",
+    "system": {
+      "description": "<p>Your body and spirit have adapted against a particular form of harm.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "Character level 11",
+      "benefit": "Choose acid, cold, disease, electricity, fire, magic, poison, or sonic. You gain resistance 4 against that attack type and a +2 bonus on related saves.",
+      "normal": "",
+      "special": "You may take this feat multiple times, choosing a different resistance type each time.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Choice of resistance type required; passive resistance and save bonus once chosen."
+      }
+    }
+  },
+  {
+    "name": "Ride-By Attack",
+    "type": "feat",
+    "system": {
+      "description": "<p>You make swift mounted strikes without stopping beside the enemy.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Mounted Combat, Ride 4 ranks",
+      "benefit": "When mounted and charging, you may move, attack, and then continue moving in the same line without provoking from the target you attacked.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Mounted charge sequencing support required."
+      }
+    }
+  },
+  {
+    "name": "Riposte",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character has trained to retaliate quickly when an opponent misses in melee.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Bard 29+, beastlord 20+, monk 18+, paladin 16+, ranger 18+, rogue 16+, shadow knight 16+, or warrior 14+.",
+      "benefit": "A character with the Riposte feat may take an attack of opportunity against any opponent who attacks and misses him in melee combat. The character must be threatening the space the opponent occupies, and the riposte attack counts against the total number of attacks of opportunity the character may make each round.",
+      "normal": "",
+      "special": "Only one attack of opportunity can be made against any single opponent in a round, whether the attack of opportunity is due to Riposte or some other provocation.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Reaction trigger on melee miss; needs attack-of-opportunity engine support."
+      }
+    }
+  },
+  {
+    "name": "Run",
+    "type": "feat",
+    "system": {
+      "description": "<p>You cover ground with exceptional speed.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "You run five times your normal speed instead of four times and gain improved distance on running jumps.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "School Specialization",
+    "type": "feat",
+    "system": {
+      "description": "<p>You have deep expertise in one branch of magical study.</p>",
+      "category": "mystic",
+      "categories": [
+        "mystic"
+      ],
+      "prerequisites": "Ability to cast 2nd-level spells, must know at least one spell from the school to be specialized in.",
+      "benefit": "The character picks one school of magic (abjuration, alteration, conjuration, divination, or evocation). The character gets a +2 bonus to all Channeling and Spellcraft checks made involving spells or effects from that school.",
+      "normal": "",
+      "special": "You may take this feat multiple times, choosing a different school each time.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Choice of school required at acquisition."
+      }
+    }
+  },
+  {
+    "name": "Shield Proficiency",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are trained in the effective use of shields.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "You use shields without suffering their armor check penalty on attacks and most movement-related skill checks.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Shot on the Run",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can fire while in motion without planting your feet.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Dex 13, Dodge, Mobility, Point Blank Shot",
+      "benefit": "When making a ranged attack, you may move before and after the attack as long as total movement does not exceed your speed.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Movement-attack-movement sequencing support required."
+      }
+    }
+  },
+  {
+    "name": "Silent Spell",
+    "type": "feat",
+    "system": {
+      "description": "<p>You have learned to shape spells without speaking aloud.</p>",
+      "category": "metamagic",
+      "categories": [
+        "metamagic",
+        "mystic"
+      ],
+      "prerequisites": "Ability to cast spells",
+      "benefit": "A silent spell can be cast without verbal components. It costs 50% more mana to cast.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Prepared metamagic option that changes component requirements and mana cost."
+      }
+    }
+  },
+  {
+    "name": "Skill Talent",
+    "type": "feat",
+    "system": {
+      "description": "<p>You possess unusual talent in one chosen field.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "Choose one skill. You gain a +3 bonus on all checks with that skill.",
+      "normal": "",
+      "special": "You may take this feat multiple times. Each time it applies to a different skill.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Slam",
+    "type": "feat",
+    "system": {
+      "description": "<p>Your body itself is a weapon capable of crushing blows.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Large size or larger",
+      "benefit": "The character may make a slam attack either as an attack action or as an additional attack within a full attack action. The slam attack is always at the character's highest attack bonus, although if it is used as part of a full attack action, the slam and all other attacks made during the round suffer a -2 penalty to the attack roll.",
+      "normal": "Without the Slam feat, a character making an attack without a weapon is considered unarmed, and attacking unarmed provokes attacks of opportunity.",
+      "special": "Ogres and trolls receive this feat as a bonus feat at 1st level. Barbarians also receive this feat at 1st level, despite the fact that they are not technically Large creatures. The benefits of this feat do not stack with those from the Hand to Hand or Improved Hand to Hand feats, as slam attacks are not considered unarmed attacks.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Adds an alternate or bonus slam attack routine."
+      }
+    }
+  },
+  {
+    "name": "Spell Focus",
+    "type": "feat",
+    "system": {
+      "description": "<p>Your magic in one chosen school is more difficult to resist.</p>",
+      "category": "mystic",
+      "categories": [
+        "mystic"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character chooses a school of magic, such as conjuration. All saving throw DCs for spells she casts from the selected school are increased by +2.",
+      "normal": "",
+      "special": "The character can gain this feat multiple times. Its effects do not stack. Each time the character takes the feat, it applies to a new school of magic.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Choice of school required; then passive spell DC bonus."
+      }
+    }
+  },
+  {
+    "name": "Spirited Charge",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is particularly proficient with mounted charges.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Mounted Combat, Ride-By Attack, Ride (8+ ranks).",
+      "benefit": "When mounted and using the charge action, the character deals double damage with a melee weapon or triple damage with a lance.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive mounted charge damage multiplier once mounted charge flow exists."
+      }
+    }
+  },
+  {
+    "name": "Spring Attack",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can dart in, strike, and pull back before the counter comes.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Dex 13, Dodge, Mobility, BAB +4",
+      "benefit": "When using the attack action with a melee weapon, the character can move both before and after the attack, provided that his total distance moved is not greater than his speed. Moving in this way does not provoke an attack of opportunity from the defender the character attacks.",
+      "normal": "",
+      "special": "The character can't use this feat if he is in heavy armor.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Movement-attack-movement sequencing support required."
+      }
+    }
+  },
+  {
+    "name": "Still Spell",
+    "type": "feat",
+    "system": {
+      "description": "<p>You cast spells without visible hand movements by spending more mana.</p>",
+      "category": "metamagic",
+      "categories": [
+        "metamagic",
+        "mystic"
+      ],
+      "prerequisites": "Ability to cast spells",
+      "benefit": "A still spell can be cast without somatic components. It costs 50% more mana to cast.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Prepared metamagic option that changes component requirements and mana cost."
+      }
+    }
+  },
+  {
+    "name": "Sunder",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are practiced at breaking the weapons of your foes.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Str 13, Power Attack",
+      "benefit": "You do not provoke an attack of opportunity when striking an opponent's weapon.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Swift",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is unusually fleet of foot.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "Dex 13+, Run.",
+      "benefit": "The character's base speed is increased by 10 feet.",
+      "normal": "",
+      "special": "This feat may be taken only once.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive base speed increase."
+      }
+    }
+  },
+  {
+    "name": "Toughened",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are unusually hard to kill.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character gains a number of hit points equal to 1 + the character's base Fortitude save bonus. This bonus to hit points increases retroactively as the character gains levels and his base Fortitude save increases.",
+      "normal": "",
+      "special": "A character may gain this feat only one time.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive hit point scaling by base Fortitude save."
+      }
+    }
+  },
+  {
+    "name": "Track",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can read the ground and the wild like a book.</p>",
+      "category": "general",
+      "categories": [
+        "general"
+      ],
+      "prerequisites": "Wilderness Lore 1 rank",
+      "benefit": "You may use Wilderness Lore to find and follow tracks and gather details about those who made them.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Skill procedure automation, not passive combat math."
+      }
+    }
+  },
+  {
+    "name": "Trample",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can overrun enemies beneath your mount's weight and momentum.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Mounted Combat, Ride 4 ranks",
+      "benefit": "When mounted, creatures you overrun may not choose to avoid your mount, and your mount may make a hoof attack if it knocks them down.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Two-Weapon Fighting",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are trained in the fundamentals of two-weapon combat.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "Your penalties for fighting with two weapons are reduced by 2.",
+      "normal": "",
+      "special": "This feat has no effect when using the Dual Wield feat.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Weapon Class Proficiency (Archery)",
+    "type": "feat",
+    "system": {
+      "description": "<p>The character is trained in the use of a propelled ranged weapon, such as a shortbow or a sling.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character makes attack rolls with the chosen weapon normally.",
+      "normal": "A character who uses a weapon without being proficient with it suffers a -4 penalty on attack rolls.",
+      "special": "Paladins, rangers, rogues, shadow knights, and warriors begin play proficient with all weapons in the archery category. The character can gain this feat multiple times. Each time the character takes the feat, it applies to a new weapon.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive proficiency for the selected weapon class item."
+      }
+    }
+  },
+  {
+    "name": "Weapon Class Proficiency (Hand-to-Hand)",
+    "type": "feat",
+    "system": {
+      "description": "<p>This feat acts as Weapon Class Proficiency (Archery), except that it applies to hand-to-hand weapons.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character makes attack rolls with the chosen hand-to-hand weapon normally.",
+      "normal": "A character who uses a weapon without being proficient with it suffers a -4 penalty on attack rolls.",
+      "special": "Beastlords, monks, and warriors begin play proficient with all weapons in the hand-to-hand category.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive proficiency for the selected weapon class item."
+      }
+    }
+  },
+  {
+    "name": "Weapon Class Proficiency (One-Handed Blunt)",
+    "type": "feat",
+    "system": {
+      "description": "<p>This feat acts as Weapon Class Proficiency (Archery), except that it applies to one-handed blunt weapons.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character makes attack rolls with the chosen one-handed blunt weapon normally.",
+      "normal": "A character who uses a weapon without being proficient with it suffers a -4 penalty on attack rolls.",
+      "special": "Bards, beastlords, clerics, druids, monks, paladins, rangers, rogues, shadow knights, shamans, and warriors begin play proficient with all weapons in the one-handed blunt category. Enchanters, magicians, necromancers, and wizards begin play proficient with all simple weapons in the one-handed blunt category.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive proficiency for the selected weapon class item."
+      }
+    }
+  },
+  {
+    "name": "Weapon Class Proficiency (One-Handed Slashing)",
+    "type": "feat",
+    "system": {
+      "description": "<p>This feat acts as Weapon Class Proficiency (Archery), except that it applies to one-handed slashing weapons.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character makes attack rolls with the chosen one-handed slashing weapon normally.",
+      "normal": "A character who uses a weapon without being proficient with it suffers a -4 penalty on attack rolls.",
+      "special": "Bards, paladins, rangers, rogues, shadow knights, and warriors begin play proficient with all weapons in the one-handed slashing category. Druids begin play proficient with scimitars.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive proficiency for the selected weapon class item."
+      }
+    }
+  },
+  {
+    "name": "Weapon Class Proficiency (Piercing)",
+    "type": "feat",
+    "system": {
+      "description": "<p>This feat acts as Weapon Class Proficiency (Archery), except that it applies to piercing weapons.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character makes attack rolls with the chosen piercing weapon normally.",
+      "normal": "A character who uses a weapon without being proficient with it suffers a -4 penalty on attack rolls.",
+      "special": "Bards, beastlords, rangers, rogues, shadow knights, shamans, and warriors begin play proficient with all weapons in the piercing category. Enchanters, magicians, necromancers, and wizards begin play proficient with all simple weapons in the piercing category.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive proficiency for the selected weapon class item."
+      }
+    }
+  },
+  {
+    "name": "Weapon Class Proficiency (Throwing)",
+    "type": "feat",
+    "system": {
+      "description": "<p>This feat acts as Weapon Class Proficiency (Archery), except that it applies to thrown weapons.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character makes attack rolls with the chosen thrown weapon normally.",
+      "normal": "A character who uses a weapon without being proficient with it suffers a -4 penalty on attack rolls.",
+      "special": "A character might be proficient at throwing a weapon but not in wielding it in melee, or the reverse. Bards, beastlords, monks, rangers, rogues, and warriors begin play proficient with all weapons in the throwing category. Enchanters, magicians, necromancers, and wizards begin play proficient with all simple weapons in the throwing category.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive proficiency for the selected weapon class item."
+      }
+    }
+  },
+  {
+    "name": "Weapon Class Proficiency (Two-Handed Blunt)",
+    "type": "feat",
+    "system": {
+      "description": "<p>This feat acts as Weapon Class Proficiency (Archery), except that it applies to two-handed blunt weapons.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character makes attack rolls with the chosen two-handed blunt weapon normally.",
+      "normal": "A character who uses a weapon without being proficient with it suffers a -4 penalty on attack rolls.",
+      "special": "Such weapons include all blunt melee weapons that are one size larger than the character. Beastlords, clerics, druids, monks, rangers, shamans, and warriors begin play proficient with all weapons in the two-handed blunt category. Enchanters, magicians, necromancers, and wizards begin play proficient with all simple weapons in the two-handed blunt category.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive proficiency for the selected weapon class item."
+      }
+    }
+  },
+  {
+    "name": "Weapon Class Proficiency (Two-Handed Slashing)",
+    "type": "feat",
+    "system": {
+      "description": "<p>This feat acts as Weapon Class Proficiency (Archery), except that it applies to two-handed slashing weapons.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "None",
+      "benefit": "The character makes attack rolls with the chosen two-handed slashing weapon normally.",
+      "normal": "A character who uses a weapon without being proficient with it suffers a -4 penalty on attack rolls.",
+      "special": "Such weapons include all slashing melee weapons that are one size larger than the character. Paladins, shadow knights, and warriors begin play proficient with all weapons in the two-handed slashing category.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Passive proficiency for the selected weapon class item."
+      }
+    }
+  },
+  {
+    "name": "Weapon Finesse",
+    "type": "feat",
+    "system": {
+      "description": "<p>You fight with speed and precision instead of brute force.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Proficient with weapon, base attack bonus +1 or higher.",
+      "benefit": "The character chooses a particular quick delay or faster weapon (one with a delay of 4 or less, such as a dagger or rapier). With the selected weapon type, the character may apply her Dexterity modifier instead of her Strength modifier on attack rolls.",
+      "normal": "",
+      "special": "The character applies the armor check penalty of any shield she wears to her attack rolls while using this feat. The character can gain this feat multiple times. Each time a character takes the feat, it applies to a new weapon.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Choice of eligible weapon required; changes attack ability and shield interaction."
+      }
+    }
+  },
+  {
+    "name": "Weapon Focus",
+    "type": "feat",
+    "system": {
+      "description": "<p>You have honed your skill with one chosen weapon above the rest.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Proficient with weapon, BAB +1",
+      "benefit": "The character chooses a particular type of weapon, such as a broad sword or a sling. The character adds +1 to all attack rolls she makes using the selected type of weapon. A character can choose unarmed strike or grapple for Weapon Focus, and can even choose ranged touch spells or melee touch spells.",
+      "normal": "",
+      "special": "The character can gain this feat multiple times. Its effects do not stack. Each time the character takes the feat, it applies to a new weapon.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Choice of weapon or attack form required."
+      }
+    }
+  },
+  {
+    "name": "Weapon Specialization",
+    "type": "feat",
+    "system": {
+      "description": "<p>You are exceptionally dangerous with one chosen weapon.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Weapon Focus, ranger 8 (archery only), rogue 10 (piercing only), or warrior 4",
+      "benefit": "The character chooses a particular type of weapon with which he already has the Weapon Focus feat. The character gets a +2 bonus on all damage rolls with the chosen weapon. Rogues or warriors using this feat with a ranged weapon only receive the bonus if the target is within 30 feet. Rangers may take this feat only with an archery weapon and get the damage bonus against any target within one range increment of their weapon.",
+      "normal": "",
+      "special": "The character can gain this feat multiple times. Its effects do not stack. Each time the character takes the feat, it applies to a new weapon. A rogue who qualifies for this feat may select any piercing weapon, including archery weapons or throwing weapons with the piercing designation.",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Choice of qualifying weapon required; ranged limits depend on class and distance."
+      }
+    }
+  },
+  {
+    "name": "Whirlwind Attack",
+    "type": "feat",
+    "system": {
+      "description": "<p>You can strike every nearby foe in one sweeping assault.</p>",
+      "category": "combat",
+      "categories": [
+        "combat"
+      ],
+      "prerequisites": "Int 13, Dex 13, Dodge, Mobility, Parry, Spring Attack, BAB +4",
+      "benefit": "As a full attack, you may give up your normal attacks to make one melee attack at full bonus against each adjacent opponent.",
+      "normal": "",
+      "special": "",
+      "bonuses": {
+        "fort": 0,
+        "reflex": 0,
+        "will": 0,
+        "init": 0,
+        "ac": 0,
+        "hp": 0,
+        "attack": 0
+      },
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  }
+]

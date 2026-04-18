@@ -1,0 +1,61 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="records">
+  <div class="frontsheet-records">
+    <section class="frontsheet-panel frontsheet-panel-progression">
+      <div class="frontsheet-panel-title">{{localize "EQRPG.AdventureRecord"}}</div>
+      <div class="frontsheet-reference-grid">
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.PointBuy"}}</span>
+          <span class="frontsheet-reference-value">{{pointBuy.spent}}</span>
+        </div>
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Skills"}}</span>
+          <span class="frontsheet-reference-value">{{sheetCounts.skills}}</span>
+        </div>
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Feats"}}</span>
+          <span class="frontsheet-reference-value">{{sheetCounts.feats}}</span>
+        </div>
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Spells"}}</span>
+          <span class="frontsheet-reference-value">{{sheetCounts.spells}}</span>
+        </div>
+      </div>
+      <p class="frontsheet-note">{{localize "EQRPG.FrontsheetProgressNote"}}</p>
+    </section>
+
+    <section class="frontsheet-panel frontsheet-panel-reference">
+      <div class="frontsheet-panel-title">{{localize "EQRPG.FieldKit"}}</div>
+      <div class="frontsheet-reference-grid">
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Weapons"}}</span>
+          <span class="frontsheet-reference-value">{{sheetCounts.weapons}}</span>
+        </div>
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Armor"}}</span>
+          <span class="frontsheet-reference-value">{{sheetCounts.armor}}</span>
+        </div>
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Equipment"}}</span>
+          <span class="frontsheet-reference-value">{{sheetCounts.equipment}}</span>
+        </div>
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Consumables"}}</span>
+          <span class="frontsheet-reference-value">{{sheetCounts.consumables}}</span>
+        </div>
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Factions"}}</span>
+          <span class="frontsheet-reference-value">{{sheetCounts.factions}}</span>
+        </div>
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Spells"}}</span>
+          <span class="frontsheet-reference-value">{{sheetCounts.spells}}</span>
+        </div>
+        <div class="frontsheet-reference-card">
+          <span class="frontsheet-reference-label">{{localize "EQRPG.Gold"}}</span>
+          <span class="frontsheet-reference-value">{{system.wealth.gold}}</span>
+        </div>
+      </div>
+      <p class="frontsheet-note">{{localize "EQRPG.FrontsheetReferenceNote"}}</p>
+    </section>
+  </div>
+</section>

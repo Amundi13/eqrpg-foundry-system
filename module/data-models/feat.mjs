@@ -1,5 +1,5 @@
 const {
-  StringField, HTMLField, NumberField, SchemaField,
+  StringField, HTMLField, NumberField, SchemaField, ArrayField, BooleanField,
 } = foundry.data.fields;
 
 export class FeatData extends foundry.abstract.TypeDataModel {
@@ -7,9 +7,18 @@ export class FeatData extends foundry.abstract.TypeDataModel {
     return {
       description:   new HTMLField({ initial: "" }),
       category:      new StringField({ initial: "general" }),
+      categories:    new ArrayField(new StringField({ initial: "general" }), { initial: ["general"] }),
       prerequisites: new StringField({ initial: "None" }),
       benefit:       new StringField({ initial: "" }),
+      normal:        new StringField({ initial: "" }),
       special:       new StringField({ initial: "" }),
+      automation: new SchemaField({
+        safeDirect:  new BooleanField({ initial: false }),
+        needsChoice: new BooleanField({ initial: false }),
+        needsTarget: new BooleanField({ initial: false }),
+        needsToggle: new BooleanField({ initial: false }),
+        notes:       new StringField({ initial: "" }),
+      }),
       // Passive stat bonuses applied automatically while this feat is on the actor
       bonuses: new SchemaField({
         fort:   new NumberField({ required: true, integer: true, initial: 0 }),

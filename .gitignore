@@ -13,3 +13,7 @@ packs/**/*.log
 # Local archives / exports
 *.zip
 *.tmp
+
+# Local PHB extraction / audit scratch files
+.tmp_*
+tmp_*

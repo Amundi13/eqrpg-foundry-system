@@ -12,6 +12,15 @@
  * be re-opened via a button in the character sheet header.
  */
 
+import {
+  SAMPLE_ARMOR,
+  SAMPLE_CONSUMABLES,
+  SAMPLE_EQUIPMENT,
+  SAMPLE_SKILLS,
+  SAMPLE_SPELLS,
+  SAMPLE_WEAPONS,
+} from "../packs/sample-data.mjs";
+import { LEVEL1_CLASS_SPELLS } from "../packs/level1-class-spells.mjs";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 // ── Constants ──────────────────────────────────────────────────────────────
@@ -24,6 +33,53 @@ const ABILITY_LABEL = {
   int: "Intelligence", wis: "Wisdom", cha: "Charisma",
 };
 
+const SAMPLE_LOOKUPS = {
+  weapon: new Map(SAMPLE_WEAPONS.map((item) => [item.name, item])),
+  armor: new Map(SAMPLE_ARMOR.map((item) => [item.name, item])),
+  consumable: new Map(SAMPLE_CONSUMABLES.map((item) => [item.name, item])),
+  equipment: new Map(SAMPLE_EQUIPMENT.map((item) => [item.name, item])),
+  skill: new Map(SAMPLE_SKILLS.map((item) => [item.name, item])),
+  spell: new Map(SAMPLE_SPELLS.map((item) => [item.name, item])),
+};
+
+function cloneTemplateItem(type, name) {
+  const source = SAMPLE_LOOKUPS[type]?.get(name);
+  return source ? foundry.utils.deepClone(source) : null;
+}
+
+function getClassSkillNames(classKey) {
+  return CONFIG.EQRPG.classSkills?.[classKey] ?? [];
+}
+
+function getStarterGold(classKey) {
+  return CONFIG.EQRPG.startingGold?.[classKey] ?? 0;
+}
+
+function getStarterKit(classKey) {
+  return CONFIG.EQRPG.starterKits?.[classKey] ?? [];
+}
+
+function getSpellLevelForClass(spell, classKey) {
+  const classLevels = Array.isArray(spell?.system?.classLevels) ? spell.system.classLevels : [];
+  for (const entry of classLevels) {
+    const match = String(entry).match(/^([^:]+):(\d+)$/);
+    if (!match) continue;
+    if (match[1] === classKey) return Number(match[2]);
+  }
+  return Number(spell?.system?.spellLevel ?? 0) || 0;
+}
+
+function getStarterSpellTemplates(classKey, level = 1) {
+  if (level === 1 && Array.isArray(LEVEL1_CLASS_SPELLS[classKey])) {
+    return LEVEL1_CLASS_SPELLS[classKey].map((spell) => foundry.utils.deepClone(spell));
+  }
+
+  return SAMPLE_SPELLS
+    .filter((spell) => Array.isArray(spell.system?.classes) && spell.system.classes.includes(classKey))
+    .filter((spell) => getSpellLevelForClass(spell, classKey) === level)
+    .map((spell) => foundry.utils.deepClone(spell));
+}
+
 // ── Wizard class ───────────────────────────────────────────────────────────
 export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
 
@@ -32,7 +88,16 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
    * @param {object} [options]
    */
   constructor(actor, options = {}) {
-    super(options);
+    const wizardId = foundry.utils.randomID();
+    const mergedOptions = foundry.utils.mergeObject({
+      id: `eq-character-wizard-${wizardId}`,
+      window: {
+        title: actor?.name
+          ? `Character Creation: ${actor.name}`
+          : "Character Creation",
+      },
+    }, options);
+    super(mergedOptions);
     this.actor = actor;
     this.step  = 0;
 
@@ -43,6 +108,7 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       alignment: actor.system.details?.alignment ?? "tn",
       deity:     actor.system.details?.deity     ?? "",
       name:      actor.name                      ?? "",
+      loadout:   "kit",
       abilities: { str: 8, dex: 8, con: 8, int: 8, wis: 8, cha: 8 },
     };
   }
@@ -50,7 +116,6 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
   /* ── ApplicationV2 config ─────────────────────────────────────────────── */
 
   static DEFAULT_OPTIONS = {
-    id:      "eq-character-wizard",
     classes: ["eqrpg", "character-wizard"],
     tag:     "form",
     window: {
@@ -83,6 +148,14 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
     const raceCfg  = cfg.races?.[ch.race];
     const klassCfg = cfg.classes?.[ch.klass];
     const racialAdj = raceCfg?.adjustments ?? {};
+    const classSkillNames = getClassSkillNames(ch.klass);
+    const starterGold = getStarterGold(ch.klass);
+    const starterKit = getStarterKit(ch.klass);
+    const starterKitPreview = starterKit.map((entry) => ({
+      label: entry.quantity && entry.quantity > 1 ? `${entry.name} x${entry.quantity}` : entry.name,
+      type: entry.type,
+      inline: !!entry.system,
+    }));
 
     // ── Point-buy math ─────────────────────────────────────────────────────
     const spent     = ABILITY_KEYS.reduce((s, k) => s + (cfg.pointBuyCost[ch.abilities[k]] ?? 0), 0);
@@ -144,6 +217,8 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
           armor:     (c.armorProficiency ?? []).join(", ") || "none",
           caster:    !!c.spellcastingAbility,
           castStat:  c.spellcastingAbility ? ABILITY_ABBR[c.spellcastingAbility] : null,
+          skillCount: (cfg.classSkills?.[key] ?? []).length,
+          startingGold: getStarterGold(key),
           selected:  ch.klass === key,
         };
       });
@@ -175,6 +250,9 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       })),
       raceName:      raceCfg  ? game.i18n.localize(raceCfg.label)  : "—",
       className:     klassCfg ? game.i18n.localize(klassCfg.label) : "—",
+      classSkillNames,
+      starterGold,
+      starterKitPreview,
       hitDie, startHP, goodSaveNames, conMod,
       canNext:     this.#canAdvance(),
       isLastStep:  this.step === STEPS.length - 1,
@@ -248,6 +326,10 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
     if (name === "wizard-name")      this.choices.name      = value;
     if (name === "wizard-alignment") this.choices.alignment = value;
     if (name === "wizard-deity")     this.choices.deity     = value;
+    if (name === "wizard-loadout") {
+      this.choices.loadout = value;
+      this.render();
+    }
   }
 
   /* ── Finish: write all choices to the actor ───────────────────────────── */
@@ -258,6 +340,9 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
     if (q("[name='wizard-name']"))      this.choices.name      = q("[name='wizard-name']").value.trim()     || this.actor.name;
     if (q("[name='wizard-alignment']")) this.choices.alignment = q("[name='wizard-alignment']").value;
     if (q("[name='wizard-deity']"))     this.choices.deity     = q("[name='wizard-deity']").value.trim();
+    if (q("[name='wizard-loadout']:checked")) {
+      this.choices.loadout = q("[name='wizard-loadout']:checked").value;
+    }
 
     const ch  = this.choices;
     const cfg = CONFIG.EQRPG;
@@ -278,10 +363,145 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       update[`system.abilities.${key}.racial`] = adj[key] ?? 0;
     }
 
+    if (ch.loadout === "gold") {
+      update["system.wealth.gold"] = getStarterGold(ch.klass);
+    }
+
     await this.actor.update(update);
+    await CharacterWizard.#applyClassSkills(this.actor, ch.klass);
+    await CharacterWizard.#applyStarterSpells(this.actor, ch.klass, 1);
+    if (ch.loadout === "kit") {
+      await CharacterWizard.#applyStarterKit(this.actor, ch.klass);
+    }
+
     ui.notifications.info(
       `${ch.name || this.actor.name} created as a Level 1 ${game.i18n.localize(cfg.races?.[ch.race]?.label ?? "")} ${game.i18n.localize(cfg.classes?.[ch.klass]?.label ?? "")}.`
     );
     this.close();
+  }
+
+  static async #applyClassSkills(actor, classKey) {
+    const skillNames = getClassSkillNames(classKey);
+    if (!skillNames.length) return;
+
+    const createData = [];
+    const updateData = [];
+
+    for (const skillName of skillNames) {
+      const existing = actor.items.find((item) => item.type === "skill" && item.name === skillName);
+      if (existing) {
+        if (!existing.system.classSkill) {
+          updateData.push({ _id: existing.id, "system.classSkill": true });
+        }
+        continue;
+      }
+
+      const template = cloneTemplateItem("skill", skillName);
+      if (!template) continue;
+      template.system.classSkill = true;
+      template.system.ranks = template.system.ranks ?? 0;
+      template.flags = foundry.utils.mergeObject(template.flags ?? {}, {
+        eqrpg: { wizardGranted: true, wizardGrantType: "classSkill" },
+      });
+      createData.push(template);
+    }
+
+    if (updateData.length) await actor.updateEmbeddedDocuments("Item", updateData);
+    if (createData.length) await actor.createEmbeddedDocuments("Item", createData);
+  }
+
+  static async #applyStarterKit(actor, classKey) {
+    const kit = getStarterKit(classKey);
+    if (!kit.length) return;
+
+    const createData = [];
+    const updateData = [];
+
+    for (const entry of kit) {
+      let itemData = null;
+      if (entry.system) {
+        itemData = foundry.utils.deepClone(entry);
+      } else {
+        itemData = cloneTemplateItem(entry.type, entry.name);
+        if (!itemData) continue;
+        if ("quantity" in (itemData.system ?? {}) || (entry.quantity ?? 1) !== 1) {
+          itemData.system.quantity = entry.quantity ?? itemData.system.quantity ?? 1;
+        }
+        if ("equipped" in entry) itemData.system.equipped = entry.equipped;
+      }
+
+      itemData.flags = foundry.utils.mergeObject(itemData.flags ?? {}, {
+        eqrpg: { wizardGranted: true, wizardGrantType: "starterKit" },
+      });
+
+      const existing = actor.items.find((item) => item.type === itemData.type && item.name === itemData.name);
+      if (existing) {
+        const existingQty = existing.system.quantity ?? 1;
+        const targetQty = itemData.system.quantity ?? 1;
+        const update = { _id: existing.id };
+        if (targetQty > existingQty) update["system.quantity"] = targetQty;
+        if (itemData.system.equipped && "equipped" in existing.system) update["system.equipped"] = true;
+        if (Object.keys(update).length > 1) updateData.push(update);
+        continue;
+      }
+
+      createData.push(itemData);
+    }
+
+    if (updateData.length) await actor.updateEmbeddedDocuments("Item", updateData);
+    if (createData.length) await actor.createEmbeddedDocuments("Item", createData);
+  }
+
+  static async #applyStarterSpells(actor, classKey, level = 1) {
+    const starterSpells = getStarterSpellTemplates(classKey, level);
+    if (!starterSpells.length) return;
+
+    const createData = [];
+    const updateData = [];
+
+    for (const spellData of starterSpells) {
+      const existing = actor.items.find((item) => item.type === "spell" && item.name === spellData.name);
+      if (existing) {
+        const wizardGranted = existing.flags?.eqrpg?.wizardGrantType === "starterSpell";
+        if (wizardGranted) {
+          updateData.push({
+            _id: existing.id,
+            "system.description": spellData.system.description ?? "",
+            "system.spellLevel": spellData.system.spellLevel ?? 1,
+            "system.manaCost": spellData.system.manaCost ?? 0,
+            "system.castingTime": spellData.system.castingTime ?? "",
+            "system.range": spellData.system.range ?? "",
+            "system.duration": spellData.system.duration ?? "",
+            "system.effect": spellData.system.effect ?? "",
+            "system.damageFormula": spellData.system.damageFormula ?? "",
+            "system.healFormula": spellData.system.healFormula ?? "",
+            "system.school": spellData.system.school ?? "",
+            "system.classes": spellData.system.classes ?? [],
+            "system.classLevels": spellData.system.classLevels ?? [],
+            "system.spellLine": spellData.system.spellLine ?? "",
+            "system.recastTime": spellData.system.recastTime ?? 0,
+            "system.savingThrow": spellData.system.savingThrow ?? "",
+            "system.saveEffect": spellData.system.saveEffect ?? "",
+            "system.saveDC": spellData.system.saveDC ?? "",
+            "system.deliveryType": spellData.system.deliveryType ?? "utility",
+            "system.attackMode": spellData.system.attackMode ?? "",
+            "system.attackBonus": spellData.system.attackBonus ?? 0,
+          });
+        }
+        continue;
+      }
+
+      spellData.flags = foundry.utils.mergeObject(spellData.flags ?? {}, {
+        eqrpg: { wizardGranted: true, wizardGrantType: "starterSpell" },
+      });
+      createData.push(spellData);
+    }
+
+    if (updateData.length) {
+      await actor.updateEmbeddedDocuments("Item", updateData);
+    }
+    if (createData.length) {
+      await actor.createEmbeddedDocuments("Item", createData);
+    }
   }
 }

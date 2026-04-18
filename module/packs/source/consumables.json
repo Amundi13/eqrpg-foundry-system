@@ -1,0 +1,786 @@
+[
+  {
+    "name": "Minor Healing Potion",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 25,
+      "healFormula": "1d8+1",
+      "manaRestore": 0,
+      "effect": "",
+      "description": "<p>A small vial of shimmering liquid that mends minor wounds.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Lesser Healing Potion",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 75,
+      "healFormula": "2d8+3",
+      "manaRestore": 0,
+      "effect": "",
+      "description": "<p>A bubbling draught that closes deeper cuts and relieves pain.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Healing Potion",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 150,
+      "healFormula": "3d8+5",
+      "manaRestore": 0,
+      "effect": "",
+      "description": "<p>A potent healing elixir brewed by skilled alchemists.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Greater Healing Potion",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 400,
+      "healFormula": "4d8+8",
+      "manaRestore": 0,
+      "effect": "",
+      "description": "<p>A powerful potion that can restore a warrior from near death.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Complete Healing Potion",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 2000,
+      "healFormula": "10d8+20",
+      "manaRestore": 0,
+      "effect": "",
+      "description": "<p>An extraordinary elixir of legendary restorative power — the pinnacle of healing alchemy.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Minor Mana Potion",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 50,
+      "healFormula": "",
+      "manaRestore": 10,
+      "effect": "",
+      "description": "<p>A faintly glowing blue vial that restores a small amount of magical energy.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Mana Potion",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 200,
+      "healFormula": "",
+      "manaRestore": 30,
+      "effect": "",
+      "description": "<p>A deep sapphire draught that refreshes the mind and restores mana.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Greater Mana Potion",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 600,
+      "healFormula": "",
+      "manaRestore": 75,
+      "effect": "",
+      "description": "<p>A swirling azure elixir that floods the caster with renewed magical reserves.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "name": "Potion of Speed",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 300,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Grants Haste for 10 minutes: +1 attack per round, movement speed doubled.",
+      "description": "<p>This quicksilver potion makes the drinker blur with unnatural speed.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
+      }
+    }
+  },
+  {
+    "name": "Potion of Endurance",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 200,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Grants +4 Constitution for 10 minutes, temporarily increasing max HP.",
+      "description": "<p>A thick amber potion that fortifies the body against punishment.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
+      }
+    }
+  },
+  {
+    "name": "Potion of Invisibility",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 250,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Grants Invisible for 5 minutes. Effect ends if you attack or cast a spell.",
+      "description": "<p>The liquid in this vial seems to disappear when shaken. So will you.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
+      }
+    }
+  },
+  {
+    "name": "Antidote",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 100,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Cures one poison effect affecting the drinker.",
+      "description": "<p>A bitter yellow concoction that neutralizes most common poisons.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "antitoxin",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Use is straightforward, but poison-effect removal still needs effect tracking support."
+      }
+    }
+  },
+  {
+    "name": "Cure Disease Potion",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 50,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Cures one magical disease afflicting the drinker.",
+      "description": "<p>A purifying draught that scours disease from the body.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
+      }
+    }
+  },
+  {
+    "name": "Antivenom",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 75,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Neutralizes one poison effect afflicting the drinker.",
+      "description": "<p>A concentrated antivenom that counters even magically enhanced poisons.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "antitoxin",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Use is straightforward, but poison-effect removal still needs effect tracking support."
+      }
+    }
+  },
+  {
+    "name": "Potion of Strength",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 150,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "+4 STR for 10 minutes.",
+      "description": "<p>A deep red potion that fills the drinker with surging physical power.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
+      }
+    }
+  },
+  {
+    "name": "Potion of Intelligence",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "potion",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 200,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "+4 INT for 10 minutes, granting +20 maximum mana for the duration.",
+      "description": "<p>A shimmering golden elixir that sharpens the mind and expands magical capacity.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "potion",
+      "automation": {
+        "safeDirect": true,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
+      }
+    }
+  },
+  {
+    "name": "Elven Waybread",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "food",
+      "quantity": 1,
+      "weight": 0.2,
+      "price": 15,
+      "healFormula": "1d4",
+      "manaRestore": 5,
+      "effect": "Nourishes body and mind, restoring a small amount of HP and mana.",
+      "description": "<p>Thin, fragrant cakes baked by high elves — a single piece sustains a traveler for a full day.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "provisions",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Provision use is presentational until hunger and thirst tracking are implemented."
+      }
+    }
+  },
+  {
+    "name": "Ale",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "drink",
+      "quantity": 1,
+      "weight": 1,
+      "price": 2,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Satisfies thirst. Excessive consumption may cause Dazed condition (GM discretion).",
+      "description": "<p>A frothy mug of local ale — popular in taverns across Norrath.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "provisions",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Provision use is presentational until hunger and thirst tracking are implemented."
+      }
+    }
+  },
+  {
+    "name": "Spell Scroll: Fire Bolt",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "scroll",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 50,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Casts Fire Bolt (1d6 fire) without spending mana. Destroyed on use.",
+      "description": "<p>A scroll inscribed with the Fire Bolt spell. Usable by anyone who can read arcane script.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "scroll",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Scrolls need explicit spell linkage and caster-eligibility handling."
+      }
+    }
+  },
+  {
+    "name": "Spell Scroll: Minor Heal",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "scroll",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 50,
+      "healFormula": "1d8+1",
+      "manaRestore": 0,
+      "effect": "Casts Minor Healing without spending mana. Destroyed on use.",
+      "description": "<p>A scroll of divine healing script. Even a non-cleric can read the words in an emergency.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "scroll",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Scrolls need explicit spell linkage and caster-eligibility handling."
+      }
+    }
+  },
+  {
+    "name": "Spell Scroll: Root",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "scroll",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 80,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Casts Root (immobilizes target, Reflex save negates) without spending mana. Destroyed on use.",
+      "description": "<p>A scroll inscribed with the Root spell, ready to be triggered in an emergency.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "scroll",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Scrolls need explicit spell linkage and caster-eligibility handling."
+      }
+    }
+  },
+  {
+    "name": "Spell Scroll: Blaze",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "scroll",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 200,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Casts Blaze ((6d10+3)x2 fire, Reflex half) without spending mana. Destroyed on use.",
+      "description": "<p>A scroll of devastating fire magic. Handle with extreme care.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "scroll",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Scrolls need explicit spell linkage and caster-eligibility handling."
+      }
+    }
+  },
+  {
+    "name": "Bat Wing",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "reagent",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 2,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Required component for Levitate and some Necromancer spells.",
+      "description": "<p>A dried bat wing — a common reagent used in levitation and flight spells.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "reagent",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Reagents are inventory-only until spell component consumption is automated."
+      }
+    }
+  },
+  {
+    "name": "Bone Chips",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "reagent",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 5,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Required component for Animate Dead and other Necromancer summoning spells.",
+      "description": "<p>Fragments of humanoid bone ground fine — essential for the dark arts of necromancy.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "reagent",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Reagents are inventory-only until spell component consumption is automated."
+      }
+    }
+  },
+  {
+    "name": "Eye of Kha",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "reagent",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 10,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Required component for Enchanter summon spells.",
+      "description": "<p>A crystalline eye of magical origin used in Enchanter conjuration rituals.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "reagent",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Reagents are inventory-only until spell component consumption is automated."
+      }
+    }
+  },
+  {
+    "name": "Somatic Focus",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "reagent",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 25,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Reduces mana cost of spells by 2 when held during casting.",
+      "description": "<p>A polished focus crystal that helps channel somatic components more efficiently.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "reagent",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Reagents are inventory-only until spell component consumption is automated."
+      }
+    }
+  },
+  {
+    "name": "Mandrake Root",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "reagent",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 8,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Required component for Druid and Shaman spells.",
+      "description": "<p>The forked root of a mandrake plant, essential for many nature and spirit spells.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "reagent",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Reagents are inventory-only until spell component consumption is automated."
+      }
+    }
+  },
+  {
+    "name": "Yew Log",
+    "type": "consumable",
+    "img": "",
+    "system": {
+      "consumableType": "reagent",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 5,
+      "healFormula": "",
+      "manaRestore": 0,
+      "effect": "Component for Druid teleport and nature spells.",
+      "description": "<p>A small log of sacred yew wood, used as a focus in Druid teleportation and planar spells.</p>",
+      "phbName": "",
+      "phbTable": "",
+      "source": "custom",
+      "phbCore": false,
+      "itemCategory": "reagent",
+      "automation": {
+        "safeDirect": false,
+        "needsAmmo": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Reagents are inventory-only until spell component consumption is automated."
+      }
+    }
+  }
+]

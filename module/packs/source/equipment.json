@@ -1,0 +1,782 @@
+[
+  {
+    "name": "Backpack",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>An empty backpack for carrying adventuring supplies.</p>",
+      "quantity": 1,
+      "weight": 2,
+      "price": 2,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Backpack",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "container",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Container capacity is informational only for now." }
+    }
+  },
+  {
+    "name": "Bedroll",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A practical sleeping roll for travel and camp.</p>",
+      "quantity": 1,
+      "weight": 5,
+      "price": 0.1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Bedroll",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "gear",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Trail Rations",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>One day of preserved trail food.</p>",
+      "quantity": 1,
+      "weight": 1,
+      "price": 0.5,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Rations, trail (per day)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "provisions",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Provision tracking remains manual until hunger and thirst automation exists." }
+    }
+  },
+  {
+    "name": "Waterskin",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A leather water skin holding up to half a gallon of liquid.</p>",
+      "quantity": 1,
+      "weight": 4,
+      "price": 1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Water skin",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "provisions",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Provision tracking remains manual until hunger and thirst automation exists." }
+    }
+  },
+  {
+    "name": "Holy Symbol (Wooden)",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A carved wooden holy symbol dedicated to one of Norrath's deities.</p>",
+      "quantity": 1,
+      "weight": 0,
+      "price": 1,
+      "equipped": false,
+      "slot": "neck",
+      "phbName": "Holy symbols (wooden)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "focus",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Focus item for divine roleplay and future spell requirements." }
+    }
+  },
+  {
+    "name": "Spell Component Pouch",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A belt pouch filled with common material components for spellcasting.</p>",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 5,
+      "equipped": false,
+      "slot": "belt",
+      "phbName": "Spell component pouch",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "focus",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future spell component validation can key off this item." }
+    }
+  },
+  {
+    "name": "Ink Pen",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A sharpened writing pen for journals and spell notation.</p>",
+      "quantity": 1,
+      "weight": 0,
+      "price": 0.1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Ink pen",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "tool",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Ink (1 oz. vial)",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>One ounce of black ink. Colored inks cost more.</p>",
+      "quantity": 1,
+      "weight": 0,
+      "price": 8,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Ink (1 oz. vial)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "tool",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Paper (sheet)",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A single sheet of paper.</p>",
+      "quantity": 1,
+      "weight": 0,
+      "price": 0.4,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Paper (sheet)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "tool",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Parchment (sheet)",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A single sheet of parchment.</p>",
+      "quantity": 1,
+      "weight": 0,
+      "price": 0.2,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Parchment (sheet)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "tool",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Torch",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A torch for bright but smoky light.</p>",
+      "quantity": 1,
+      "weight": 1,
+      "price": 0.01,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Torch",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "light",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can toggle active torches." }
+    }
+  },
+  {
+    "name": "Oil (1-pint flask)",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A pint of lamp oil.</p>",
+      "quantity": 1,
+      "weight": 1,
+      "price": 0.1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Oil (1-pint flask)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "light",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can spend oil on lamps and lanterns." }
+    }
+  },
+  {
+    "name": "Flint and Steel",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A fire-starting kit of struck steel and flint.</p>",
+      "quantity": 1,
+      "weight": 0,
+      "price": 1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Flint and steel",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "tool",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Rope, Hemp (50 ft.)",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>Fifty feet of sturdy hemp rope.</p>",
+      "quantity": 1,
+      "weight": 10,
+      "price": 1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Rope, hemp (50 ft.)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "gear",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Rope, Silk (50 ft.)",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>Fifty feet of lighter, stronger silk rope.</p>",
+      "quantity": 1,
+      "weight": 5,
+      "price": 10,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Rope, silk (50 ft.)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "gear",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Piton",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>An iron climbing spike.</p>",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 0.1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Piton",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "tool",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Grappling Hook",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A metal hook meant to catch ledges, railings, and battlements.</p>",
+      "quantity": 1,
+      "weight": 4,
+      "price": 1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Grappling hook",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "tool",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Tent",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A portable canvas tent for camp.</p>",
+      "quantity": 1,
+      "weight": 20,
+      "price": 10,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Tent",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "gear",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Lantern, Hooded",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A hooded lantern with shutters that burns six hours on a pint of oil.</p>",
+      "quantity": 1,
+      "weight": 2,
+      "price": 7,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Lantern, hooded",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "light",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can spend oil on this lantern." }
+    }
+  },
+  {
+    "name": "Lantern, Bull's-Eye",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A focused lantern that throws light in a long cone and burns six hours on a pint of oil.</p>",
+      "quantity": 1,
+      "weight": 3,
+      "price": 12,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Lantern, bull's-eye",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "light",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can spend oil on this lantern." }
+    }
+  },
+  {
+    "name": "Lamp, Common",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A simple hand lamp with an open flame that burns six hours on a pint of oil.</p>",
+      "quantity": 1,
+      "weight": 1,
+      "price": 0.1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Lamp, common",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "light",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can spend oil on this lamp." }
+    }
+  },
+  {
+    "name": "Belt Pouch",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A small belt pouch for coins, gems, and tiny tools.</p>",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 1,
+      "equipped": false,
+      "slot": "belt",
+      "phbName": "Pouch, belt",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "container",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Container capacity is informational only for now." }
+    }
+  },
+  {
+    "name": "Sack",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>An empty sack for hauling loose gear or loot.</p>",
+      "quantity": 1,
+      "weight": 0.5,
+      "price": 0.1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Sack (empty)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "container",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Container capacity is informational only for now." }
+    }
+  },
+  {
+    "name": "Chest",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>An empty chest for secure storage.</p>",
+      "quantity": 1,
+      "weight": 25,
+      "price": 2,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Chest (empty)",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "container",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Container capacity is informational only for now." }
+    }
+  },
+  {
+    "name": "Caltrops",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A two-pound bag of metal caltrops that slows foes and punishes careless movement.</p>",
+      "quantity": 1,
+      "weight": 2,
+      "price": 1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Caltrops",
+      "phbTable": "Table 7-9",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "tactical",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": true, "needsToggle": true, "notes": "Placement, movement triggers, and attack resolution need scene automation." }
+    }
+  },
+  {
+    "name": "Healer's Kit",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A treated medical kit that grants a circumstance bonus to some Heal checks and is exhausted after ten uses.</p>",
+      "quantity": 1,
+      "weight": 1,
+      "price": 50,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Healer's kit",
+      "phbTable": "Table 7-11",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "kit",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Can later be tracked as ten medical uses." }
+    }
+  },
+  {
+    "name": "Climber's Kit",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A climbing harness, spikes, and gloves granting a +2 circumstance bonus to Climb checks.</p>",
+      "quantity": 1,
+      "weight": 5,
+      "price": 80,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Climber's kit",
+      "phbTable": "Table 7-11",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "kit",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future skill automation can read this for climb bonuses." }
+    }
+  },
+  {
+    "name": "Thieves' Tools",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A lockpicking and disable-device kit required to work without improvised tools.</p>",
+      "quantity": 1,
+      "weight": 1,
+      "price": 30,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Thieves' tools",
+      "phbTable": "Table 7-11",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "kit",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future Disable Device and Pick Lock flows can require this kit." }
+    }
+  },
+  {
+    "name": "Thieves' Tools, Masterwork",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A superior thieves' kit granting a +2 circumstance bonus on Disable Device and Pick Lock checks.</p>",
+      "quantity": 1,
+      "weight": 2,
+      "price": 100,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Thieves' tools, masterwork",
+      "phbTable": "Table 7-11",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "kit",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future Disable Device and Pick Lock flows can grant the masterwork bonus." }
+    }
+  },
+  {
+    "name": "Medicine Pouch",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A pouch of herbs, minerals, and tools required for shamanic alchemy.</p>",
+      "quantity": 1,
+      "weight": 5,
+      "price": 100,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Medicine pouch",
+      "phbTable": "Table 7-11",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "focus",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future alchemy gating can key off this item." }
+    }
+  },
+  {
+    "name": "Musical Instrument, Common",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A common instrument such as a lute, flute, horn, or drum.</p>",
+      "quantity": 1,
+      "weight": 3,
+      "price": 5,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Musical instrument, common",
+      "phbTable": "Table 7-11",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "tool",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": true, "needsTarget": false, "needsToggle": false, "notes": "Specific instrument choice is cosmetic until bard music automation expands." }
+    }
+  },
+  {
+    "name": "Spellbook (Blank)",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A blank, leather-bound spellbook with one hundred parchment pages.</p>",
+      "quantity": 1,
+      "weight": 3,
+      "price": 15,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Spellbook (blank)",
+      "phbTable": "Table 7-11",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "focus",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future arcane-learning flows can key off this item." }
+    }
+  },
+  {
+    "name": "Adventurer Clothes",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>Hard-wearing travel clothes built for weather and wear.</p>",
+      "quantity": 1,
+      "weight": 8,
+      "price": 10,
+      "equipped": false,
+      "slot": "body",
+      "phbName": "Adventurer clothes",
+      "phbTable": "Table 7-13",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "clothing",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Clerical Vestments",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>Formal vestments for divine offices and ceremonies.</p>",
+      "quantity": 1,
+      "weight": 6,
+      "price": 5,
+      "equipped": false,
+      "slot": "body",
+      "phbName": "Clerical vestments",
+      "phbTable": "Table 7-13",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "clothing",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Cold Weather Clothes",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>Layered cold-weather clothing for harsh climates.</p>",
+      "quantity": 1,
+      "weight": 7,
+      "price": 8,
+      "equipped": false,
+      "slot": "body",
+      "phbName": "Cold weather clothes",
+      "phbTable": "Table 7-13",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "clothing",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Entertainer Clothes",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>Colorful performer clothing suited to public appearances.</p>",
+      "quantity": 1,
+      "weight": 4,
+      "price": 3,
+      "equipped": false,
+      "slot": "body",
+      "phbName": "Entertainer clothes",
+      "phbTable": "Table 7-13",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "clothing",
+      "ammoType": "",
+      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+    }
+  },
+  {
+    "name": "Arrows",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A single arrow for bows and similar projectile weapons.</p>",
+      "quantity": 1,
+      "weight": 0.15,
+      "price": 0.05,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Arrow",
+      "phbTable": "Table 7-18",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "ammo",
+      "ammoType": "arrows",
+      "automation": { "safeDirect": true, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Consumed automatically by projectile bow attacks." }
+    }
+  },
+  {
+    "name": "Bolts",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A single crossbow bolt.</p>",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 0.1,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Bullet or bolt",
+      "phbTable": "Table 7-18",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "ammo",
+      "ammoType": "bolts",
+      "automation": { "safeDirect": true, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Consumed automatically by projectile crossbow attacks." }
+    }
+  },
+  {
+    "name": "Sling Bullets",
+    "type": "equipment",
+    "img": "",
+    "system": {
+      "description": "<p>A single sling bullet.</p>",
+      "quantity": 1,
+      "weight": 0.1,
+      "price": 0.01,
+      "equipped": false,
+      "slot": "",
+      "phbName": "Bullet",
+      "phbTable": "Table 7-18",
+      "source": "phb",
+      "phbCore": true,
+      "itemCategory": "ammo",
+      "ammoType": "sling-bullets",
+      "automation": { "safeDirect": true, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Consumed automatically by sling attacks." }
+    }
+  }
+]

@@ -76,6 +76,8 @@
             {{/if}}
           </div>
           <div class="wiz-class-saves">Good saves: {{c.goodSaves}}</div>
+          <div class="wiz-class-saves">Class skills: {{c.skillCount}}</div>
+          <div class="wiz-class-saves">Raw gold option: {{c.startingGold}} gp</div>
           <div class="wiz-class-armor">Armor: {{c.armor}}</div>
         </div>
         {{/each}}
@@ -172,6 +174,21 @@
                    placeholder="Tunare, Cazic-Thule…"
                    autocomplete="off" />
           </div>
+          <div class="wiz-field">
+            <label>Starting Loadout</label>
+            <div class="wiz-loadout-choice">
+              <label class="wiz-loadout-card">
+                <input type="radio" name="wizard-loadout" value="kit" {{#if (eq choices.loadout "kit")}}checked{{/if}} />
+                <span class="wiz-loadout-title">Class Kit</span>
+                <span class="wiz-loadout-note">Grant the starter gear package for {{className}}.</span>
+              </label>
+              <label class="wiz-loadout-card">
+                <input type="radio" name="wizard-loadout" value="gold" {{#if (eq choices.loadout "gold")}}checked{{/if}} />
+                <span class="wiz-loadout-title">Raw Gold</span>
+                <span class="wiz-loadout-note">Start with {{starterGold}} gp instead of the kit.</span>
+              </label>
+            </div>
+          </div>
         </div>
 
         {{!-- Right: character summary --}}
@@ -198,6 +215,32 @@
                 {{#if goodSaveNames.length}}
                   {{#each goodSaveNames as |s|}}{{#if @index}}, {{/if}}{{s}}{{/each}}
                 {{else}}—{{/if}}
+              </span>
+            </div>
+
+            <div class="wiz-sum-stat">
+              <span class="wiz-sum-label">Class Skills</span>
+              <span class="wiz-sum-val">
+                {{#if classSkillNames.length}}
+                  {{#each classSkillNames as |s|}}{{#if @index}}, {{/if}}{{s}}{{/each}}
+                {{else}}—{{/if}}
+              </span>
+            </div>
+
+            <div class="wiz-sum-stat">
+              <span class="wiz-sum-label">Loadout</span>
+              <span class="wiz-sum-val">
+                {{#if (eq choices.loadout "kit")}}Class Kit{{else}}Raw Gold{{/if}}
+              </span>
+              <span class="wiz-sum-note">
+                {{#if (eq choices.loadout "kit")}}
+                  {{#if starterKitPreview.length}}
+                    {{#each starterKitPreview as |item|}}{{#if @index}}, {{/if}}{{item.label}}{{/each}}
+                  {{else}}No class kit defined.
+                  {{/if}}
+                {{else}}
+                  {{starterGold}} gp
+                {{/if}}
               </span>
             </div>
 

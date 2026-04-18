@@ -54,6 +54,23 @@ export class EQItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "will",      label: game.i18n.localize("EQRPG.Will") },
         { value: "none",      label: game.i18n.localize("EQRPG.None") },
       ];
+      context.deliveryOptions = [
+        { value: "utility", label: game.i18n.localize("EQRPG.SpellDeliveryUtility") },
+        { value: "attack",  label: game.i18n.localize("EQRPG.SpellDeliveryAttack") },
+        { value: "save",    label: game.i18n.localize("EQRPG.SpellDeliverySave") },
+      ];
+      context.attackModeOptions = [
+        { value: "",       label: "â€”" },
+        { value: "melee",  label: game.i18n.localize("EQRPG.SpellAttackMelee") },
+        { value: "ranged", label: game.i18n.localize("EQRPG.SpellAttackRanged") },
+      ];
+      context.saveEffectOptions = [
+        { value: "",         label: "â€”" },
+        { value: "negates",  label: game.i18n.localize("EQRPG.SaveEffectNegates") },
+        { value: "half",     label: game.i18n.localize("EQRPG.SaveEffectHalf") },
+        { value: "partial",  label: game.i18n.localize("EQRPG.SaveEffectPartial") },
+        { value: "varies",   label: game.i18n.localize("EQRPG.SaveEffectVaries") },
+      ];
     }
 
     return context;
