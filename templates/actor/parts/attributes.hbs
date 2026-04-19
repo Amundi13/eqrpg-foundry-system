@@ -65,7 +65,9 @@
             <span class="frontsheet-summary-value">{{system.combat.ac.value}}</span>
             <span class="frontsheet-summary-note">
               {{system.combat.ac.base}} + {{system.combat.ac.armor}} + {{system.combat.ac.shield}}
+              {{#if (gte system.combat.ac.dex 0)}} + {{system.combat.ac.dex}}{{else}} {{system.combat.ac.dex}}{{/if}}
               {{#if system.combat.ac.natural}} + {{system.combat.ac.natural}}{{/if}}
+              {{#if system.combat.ac.size}}{{#if (gte system.combat.ac.size 0)}} + {{system.combat.ac.size}}{{else}} {{system.combat.ac.size}}{{/if}}{{/if}}
               {{#if system.combat.ac.monkBonus}} + {{system.combat.ac.monkBonus}}{{/if}}
             </span>
           </div>
@@ -90,6 +92,19 @@
             <span class="frontsheet-summary-label">{{localize "EQRPG.Encumbrance"}}</span>
             <span class="frontsheet-summary-value">{{encumbrance.current}}</span>
             <span class="frontsheet-summary-note">{{encumbrance.max}} {{localize "EQRPG.Lbs"}} max</span>
+          </div>
+          <div class="frontsheet-summary-stat">
+            <span class="frontsheet-summary-label">{{localize "EQRPG.Speed"}}</span>
+            <span class="frontsheet-summary-value">{{system.details.speedModified}}</span>
+            <span class="frontsheet-summary-note">{{system.details.speed}} {{localize "EQRPG.Base"}}</span>
+          </div>
+          <div class="frontsheet-summary-stat">
+            <span class="frontsheet-summary-label">{{localize "EQRPG.Size"}}</span>
+            <span class="frontsheet-summary-value">{{system.details.size}}</span>
+            <span class="frontsheet-summary-note">
+              {{localize "EQRPG.AC"}} {{#if (gte system.combat.ac.size 0)}}+{{/if}}{{system.combat.ac.size}}
+              / {{localize "EQRPG.Attack"}} {{#if (gte system.combat.sizeAttackMod 0)}}+{{/if}}{{system.combat.sizeAttackMod}}
+            </span>
           </div>
         </div>
 
@@ -175,6 +190,14 @@
               <span class="frontsheet-detail-label">{{localize "EQRPG.Deity"}}</span>
               <span class="frontsheet-detail-value">{{#if selectedDeity}}{{selectedDeity.label}}{{else}}-{{/if}}</span>
             </div>
+            <div class="frontsheet-detail-row">
+              <span class="frontsheet-detail-label">{{localize "EQRPG.Size"}}</span>
+              <span class="frontsheet-detail-value">{{system.details.size}}</span>
+            </div>
+            <div class="frontsheet-detail-row">
+              <span class="frontsheet-detail-label">{{localize "EQRPG.Speed"}}</span>
+              <span class="frontsheet-detail-value">{{system.details.speedModified}} ft</span>
+            </div>
           </div>
         </section>
       </section>
@@ -230,6 +253,7 @@
               <span class="frontsheet-skill-name">{{item.name}}</span>
               <span class="frontsheet-skill-meta">
                 {{item.system.ranks}} {{localize "EQRPG.Ranks"}}
+                / {{item.abilityLabel}}
                 {{#if item.system.classSkill}} / {{localize "EQRPG.ClassSkill"}}{{/if}}
               </span>
               <button type="button" class="frontsheet-inline-action"

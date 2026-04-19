@@ -141,6 +141,37 @@ Hooks.once("ready", () => {
   console.log("eqrpg | EverQuest RPG System Ready");
 });
 
+async function _ensureCharacterTokenLink(tokenDoc) {
+  const actor = tokenDoc?.actor ?? game.actors.get(tokenDoc?.actorId);
+  if (!tokenDoc || !actor || actor.type !== "character") return;
+  if (tokenDoc.actorLink) return;
+  try {
+    await tokenDoc.update({ actorLink: true });
+  } catch (err) {
+    console.warn("eqrpg | Failed to relink character token", tokenDoc?.name, err);
+  }
+}
+
+Hooks.once("ready", async () => {
+  if (!game.user?.isGM) return;
+  for (const scene of game.scenes ?? []) {
+    const updates = [];
+    for (const token of scene.tokens ?? []) {
+      const actor = token.actor ?? game.actors.get(token.actorId);
+      if (!actor || actor.type !== "character" || token.actorLink) continue;
+      updates.push({ _id: token.id, actorLink: true });
+    }
+    if (updates.length) {
+      try {
+        await scene.updateEmbeddedDocuments("Token", updates);
+        console.log(`eqrpg | Relinked ${updates.length} character token(s) in scene ${scene.name}`);
+      } catch (err) {
+        console.warn(`eqrpg | Failed relinking character tokens in scene ${scene.name}`, err);
+      }
+    }
+  }
+});
+
 // ---------------------------------------------------------------------------
 // Combat: Chat message buttons — apply damage or healing to targeted tokens
 // ---------------------------------------------------------------------------
@@ -367,7 +398,9 @@ if (!("renderChatMessageHTML" in (Hooks.events ?? {}))) {
 }
 
 // ---------------------------------------------------------------------------
-// Combat: Toggle "dead" token overlay when HP reaches 0
+// Combat: Update token status effects from HP thresholds
+// Characters: unconscious at 0 to -9, dead at -10 or below
+// NPCs: dead at 0 or below
 // ---------------------------------------------------------------------------
 Hooks.on("updateActor", async (actor, changes, _options, _userId) => {
   // Only the GM manages token status effects
@@ -375,17 +408,26 @@ Hooks.on("updateActor", async (actor, changes, _options, _userId) => {
   const newHP = foundry.utils.getProperty(changes, "system.resources.hp.value");
   if (newHP === undefined) return;
 
-  const isDead  = newHP <= 0;
-  const deadFx  = CONFIG.statusEffects?.find(e => e.id === "dead") ?? { id: "dead" };
+  const isCharacter = actor.type === "character";
+  const isDead = isCharacter ? newHP <= -10 : newHP <= 0;
+  const isUnconscious = isCharacter && newHP <= 0 && newHP > -10;
+  const deadFx = CONFIG.statusEffects?.find(e => e.id === "dead") ?? { id: "dead" };
+  const unconsciousFx = CONFIG.statusEffects?.find(e => e.id === "unconscious") ?? { id: "unconscious" };
   // getActiveTokens(linked=false, document=true) returns TokenDocuments
   const tokenDocs = actor.getActiveTokens(false, true);
   for (const tokenDoc of tokenDocs) {
     try {
-      const hasIt = tokenDoc.hasStatusEffect?.("dead")
+      const hasDead = tokenDoc.hasStatusEffect?.("dead")
                  ?? tokenDoc.actor?.statuses?.has("dead")
                  ?? false;
-      if (isDead !== hasIt) {
+      const hasUnconscious = tokenDoc.hasStatusEffect?.("unconscious")
+                 ?? tokenDoc.actor?.statuses?.has("unconscious")
+                 ?? false;
+      if (isDead !== hasDead) {
         await tokenDoc.toggleActiveEffect(deadFx, { active: isDead, overlay: isDead });
+      }
+      if (isUnconscious !== hasUnconscious) {
+        await tokenDoc.toggleActiveEffect(unconsciousFx, { active: isUnconscious, overlay: false });
       }
     } catch (_e) {
       // Status-effect API varies between Foundry versions — fail silently
@@ -518,8 +560,16 @@ Hooks.on("renderCombatTracker", (_tracker, html) => {
 Hooks.on("createActor", (actor, _options, userId) => {
   if (actor.type !== "character") return;
   if (game.userId !== userId) return;
+  actor.update({ "prototypeToken.actorLink": true }).catch(() => {});
   // Short delay so the default sheet can open first, then the wizard appears on top
   setTimeout(() => new CharacterWizard(actor).render(true), 250);
+});
+
+Hooks.on("preCreateToken", (tokenDoc, data, options, userId) => {
+  const actor = tokenDoc.actor ?? game.actors.get(data.actorId ?? tokenDoc.actorId);
+  if (!actor || actor.type !== "character") return;
+  if (data.actorLink === true) return;
+  tokenDoc.updateSource({ actorLink: true });
 });
 
 // Expose wizard globally so the sheet header button can call it

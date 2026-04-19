@@ -32,8 +32,14 @@
         {{/if}}
         <div class="combat-row">
           <label>{{localize "EQRPG.DexMod"}}</label>
-          <span class="combat-value">{{#if (gte abilities.dex.mod 0)}}+{{/if}}{{abilities.dex.mod}}</span>
+          <span class="combat-value">{{#if (gte system.combat.ac.dex 0)}}+{{/if}}{{system.combat.ac.dex}}</span>
         </div>
+        {{#if system.combat.ac.size}}
+        <div class="combat-row">
+          <label>{{localize "EQRPG.Size"}}</label>
+          <span class="combat-value">{{#if (gte system.combat.ac.size 0)}}+{{/if}}{{system.combat.ac.size}}</span>
+        </div>
+        {{/if}}
         <div class="combat-row">
           <label>{{localize "EQRPG.Misc"}}</label>
           <input type="number" name="system.combat.ac.misc"
@@ -81,7 +87,7 @@
           <div class="combat-item-main">
             <span class="combat-item-name">{{item.name}}</span>
             <span class="combat-item-meta">
-              {{item.system.damage}}
+              {{#if item.displayDamage}}{{item.displayDamage}}{{else}}{{item.system.damage}}{{/if}}
               {{#if item.system.damageType}}{{item.system.damageType}}{{/if}}
               {{#if item.system.delay}} / DLY {{item.system.delay}}{{/if}}
               {{#if item.system.range}} / RNG {{item.system.range}}{{/if}}
@@ -124,7 +130,7 @@
         <li class="combat-item-row combat-item-equipped" data-item-id="{{item.id}}">
           <div class="combat-item-main">
             <span class="combat-item-name">{{item.name}}</span>
-            <span class="combat-item-meta">1d4 bludgeoning / DLY 5</span>
+            <span class="combat-item-meta">{{item.displayDamage}} bludgeoning / DLY 5</span>
           </div>
           <div class="combat-item-actions">
             <button type="button" class="roll-btn combat-roll-btn"

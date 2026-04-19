@@ -322,6 +322,11 @@
           <span class="flag-cs">{{localize "EQRPG.ClassSkill"}}</span>
         </label>
         <label class="item-flag">
+          <input type="checkbox" name="system.showInQuickRolls" {{#if system.showInQuickRolls}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <span class="flag-cs">{{localize "EQRPG.ShowInQuickRolls"}}</span>
+        </label>
+        <label class="item-flag">
           <input type="checkbox" name="system.isTradeskill" {{#if system.isTradeskill}}checked{{/if}}
                  {{#unless isEditable}}disabled{{/unless}} />
           <span class="flag-ts">{{localize "EQRPG.Tradeskill"}}</span>

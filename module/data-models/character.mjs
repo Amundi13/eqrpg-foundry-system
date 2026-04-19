@@ -125,6 +125,21 @@ function describeTempo(netHasteRank = 0, netSlowRank = 0, round = 1) {
  */
 export class CharacterData extends foundry.abstract.TypeDataModel {
 
+  _getAbilityValue(key) {
+    const ability = this.abilities?.[key];
+    if (!ability) return 10;
+    if (Number.isFinite(ability.value)) return ability.value;
+    return Number(ability.base + ability.racial + ability.misc) || 10;
+  }
+
+  _getAbilityMod(key) {
+    const ability = this.abilities?.[key];
+    if (!ability) return 0;
+    if (Number.isFinite(ability.mod)) return ability.mod;
+    const total = this._getAbilityValue(key);
+    return Math.floor((total - 10) / 2);
+  }
+
   static defineSchema() {
     const abilityField = () => new SchemaField({
       base: new NumberField({ required: true, integer: true, min: 3, max: 18, initial: 8 }),
@@ -155,12 +170,15 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         level: new NumberField({ required: true, integer: true, min: 1, max: 30, initial: 1 }),
         alignment: new StringField({ initial: "" }),
         deity: new StringField({ initial: "" }),
+        size: new StringField({ initial: "medium" }),
+        speed: new NumberField({ required: true, integer: true, min: 0, initial: 30 }),
+        speedModified: new NumberField({ required: true, integer: true, min: 0, initial: 30 }),
       }),
 
       // --- Resources ---
       resources: new SchemaField({
         hp: new SchemaField({
-          value: new NumberField({ required: true, integer: true, initial: 10 }),
+          value: new NumberField({ required: true, integer: true, min: -10, initial: 10 }),
           max: new NumberField({ required: true, integer: true, initial: 10 }),
           temp: new NumberField({ required: true, integer: true, initial: 0 }),
           bonus: new NumberField({ required: true, integer: true, initial: 0 }),
@@ -173,7 +191,10 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       }),
 
       wealth: new SchemaField({
+        platinum: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
         gold: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+        silver: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+        copper: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
       }),
 
       // --- Combat ---
@@ -215,8 +236,9 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   prepareDerivedData() {
     const config = CONFIG.EQRPG;
 
-    for (const key of Object.keys(this.abilities)) {
-      const ab = this.abilities[key];
+    for (const key of Object.keys(config.abilities ?? {})) {
+      const ab = this.abilities?.[key];
+      if (!ab) continue;
       ab.value = ab.base + ab.racial + ab.misc;
       ab.mod = Math.floor((ab.value - 10) / 2);
     }
@@ -251,25 +273,30 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       note: describeTempo(effectSummary.netHasteRank, effectSummary.netSlowRank, combatRound),
     };
 
-    const raceAbilitiesList = config.races?.[raceKey]?.abilities ?? [];
-    const luckBonus = raceAbilitiesList.includes("luck") ? 1 : 0;
+    const raceConfig = config.races?.[raceKey] ?? {};
+    const raceAbilitiesList = raceConfig.abilities ?? [];
+    const sizeKey = raceConfig.size ?? "medium";
+    const sizeACBonus = Number(config.sizeACModifiers?.[sizeKey] ?? 0) || 0;
+    const sizeAttackMod = Number(config.sizeAttackModifiers?.[sizeKey] ?? 0) || 0;
+    const halflingFortitudeBonus = raceAbilitiesList.includes("halflingFortitude") ? 1 : 0;
 
     if (classConfig) {
       for (const [saveKey, save] of Object.entries(this.combat.saves)) {
         const progression = classConfig.saves[saveKey];
         const progTable = config.saveProgression[progression];
         save.base = Array.isArray(progTable) ? (progTable[level] ?? 0) : 0;
-        save.value = save.base + this._getSaveAbilityMod(saveKey) + save.misc + luckBonus;
+        const racialSaveBonus = saveKey === "fortitude" ? halflingFortitudeBonus : 0;
+        save.value = save.base + this._getSaveAbilityMod(saveKey) + save.misc + racialSaveBonus;
       }
     } else {
-      for (const save of Object.values(this.combat.saves)) {
-        save.value = save.base + save.misc + luckBonus;
-      }
+      this.combat.saves.fortitude.value = this.combat.saves.fortitude.base + this.combat.saves.fortitude.misc + halflingFortitudeBonus;
+      this.combat.saves.reflex.value = this.combat.saves.reflex.base + this.combat.saves.reflex.misc;
+      this.combat.saves.will.value = this.combat.saves.will.base + this.combat.saves.will.misc;
     }
 
     const items = this.parent?.items;
     this.combat.ac.maxDexBonus = null;
-    this.combat.ac.dex = this.abilities.dex.mod;
+    this.combat.ac.dex = this._getAbilityMod("dex");
     this.combat.armorCheckPenalty = 0;
     this.combat.spellFailure = 0;
     let featFort = 0, featReflex = 0, featWill = 0, featInit = 0, featAC = 0, featHP = 0, featAttack = 0;
@@ -322,13 +349,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
     const ac = this.combat.ac;
     const dexToAC = Number.isInteger(ac.maxDexBonus)
-      ? Math.min(this.abilities.dex.mod, ac.maxDexBonus)
-      : this.abilities.dex.mod;
+      ? Math.min(this._getAbilityMod("dex"), ac.maxDexBonus)
+      : this._getAbilityMod("dex");
     ac.dex = dexToAC;
-    ac.value = ac.base + ac.armor + ac.shield + ac.natural + dexToAC + ac.misc;
+    ac.size = sizeACBonus;
+    ac.value = ac.base + ac.armor + ac.shield + ac.natural + dexToAC + ac.misc + sizeACBonus;
 
     if (classKey === "monk" && ac.armor === 0 && ac.shield === 0) {
-      const monkBonus = this.abilities.wis.mod + Math.floor(level / 5);
+      const monkBonus = this._getAbilityMod("wis") + Math.floor(level / 5);
       ac.monkBonus = monkBonus;
       ac.value += monkBonus;
     } else {
@@ -337,25 +365,24 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     ac.value += featAC;
     ac.value += this.combat.tempo.acBonus;
 
-    this.combat.initiative.value = this.abilities.dex.mod + this.combat.initiative.misc + featInit;
-    this.combat.attackBonus = featAttack + (this.combat.attackMisc ?? 0);
+    this.combat.initiative.value = this._getAbilityMod("dex") + this.combat.initiative.misc + featInit;
+    this.combat.sizeAttackMod = sizeAttackMod;
+    this.combat.attackBonus = featAttack + (this.combat.attackMisc ?? 0) + sizeAttackMod;
     this.combat.weaponDelayMod = this.combat.tempo.weaponDelayMod;
 
     if (classConfig) {
       const hitDie = classConfig.hitDie;
       const avgPerLevel = Math.floor(hitDie / 2) + 1;
-      this.resources.hp.max = hitDie + (avgPerLevel * (level - 1)) + (this.abilities.con.mod * level);
+      this.resources.hp.max = hitDie + (avgPerLevel * (level - 1)) + (this._getAbilityMod("con") * level);
       if (this.resources.hp.max < 1) this.resources.hp.max = 1;
     }
     this.resources.hp.max += featHP + (this.resources.hp.bonus ?? 0);
 
     if (classConfig?.spellcastingAbility) {
       const castAbility = classConfig.spellcastingAbility;
-      const castMod = this.abilities[castAbility].mod;
-      const manaMultiplier = ["paladin", "ranger", "shadowknight", "beastlord"].includes(classKey) ? 2 : 3;
-
+      const castMod = this._getAbilityMod(castAbility);
       this.resources.mana.max = (castMod > 0 && level > 0)
-        ? (castMod * manaMultiplier) * level
+        ? (castMod * 2) * level
         : 0;
 
       const baseRegen = classKey === "bard" ? 0 : Math.max(1, Math.floor(level / 5));
@@ -374,8 +401,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       this.manaRegen = 0;
     }
     this.combatManaRegen = effectSummary.manaPerRound;
+    this.details.size = sizeKey;
     this.details.speed = config.races?.[raceKey]?.speed ?? 30;
     this.details.speedModified = Math.round(this.details.speed * (1 + (effectSummary.speedPct / 100)));
+    this.hpState = this.resources.hp.value <= -10
+      ? "dead"
+      : this.resources.hp.value <= 0
+        ? "unconscious"
+        : "alive";
 
     const currentXP = this.resources.xp;
     const xpTable = config.xpThresholds ?? {};
@@ -403,14 +436,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this.pointBuy.remaining = config.pointBuyTotal - this.pointBuy.spent;
 
     const classSkillPoints = classConfig?.skillPoints ?? 0;
-    const intMod = this.abilities.int.mod;
+    const intMod = this._getAbilityMod("int");
     this.skillProgression = {
       firstLevel: Math.max(0, (classSkillPoints + intMod) * 4),
       perLevel: Math.max(0, classSkillPoints + intMod),
       classBase: classSkillPoints,
     };
 
-    this.encumbrance = { current: 0, max: 15 * this.abilities.str.value };
+    this.encumbrance = { current: 0, max: 15 * this._getAbilityValue("str") };
     if (items) {
       for (const item of items) {
         const weight = item.system.weight ?? 0;
@@ -432,13 +465,13 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     }
 
     if (classKey === "paladin") {
-      const layMod = this.abilities.wis.mod + this.abilities.cha.mod;
+      const layMod = this._getAbilityMod("wis") + this._getAbilityMod("cha");
       this.classFeatures.layOnHandsPool = Math.max(0, layMod * level);
     }
 
     if (classKey === "shadowknight") {
       this.classFeatures.harmTouchDamage = level * 3;
-      this.classFeatures.harmTouchDC = 10 + this.abilities.int.mod + Math.floor(level / 2);
+      this.classFeatures.harmTouchDC = 10 + this._getAbilityMod("int") + Math.floor(level / 2);
       this.classFeatures.leechTouch = level >= 20;
     }
 
@@ -449,14 +482,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this.hasColdResistance = this.raceAbilities.includes("coldResistance");
     this.coldResistBonus = this.hasColdResistance ? 4 : 0;
     this.hasSpellShielding = this.raceAbilities.includes("spellShielding");
-    this.luckBonus = luckBonus;
+    this.halflingFortitudeBonus = halflingFortitudeBonus;
   }
 
   _getSaveAbilityMod(saveKey) {
     switch (saveKey) {
-      case "fortitude": return this.abilities.con.mod;
-      case "reflex": return this.abilities.dex.mod;
-      case "will": return this.abilities.wis.mod;
+      case "fortitude": return this._getAbilityMod("con");
+      case "reflex": return this._getAbilityMod("dex");
+      case "will": return this._getAbilityMod("wis");
       default: return 0;
     }
   }

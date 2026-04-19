@@ -251,6 +251,10 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       item.canBash = item.type === "armor" && item.system.type === "shield" && item.system.shieldCategory !== "tower";
       item.itemCategoryLabel = item.system.itemCategory ? String(item.system.itemCategory) : "";
       item.ammoLabel = item.system.ammoType ? String(item.system.ammoType) : "";
+      item.displayDamage = typeof item.getDisplayDamage === "function" ? item.getDisplayDamage() : (item.system.damage ?? "");
+      item.abilityLabel = item.type === "skill"
+        ? game.i18n.localize(config.abilityAbbreviations?.[item.system.ability] ?? item.system.ability ?? "")
+        : "";
       return item;
     };
 
@@ -263,7 +267,7 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         spell.system.effectiveSpellLevel = EQCharacterSheet._getEffectiveSpellLevel(spell, this.actor);
         return spell;
       });
-    context.skills = this.actor.items.filter((i) => i.type === "skill");
+    context.skills = this.actor.items.filter((i) => i.type === "skill").map(decorateItem);
     context.consumables = this.actor.items.filter((i) => i.type === "consumable").map(decorateItem);
     context.equipment = this.actor.items
       .filter((i) => i.type === "equipment")
@@ -288,15 +292,18 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.combatShields = [...context.armor]
       .filter((item) => item.canBash && item.system.equipped)
       .sort((a, b) => a.name.localeCompare(b.name));
-    context.mainSheetSkills = [...context.skills]
+    const pinnedQuickSkills = context.skills
+      .filter((item) => item.system.showInQuickRolls)
+      .sort((a, b) => a.name.localeCompare(b.name));
+    const fallbackQuickSkills = [...context.skills]
       .sort((a, b) => {
         const aClass = a.system.classSkill ? 1 : 0;
         const bClass = b.system.classSkill ? 1 : 0;
         const aRanks = a.system.ranks ?? 0;
         const bRanks = b.system.ranks ?? 0;
         return bClass - aClass || bRanks - aRanks || a.name.localeCompare(b.name);
-      })
-      .slice(0, 10);
+      });
+    context.mainSheetSkills = (pinnedQuickSkills.length ? pinnedQuickSkills : fallbackQuickSkills).slice(0, 10);
 
     // Factions — sorted by standing descending, enriched with standing tier info
     context.factions = this.actor.items
@@ -325,6 +332,12 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       spells: context.spells.length,
       factions: context.factions.length,
     };
+    context.wealthSummary = [
+      `${system.wealth.platinum ?? 0} ${game.i18n.localize("EQRPG.PlatinumAbbr")}`,
+      `${system.wealth.gold ?? 0} ${game.i18n.localize("EQRPG.GoldAbbr")}`,
+      `${system.wealth.silver ?? 0} ${game.i18n.localize("EQRPG.SilverAbbr")}`,
+      `${system.wealth.copper ?? 0} ${game.i18n.localize("EQRPG.CopperAbbr")}`,
+    ].join(" / ");
 
     // XP progress toward next level
     context.xpProgress = system.xpProgress ?? {};
@@ -409,7 +422,7 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.hasColdResistance = system.hasColdResistance ?? false;
     context.coldResistBonus   = system.coldResistBonus   ?? 0;
     context.hasSpellShielding = system.hasSpellShielding ?? false;
-    context.luckBonus         = system.luckBonus         ?? 0;
+    context.halflingFortitudeBonus = system.halflingFortitudeBonus ?? 0;
 
     // Resource fill percentages for header HP/Mana bars
     const hp   = system.resources.hp;

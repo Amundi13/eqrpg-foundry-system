@@ -93,7 +93,7 @@ EQRPG.races = {
     adjustments: { str: -2, dex: 4, con: 0, int: -2, wis: 2, cha: -2 },
     size: "small",
     speed: 20,
-    abilities: ["infravision", "sneak", "luck"],
+    abilities: ["infravision", "sneak", "halflingFortitude"],
     allowedClasses: [
       "bard", "cleric", "druid", "paladin", "ranger", "rogue", "warrior",
     ],
@@ -554,7 +554,7 @@ EQRPG.consumableTypes = {
 // Race Natural AC Bonuses
 // ---------------------------------------------------------------------------
 EQRPG.raceNaturalAC = {
-  iksar: 4,   // PHB: Iksar have thick scales granting +4 natural armor
+  iksar: 3,
 };
 
 // ---------------------------------------------------------------------------
@@ -636,6 +636,11 @@ EQRPG.raceAbilities = {
   luck: {
     label: "EQRPG.RaLuck",
     note:  "EQRPG.RaLuckNote",
+    type:  "passive",
+  },
+  halflingFortitude: {
+    label: "EQRPG.RaHalflingFortitude",
+    note:  "EQRPG.RaHalflingFortitudeNote",
     type:  "passive",
   },
   spellShielding: {
@@ -939,4 +944,40 @@ EQRPG.damageTypes = {
   magic: "EQRPG.DmgMagic",
   poison: "EQRPG.DmgPoison",
   disease: "EQRPG.DmgDisease",
+};
+
+EQRPG.sizeOrder = [
+  "fine",
+  "diminutive",
+  "tiny",
+  "small",
+  "medium",
+  "large",
+  "huge",
+  "gargantuan",
+  "colossal",
+];
+
+EQRPG.sizeAttackModifiers = {
+  fine: 8,
+  diminutive: 4,
+  tiny: 2,
+  small: 1,
+  medium: 0,
+  large: -1,
+  huge: -2,
+  gargantuan: -4,
+  colossal: -8,
+};
+
+EQRPG.sizeACModifiers = {
+  fine: 8,
+  diminutive: 4,
+  tiny: 2,
+  small: 1,
+  medium: 0,
+  large: -1,
+  huge: -2,
+  gargantuan: -4,
+  colossal: -8,
 };

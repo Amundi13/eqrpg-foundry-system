@@ -8,6 +8,9 @@
         <span class="biography-deity-name">{{#if selectedDeity}}{{selectedDeity.label}}{{else}}-{{/if}}</span>
         {{#if selectedDeity}}
         <span class="biography-deity-meta">{{selectedDeity.domain}} • {{selectedDeity.alignment}}</span>
+        {{#if selectedDeity.description}}
+        <p class="deity-description">{{selectedDeity.description}}</p>
+        {{/if}}
         {{/if}}
       </div>
     </div>
@@ -44,9 +47,9 @@
           <button type="button" class="faction-adj-btn" data-action="factionStandingUp"
                   data-delta="100" title="+100">+</button>
           <button type="button" class="faction-adj-btn" data-action="factionStandingDown"
-                  data-delta="100" title="-100">−</button>
+                  data-delta="100" title="-100">-</button>
           <button type="button" class="delete-btn" data-action="deleteItem"
-                  title="{{localize 'EQRPG.Delete'}}">✕</button>
+                  title="{{localize 'EQRPG.Delete'}}">x</button>
         </td>
       </tr>
       {{/each}}

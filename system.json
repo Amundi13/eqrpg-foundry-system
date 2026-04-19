@@ -7,10 +7,10 @@
       "name": "erikw"
     }
   ],
-  "version": "0.1.2",
+  "version": "0.1.3",
   "url": "https://github.com/Amundi13/eqrpg-foundry-system",
   "manifest": "https://raw.githubusercontent.com/Amundi13/eqrpg-foundry-system/main/system.json",
-  "download": "https://github.com/Amundi13/eqrpg-foundry-system/releases/download/v0.1.2/eqrpg-foundry-system-v0.1.2.zip",
+  "download": "https://github.com/Amundi13/eqrpg-foundry-system/releases/download/v0.1.3/eqrpg-foundry-system-v0.1.3.zip",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
@@ -29,7 +29,7 @@
     }
   ],
   "socket": false,
-  "initiative": "1d20 + @abilities.dex.mod + @combat.initiative.misc",
+  "initiative": "1d20 + @combat.initiative.value",
   "grid": {
     "type": 1,
     "distance": 5,

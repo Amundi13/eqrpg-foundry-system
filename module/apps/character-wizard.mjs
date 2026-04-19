@@ -55,6 +55,18 @@ function getStarterGold(classKey) {
   return CONFIG.EQRPG.startingGold?.[classKey] ?? 0;
 }
 
+function convertGoldToCoinage(gold = 0) {
+  const totalGold = Math.max(0, Number(gold) || 0);
+  const platinum = Math.floor(totalGold / 10);
+  const remainderGold = totalGold % 10;
+  return {
+    platinum,
+    gold: remainderGold,
+    silver: 0,
+    copper: 0,
+  };
+}
+
 function getStarterKit(classKey) {
   return CONFIG.EQRPG.starterKits?.[classKey] ?? [];
 }
@@ -364,7 +376,11 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     if (ch.loadout === "gold") {
-      update["system.wealth.gold"] = getStarterGold(ch.klass);
+      const coinage = convertGoldToCoinage(getStarterGold(ch.klass));
+      update["system.wealth.platinum"] = coinage.platinum;
+      update["system.wealth.gold"] = coinage.gold;
+      update["system.wealth.silver"] = coinage.silver;
+      update["system.wealth.copper"] = coinage.copper;
     }
 
     await this.actor.update(update);

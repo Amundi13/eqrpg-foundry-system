@@ -10,8 +10,15 @@
   </div>
 
   <div class="inventory-wealth-row">
-    <span class="inventory-wealth-label">{{localize "EQRPG.Gold"}}</span>
+    <span class="inventory-wealth-label">{{localize "EQRPG.Coinage"}}</span>
+    <label class="inventory-wealth-note">{{localize "EQRPG.PlatinumAbbr"}}</label>
+    <input type="number" name="system.wealth.platinum" value="{{system.wealth.platinum}}" min="0" {{#unless isEditable}}disabled{{/unless}} />
+    <label class="inventory-wealth-note">{{localize "EQRPG.GoldAbbr"}}</label>
     <input type="number" name="system.wealth.gold" value="{{system.wealth.gold}}" min="0" {{#unless isEditable}}disabled{{/unless}} />
+    <label class="inventory-wealth-note">{{localize "EQRPG.SilverAbbr"}}</label>
+    <input type="number" name="system.wealth.silver" value="{{system.wealth.silver}}" min="0" {{#unless isEditable}}disabled{{/unless}} />
+    <label class="inventory-wealth-note">{{localize "EQRPG.CopperAbbr"}}</label>
+    <input type="number" name="system.wealth.copper" value="{{system.wealth.copper}}" min="0" {{#unless isEditable}}disabled{{/unless}} />
     <span class="inventory-wealth-note">{{localize "EQRPG.StartingLoadout"}} / {{localize "EQRPG.TabInventory"}}</span>
   </div>
 
@@ -27,7 +34,7 @@
       <li class="item" data-item-id="{{item.id}}">
         <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
         <span class="item-name" data-action="editItem">{{item.name}}</span>
-        <span class="item-detail">{{item.system.damage}} {{item.system.damageType}}</span>
+        <span class="item-detail">{{item.displayDamage}} {{item.system.damageType}}</span>
         {{#if item.ammoType}}
         <span class="item-detail dim">AMMO {{item.ammoType}}</span>
         {{/if}}
@@ -79,7 +86,10 @@
       <li class="item" data-item-id="{{item.id}}">
         <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
         <span class="item-name" data-action="editItem">{{item.name}}</span>
-        <span class="item-detail">AC +{{item.system.acBonus}} ({{item.system.type}})</span>
+          <span class="item-detail">AC +{{item.system.acBonus}} ({{item.system.type}})</span>
+          {{#unless (eq item.system.maxDexBonus null)}}
+          <span class="item-detail dim">MAX DEX {{item.system.maxDexBonus}}</span>
+          {{/unless}}
         {{#if item.canBash}}
         <button type="button" class="roll-btn"
                 data-action="rollAttack" title="{{localize 'EQRPG.ShieldBash'}}">BASH</button>
@@ -174,9 +184,11 @@
         <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
         <span class="item-name" data-action="editItem">{{item.name}}</span>
         <span class="item-detail">{{item.system.ranks}} ranks</span>
+        <span class="item-detail dim">{{item.abilityLabel}}</span>
         <span class="item-detail skill-tags">
           {{#if item.system.classSkill}}<span class="tag-cs" title="Class Skill">C</span>{{/if}}
           {{#if item.system.isTradeskill}}<span class="tag-ts" title="Tradeskill">T</span>{{/if}}
+          {{#if item.system.showInQuickRolls}}<span class="tag-cs" title="Quick Roll">Q</span>{{/if}}
         </span>
         <button type="button" class="roll-skill-btn roll-btn"
                 data-action="rollSkill" title="{{localize 'EQRPG.RollSkill'}}">ROLL</button>

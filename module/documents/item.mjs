@@ -3,6 +3,27 @@
  */
 export class EQItem extends Item {
 
+  static _DAMAGE_SIZE_STEPS = [
+    "1",
+    "1d2",
+    "1d3",
+    "1d4",
+    "1d6",
+    "1d8",
+    "1d10",
+    "2d6",
+    "2d8",
+    "3d6",
+    "3d8",
+    "4d6",
+    "4d8",
+    "6d6",
+    "6d8",
+    "8d6",
+    "8d8",
+    "12d6",
+  ];
+
   /** @override */
   getRollData() {
     const data = super.getRollData();
@@ -51,6 +72,38 @@ export class EQItem extends Item {
     };
   }
 
+  _getActorSize() {
+    return String(this.actor?.system?.details?.size ?? "medium").toLowerCase();
+  }
+
+  _getBaseItemSize() {
+    return String(this.system?.size ?? "medium").toLowerCase();
+  }
+
+  _adjustDamageForSize(damage = "") {
+    const formula = String(damage ?? "").trim();
+    if (!formula) return formula;
+
+    const match = formula.match(/^(\d+d\d+)(.*)$/i);
+    if (!match) return formula;
+
+    const [, dice, suffix] = match;
+    const sizeOrder = CONFIG.EQRPG?.sizeOrder ?? [];
+    const baseIndex = sizeOrder.indexOf(this._getBaseItemSize());
+    const actorIndex = sizeOrder.indexOf(this._getActorSize());
+    const stepIndex = EQItem._DAMAGE_SIZE_STEPS.indexOf(dice.toLowerCase());
+    if (baseIndex < 0 || actorIndex < 0 || stepIndex < 0) return formula;
+
+    const shift = actorIndex - baseIndex;
+    const adjustedIndex = Math.max(0, Math.min(EQItem._DAMAGE_SIZE_STEPS.length - 1, stepIndex + shift));
+    return `${EQItem._DAMAGE_SIZE_STEPS[adjustedIndex]}${suffix ?? ""}`;
+  }
+
+  getDisplayDamage() {
+    const profile = this._resolveAttackProfile();
+    return this._adjustDamageForSize(profile.damage || "");
+  }
+
   _resolveAttackProfile() {
     if (this._isShieldBash()) {
       const bash = this._getShieldBashProfile();
@@ -78,19 +131,54 @@ export class EQItem extends Item {
     };
   }
 
+  _getActorAbilityValue(actor, key) {
+    const sourceAbility = actor?.toObject?.()?.system?.abilities?.[key];
+    if (sourceAbility) {
+      if (Number.isFinite(sourceAbility.value)) return sourceAbility.value;
+      const total = Number((sourceAbility.base ?? 0) + (sourceAbility.racial ?? 0) + (sourceAbility.misc ?? 0));
+      if (Number.isFinite(total) && total > 0) return total;
+    }
+
+    const rollAbility = actor?.getRollData?.()?.abilities?.[key];
+    if (rollAbility && Number.isFinite(rollAbility.value)) return rollAbility.value;
+
+    const ability = actor?.system?.abilities?.[key];
+    if (!ability) return 10;
+    if (Number.isFinite(ability.value)) return ability.value;
+    return Number((ability.base ?? 0) + (ability.racial ?? 0) + (ability.misc ?? 0)) || 10;
+  }
+
+  _getActorAbilityMod(actor, key) {
+    const sourceAbility = actor?.toObject?.()?.system?.abilities?.[key];
+    if (sourceAbility) {
+      if (Number.isFinite(sourceAbility.mod)) return sourceAbility.mod;
+      const total = Number((sourceAbility.value ?? ((sourceAbility.base ?? 0) + (sourceAbility.racial ?? 0) + (sourceAbility.misc ?? 0)))) || 10;
+      return Math.floor((total - 10) / 2);
+    }
+
+    const rollAbility = actor?.getRollData?.()?.abilities?.[key];
+    if (rollAbility && Number.isFinite(rollAbility.mod)) return rollAbility.mod;
+
+    const ability = actor?.system?.abilities?.[key];
+    if (!ability) return 0;
+    if (Number.isFinite(ability.mod)) return ability.mod;
+    const total = this._getActorAbilityValue(actor, key);
+    return Math.floor((total - 10) / 2);
+  }
+
   _getAttackAbilityMod(actor) {
     const range = this._resolveAttackProfile().range ?? 0;
     const isRanged = range > 0;
-    if (isRanged) return actor?.system.abilities?.dex?.mod ?? 0;
+    if (isRanged) return this._getActorAbilityMod(actor, "dex");
 
-    const strMod = actor?.system.abilities?.str?.mod ?? 0;
-    const dexMod = actor?.system.abilities?.dex?.mod ?? 0;
+    const strMod = this._getActorAbilityMod(actor, "str");
+    const dexMod = this._getActorAbilityMod(actor, "dex");
     if (this._hasProperty("finesse")) return Math.max(strMod, dexMod);
     return strMod;
   }
 
   _getDamageAbilityMod(actor) {
-    const strMod = actor?.system.abilities?.str?.mod ?? 0;
+    const strMod = this._getActorAbilityMod(actor, "str");
     if (this._isShieldBash()) return strMod;
     if (this._isThrownWeapon()) {
       if (this.name === "Shuriken") return 0;
@@ -148,7 +236,7 @@ export class EQItem extends Item {
 
     const actor = this.actor;
     const attackArray = actor.system.combat?.attackArray ?? [actor.system.combat?.bab ?? 0];
-    const totalBonus = (attackArray[0] ?? 0)
+      const totalBonus = (attackArray[0] ?? 0)
       + this._getAttackAbilityMod(actor)
       + (actor.system?.combat?.attackBonus ?? 0)
       + (this.system.attackBonus ?? 0)
@@ -158,8 +246,8 @@ export class EQItem extends Item {
     const targetResults = targets.map((target) => {
       const targetActor = target.actor;
       const targetAttack = targetActor?.system?.combat?.attackArray?.[0] ?? targetActor?.system?.combat?.bab ?? 0;
-      const targetStr = targetActor?.system?.abilities?.str?.mod ?? 0;
-      const targetDex = targetActor?.system?.abilities?.dex?.mod ?? 0;
+      const targetStr = this._getActorAbilityMod(targetActor, "str");
+      const targetDex = this._getActorAbilityMod(targetActor, "dex");
       const defense = targetAttack + Math.max(targetStr, targetDex) + (targetActor?.system?.combat?.attackBonus ?? 0);
       const success = roll.total >= defense;
       return { target, defense, success };
@@ -719,7 +807,7 @@ export class EQItem extends Item {
     const resolveTargetAC = (token) => {
       const ac = token?.actor?.system?.combat?.ac ?? {};
       if (isNet) {
-        const dex = token?.actor?.system?.abilities?.dex?.mod ?? 0;
+        const dex = this._getActorAbilityMod(token?.actor, "dex");
         const misc = ac.misc ?? 0;
         const monk = ac.monkBonus ?? 0;
         return 10 + dex + misc + monk;
@@ -811,7 +899,7 @@ export class EQItem extends Item {
 
     // Build inline damage roll buttons so the player can roll damage right from chat
     const dmgMod     = this._getDamageAbilityMod(actor);
-    const dmgDice    = profile.damage || "";
+    const dmgDice    = this._adjustDamageForSize(profile.damage || "");
     const dmgBase    = !dmgDice
       ? ""
       : dmgMod > 0
@@ -982,13 +1070,14 @@ export class EQItem extends Item {
   async rollDamage({ critMult = 1, sneakAttack = false } = {}) {
     if (!(this.type === "weapon" || this._isShieldBash())) return;
     const actor    = this.actor;
+    actor?.prepareData?.();
     const profile  = this._resolveAttackProfile();
     if (this._isNet() || !profile.damage) {
       ui.notifications.warn(game.i18n.localize("EQRPG.NoDamageRoll"));
       return null;
     }
     const abilityMod = this._getDamageAbilityMod(actor);
-    const dmgDice  = profile.damage || "1d4";
+    const dmgDice  = this._adjustDamageForSize(profile.damage || "1d4");
 
     const baseFormula = abilityMod > 0
       ? `${dmgDice} + ${abilityMod}`
@@ -1077,7 +1166,8 @@ export class EQItem extends Item {
     }
     const ability = this.system.ability ?? "int";
     const abilMod = actor?.system.abilities?.[ability]?.mod ?? 0;
-    const total   = ranks + abilMod;
+    const armorPenalty = this.system.armorCheckPenalty ? (actor?.system?.combat?.armorCheckPenalty ?? 0) : 0;
+    const total   = ranks + abilMod + armorPenalty;
     const sign    = total >= 0 ? "+" : "";
     const abilAbbr = game.i18n.localize(
       CONFIG.EQRPG?.abilityAbbreviations?.[ability] ?? ability.toUpperCase());
@@ -1085,7 +1175,7 @@ export class EQItem extends Item {
     const header = EQItem._buildCardHeader(
       this.img,
       actor?.name ?? "?",
-      `<strong>${this.name}</strong> <span class="eq-skill-detail">${ranks} ranks ${sign}${abilMod} ${abilAbbr}</span>`,
+      `<strong>${this.name}</strong> <span class="eq-skill-detail">${ranks} ranks ${abilMod >= 0 ? "+" : ""}${abilMod} ${abilAbbr}${armorPenalty ? ` ${armorPenalty} ACP` : ""}</span>`,
       false,
     );
 
@@ -1186,7 +1276,7 @@ export class EQItem extends Item {
     const ac = target?.actor?.system?.combat?.ac ?? {};
     const isTouchAttack = attackMode === "melee" || attackMode === "ranged";
     if (isTouchAttack) {
-      const dex = target?.actor?.system?.abilities?.dex?.mod ?? 0;
+      const dex = this._getActorAbilityMod(target?.actor, "dex");
       const misc = ac.misc ?? 0;
       const monk = ac.monkBonus ?? 0;
       return 10 + dex + misc + monk;

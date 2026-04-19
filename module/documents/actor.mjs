@@ -490,8 +490,13 @@ export class EQActor extends Actor {
   // Damage & Healing Application
   // ---------------------------------------------------------------------------
 
+  _getMinimumHP() {
+    return this.type === "character" ? -10 : 0;
+  }
+
   /**
-   * Subtract damage from current HP (floor at 0).
+   * Subtract damage from current HP.
+   * PCs can fall to -10 before death; NPCs floor at 0.
    * @param {number} amount  Raw damage to apply
    * @returns {number}       New HP value
    */
@@ -501,7 +506,7 @@ export class EQActor extends Actor {
     const absorbed = Math.min(currentTemp, amount);
     const remaining = Math.max(0, amount - absorbed);
     const newTemp = Math.max(0, currentTemp - absorbed);
-    const newValue = Math.max(0, currentHP - remaining);
+    const newValue = Math.max(this._getMinimumHP(), currentHP - remaining);
     await this.update({
       "system.resources.hp.temp": newTemp,
       "system.resources.hp.value": newValue,
