@@ -41,6 +41,10 @@
         </div>
         {{/if}}
         <div class="combat-row">
+          <label>{{localize "EQRPG.Buff"}}</label>
+          <span class="combat-value">{{#if (gte system.combat.ac.buff 0)}}+{{/if}}{{system.combat.ac.buff}}</span>
+        </div>
+        <div class="combat-row">
           <label>{{localize "EQRPG.Misc"}}</label>
           <input type="number" name="system.combat.ac.misc"
                  value="{{system.combat.ac.misc}}" {{#unless isEditable}}disabled{{/unless}} />
@@ -69,6 +73,10 @@
           {{#if (gte system.combat.initiative.value 0)}}+{{/if}}{{system.combat.initiative.value}}
           <span class="roll-icon">⚄</span>
         </button>
+      </div>
+      <div class="combat-row">
+        <label>{{localize "EQRPG.Buff"}}</label>
+        <span class="combat-value">{{#if (gte system.combat.initiative.buff 0)}}+{{/if}}{{system.combat.initiative.buff}}</span>
       </div>
       <div class="combat-row">
         <label>{{localize "EQRPG.InitMisc"}}</label>
@@ -161,6 +169,7 @@
           <span class="save-detail">
             {{system.combat.saves.fortitude.base}} base +
             {{#if (gte abilities.con.mod 0)}}+{{/if}}{{abilities.con.mod}} CON +
+            <span class="save-buff-readout">{{#if (gte system.combat.saves.fortitude.buff 0)}}+{{/if}}{{system.combat.saves.fortitude.buff}} {{localize "EQRPG.Buff"}}</span> +
             <input type="number" name="system.combat.saves.fortitude.misc"
                    value="{{system.combat.saves.fortitude.misc}}" class="save-misc" data-dtype="Number"
                    {{#unless isEditable}}disabled{{/unless}} /> misc
@@ -177,6 +186,7 @@
           <span class="save-detail">
             {{system.combat.saves.reflex.base}} base +
             {{#if (gte abilities.dex.mod 0)}}+{{/if}}{{abilities.dex.mod}} DEX +
+            <span class="save-buff-readout">{{#if (gte system.combat.saves.reflex.buff 0)}}+{{/if}}{{system.combat.saves.reflex.buff}} {{localize "EQRPG.Buff"}}</span> +
             <input type="number" name="system.combat.saves.reflex.misc"
                    value="{{system.combat.saves.reflex.misc}}" class="save-misc" data-dtype="Number"
                    {{#unless isEditable}}disabled{{/unless}} /> misc
@@ -193,6 +203,7 @@
           <span class="save-detail">
             {{system.combat.saves.will.base}} base +
             {{#if (gte abilities.wis.mod 0)}}+{{/if}}{{abilities.wis.mod}} WIS +
+            <span class="save-buff-readout">{{#if (gte system.combat.saves.will.buff 0)}}+{{/if}}{{system.combat.saves.will.buff}} {{localize "EQRPG.Buff"}}</span> +
             <input type="number" name="system.combat.saves.will.misc"
                    value="{{system.combat.saves.will.misc}}" class="save-misc" data-dtype="Number"
                    {{#unless isEditable}}disabled{{/unless}} /> misc

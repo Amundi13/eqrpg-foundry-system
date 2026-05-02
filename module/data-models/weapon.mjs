@@ -24,6 +24,7 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
       proficiency: new StringField({ initial: "simple" }),
       combatClass: new StringField({ initial: "melee" }),
       size: new StringField({ initial: "medium" }),
+      autoScaleDamage: new BooleanField({ initial: false }),
       handedness: new StringField({ initial: "one-handed" }),
       damageTypes: new ArrayField(new StringField()),
       automation: new SchemaField({

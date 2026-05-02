@@ -9,7 +9,7 @@ const sourceDir = path.join(rootDir, "module", "packs", "source");
 const outputPath = path.join(rootDir, "module", "packs", "sample-data.mjs");
 
 const SOURCE_FILES = [
-  ["SAMPLE_SPELLS", "spells.json"],
+  ["SAMPLE_SPELLS", "spells.json", { allowDuplicateNames: true }],
   ["SAMPLE_FEATS", "feats.json"],
   ["SAMPLE_SKILLS", "skills.json"],
   ["SAMPLE_WEAPONS", "weapons.json"],
@@ -29,7 +29,7 @@ function readJsonArray(filename) {
   return parsed;
 }
 
-function validateEntries(entries, label) {
+function validateEntries(entries, label, { allowDuplicateNames = false } = {}) {
   const seen = new Set();
 
   for (const [index, entry] of entries.entries()) {
@@ -44,7 +44,7 @@ function validateEntries(entries, label) {
     }
 
     const key = entry.name.trim().toLowerCase();
-    if (seen.has(key)) {
+    if (!allowDuplicateNames && seen.has(key)) {
       throw new Error(`${label} contains a duplicate entry named "${entry.name}".`);
     }
     seen.add(key);
@@ -55,9 +55,9 @@ function formatExport(name, data) {
   return `export const ${name} = ${JSON.stringify(data, null, 2)};\n`;
 }
 
-const datasets = SOURCE_FILES.map(([exportName, filename]) => {
+const datasets = SOURCE_FILES.map(([exportName, filename, options = {}]) => {
   const data = readJsonArray(filename);
-  validateEntries(data, exportName);
+  validateEntries(data, exportName, options);
   return [exportName, filename, data];
 });
 

@@ -38,8 +38,22 @@ After making changes, reload Foundry and use the browser console for runtime deb
 
 ## Install
 
-- Manifest URL: `https://raw.githubusercontent.com/Amundi13/eqrpg-foundry-system/main/system.json`
-- Release download: `https://github.com/Amundi13/eqrpg-foundry-system/releases/download/v0.1.1/eqrpg-foundry-system-v0.1.1.zip`
+- Manifest URL: `https://github.com/Amundi13/eqrpg-foundry-system/releases/latest/download/system.json`
+- Release download: `https://github.com/Amundi13/eqrpg-foundry-system/releases/latest/download/eqrpg-foundry-system-v0.1.4.zip`
+
+## Release
+
+1. Update `system.json` with the next version.
+2. Commit and push the changes to `main`.
+3. Create and push a matching tag, for example `v0.1.4`.
+
+```powershell
+git tag v0.1.4
+git push origin main
+git push origin v0.1.4
+```
+
+GitHub Actions will publish `system.json` and `eqrpg-foundry-system-v0.1.4.zip` to the release. Use the manifest URL above in Forge so Forge/Foundry can detect newer published versions.
 
 ## License
 

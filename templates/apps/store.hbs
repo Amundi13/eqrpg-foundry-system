@@ -1,0 +1,58 @@
+<div class="store-shell">
+  <div class="store-toolbar">
+    <div class="store-buyer">
+      <label>{{localize "EQRPG.StoreBuyer"}}</label>
+      <select name="store-actor">
+        {{#each actors as |actor|}}
+        <option value="{{actor.id}}" {{#if actor.selected}}selected{{/if}}>{{actor.name}}</option>
+        {{/each}}
+      </select>
+      {{#if buyer}}
+      <span class="store-wealth">{{wealthLabel}}</span>
+      {{/if}}
+    </div>
+    <div class="store-preset">
+      <label>{{localize "EQRPG.StorePreset"}}</label>
+      <select name="store-preset">
+        {{#each stores as |store|}}
+        <option value="{{store.key}}" {{#if store.selected}}selected{{/if}}>{{store.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="store-search">
+      <input type="search" name="store-query" value="{{query}}" placeholder="{{localize 'EQRPG.StoreSearch'}}" />
+    </div>
+  </div>
+
+  <div class="store-tabs">
+    {{#each types as |type|}}
+    <button type="button" data-action="storeType" data-type="{{type.key}}" class="{{#if type.active}}active{{/if}}">
+      {{type.label}}
+    </button>
+    {{/each}}
+  </div>
+
+  <div class="store-list">
+    {{#if stock.length}}
+    {{#each stock as |item|}}
+    <div class="store-row" data-store-id="{{item.id}}">
+      <img src="{{item.img}}" width="36" height="36" />
+      <div class="store-item-main">
+        <div class="store-item-name">{{item.name}}</div>
+        <div class="store-item-meta">
+          <span>{{item.typeLabel}}</span>
+          {{#if item.detail}}<span>{{item.detail}}</span>{{/if}}
+        </div>
+      </div>
+      <div class="store-price">{{item.priceLabel}}</div>
+      <input type="number" name="store-quantity" value="1" min="1" max="99" step="1" />
+      <button type="button" data-action="buyItem" class="store-buy" {{#unless @root.canBuy}}disabled{{/unless}}>
+        {{localize "EQRPG.Buy"}}
+      </button>
+    </div>
+    {{/each}}
+    {{else}}
+    <p class="store-empty">{{localize "EQRPG.StoreNoItems"}}</p>
+    {{/if}}
+  </div>
+</div>

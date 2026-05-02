@@ -20,6 +20,7 @@
     <label class="inventory-wealth-note">{{localize "EQRPG.CopperAbbr"}}</label>
     <input type="number" name="system.wealth.copper" value="{{system.wealth.copper}}" min="0" {{#unless isEditable}}disabled{{/unless}} />
     <span class="inventory-wealth-note">{{localize "EQRPG.StartingLoadout"}} / {{localize "EQRPG.TabInventory"}}</span>
+    <button type="button" class="store-open-btn" data-action="openStore">{{localize "EQRPG.Store"}}</button>
   </div>
 
   {{!-- Weapons --}}
@@ -168,36 +169,6 @@
     </ol>
     {{else}}
     <p class="empty-list">{{localize "EQRPG.NoConsumables"}}</p>
-    {{/if}}
-  </div>
-
-  {{!-- Skills --}}
-  <div class="inventory-section">
-    <div class="section-header">
-      <h3>{{localize "EQRPG.Skills"}}</h3>
-      <button type="button" data-action="createItem" data-type="skill" class="create-btn" title="{{localize 'EQRPG.AddSkill'}}">+</button>
-    </div>
-    {{#if skills.length}}
-    <ol class="item-list">
-      {{#each skills as |item|}}
-      <li class="item" data-item-id="{{item.id}}">
-        <img src="{{item.img}}" class="item-img" width="24" height="24" data-action="editItem" />
-        <span class="item-name" data-action="editItem">{{item.name}}</span>
-        <span class="item-detail">{{item.system.ranks}} ranks</span>
-        <span class="item-detail dim">{{item.abilityLabel}}</span>
-        <span class="item-detail skill-tags">
-          {{#if item.system.classSkill}}<span class="tag-cs" title="Class Skill">C</span>{{/if}}
-          {{#if item.system.isTradeskill}}<span class="tag-ts" title="Tradeskill">T</span>{{/if}}
-          {{#if item.system.showInQuickRolls}}<span class="tag-cs" title="Quick Roll">Q</span>{{/if}}
-        </span>
-        <button type="button" class="roll-skill-btn roll-btn"
-                data-action="rollSkill" title="{{localize 'EQRPG.RollSkill'}}">ROLL</button>
-        <button type="button" data-action="deleteItem" class="delete-btn" title="{{localize 'EQRPG.Delete'}}">X</button>
-      </li>
-      {{/each}}
-    </ol>
-    {{else}}
-    <p class="empty-list">{{localize "EQRPG.NoSkills"}}</p>
     {{/if}}
   </div>
 

@@ -45,6 +45,10 @@
                 <span class="frontsheet-ability-chip-label">{{localize "EQRPG.Racial"}}</span>
                 <span class="frontsheet-ability-chip-value">{{#if (gte this.racial 0)}}+{{/if}}{{this.racial}}</span>
               </div>
+              <div class="frontsheet-ability-chip frontsheet-ability-chip-buff">
+                <span class="frontsheet-ability-chip-label">{{localize "EQRPG.Buff"}}</span>
+                <span class="frontsheet-ability-chip-value">{{#if (gte this.buff 0)}}+{{/if}}{{this.buff}}</span>
+              </div>
               <div class="frontsheet-ability-chip">
                 <span class="frontsheet-ability-chip-label">{{localize "EQRPG.Misc"}}</span>
                 <input type="number" name="{{this.miscField}}"
@@ -69,6 +73,7 @@
               {{#if system.combat.ac.natural}} + {{system.combat.ac.natural}}{{/if}}
               {{#if system.combat.ac.size}}{{#if (gte system.combat.ac.size 0)}} + {{system.combat.ac.size}}{{else}} {{system.combat.ac.size}}{{/if}}{{/if}}
               {{#if system.combat.ac.monkBonus}} + {{system.combat.ac.monkBonus}}{{/if}}
+              {{#if system.combat.ac.buff}} / {{localize "EQRPG.Buff"}} {{#if (gte system.combat.ac.buff 0)}}+{{/if}}{{system.combat.ac.buff}}{{/if}}
             </span>
           </div>
           <div class="frontsheet-summary-stat">
@@ -85,6 +90,7 @@
             </button>
             <span class="frontsheet-summary-note">
               {{localize "EQRPG.DexMod"}} {{#if (gte abilities.dex.mod 0)}}+{{/if}}{{abilities.dex.mod}}
+              {{#if system.combat.initiative.buff}} / {{localize "EQRPG.Buff"}} {{#if (gte system.combat.initiative.buff 0)}}+{{/if}}{{system.combat.initiative.buff}}{{/if}}
               / {{localize "EQRPG.Misc"}} {{#if (gte system.combat.initiative.misc 0)}}+{{/if}}{{system.combat.initiative.misc}}
             </span>
           </div>
@@ -137,6 +143,7 @@
               </button>
               <span class="frontsheet-save-breakdown">
                 {{system.combat.saves.fortitude.base}} + {{#if (gte abilities.con.mod 0)}}+{{/if}}{{abilities.con.mod}} + 
+                <span class="save-buff-readout">{{localize "EQRPG.Buff"}} {{#if (gte system.combat.saves.fortitude.buff 0)}}+{{/if}}{{system.combat.saves.fortitude.buff}}</span> + 
                 <span class="save-misc-readout">{{system.combat.saves.fortitude.misc}}</span>
               </span>
             </div>
@@ -149,6 +156,7 @@
               </button>
               <span class="frontsheet-save-breakdown">
                 {{system.combat.saves.reflex.base}} + {{#if (gte abilities.dex.mod 0)}}+{{/if}}{{abilities.dex.mod}} + 
+                <span class="save-buff-readout">{{localize "EQRPG.Buff"}} {{#if (gte system.combat.saves.reflex.buff 0)}}+{{/if}}{{system.combat.saves.reflex.buff}}</span> + 
                 <span class="save-misc-readout">{{system.combat.saves.reflex.misc}}</span>
               </span>
             </div>
@@ -161,6 +169,7 @@
               </button>
               <span class="frontsheet-save-breakdown">
                 {{system.combat.saves.will.base}} + {{#if (gte abilities.wis.mod 0)}}+{{/if}}{{abilities.wis.mod}} + 
+                <span class="save-buff-readout">{{localize "EQRPG.Buff"}} {{#if (gte system.combat.saves.will.buff 0)}}+{{/if}}{{system.combat.saves.will.buff}}</span> + 
                 <span class="save-misc-readout">{{system.combat.saves.will.misc}}</span>
               </span>
             </div>

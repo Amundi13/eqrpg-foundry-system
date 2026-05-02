@@ -6,11 +6,10 @@ Thumbs.db
 packs/**/LOCK
 packs/**/LOG
 packs/**/LOG.old
-packs/**/CURRENT
-packs/**/MANIFEST-*
 packs/**/*.log
 
 # Local archives / exports
+dist/
 *.zip
 *.tmp
 

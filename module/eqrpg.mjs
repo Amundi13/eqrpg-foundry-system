@@ -23,6 +23,7 @@ import { EQItemSheet } from "./sheets/item-sheet.mjs";
 
 // Applications
 import { CharacterWizard } from "./apps/character-wizard.mjs";
+import { EQStore, renderStore } from "./apps/store.mjs";
 
 // Config
 import { EQRPG } from "./helpers/config.mjs";
@@ -83,6 +84,9 @@ Hooks.once("init", () => {
   game.eqrpg = game.eqrpg ?? {};
   game.eqrpg.config = EQRPG;
   game.eqrpg.CharacterWizard = CharacterWizard;
+  game.eqrpg.EQStore = EQStore;
+  game.eqrpg.openStore = (actor = game.user?.character ?? globalThis.canvas?.tokens?.controlled?.[0]?.actor ?? null, options = {}) =>
+    renderStore(actor, options);
   CONFIG.EQRPG = EQRPG;
 
   // Register document classes
@@ -150,6 +154,22 @@ async function _ensureCharacterTokenLink(tokenDoc) {
   } catch (err) {
     console.warn("eqrpg | Failed to relink character token", tokenDoc?.name, err);
   }
+}
+
+async function _toggleStatusEffect(doc, statusId, options = {}) {
+  const actor = doc?.actor ?? doc;
+  if (actor?.toggleStatusEffect && statusId) {
+    await actor.toggleStatusEffect(statusId, options);
+    return true;
+  }
+
+  if (doc?.toggleActiveEffect && statusId) {
+    const status = CONFIG.statusEffects?.find((entry) => entry.id === statusId) ?? { id: statusId };
+    await doc.toggleActiveEffect(status, options);
+    return true;
+  }
+
+  return false;
 }
 
 Hooks.once("ready", async () => {
@@ -340,12 +360,11 @@ function _onRenderChatMessage(message, html) {
       const uuid = btn.dataset.toggleStatusUuid;
       const statusId = btn.dataset.statusId;
       const doc = await resolveTargetDoc(uuid);
-      if (!doc?.toggleActiveEffect || !statusId) {
+      const toggled = await _toggleStatusEffect(doc, statusId);
+      if (!toggled) {
         ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound"));
         return;
       }
-      const status = CONFIG.statusEffects?.find((entry) => entry.id === statusId) ?? { id: statusId };
-      await doc.toggleActiveEffect(status);
       ui.notifications.info(
         game.i18n.format("EQRPG.StatusToggled", { status: statusId, name: doc.name ?? "target" })
       );
@@ -399,7 +418,7 @@ if (!("renderChatMessageHTML" in (Hooks.events ?? {}))) {
 
 // ---------------------------------------------------------------------------
 // Combat: Update token status effects from HP thresholds
-// Characters: unconscious at 0 to -9, dead at -10 or below
+// Characters: unconscious at -1 to -9, dead at -10 or below
 // NPCs: dead at 0 or below
 // ---------------------------------------------------------------------------
 Hooks.on("updateActor", async (actor, changes, _options, _userId) => {
@@ -410,24 +429,23 @@ Hooks.on("updateActor", async (actor, changes, _options, _userId) => {
 
   const isCharacter = actor.type === "character";
   const isDead = isCharacter ? newHP <= -10 : newHP <= 0;
-  const isUnconscious = isCharacter && newHP <= 0 && newHP > -10;
-  const deadFx = CONFIG.statusEffects?.find(e => e.id === "dead") ?? { id: "dead" };
-  const unconsciousFx = CONFIG.statusEffects?.find(e => e.id === "unconscious") ?? { id: "unconscious" };
+  const isUnconscious = isCharacter && newHP < 0 && newHP > -10;
   // getActiveTokens(linked=false, document=true) returns TokenDocuments
   const tokenDocs = actor.getActiveTokens(false, true);
   for (const tokenDoc of tokenDocs) {
     try {
-      const hasDead = tokenDoc.hasStatusEffect?.("dead")
-                 ?? tokenDoc.actor?.statuses?.has("dead")
+      const tokenActor = tokenDoc.actor ?? actor;
+      const hasDead = tokenActor.statuses?.has("dead")
+                 ?? tokenDoc.hasStatusEffect?.("dead")
                  ?? false;
-      const hasUnconscious = tokenDoc.hasStatusEffect?.("unconscious")
-                 ?? tokenDoc.actor?.statuses?.has("unconscious")
+      const hasUnconscious = tokenActor.statuses?.has("unconscious")
+                 ?? tokenDoc.hasStatusEffect?.("unconscious")
                  ?? false;
       if (isDead !== hasDead) {
-        await tokenDoc.toggleActiveEffect(deadFx, { active: isDead, overlay: isDead });
+        await _toggleStatusEffect(tokenDoc, "dead", { active: isDead, overlay: isDead });
       }
       if (isUnconscious !== hasUnconscious) {
-        await tokenDoc.toggleActiveEffect(unconsciousFx, { active: isUnconscious, overlay: false });
+        await _toggleStatusEffect(tokenDoc, "unconscious", { active: isUnconscious, overlay: false });
       }
     } catch (_e) {
       // Status-effect API varies between Foundry versions — fail silently
@@ -436,7 +454,7 @@ Hooks.on("updateActor", async (actor, changes, _options, _userId) => {
 });
 
 // ---------------------------------------------------------------------------
-// Combat: tick spell cooldowns down at the start of each combatant's turn
+// Combat: tick per-turn effects at the start of each combatant's turn
 // ---------------------------------------------------------------------------
 Hooks.on("updateCombat", async (combat, updateData, options, userId) => {
   // Only process when the turn advances; only the GM updates actor data
@@ -445,11 +463,12 @@ Hooks.on("updateCombat", async (combat, updateData, options, userId) => {
 
   const combatant = combat.combatant;
   const actor = combatant?.actor;
-  if (!actor || actor.type !== "character") return;
+  if (!actor) return;
+  await actor.normalizeSpellEffects?.();
+  if (actor.type !== "character") return;
 
-  // Tick spell cooldowns and apply racial HP regen (e.g. Troll +1 HP/round)
+  // Tick spell cooldowns and combat-only mana effects. Racial HP regeneration is hourly, not per round.
   await actor.tickSpellCooldowns();
-  await actor.regenHP();
   await actor.regenManaCombat?.();
 });
 
@@ -467,6 +486,7 @@ Hooks.on("renderTokenHUD", (tokenHUD, html) => {
   const mp  = actor.system?.resources?.mana;
   const sys = actor.system?.combat;
   if (!hp) return;
+  const tempHP = Math.max(0, Number(hp.temp) || 0);
 
   // Attack array: characters have attackArray, NPCs just have bab
   const atkArr = sys?.attackArray?.length
@@ -491,6 +511,7 @@ Hooks.on("renderTokenHUD", (tokenHUD, html) => {
     + `<div class="eq-hud-fill" style="width:${hpPct}%"></div>`
     + `<span class="eq-hud-label">`
     + `<span class="eq-hud-val hp-val">${hp.value}</span>`
+    + (tempHP > 0 ? `<span class="eq-hud-temp">+${tempHP}</span>` : "")
     + `<span class="eq-hud-sep">/</span>`
     + `<span class="eq-hud-max">${hp.max}</span>`
     + `</span>`
@@ -575,6 +596,9 @@ Hooks.on("preCreateToken", (tokenDoc, data, options, userId) => {
 // Expose wizard globally so the sheet header button can call it
 game.eqrpg = game.eqrpg ?? {};
 game.eqrpg.CharacterWizard = CharacterWizard;
+game.eqrpg.EQStore = EQStore;
+game.eqrpg.openStore = (actor = game.user?.character ?? globalThis.canvas?.tokens?.controlled?.[0]?.actor ?? null, options = {}) =>
+  renderStore(actor, options);
 
 // ---------------------------------------------------------------------------
 // Compendium: Auto-populate packs on first launch (GM only)
@@ -711,6 +735,15 @@ Hooks.once("ready", async () => {
   await _populatePack("eqrpg.eqrpg-feats",       SAMPLE_FEATS);
   await _populateJournalPack("eqrpg.eqrpg-phb",  PHB_JOURNALS);
   await _populateActorPack("eqrpg.eqrpg-monsters", SAMPLE_MONSTERS);
+
+  // Expose repopulate helper for GM use in the browser console:
+  // game.eqrpg.repopulateSpellPack()
+  game.eqrpg.repopulateSpellPack = async () => {
+    if (!game.user.isGM) { ui.notifications.warn("GM only."); return; }
+    ui.notifications.info("EQRPG | Repopulating spell pack — please wait...");
+    await _populatePack("eqrpg.eqrpg-spells", SAMPLE_SPELLS, true);
+    ui.notifications.info("EQRPG | Spell pack repopulated.");
+  };
 
   // Expose repopulate helper for GM use in the browser console:
   // game.eqrpg.repopulatePacks()

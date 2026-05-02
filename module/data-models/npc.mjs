@@ -10,10 +10,20 @@ function collectEffectSummary(actor) {
   const effects = actor?.effects ?? [];
   const hasteBySource = new Map();
   let slowRank = 0;
+  const bonuses = {
+    abilities: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
+    saves: { fortitude: 0, reflex: 0, will: 0 },
+    attack: 0,
+    initiative: 0,
+    ac: 0,
+    hpBonus: 0,
+    magicSave: 0,
+  };
 
   for (const effect of effects) {
     if (effect.disabled) continue;
     const flags = effect.flags?.eqrpg ?? {};
+    const effectBonuses = flags.bonuses ?? {};
     const hasteRank = Number(flags.hasteRank ?? 0) || 0;
     const hasteSource = String(flags.hasteSource ?? "spell");
     const slow = Number(flags.slowRank ?? 0) || 0;
@@ -21,6 +31,20 @@ function collectEffectSummary(actor) {
       hasteBySource.set(hasteSource, Math.max(hasteBySource.get(hasteSource) ?? 0, hasteRank));
     }
     slowRank = Math.max(slowRank, slow);
+    bonuses.attack += Number(effectBonuses.attack ?? 0) || 0;
+    bonuses.initiative += Number(effectBonuses.initiative ?? 0) || 0;
+    bonuses.ac += Number(effectBonuses.ac ?? 0) || 0;
+    bonuses.hpBonus += Number(effectBonuses.hpBonus ?? 0) || 0;
+    bonuses.magicSave += Number(effectBonuses.magicSave ?? 0) || 0;
+    bonuses.abilities.str += Number(effectBonuses.str ?? 0) || 0;
+    bonuses.abilities.dex += Number(effectBonuses.dex ?? 0) || 0;
+    bonuses.abilities.con += Number(effectBonuses.con ?? 0) || 0;
+    bonuses.abilities.int += Number(effectBonuses.int ?? 0) || 0;
+    bonuses.abilities.wis += Number(effectBonuses.wis ?? 0) || 0;
+    bonuses.abilities.cha += Number(effectBonuses.cha ?? 0) || 0;
+    bonuses.saves.fortitude += Number(effectBonuses.fort ?? 0) || 0;
+    bonuses.saves.reflex += Number(effectBonuses.reflex ?? 0) || 0;
+    bonuses.saves.will += Number(effectBonuses.will ?? 0) || 0;
   }
 
   const hasteRank = Math.min(9, [...hasteBySource.values()].reduce((sum, rank) => sum + rank, 0));
@@ -28,6 +52,7 @@ function collectEffectSummary(actor) {
   return {
     netHasteRank: net > 0 ? net : 0,
     netSlowRank: net < 0 ? Math.abs(net) : 0,
+    bonuses,
   };
 }
 
@@ -129,7 +154,7 @@ export class NPCData extends foundry.abstract.TypeDataModel {
         hp: new SchemaField({
           value: new NumberField({ required: true, integer: true, min: 0, initial: 10 }),
           max: new NumberField({ required: true, integer: true, initial: 10 }),
-          temp: new NumberField({ required: true, integer: true, initial: 0 }),
+          temp: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
           bonus: new NumberField({ required: true, integer: true, initial: 0 }),
         }),
         mana: new SchemaField({
@@ -182,10 +207,11 @@ export class NPCData extends foundry.abstract.TypeDataModel {
   }
 
   prepareDerivedData() {
-    for (const ab of Object.values(this.abilities)) {
-      ab.mod = Math.floor((ab.value - 10) / 2);
-    }
     const effectSummary = collectEffectSummary(this.parent);
+    for (const [key, ab] of Object.entries(this.abilities)) {
+      const effectiveValue = (Number(ab.value) || 10) + (effectSummary.bonuses.abilities[key] ?? 0);
+      ab.mod = Math.floor((effectiveValue - 10) / 2);
+    }
     const combatRound = getCombatRound();
     this.combat.attackArray = buildAttackArray(
       this.combat.bab,
@@ -194,6 +220,7 @@ export class NPCData extends foundry.abstract.TypeDataModel {
       combatRound,
     );
     this.combat.ac.tempoBonus = getHasteACBonus(effectSummary.netHasteRank) - getSlowACPenalty(effectSummary.netSlowRank);
+    this.combat.magicSaveTotal = (this.combat.magicSaveBonus ?? 0) + effectSummary.bonuses.magicSave;
     this.combat.weaponDelayMod = getWeaponDelayMod(effectSummary.netHasteRank, effectSummary.netSlowRank);
   }
 

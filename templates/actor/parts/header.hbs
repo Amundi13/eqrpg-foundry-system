@@ -65,6 +65,13 @@
           </div>
         </div>
       </div>
+      <div class="resource temp-hp">
+        <label>{{localize "EQRPG.TempHP"}}</label>
+        <div class="resource-bar">
+          <input type="number" name="system.resources.hp.temp"
+                 value="{{system.resources.hp.temp}}" min="0" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
       <div class="resource mana">
         <label>{{localize "EQRPG.Mana"}}</label>
         <div class="resource-fill-wrap">
@@ -103,6 +110,17 @@
       {{else}}
         <span class="xp-label">{{localize "EQRPG.XPToNext"}}: {{math xpProgress.range "-" xpProgress.earned}}</span>
       {{/if}}
+    </div>
+
+    <div class="header-rest-row">
+      <button type="button" data-action="restShort" class="rest-btn rest-short-btn"
+              title="{{localize 'EQRPG.RestShortTitle'}}">
+        {{localize "EQRPG.RestShort"}}
+      </button>
+      <button type="button" data-action="restLong" class="rest-btn rest-long-btn"
+              title="{{localize 'EQRPG.RestLongTitle'}}">
+        {{localize "EQRPG.RestLong"}}
+      </button>
     </div>
 
     {{!-- Character Setup Wizard button (editable sheets only) --}}

@@ -44,6 +44,10 @@ export class EQItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     context.isFeat       = this.item.type === "feat";
 
     context.systemFields = this.item.system.schema.fields;
+    context.sizeOptions  = (CONFIG.EQRPG?.sizeOrder ?? []).map((size) => ({
+      value: size,
+      label: String(size).charAt(0).toUpperCase() + String(size).slice(1),
+    }));
 
     // Spell: saving throw options for select
     if (context.isSpell) {

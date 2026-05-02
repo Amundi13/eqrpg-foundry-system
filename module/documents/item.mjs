@@ -83,6 +83,7 @@ export class EQItem extends Item {
   _adjustDamageForSize(damage = "") {
     const formula = String(damage ?? "").trim();
     if (!formula) return formula;
+    if (this.type !== "weapon" || !this.system?.autoScaleDamage) return formula;
 
     const match = formula.match(/^(\d+d\d+)(.*)$/i);
     if (!match) return formula;
@@ -366,10 +367,11 @@ export class EQItem extends Item {
   static _buildTargetedDamagePanel(targets, total, options = {}) {
     const halfAmount = Number.isFinite(options.halfAmount) ? options.halfAmount : Math.floor(total / 2);
     const doubleAmount = Number.isFinite(options.doubleAmount) ? options.doubleAmount : total * 2;
-    const rows = targets
-      .filter((target) => target?.actor?.uuid)
+    const validTargets = targets.filter((target) => target?.actor?.uuid);
+    const showNames = validTargets.length > 1;
+    const rows = validTargets
       .map((target) => `<div class="eq-apply-target-row">`
-        + `<span class="eq-apply-target-name">${target.name}</span>`
+        + (showNames ? `<span class="eq-apply-target-name">${target.name}</span>` : "")
         + `<div class="eq-apply-btns">`
         + `<button class="eq-apply-btn eq-apply-full" data-apply-damage-uuid="${target.actor.uuid}" data-apply-damage="${total}">`
         + `${game.i18n.localize("EQRPG.Apply")} ${total}</button>`
@@ -389,10 +391,11 @@ export class EQItem extends Item {
   }
 
   static _buildTargetedHealPanel(targets, total) {
-    const rows = targets
-      .filter((target) => target?.actor?.uuid)
+    const validTargets = targets.filter((target) => target?.actor?.uuid);
+    const showNames = validTargets.length > 1;
+    const rows = validTargets
       .map((target) => `<div class="eq-apply-target-row">`
-        + `<span class="eq-apply-target-name">${target.name}</span>`
+        + (showNames ? `<span class="eq-apply-target-name">${target.name}</span>` : "")
         + `<div class="eq-apply-btns">`
         + `<button class="eq-apply-btn eq-apply-heal" data-apply-heal-uuid="${target.actor.uuid}" data-apply-heal="${total}">`
         + `${game.i18n.localize("EQRPG.Apply")} ${total} HP</button>`
@@ -846,7 +849,8 @@ export class EQItem extends Item {
         const label    = confirmed
           ? game.i18n.localize("EQRPG.CriticalHit")
           : hit ? game.i18n.localize("EQRPG.Hit") : game.i18n.localize("EQRPG.Miss");
-        return `<span class="${css} eq-badge">${icon} ${label} ${token.name} (AC ${targetAC})</span>`;
+        const targetName = targets.length > 1 ? ` ${token.name}` : "";
+        return `<span class="${css} eq-badge">${icon} ${label}${targetName} (AC ${targetAC})</span>`;
       });
       return `<div class="eq-target-results">${lines.join("")}</div>`;
     }
@@ -1136,12 +1140,13 @@ export class EQItem extends Item {
         content:  targetedPanel,
         rollMode: game.settings.get("core", "rollMode"),
       });
+    } else {
+      await ChatMessage.create({
+        speaker:  actor ? ChatMessage.getSpeaker({ actor }) : undefined,
+        content:  EQItem._buildApplyDamagePanel(roll.total),
+        rollMode: game.settings.get("core", "rollMode"),
+      });
     }
-    await ChatMessage.create({
-      speaker:  actor ? ChatMessage.getSpeaker({ actor }) : undefined,
-      content:  EQItem._buildApplyDamagePanel(roll.total),
-      rollMode: game.settings.get("core", "rollMode"),
-    });
 
     return roll;
   }
@@ -1259,7 +1264,7 @@ export class EQItem extends Item {
     for (const token of targets) {
       const targetActor = token.actor;
       const saveBonus = (targetActor?.system?.combat?.saves?.[saveType]?.value ?? 0)
-        + (targetActor?.system?.combat?.magicSaveBonus ?? 0);
+        + (targetActor?.system?.combat?.magicSaveTotal ?? targetActor?.system?.combat?.magicSaveBonus ?? 0);
       const roll = await new Roll(`1d20 + ${saveBonus}`, targetActor?.getRollData?.() ?? {}).evaluate();
       results.push({
         name: token.name,
@@ -1385,6 +1390,7 @@ export class EQItem extends Item {
           flavor: `<div class="eq-chat-card eq-spell-card">${header}${metaHtml}${attackHtml}${effectHtml}</div>`,
           rollMode,
         });
+        let hasDamagePanel = false;
         if (primaryTarget?.actor?.uuid) {
           await ChatMessage.create({
             speaker,
@@ -1394,13 +1400,16 @@ export class EQItem extends Item {
             }),
             rollMode,
           });
+          hasDamagePanel = true;
         }
-      await ChatMessage.create({ speaker, content: EQItem._buildApplyDamagePanel(damageRoll.total), rollMode });
-      for (const panel of EQItem._buildSpellAutomationPanels(this, { targets, selfTargets })) {
-        if (panel) await ChatMessage.create({ speaker, content: panel, rollMode });
+        if (!hasDamagePanel) {
+          await ChatMessage.create({ speaker, content: EQItem._buildApplyDamagePanel(damageRoll.total), rollMode });
+        }
+        for (const panel of EQItem._buildSpellAutomationPanels(this, { targets, selfTargets })) {
+          if (panel) await ChatMessage.create({ speaker, content: panel, rollMode });
+        }
+        return damageRoll;
       }
-      return damageRoll;
-    }
 
       await ChatMessage.create({
         speaker,
@@ -1430,21 +1439,26 @@ export class EQItem extends Item {
     if (this.system.damageFormula) {
       const roll = await new Roll(this.system.damageFormula, actor?.getRollData() ?? {}).evaluate();
       await roll.toMessage({ speaker, flavor: baseCard, rollMode });
+      let hasDamagePanel = false;
       if (saveResults.length) {
         const savePanel = EQItem._buildSpellSaveTargetPanel(saveResults, roll.total, saveEffect);
         if (savePanel) {
           await ChatMessage.create({ speaker, content: savePanel, rollMode });
+          hasDamagePanel = true;
         }
       } else if (targets.length) {
         const targetedPanel = EQItem._buildTargetedDamagePanel(targets, roll.total);
         if (targetedPanel) {
           await ChatMessage.create({ speaker, content: targetedPanel, rollMode });
+          hasDamagePanel = true;
         }
       }
       for (const panel of EQItem._buildSpellAutomationPanels(this, { targets, selfTargets, saveResults })) {
         if (panel) await ChatMessage.create({ speaker, content: panel, rollMode });
       }
-      await ChatMessage.create({ speaker, content: EQItem._buildApplyDamagePanel(roll.total), rollMode });
+      if (!hasDamagePanel) {
+        await ChatMessage.create({ speaker, content: EQItem._buildApplyDamagePanel(roll.total), rollMode });
+      }
       return roll;
     }
 
@@ -1458,7 +1472,9 @@ export class EQItem extends Item {
       for (const panel of EQItem._buildSpellAutomationPanels(this, { targets, selfTargets })) {
         if (panel) await ChatMessage.create({ speaker, content: panel, rollMode });
       }
-      await ChatMessage.create({ speaker, content: EQItem._buildApplyHealPanel(roll.total), rollMode });
+      if (!targetedHealPanel) {
+        await ChatMessage.create({ speaker, content: EQItem._buildApplyHealPanel(roll.total), rollMode });
+      }
       return roll;
     }
 

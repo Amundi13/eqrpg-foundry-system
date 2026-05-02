@@ -67,6 +67,21 @@
                    {{#unless isEditable}}disabled{{/unless}} />
           </div>
           <div class="field-group">
+            <label>{{localize "EQRPG.Size"}}</label>
+            <select name="system.size" {{#unless isEditable}}disabled{{/unless}}>
+              {{#each sizeOptions as |size|}}
+              <option value="{{size.value}}" {{#if (eq size.value @root.system.size)}}selected{{/if}}>
+                {{size.label}}
+              </option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="field-group checkbox">
+            <label>{{localize "EQRPG.AutoScaleDamage"}}</label>
+            <input type="checkbox" name="system.autoScaleDamage" {{#if system.autoScaleDamage}}checked{{/if}}
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
             <label>{{localize "EQRPG.Price"}}</label>
             <input type="number" name="system.price" value="{{system.price}}"
                    {{#unless isEditable}}disabled{{/unless}} />
@@ -203,6 +218,36 @@
             <label>Class Levels</label>
             <input type="text" name="system.classLevels" value="{{system.classLevels}}"
                    placeholder="wizard:5,magician:3"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>Raw Level</label>
+            <input type="text" name="system.rawLevel" value="{{system.rawLevel}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>Components</label>
+            <input type="text" name="system.components" value="{{system.components}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>Target/Effect</label>
+            <input type="text" name="system.targetEffect" value="{{system.targetEffect}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>Spell Resistance</label>
+            <input type="text" name="system.spellResistance" value="{{system.spellResistance}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>Material Component</label>
+            <input type="text" name="system.materialComponent" value="{{system.materialComponent}}"
+                   {{#unless isEditable}}disabled{{/unless}} />
+          </div>
+          <div class="field-group">
+            <label>Source Page</label>
+            <input type="text" name="system.sourcePage" value="{{system.sourcePage}}"
                    {{#unless isEditable}}disabled{{/unless}} />
           </div>
         </div>

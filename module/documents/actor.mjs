@@ -3,6 +3,56 @@
  */
 export class EQActor extends Actor {
 
+  static _extractSpellEffectBonuses(changes = []) {
+    const add = CONST.ACTIVE_EFFECT_MODES.ADD;
+    const keyMap = {
+      "system.combat.attackMisc": "attack",
+      "system.combat.initiative.misc": "initiative",
+      "system.combat.ac.misc": "ac",
+      "system.combat.saves.fortitude.misc": "fort",
+      "system.combat.saves.reflex.misc": "reflex",
+      "system.combat.saves.will.misc": "will",
+      "system.combat.magicSaveBonus": "magicSave",
+      "system.resources.hp.bonus": "hpBonus",
+      "system.abilities.str.misc": "str",
+      "system.abilities.dex.misc": "dex",
+      "system.abilities.con.misc": "con",
+      "system.abilities.int.misc": "int",
+      "system.abilities.wis.misc": "wis",
+      "system.abilities.cha.misc": "cha",
+    };
+    const bonuses = {};
+    const remaining = [];
+    let tempHP = 0;
+
+    for (const change of changes.filter(Boolean)) {
+      const value = Number(change.value) || 0;
+      const isAdd = Number(change.mode) === add || change.mode === add;
+      if (isAdd && change.key === "system.resources.hp.temp") {
+        tempHP += value;
+        continue;
+      }
+      const bonusKey = isAdd ? keyMap[change.key] : null;
+      if (bonusKey) {
+        bonuses[bonusKey] = (bonuses[bonusKey] ?? 0) + value;
+        continue;
+      }
+      remaining.push(change);
+    }
+
+    return { changes: remaining, bonuses, tempHP };
+  }
+
+  static _mergeSpellEffectBonuses(...sources) {
+    const merged = {};
+    for (const source of sources) {
+      for (const [key, value] of Object.entries(source ?? {})) {
+        merged[key] = (merged[key] ?? 0) + (Number(value) || 0);
+      }
+    }
+    return merged;
+  }
+
   static _normalizeNPCActionName(name = "") {
     return String(name)
       .toLowerCase()
@@ -501,10 +551,11 @@ export class EQActor extends Actor {
    * @returns {number}       New HP value
    */
   async applyDamage(amount) {
-    const currentHP = this.system.resources.hp.value;
-    const currentTemp = this.system.resources.hp.temp ?? 0;
-    const absorbed = Math.min(currentTemp, amount);
-    const remaining = Math.max(0, amount - absorbed);
+    const damage = Math.max(0, Math.floor(Number(amount) || 0));
+    const currentHP = Number(this.system.resources.hp.value) || 0;
+    const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
+    const absorbed = Math.min(currentTemp, damage);
+    const remaining = Math.max(0, damage - absorbed);
     const newTemp = Math.max(0, currentTemp - absorbed);
     const newValue = Math.max(this._getMinimumHP(), currentHP - remaining);
     await this.update({
@@ -520,9 +571,10 @@ export class EQActor extends Actor {
    * @returns {number}       New HP value
    */
   async applyHealing(amount) {
-    const current  = this.system.resources.hp.value;
-    const max      = this.system.resources.hp.max;
-    const newValue = Math.min(max, current + amount);
+    const healing  = Math.max(0, Math.floor(Number(amount) || 0));
+    const current  = Number(this.system.resources.hp.value) || 0;
+    const max      = Number(this.system.resources.hp.max) || 0;
+    const newValue = Math.min(max, current + healing);
     await this.update({ "system.resources.hp.value": newValue });
     return newValue;
   }
@@ -533,12 +585,20 @@ export class EQActor extends Actor {
     const effectKey = String(effectData.effectKey ?? label.toLowerCase()).trim();
     const existing = this.effects.find((effect) => effect.name === label || effect.flags?.eqrpg?.effectKey === effectKey);
     if (existing) {
+      const tempHPGrant = Math.max(0, Number(existing.flags?.eqrpg?.tempHPGrant) || 0);
       await existing.delete();
       await this._setTokenStatuses(effectData.statuses ?? effectData.statusIds ?? [], false);
+      if (tempHPGrant > 0) {
+        const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
+        await this.update({ "system.resources.hp.temp": Math.max(0, currentTemp - tempHPGrant) });
+      }
       return null;
     }
 
-    const changes = Array.isArray(effectData.changes) ? effectData.changes.filter(Boolean) : [];
+    const extracted = EQActor._extractSpellEffectBonuses(effectData.changes ?? []);
+    const existingBonuses = effectData.flags?.eqrpg?.bonuses ?? {};
+    const bonuses = EQActor._mergeSpellEffectBonuses(existingBonuses, extracted.bonuses);
+    const changes = extracted.changes;
     const createData = {
       name: label,
       icon: effectData.icon || "icons/svg/aura.svg",
@@ -556,6 +616,8 @@ export class EQActor extends Actor {
           slowRank: Number(effectData.slowRank ?? 0) || 0,
           manaPerRound: Number(effectData.manaPerRound ?? 0) || 0,
           speedPct: Number(effectData.speedPct ?? 0) || 0,
+          bonuses,
+          tempHPGrant: Math.max(0, extracted.tempHP),
           breaksOnAttack: !!effectData.breaksOnAttack,
           breaksOnCast: !!effectData.breaksOnCast,
         },
@@ -563,8 +625,37 @@ export class EQActor extends Actor {
     };
 
     const [created] = await this.createEmbeddedDocuments("ActiveEffect", [createData]);
+    if (extracted.tempHP > 0) {
+      const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
+      await this.update({ "system.resources.hp.temp": currentTemp + extracted.tempHP });
+    }
     await this._setTokenStatuses(effectData.statuses ?? effectData.statusIds ?? [], true);
     return created ?? null;
+  }
+
+  async normalizeSpellEffects() {
+    const updates = [];
+    let tempHPGrant = 0;
+    for (const effect of this.effects ?? []) {
+      const flags = effect.flags?.eqrpg ?? {};
+      if (!flags.spellEffect || !Array.isArray(effect.changes) || !effect.changes.length) continue;
+      const extracted = EQActor._extractSpellEffectBonuses(effect.changes);
+      if (extracted.changes.length === effect.changes.length && !Object.keys(extracted.bonuses).length && !extracted.tempHP) continue;
+      const bonuses = EQActor._mergeSpellEffectBonuses(flags.bonuses, extracted.bonuses);
+      updates.push({
+        _id: effect.id,
+        changes: extracted.changes,
+        "flags.eqrpg.bonuses": bonuses,
+        "flags.eqrpg.tempHPGrant": Math.max(0, Number(flags.tempHPGrant) || 0) + Math.max(0, extracted.tempHP),
+      });
+      tempHPGrant += Math.max(0, extracted.tempHP);
+    }
+
+    if (updates.length) await this.updateEmbeddedDocuments("ActiveEffect", updates);
+    if (tempHPGrant > 0) {
+      const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
+      await this.update({ "system.resources.hp.temp": currentTemp + tempHPGrant });
+    }
   }
 
   async _setTokenStatuses(statusIds = [], active = true) {
@@ -573,12 +664,17 @@ export class EQActor extends Actor {
     const tokenDocs = this.getActiveTokens(false, true);
     for (const tokenDoc of tokenDocs) {
       for (const statusId of ids) {
-        const status = CONFIG.statusEffects?.find((entry) => entry.id === statusId) ?? { id: statusId };
-        const hasIt = tokenDoc.hasStatusEffect?.(statusId)
-          ?? tokenDoc.actor?.statuses?.has(statusId)
+        const tokenActor = tokenDoc.actor ?? this;
+        const hasIt = tokenActor.statuses?.has(statusId)
+          ?? tokenDoc.hasStatusEffect?.(statusId)
           ?? false;
         if (hasIt !== active) {
-          await tokenDoc.toggleActiveEffect(status, { active });
+          if (tokenActor.toggleStatusEffect) {
+            await tokenActor.toggleStatusEffect(statusId, { active });
+          } else if (tokenDoc.toggleActiveEffect) {
+            const status = CONFIG.statusEffects?.find((entry) => entry.id === statusId) ?? { id: statusId };
+            await tokenDoc.toggleActiveEffect(status, { active });
+          }
         }
       }
     }
@@ -635,17 +731,21 @@ export class EQActor extends Actor {
   }
 
   /**
-   * Regenerate HP at the start of a combat turn.
-   * Used by Troll racial regeneration (1 HP/round).
-   * Called automatically by the updateCombat hook.
+   * Regenerate HP over elapsed in-game hours.
+   * Used by Iksar/Troll racial regeneration (1 HP/hour), not combat rounds.
+   * @param {number} hours  Number of hours elapsed
+   * @returns {number}      HP restored
    */
-  async regenHP() {
-    const rate = this.system.regenRate ?? 0;
+  async regenHP(hours = 1) {
+    const rate = Math.max(0, Number(this.system.regenRate) || 0);
     if (rate <= 0) return;
-    const cur = this.system.resources.hp.value;
-    const max = this.system.resources.hp.max;
-    if (cur >= max) return;
-    await this.update({ "system.resources.hp.value": Math.min(max, cur + rate) });
+    const cur = Number(this.system.resources.hp.value) || 0;
+    const max = Number(this.system.resources.hp.max) || 0;
+    if (cur >= max) return 0;
+    const restored = Math.min(max - cur, Math.floor(rate * Math.max(0, Number(hours) || 0)));
+    if (restored <= 0) return 0;
+    await this.update({ "system.resources.hp.value": cur + restored });
+    return restored;
   }
 
   async regenManaCombat() {
@@ -758,7 +858,8 @@ export class EQActor extends Actor {
         const label    = confirmed
           ? game.i18n.localize("EQRPG.CriticalHit")
           : hit ? game.i18n.localize("EQRPG.Hit") : game.i18n.localize("EQRPG.Miss");
-        return `<span class="${css} eq-badge">${icon} ${label} ${token.name} (AC ${targetAC})</span>`;
+        const targetName = targets.length > 1 ? ` ${token.name}` : "";
+        return `<span class="${css} eq-badge">${icon} ${label}${targetName} (AC ${targetAC})</span>`;
       });
       return `<div class="eq-target-results">${lines.join("")}</div>`;
     }
@@ -908,29 +1009,47 @@ export class EQActor extends Actor {
 
   /**
    * Short rest — sit and meditate for ~1 hour.
-   * Restores manaRegen × 10 mana. Does not restore HP or clear cooldowns.
+   * Restores manaRegen × 10 mana and racial regeneration for 1 hour.
+   * Does not clear cooldowns.
    */
   async restShort() {
-    const regenRate = this.system.manaRegen ?? 0;
-    if (regenRate <= 0) {
-      ui.notifications.info(game.i18n.localize("EQRPG.NotACaster"));
+    const manaRegenRate = Math.max(0, Number(this.system.manaRegen) || 0);
+    const hpRegenRate = Math.max(0, Number(this.system.regenRate) || 0);
+    if (manaRegenRate <= 0 && hpRegenRate <= 0) {
+      ui.notifications.info(game.i18n.localize("EQRPG.NoRestRecovery"));
       return;
     }
-    const current = this.system.resources.mana.value;
-    const max     = this.system.resources.mana.max;
-    if (current >= max) {
-      ui.notifications.info(game.i18n.localize("EQRPG.ManaAlreadyFull"));
+
+    const currentMana = Number(this.system.resources.mana.value) || 0;
+    const maxMana = Number(this.system.resources.mana.max) || 0;
+    const manaRestored = manaRegenRate > 0 ? Math.min(maxMana - currentMana, manaRegenRate * 10) : 0;
+
+    const currentHP = Number(this.system.resources.hp.value) || 0;
+    const maxHP = Number(this.system.resources.hp.max) || 0;
+    const hpRestored = hpRegenRate > 0 ? Math.min(maxHP - currentHP, hpRegenRate) : 0;
+
+    if (manaRestored <= 0 && hpRestored <= 0) {
+      ui.notifications.info(game.i18n.localize("EQRPG.ResourcesAlreadyFull"));
       return;
     }
-    const restored = Math.min(max - current, regenRate * 10);
-    const newValue = current + restored;
-    await this.update({ "system.resources.mana.value": newValue });
+
+    const update = {};
+    if (manaRestored > 0) update["system.resources.mana.value"] = currentMana + manaRestored;
+    if (hpRestored > 0) update["system.resources.hp.value"] = currentHP + hpRestored;
+    await this.update(update);
+
+    const parts = [];
+    if (manaRestored > 0) parts.push(`+${manaRestored} MP`);
+    if (hpRestored > 0) parts.push(`+${hpRestored} HP`);
+    const details = [];
+    if (manaRestored > 0) details.push(`${currentMana + manaRestored} / ${maxMana} MP`);
+    if (hpRestored > 0) details.push(`${currentHP + hpRestored} / ${maxHP} HP`);
 
     const content = `<div class="eq-chat-card eq-rest-card">`
       + this._buildActorCardHeader(`Short Rest — Meditation`)
       + `<div class="eq-card-body">`
-      + `<span class="eq-rest-val">+${restored} MP</span>`
-      + ` <span class="eq-rest-detail">${newValue} / ${max}</span>`
+      + `<span class="eq-rest-val">${parts.join(" & ")}</span>`
+      + ` <span class="eq-rest-detail">${details.join(" | ")}</span>`
       + `</div></div>`;
 
     await ChatMessage.create({

@@ -32,7 +32,9 @@ function normalizeName(name) {
 }
 
 for (const spell of SPELLS) {
-  spellIndex.set(normalizeName(spell.name), spell);
+  const key = normalizeName(spell.name);
+  if (!spellIndex.has(key)) spellIndex.set(key, []);
+  spellIndex.get(key).push(spell);
 }
 
 const PAGE_CLASS_MAP = {
@@ -99,7 +101,12 @@ const listedSpellKeys = new Set();
 
 function validateSpellReference({ classId, level, displayName, pageName, heading }) {
   const normalized = normalizeName(displayName);
-  const spell = spellIndex.get(normalized);
+  const candidates = spellIndex.get(normalized) ?? [];
+  const spell = candidates.find((entry) =>
+    Array.isArray(entry.system?.classes) && entry.system.classes.includes(classId) && getEffectiveLevel(entry, classId) === level
+  ) ?? candidates.find((entry) =>
+    Array.isArray(entry.system?.classes) && entry.system.classes.includes(classId)
+  ) ?? candidates[0];
 
   if (!spell) {
     errors.push(`[Missing] ${pageName} / ${heading}: "${displayName}" is listed for ${classId} ${level} but has no matching spell entry.`);

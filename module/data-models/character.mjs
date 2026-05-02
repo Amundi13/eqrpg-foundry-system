@@ -13,10 +13,20 @@ function collectEffectSummary(actor) {
   let slowRank = 0;
   let manaPerRound = 0;
   let speedPct = 0;
+  const bonuses = {
+    abilities: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
+    saves: { fortitude: 0, reflex: 0, will: 0 },
+    attack: 0,
+    initiative: 0,
+    ac: 0,
+    hpBonus: 0,
+    magicSave: 0,
+  };
 
   for (const effect of effects) {
     if (effect.disabled) continue;
     const flags = effect.flags?.eqrpg ?? {};
+    const effectBonuses = flags.bonuses ?? {};
     const hasteRank = Number(flags.hasteRank ?? 0) || 0;
     const hasteSource = String(flags.hasteSource ?? "spell");
     const slow = Number(flags.slowRank ?? 0) || 0;
@@ -29,6 +39,20 @@ function collectEffectSummary(actor) {
     slowRank = Math.max(slowRank, slow);
     manaPerRound += mana;
     speedPct = Math.max(speedPct, speed);
+    bonuses.attack += Number(effectBonuses.attack ?? 0) || 0;
+    bonuses.initiative += Number(effectBonuses.initiative ?? 0) || 0;
+    bonuses.ac += Number(effectBonuses.ac ?? 0) || 0;
+    bonuses.hpBonus += Number(effectBonuses.hpBonus ?? 0) || 0;
+    bonuses.magicSave += Number(effectBonuses.magicSave ?? 0) || 0;
+    bonuses.abilities.str += Number(effectBonuses.str ?? 0) || 0;
+    bonuses.abilities.dex += Number(effectBonuses.dex ?? 0) || 0;
+    bonuses.abilities.con += Number(effectBonuses.con ?? 0) || 0;
+    bonuses.abilities.int += Number(effectBonuses.int ?? 0) || 0;
+    bonuses.abilities.wis += Number(effectBonuses.wis ?? 0) || 0;
+    bonuses.abilities.cha += Number(effectBonuses.cha ?? 0) || 0;
+    bonuses.saves.fortitude += Number(effectBonuses.fort ?? 0) || 0;
+    bonuses.saves.reflex += Number(effectBonuses.reflex ?? 0) || 0;
+    bonuses.saves.will += Number(effectBonuses.will ?? 0) || 0;
   }
 
   const hasteRank = Math.min(9, [...hasteBySource.values()].reduce((sum, rank) => sum + rank, 0));
@@ -40,6 +64,7 @@ function collectEffectSummary(actor) {
     netSlowRank: net < 0 ? Math.abs(net) : 0,
     manaPerRound,
     speedPct,
+    bonuses,
   };
 }
 
@@ -180,7 +205,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         hp: new SchemaField({
           value: new NumberField({ required: true, integer: true, min: -10, initial: 10 }),
           max: new NumberField({ required: true, integer: true, initial: 10 }),
-          temp: new NumberField({ required: true, integer: true, initial: 0 }),
+          temp: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
           bonus: new NumberField({ required: true, integer: true, initial: 0 }),
         }),
         mana: new SchemaField({
@@ -235,11 +260,13 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
   prepareDerivedData() {
     const config = CONFIG.EQRPG;
+    const effectSummary = collectEffectSummary(this.parent);
 
     for (const key of Object.keys(config.abilities ?? {})) {
       const ab = this.abilities?.[key];
       if (!ab) continue;
-      ab.value = ab.base + ab.racial + ab.misc;
+      ab.buff = effectSummary.bonuses.abilities[key] ?? 0;
+      ab.value = ab.base + ab.racial + ab.misc + ab.buff;
       ab.mod = Math.floor((ab.value - 10) / 2);
     }
 
@@ -253,7 +280,6 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       this.combat.bab = babFn ? babFn(level) : 0;
     }
 
-    const effectSummary = collectEffectSummary(this.parent);
     const combatRound = getCombatRound();
     this.effectSummary = effectSummary;
     this.combat.attackArray = buildAttackArray(
@@ -286,12 +312,16 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         const progTable = config.saveProgression[progression];
         save.base = Array.isArray(progTable) ? (progTable[level] ?? 0) : 0;
         const racialSaveBonus = saveKey === "fortitude" ? halflingFortitudeBonus : 0;
-        save.value = save.base + this._getSaveAbilityMod(saveKey) + save.misc + racialSaveBonus;
+        save.buff = effectSummary.bonuses.saves[saveKey] ?? 0;
+        save.value = save.base + this._getSaveAbilityMod(saveKey) + save.misc + racialSaveBonus + save.buff;
       }
     } else {
-      this.combat.saves.fortitude.value = this.combat.saves.fortitude.base + this.combat.saves.fortitude.misc + halflingFortitudeBonus;
-      this.combat.saves.reflex.value = this.combat.saves.reflex.base + this.combat.saves.reflex.misc;
-      this.combat.saves.will.value = this.combat.saves.will.base + this.combat.saves.will.misc;
+      this.combat.saves.fortitude.buff = effectSummary.bonuses.saves.fortitude;
+      this.combat.saves.reflex.buff = effectSummary.bonuses.saves.reflex;
+      this.combat.saves.will.buff = effectSummary.bonuses.saves.will;
+      this.combat.saves.fortitude.value = this.combat.saves.fortitude.base + this.combat.saves.fortitude.misc + halflingFortitudeBonus + this.combat.saves.fortitude.buff;
+      this.combat.saves.reflex.value = this.combat.saves.reflex.base + this.combat.saves.reflex.misc + this.combat.saves.reflex.buff;
+      this.combat.saves.will.value = this.combat.saves.will.base + this.combat.saves.will.misc + this.combat.saves.will.buff;
     }
 
     const items = this.parent?.items;
@@ -353,7 +383,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       : this._getAbilityMod("dex");
     ac.dex = dexToAC;
     ac.size = sizeACBonus;
-    ac.value = ac.base + ac.armor + ac.shield + ac.natural + dexToAC + ac.misc + sizeACBonus;
+    ac.buff = effectSummary.bonuses.ac;
+    ac.value = ac.base + ac.armor + ac.shield + ac.natural + dexToAC + ac.misc + sizeACBonus + ac.buff;
 
     if (classKey === "monk" && ac.armor === 0 && ac.shield === 0) {
       const monkBonus = this._getAbilityMod("wis") + Math.floor(level / 5);
@@ -365,9 +396,13 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     ac.value += featAC;
     ac.value += this.combat.tempo.acBonus;
 
-    this.combat.initiative.value = this._getAbilityMod("dex") + this.combat.initiative.misc + featInit;
+    this.combat.initiative.buff = effectSummary.bonuses.initiative;
+    this.combat.initiative.value = this._getAbilityMod("dex") + this.combat.initiative.misc + featInit + this.combat.initiative.buff;
     this.combat.sizeAttackMod = sizeAttackMod;
-    this.combat.attackBonus = featAttack + (this.combat.attackMisc ?? 0) + sizeAttackMod;
+    this.combat.attackBuff = effectSummary.bonuses.attack;
+    this.combat.attackBonus = featAttack + (this.combat.attackMisc ?? 0) + sizeAttackMod + this.combat.attackBuff;
+    this.combat.magicSaveBuff = effectSummary.bonuses.magicSave;
+    this.combat.magicSaveTotal = (this.combat.magicSaveBonus ?? 0) + this.combat.magicSaveBuff;
     this.combat.weaponDelayMod = this.combat.tempo.weaponDelayMod;
 
     if (classConfig) {
@@ -376,7 +411,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       this.resources.hp.max = hitDie + (avgPerLevel * (level - 1)) + (this._getAbilityMod("con") * level);
       if (this.resources.hp.max < 1) this.resources.hp.max = 1;
     }
-    this.resources.hp.max += featHP + (this.resources.hp.bonus ?? 0);
+    this.resources.hp.buff = effectSummary.bonuses.hpBonus;
+    this.resources.hp.max += featHP + (this.resources.hp.bonus ?? 0) + this.resources.hp.buff;
 
     if (classConfig?.spellcastingAbility) {
       const castAbility = classConfig.spellcastingAbility;
@@ -406,7 +442,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this.details.speedModified = Math.round(this.details.speed * (1 + (effectSummary.speedPct / 100)));
     this.hpState = this.resources.hp.value <= -10
       ? "dead"
-      : this.resources.hp.value <= 0
+      : this.resources.hp.value < 0
         ? "unconscious"
         : "alive";
 

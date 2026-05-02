@@ -16,7 +16,6 @@ import {
   SAMPLE_ARMOR,
   SAMPLE_CONSUMABLES,
   SAMPLE_EQUIPMENT,
-  SAMPLE_SKILLS,
   SAMPLE_SPELLS,
   SAMPLE_WEAPONS,
 } from "../packs/sample-data.mjs";
@@ -38,7 +37,6 @@ const SAMPLE_LOOKUPS = {
   armor: new Map(SAMPLE_ARMOR.map((item) => [item.name, item])),
   consumable: new Map(SAMPLE_CONSUMABLES.map((item) => [item.name, item])),
   equipment: new Map(SAMPLE_EQUIPMENT.map((item) => [item.name, item])),
-  skill: new Map(SAMPLE_SKILLS.map((item) => [item.name, item])),
   spell: new Map(SAMPLE_SPELLS.map((item) => [item.name, item])),
 };
 
@@ -173,6 +171,10 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
     const spent     = ABILITY_KEYS.reduce((s, k) => s + (cfg.pointBuyCost[ch.abilities[k]] ?? 0), 0);
     const total     = cfg.pointBuyTotal ?? 27;
     const remaining = total - spent;
+    const costLegend = Object.entries(cfg.pointBuyCost ?? {})
+      .sort(([a], [b]) => Number(a) - Number(b))
+      .map(([score, cost]) => `${score}=${cost}`)
+      .join(" | ");
 
     // ── Per-ability display ────────────────────────────────────────────────
     const abilities = ABILITY_KEYS.map(key => {
@@ -254,7 +256,7 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       raceCards,
       classCards,
       abilities,
-      spent, remaining, total,
+      spent, remaining, total, costLegend,
       alignments: Object.entries(cfg.alignments ?? {}).map(([key, i18n]) => ({
         key,
         label:    game.i18n.localize(i18n),
@@ -384,7 +386,6 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     await this.actor.update(update);
-    await CharacterWizard.#applyClassSkills(this.actor, ch.klass);
     await CharacterWizard.#applyStarterSpells(this.actor, ch.klass, 1);
     if (ch.loadout === "kit") {
       await CharacterWizard.#applyStarterKit(this.actor, ch.klass);
@@ -394,36 +395,6 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       `${ch.name || this.actor.name} created as a Level 1 ${game.i18n.localize(cfg.races?.[ch.race]?.label ?? "")} ${game.i18n.localize(cfg.classes?.[ch.klass]?.label ?? "")}.`
     );
     this.close();
-  }
-
-  static async #applyClassSkills(actor, classKey) {
-    const skillNames = getClassSkillNames(classKey);
-    if (!skillNames.length) return;
-
-    const createData = [];
-    const updateData = [];
-
-    for (const skillName of skillNames) {
-      const existing = actor.items.find((item) => item.type === "skill" && item.name === skillName);
-      if (existing) {
-        if (!existing.system.classSkill) {
-          updateData.push({ _id: existing.id, "system.classSkill": true });
-        }
-        continue;
-      }
-
-      const template = cloneTemplateItem("skill", skillName);
-      if (!template) continue;
-      template.system.classSkill = true;
-      template.system.ranks = template.system.ranks ?? 0;
-      template.flags = foundry.utils.mergeObject(template.flags ?? {}, {
-        eqrpg: { wizardGranted: true, wizardGrantType: "classSkill" },
-      });
-      createData.push(template);
-    }
-
-    if (updateData.length) await actor.updateEmbeddedDocuments("Item", updateData);
-    if (createData.length) await actor.createEmbeddedDocuments("Item", createData);
   }
 
   static async #applyStarterKit(actor, classKey) {

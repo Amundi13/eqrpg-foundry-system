@@ -47,6 +47,13 @@
                  value="{{system.resources.hp.max}}" {{#unless isEditable}}disabled{{/unless}} />
         </div>
       </div>
+      <div class="resource temp-hp">
+        <label>{{localize "EQRPG.TempHP"}}</label>
+        <div class="resource-bar">
+          <input type="number" name="system.resources.hp.temp"
+                 value="{{system.resources.hp.temp}}" min="0" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+      </div>
       <div class="resource mana">
         <label>{{localize "EQRPG.Mana"}}</label>
         <div class="resource-bar">

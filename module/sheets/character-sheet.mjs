@@ -1,3 +1,5 @@
+import { renderStore } from "../apps/store.mjs";
+
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
@@ -46,6 +48,7 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteItem:    EQCharacterSheet._onDeleteItem,
       toggleEquip:   EQCharacterSheet._onToggleEquip,
       useConsumable: EQCharacterSheet._onUseConsumable,
+      openStore:     EQCharacterSheet._onOpenStore,
       // Spells
       castSpell:       EQCharacterSheet._onCastSpell,
       memorizeSpell:   EQCharacterSheet._onMemorizeSpell,
@@ -83,6 +86,9 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     attributes: {
       template: "systems/eqrpg/templates/actor/parts/attributes.hbs",
     },
+    skills: {
+      template: "systems/eqrpg/templates/actor/parts/skills.hbs",
+    },
     records: {
       template: "systems/eqrpg/templates/actor/parts/records.hbs",
     },
@@ -108,11 +114,12 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       initial: "attributes",
       tabs: [
         { id: "attributes", group: "sheet", label: "EQRPG.TabSheet" },
-        { id: "records", group: "sheet", label: "EQRPG.TabRecords" },
+        { id: "skills", group: "sheet", label: "EQRPG.TabSkills" },
         { id: "combat", group: "sheet", label: "EQRPG.TabCombat" },
         { id: "spells", group: "sheet", label: "EQRPG.TabSpells" },
         { id: "inventory", group: "sheet", label: "EQRPG.TabInventory" },
         { id: "biography", group: "sheet", label: "EQRPG.TabBiography" },
+        { id: "records", group: "sheet", label: "EQRPG.TabRecords" },
       ],
     },
   };
@@ -154,11 +161,12 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const activeTab = this.tabGroups?.sheet ?? "attributes";
     const tabDefs = [
       { id: "attributes", label: "EQRPG.TabSheet" },
-      { id: "records", label: "EQRPG.TabRecords" },
+      { id: "skills", label: "EQRPG.TabSkills" },
       { id: "combat", label: "EQRPG.TabCombat" },
       { id: "spells", label: "EQRPG.TabSpells" },
       { id: "inventory", label: "EQRPG.TabInventory" },
       { id: "biography", label: "EQRPG.TabBiography" },
+      { id: "records", label: "EQRPG.TabRecords" },
     ];
     context.tabs = {};
     for (const def of tabDefs) {
@@ -208,6 +216,7 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         base:    ab.base,
         racial:  ab.racial,
         misc:    ab.misc,
+        buff:    ab.buff ?? 0,
         value:   total,
         mod:     mod,
         label:   game.i18n.localize(config.abilities[key]),
@@ -510,6 +519,15 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       });
     }
 
+    const storeButton = this.element.querySelector(".store-open-btn");
+    if (storeButton) {
+      storeButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        EQCharacterSheet._onOpenStore.call(this, e, e.currentTarget);
+      });
+    }
+
     for (const input of this.element.querySelectorAll("input.save-misc")) {
       const normalize = () => {
         if (input.value === "" || input.value == null) input.value = "0";
@@ -565,8 +583,9 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const system = this.actor.system;
     const base = system.abilities[abilityKey].base;
     if (base >= 18) return false;
-    const cost = base >= 16 ? 3 : base >= 14 ? 2 : 1;
-    return system.pointBuy.remaining >= cost;
+    const newCost = CONFIG.EQRPG.pointBuyCost[base + 1] ?? 0;
+    const oldCost = CONFIG.EQRPG.pointBuyCost[base] ?? 0;
+    return system.pointBuy.remaining >= (newCost - oldCost);
   }
 
   // -------------------------------------------------------------------------
@@ -660,6 +679,12 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await item.useConsumable();
   }
 
+  static _onOpenStore(event) {
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
+    renderStore(this.actor);
+  }
+
   // -------------------------------------------------------------------------
   // Roll Action Handlers
   // -------------------------------------------------------------------------
@@ -740,10 +765,14 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   // -------------------------------------------------------------------------
 
   static async _onRestShort(event, target) {
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
     await this.actor.restShort();
   }
 
   static async _onRestLong(event, target) {
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
     await this.actor.restLong();
   }
 

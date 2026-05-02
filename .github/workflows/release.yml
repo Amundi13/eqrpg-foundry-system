@@ -1,0 +1,54 @@
+name: Release Foundry System
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: version
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart("v")
+          "version=$version" >> $env:GITHUB_OUTPUT
+
+      - name: Validate manifest version
+        shell: pwsh
+        run: |
+          $manifest = Get-Content -Path system.json -Raw | ConvertFrom-Json
+          if ($manifest.version -ne "${{ steps.version.outputs.version }}") {
+            throw "system.json version '$($manifest.version)' does not match tag '${{ github.ref_name }}'."
+          }
+
+      - name: Validate JavaScript entrypoints
+        run: |
+          node --check module/eqrpg.mjs
+          node --check module/sheets/character-sheet.mjs
+          node --check module/apps/character-wizard.mjs
+          node --check module/apps/store.mjs
+
+      - name: Validate generated sample data
+        run: node scripts/validate-sample-data.mjs
+
+      - name: Build release assets
+        shell: pwsh
+        run: ./scripts/build-release.ps1 -Version "${{ steps.version.outputs.version }}" -OutputDir dist -Repository "${{ github.repository }}"
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/system.json
+            dist/eqrpg-foundry-system-v${{ steps.version.outputs.version }}.zip
+          generate_release_notes: true
