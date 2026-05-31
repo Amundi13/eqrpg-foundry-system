@@ -17,7 +17,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning)",
       "castingTime": "2 full rounds",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -79,7 +79,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell grants the target a haste (7) effect, resulting in a +3 haste bonus to AC and an alternating 1 or 2 extra attack actions every second round,</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -118,7 +118,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As siphon strength, except this spell imposes a buff penalty of —5 to the target’s Strength while providing a +5 buff bonus to the caster’s Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -157,7 +157,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cure disease, except the dispel roll is 1d20 + 1 per caster level with no maximum bonus due to level. In addition, a single casting of this spell allows the shaman to attempt to abolish any and all disease effects on the target, although only one attempt per effect is allowed per casting.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -196,7 +196,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cure poison, except the dispel roll is 1d20 + 1 per caster level with no maximum bonus due to level. In addition, a single casting of this spell allows the cleric to attempt to abolish any and all poison effects on the target, although only one attempt per effect is allowed per casting.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -235,7 +235,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of snake, except the target gains a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -469,7 +469,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell grants a spellcasting target an increased capacity to concentrate in the face of distractions, whether physical, emotional, or psychological. Any time the affected spellcaster must makeaChan- 1 neling check, this spell grants her a +3 circumstance bonus to the roll.</p><p><strong>Target/Effect:</strong> One spellcaster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -508,7 +508,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As holy armor, except this spell grants damage reduction 17/— over an extended period of time and can be cast at medium range.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -586,7 +586,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As courage, except this spell protects the target with a +9 divine bonus to AC and a divine bonus of +275 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -625,7 +625,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As sicken, except that the affected creature takes 4d6 disease damage immediately, and takes an additional 1d3 points of disease damage each round thereafter, until the spell ends or is dispelled.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -664,7 +664,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As feet like cat, except this spell grants +4 bonuses.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -682,7 +682,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(3d6+1)*10",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals only the caster’s pet, curing (3d6+1)x10 hit points.",
       "recastTime": 0,
@@ -703,7 +703,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals only the caster’s pet, curing (3d6+1)x10 hit points.</p><p><strong>Target/Effect:</strong> Caster’s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -746,7 +746,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target gains the benefit of a haste (5) effect, resulting in a +2 haste bonus to AC and 1 extra attack action every round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -801,7 +801,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -824,7 +824,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect</p><p><strong>Target/Effect:</strong> One creature of less than CR 24</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -879,7 +879,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -902,7 +902,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only animals, beasts, or vermin of CR 24 or less.</p><p><strong>Target/Effect:</strong> One creature of less than CR 25</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -941,7 +941,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of snake, except the target gains a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -980,7 +980,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This specialized spell transports up to six targets within range to the Plane of Hate, the home of the god Innoruuk. This journey is not safe, even for those who worship the god of hate, and anyone who appears on this plane is likely to be attacked by powerful creatures upon arrival. soulstone (available for 200 gp, usually only in Neriak).</p><p><strong>Material Component:</strong> A Fulligran’s</p><p><strong>Target/Effect:</strong> Up to six creatures, no more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -1019,7 +1019,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This specialized spell transports up to six targets within range to the Plane of Sky, the home of Veeshan. Newcomers are generally safe upon arrival here. of Veeshan (available for 200 gp, usually only in Erudin).</p><p><strong>Material Component:</strong> A cloudy stone</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -1036,7 +1036,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d10+3)*2",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As chaotic feedback, except this spell does (6d10+3)x2 points of magic damage and its confusion effect lasts for 1d8 rounds. Also, unlike earlier spells of the chaotic feedback line, a Will save completely negates the damage and confusion. Animate 0ead Conjuration (Summoning)",
@@ -1058,14 +1058,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As chaotic feedback, except this spell does (6d10+3)x2 points of magic damage and its confusion effect lasts for 1d8 rounds. Also, unlike earlier spells of the chaotic feedback line, a Will save completely negates the damage and confusion. Animate 0ead Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Animate 0ead",
+    "name": "Animate Dead",
     "type": "spell",
     "img": "",
     "system": {
@@ -1183,7 +1183,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cure poison, except the dispel roll is 1d20 + 1 per caster level with no maximum bonus due to level. In addition, a single casting of this spell allows the cleric to attempt to abolish up to 4 poison effects on the target; one such attempt may be made per round for the duration of the spell. New poison effects affecting the target may also be healed by this spell as</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -1244,7 +1244,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "| action",
       "range": "Personal",
-      "duration": "(D) (see text)",
+      "duration": "(D) (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -1308,7 +1308,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As holy armor, except this spell grants damage reduction 13/-.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -1347,14 +1347,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster gains a +2 deflection bonus to AC and +55 bonus hit points.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
-    "name": "ASphyxiate",
+    "name": "Asphyxiate",
     "type": "spell",
     "img": "",
     "system": {
@@ -1425,7 +1425,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As bind sight, except this spell also grants the caster (but not the host subject) ultravision, as well as a +6 bonus on all Spot checks.</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -1505,7 +1505,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As snare, except this spell affects up to six creatures, no two of which may be more than 20 feet apart, and the target’s movement rate is reduced to one-third normal. However, the Reflex save against this spell is standard (DC 23 + caster’s Intelligence modifier).</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -1521,7 +1521,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "(see text)",
+      "duration": "(see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -1544,7 +1544,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This powerful spell puts the caster in the favor of all the gods and forces the target of the spell to forgive the caster for all past transgressions and offenses. Targets who fail their saving throw will be unable to attack the caster until such a time as the caster or those clearly allied with him take action against the target or those closely allied with him. In effect, this spell has a potentially limitless duration.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -1583,7 +1583,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>roa As augmentation, except this spell provides haste (5), a +6 bonus to Dexterity, and a +3 insight bonus to Armor Class, and the target regains 1d6 hit points of subdual damage every round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -1739,7 +1739,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cascade of hail, except that each wave deals 7d10 points of cold damage and the area of effect is slightly larger.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -1778,7 +1778,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell grants the target a +13 buff bonus to Strength and Dexterity, a +10 bonus to initiative, a +10 dodge bonus to Armor Class, and a +10 bonus on attacks. These bonuses do not stack with those from the wolf form line of spells. Bandoleer of Luclin Conjuration (Creation)</p><p><strong>Material Component:</strong> An emerald.</p><p><strong>Target/Effect:</strong> One humanoid</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -1824,7 +1824,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Bane of Ni Fe",
+    "name": "Bane of Nife",
     "type": "spell",
     "img": "",
     "system": {
@@ -1856,7 +1856,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As poison bolt, except the target takes 8d10 points of poison damage immediately, and an additional 8d10 points of poison damage each round for 6 rounds, or until the spell is dispelled.</p><p><strong>Target/Effect:</strong> Ray</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -1873,7 +1873,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+3)*10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward summoned, except this spell deals (2d10+3)x10 points of magic damage.",
@@ -1899,7 +1899,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward summoned, except this spell deals (2d10+3)x10 points of magic damage.</p><p><strong>Target/Effect:</strong> One summoned creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -1916,7 +1916,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+3)*10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward undead, except this spell deals (2d10+3)x10 points of magic damage.",
@@ -1940,7 +1940,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward undead, except this spell deals (2d10+3)x10 points of magic damage.</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -1957,7 +1957,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10)*10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward summoned, except this powerful spell annihilates the target along with any equipmentand possessions it carries, much like disintegrate. Even if the target succeedson the Willsave, it suffers (2d10)x10 points of magic damage. A creature slain by banishment is forever destroyed, and cannot be raised from the dead in any fashion. In addition, a foe killed with this spell does not yield any experience points.",
@@ -1981,14 +1981,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward summoned, except this powerful spell annihilates the target along with any equipmentand possessions it carries, much like disintegrate. Even if the target succeedson the Willsave, it suffers (2d10)x10 points of magic damage. A creature slain by banishment is forever destroyed, and cannot be raised from the dead in any fashion. In addition, a foe killed with this spell does not yield any experience points.</p><p><strong>Material Component:</strong> A star ruby.</p><p><strong>Target/Effect:</strong> One summoned creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Banishmentor Shadows",
+    "name": "Banishment of Shadows",
     "type": "spell",
     "img": "",
     "system": {
@@ -1998,7 +1998,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10)*10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward undead, except this powerful spell annihilates the target along with any equipment and possessions it carries, much like disintegrate. Even if the target suc- I ceeds on the Will save, it suffers (2d10)x10 points of magic damage. A creature slain by banishment is forever destroyed, and cannot be raised from the dead (or returned to unlife) in any fashion. In addition, a foe killed with this spell does not yield any experience points.",
@@ -2022,7 +2022,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward undead, except this powerful spell annihilates the target along with any equipment and possessions it carries, much like disintegrate. Even if the target suc- I ceeds on the Will save, it suffers (2d10)x10 points of magic damage. A creature slain by banishment is forever destroyed, and cannot be raised from the dead (or returned to unlife) in any fashion. In addition, a foe killed with this spell does not yield any experience points.</p><p><strong>Material Component:</strong> A star ruby.</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -2104,7 +2104,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As thistlecoat, except this spell grants +2 AC and damage shield (1).</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -2182,7 +2182,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As berserker strength, except the target gains a +8 buff bonus to Strength and a— 4 buff penalty to Armor Class, as well as +90 temporary hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -2198,7 +2198,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -2223,7 +2223,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only animals, beasts, or vermin of CR 12 or less.</p><p><strong>Target/Effect:</strong> One creature of less than CR 13</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -2239,7 +2239,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -2278,7 +2278,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1d8 rounds or 8d10 rounds (see text)",
+      "duration": "1d8 rounds or 8d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -2301,7 +2301,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only animals, beasts, or vermin of CR 20 or less.</p><p><strong>Target/Effect:</strong> One creature of less than CR 21</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -2317,7 +2317,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 full round",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1d8 rounds or 8d10 rounds (see text)",
+      "duration": "1d8 rounds or 8d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -2340,7 +2340,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only</p><p><strong>Target/Effect:</strong> One plant of less than CR 21</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -2356,7 +2356,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration",
       "castingTime": "1 full round",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -2379,7 +2379,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only</p><p><strong>Target/Effect:</strong> One creature of less than CR 23</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -2418,7 +2418,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As calming visage, except an enchanter can cast this spell only on herself. For the duration of the spell, all opponents must succeed at a Will save (DC 23 + caster’s Intelligence modifier + caster’s Charisma modifier) to attack the caster directly.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -2496,7 +2496,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As berserker strength, except the target gains a +7 buff bonus to Strength and a- 3 buff penalty to Armor Class, as well as +50 temporary hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -2535,14 +2535,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This combat spell infuses the target with a battle rage that provides a +5 buff bonus to Strength while also effecting a—2 penalty to Armor Class, since the target is focusing on attacking in melee rather than on defense. In addition, the spell grants +12 temporary hit points. The spell expires either at the end of its duration or when the temporary hit points have been lost due to damage sustained by the target.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
-    "name": "Bi Ind AFFinity",
+    "name": "Bind Affinity",
     "type": "spell",
     "img": "",
     "system": {
@@ -2582,7 +2582,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Through this spell, the caster changes the target’s bind point for the purposes of teleportation spells, especially gate. The creation of bind point is instantaneous and lasts until changed again by the use of this spell. A bind point may be anywhere a target of the spell desires to be “bound,” and it’s at that point in space that he will appear when various teleportation effects are used upon him. This place can be anywhere, from the target&#x27;s bed to his favorite pub; from the entrance to the haunted caverns he’s questing after to beside the door of his arch-enemy. The bind point is an exact point in space, though, including elevation. Thus, if the target is bound while under the effects of the spell levitate and 30 feet in the air, then he might regret his return to his bind point when he appears without a levitate spell in the future. If the spell is used on an unwilling opponent, a successful touch attack is required and the victim receives a Will save (DC 14 + caster’s Int or Wis modifier). Note that when cast at night, this spell can create a secondary bind location for necromancers for the purpose of the spell levant. Only a level 27th-level+ necromancer may have two bind locations, and then only when the necromancer himself casts bind affinity; when it’s cast during hours of darkness, the necromancer must indicate whether this bind point is his main (i.e., for gate) or secondary (i-e., for levant) point.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -2625,7 +2625,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Bind sight allows the caster to see, in her mind’s eye, what the spell’s target sees, with whatever type or degree of vision the target has (i.e., if the caster normally possesses infravision, she will not have the benefit of infravision if the host subject does not also possess it; if the subject has ultravision, the caster gains that benefit). The caster receives visual input only — no sound or smell, for example — and must maintain concentration on the spell or lose contact with the target, thus canceling the spell. The caster must close her eyes and may not speak nor move while concentrating. Maintaining this spell takes a toll on the caster’s health. For every round the spell remains active, the caster suffers 1 point of damage. The caster need not have visual contact with her target when she casts this spell, but does need to know that the specific target creature exists, and the creature must be within range. Once the spell has affected a target, however, the spell’s range becomes moot; as long as the caster maintains concentration, she may see through that target’s eyes. The caster may, further, cast this spell again upon a new target viewed through the eyes of the first host, and thus “jump” from host to host, as long as each new target is within spell range of the current host. A host subject remains unaware of the spell, although a target who makes the initial Will save becomes aware that some spell was attempted.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -2664,7 +2664,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As thistlecoat, except this spell grants +6 AC and damage shield (2).</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -2720,7 +2720,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "3d6",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As frost rift, except this spell deals 3d6 points of cold damage.",
@@ -2742,7 +2742,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost rift, except this spell deals 3d6 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -2759,7 +2759,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(8d10+2)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As shock of poison, except the target takes (8d10+2)x2 points of poison damage.",
@@ -2781,7 +2781,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of poison, except the target takes (8d10+2)x2 points of poison damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -2859,7 +2859,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As armor of protection, except this spell grants a +5 deflection bonus to AC, +75 bonus hit points, and the ability to regain 1 mana per minute. Blinding Luminance Conjuration (Summoning) [Light]</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -2900,7 +2900,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As flash of light, except this spell has a greater range and longer duration.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -2939,7 +2939,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cascade of hail, except that each wave deals (2d10)x10 points of cold damage and the area of effect is slightly larger.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -2956,7 +2956,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Long (400 ft. + 40 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d6)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost rift, except the range is longer and this spell deals (3d6)x10 points of cold damage.",
@@ -2980,7 +2980,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost rift, except the range is longer and this spell deals (3d6)x10 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -3060,7 +3060,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As heat blood, except this spell deals 2d10 points of fire damage per round.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -3077,7 +3077,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Long (400 ft. + 40 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "8d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As flame bolt, except this spell deals 8d10 points of fire damage.",
@@ -3099,7 +3099,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As flame bolt, except this spell deals 8d10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -3112,10 +3112,10 @@ export const SAMPLE_SPELLS = [
     "system": {
       "spellLevel": 13,
       "manaCost": 66,
-      "school": "Alteration [Mind- Aten!",
+      "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -3138,7 +3138,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect Boltran’s Animation Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> One creature of less than CR 27 1</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -3154,7 +3154,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning)",
       "castingTime": "2 full rounds",
       "range": "Close (25 ft. + 5 ft,/2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -3216,7 +3216,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As leach, except this spell transfers 3d10 hit points per round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -3255,7 +3255,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As snare, except this spell affects up to six creatures, no two of which may be more than 20 feet apart. However, the Reflex save for this spell is standard (DC 17 + caster’s Intelligence modifier).</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -3294,7 +3294,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As snare, except this spell affects up to six creatures, no two of which may be more than 20 feet apart. Each target’s movement rate is reduced to one-third normal. As with snare, this spell is difficult to resist, so the Reflex save DC is 10 + spell level + (3 x caster’s Wisdom modifier). Bone Walk Conjuration (Summoning)</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -3342,6 +3342,45 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
+    "name": "Boon of the Clear Mind",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 13,
+      "manaCost": 29,
+      "school": "Alteration",
+      "castingTime": "1 action",
+      "range": "Close (25 ft. + 5 ft./2 levels)",
+      "duration": "10 minutes/level (D)",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "will",
+      "effect": "As breeze, except the rate of mana recovery granted by this spell is 1 mana every 2 minutes, and this spell affects up to six targets of the caster's choice within the range of the spell.",
+      "recastTime": 0,
+      "classes": [
+        "enchanter"
+      ],
+      "classLevels": [
+        "enchanter:13"
+      ],
+      "spellLine": "Breeze",
+      "rawLevel": "Enc 13",
+      "components": "V, S",
+      "targetEffect": "Up to six creatures, notwomore than 20 ft. apart",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "",
+      "sourcePage": "233",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "negates",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>As breeze, except the rate of mana recovery granted by this spell is 1 mana every 2 minutes, and this spell affects up to six targets of the caster&#x27;s choice within the range of the spell.</p><p><strong>Target/Effect:</strong> Up to six creatures, notwomore than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
+    }
+  },
+  {
     "name": "Boon of the Garou",
     "type": "spell",
     "img": "",
@@ -3374,49 +3413,10 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>With this spell, an enchanter can transform any willing creature into a werewolf of the target&#x27;s own gender. The target for all intents and purposes becomes a Norvath).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
-    }
-  },
-  {
-    "name": "Boonor the Clear Mind",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 13,
-      "manaCost": 29,
-      "school": "Alteration",
-      "castingTime": "1 action",
-      "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "10 minutes/level (D)",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "will",
-      "effect": "As breeze, except the rate of mana recovery granted by this spell is 1 mana every 2 minutes, and this spell affects up to six targets of the caster's choice within the range of the spell.",
-      "recastTime": 0,
-      "classes": [
-        "enchanter"
-      ],
-      "classLevels": [
-        "enchanter:13"
-      ],
-      "spellLine": "Breeze",
-      "rawLevel": "Enc 13",
-      "components": "V, S",
-      "targetEffect": "Up to six creatures, notwomore than 20 ft. apart",
-      "spellResistance": "Yes (harmless)",
-      "materialComponent": "",
-      "sourcePage": "233",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "negates",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>As breeze, except the rate of mana recovery granted by this spell is 1 mana every 2 minutes, and this spell affects up to six targets of the caster&#x27;s choice within the range of the spell.</p><p><strong>Target/Effect:</strong> Up to six creatures, notwomore than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
@@ -3454,7 +3454,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As thistlecoat, except this spell grants +3 AC and damage shield (1).</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -3493,7 +3493,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As courage, except this spell protects grants +2 AC and +35 hit points. Breath of Karana Conjuration (Summoning) [Force, Magic]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -3510,7 +3510,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "| action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+2)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As whirling wind, except this spell deals (4d6+2)x10 points of magic damage and the target is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) Further, a Large or smaller creature must make a second Reflex save (DC 18) to avoid being knocked prone if it fails the first save. A Large creature that fails the save is also blown back (1d4)x10 feet; a Medium-size or smaller creature that fails the save is blown back (2d6)x10 feet. A flying creature that fails this save is instead blown back (1d6)x10 feet.",
@@ -3532,10 +3532,51 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As whirling wind, except this spell deals (4d6+2)x10 points of magic damage and the target is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) Further, a Large or smaller creature must make a second Reflex save (DC 18) to avoid being knocked prone if it fails the first save. A Large creature that fails the save is also blown back (1d4)x10 feet; a Medium-size or smaller creature that fails the save is blown back (2d6)x10 feet. A flying creature that fails this save is instead blown back (1d6)x10 feet.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
+    }
+  },
+  {
+    "name": "Breath of the Dead",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 6,
+      "manaCost": 7,
+      "school": "Alteration",
+      "castingTime": "1 action",
+      "range": "Personal",
+      "duration": "10 minutes/level",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "fortitude",
+      "effect": "As enduring breath, except this spell may target only the caster’s self.",
+      "recastTime": 0,
+      "classes": [
+        "necromancer",
+        "shadowknight"
+      ],
+      "classLevels": [
+        "necromancer:7",
+        "shadowknight:6"
+      ],
+      "spellLine": "Enduring breath",
+      "rawLevel": "Nec 7, Shd 6",
+      "components": "V, S, M",
+      "targetEffect": "Caster",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "A pinch of fish scales",
+      "sourcePage": "234",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "negates",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>As enduring breath, except this spell may target only the caster’s self.</p><p><strong>Material Component:</strong> A pinch of fish scales</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
@@ -3617,47 +3658,6 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Breathorthedead",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 6,
-      "manaCost": 7,
-      "school": "Alteration",
-      "castingTime": "1 action",
-      "range": "Personal",
-      "duration": "10 minutes/level",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "fortitude",
-      "effect": "As enduring breath, except this spell may target only the caster’s self.",
-      "recastTime": 0,
-      "classes": [
-        "necromancer",
-        "shadowknight"
-      ],
-      "classLevels": [
-        "necromancer:7",
-        "shadowknight:6"
-      ],
-      "spellLine": "Enduring breath",
-      "rawLevel": "Nec 7, Shd 6",
-      "components": "V, S, M",
-      "targetEffect": "Caster",
-      "spellResistance": "Yes (harmless)",
-      "materialComponent": "A pinch of fish scales",
-      "sourcePage": "234",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "negates",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>As enduring breath, except this spell may target only the caster’s self.</p><p><strong>Material Component:</strong> A pinch of fish scales</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
-    }
-  },
-  {
     "name": "Breeze",
     "type": "spell",
     "img": "",
@@ -3729,7 +3729,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As divine vigor, except this spell grants +50 bonus hit points to each of up to six targets for one day. gee ess</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -3768,7 +3768,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As insight, except the target gains +4 Intelligence and +3 Wisdom. BristLebane’s Bundle Conjuration (Creation)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -3846,7 +3846,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As holy armor, except this spell grants damage reduction 19/—and can be cast at medium range.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -4048,6 +4048,47 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
+    "name": "Burst of Fire",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 2,
+      "manaCost": 3,
+      "school": "Evocation [Fire]",
+      "castingTime": "1 action",
+      "range": "Medium (100 ft. + 10 ft/level)",
+      "duration": "Instantaneous",
+      "damageFormula": "1d12",
+      "healFormula": "",
+      "savingThrow": "fortitude",
+      "effect": "As burst of flame, except this spell deals 1d12 points of fire damage.",
+      "recastTime": 1,
+      "classes": [
+        "druid",
+        "ranger"
+      ],
+      "classLevels": [
+        "druid:2",
+        "ranger:2"
+      ],
+      "spellLine": "Burst of flame",
+      "rawLevel": "Dru 2, Rng 2",
+      "components": "V, S",
+      "targetEffect": "One creature",
+      "spellResistance": "Yes",
+      "materialComponent": "",
+      "sourcePage": "235",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "half",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>As burst of flame, except this spell deals 1d12 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
+    }
+  },
+  {
     "name": "Burst of Flame",
     "type": "spell",
     "img": "",
@@ -4127,47 +4168,6 @@ export const SAMPLE_SPELLS = [
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As fleeting fury, except this spell grants +5 Strength and Dexterity, and +1 AC. Cackling Bones Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
-    }
-  },
-  {
-    "name": "Burstor Fire",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 2,
-      "manaCost": 3,
-      "school": "Evocation [Fire]",
-      "castingTime": "1 action",
-      "range": "Medium (100 ft. + 10 ft/level)",
-      "duration": "Instantaneous",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "fortitude",
-      "effect": "As burst of flame, except this spell deals 1d12 points of fire damage.",
-      "recastTime": 1,
-      "classes": [
-        "druid",
-        "ranger"
-      ],
-      "classLevels": [
-        "druid:2",
-        "ranger:2"
-      ],
-      "spellLine": "Burst of flame",
-      "rawLevel": "Dru 2, Rng 2",
-      "components": "V, S",
-      "targetEffect": "One creature",
-      "spellResistance": "Yes",
-      "materialComponent": "",
-      "sourcePage": "235",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "half",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>As burst of flame, except this spell deals 1d12 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
@@ -4260,7 +4260,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration",
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d8 rounds or 8d10 rounds (see text)",
+      "duration": "1d8 rounds or 8d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -4283,7 +4283,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only</p><p><strong>Target/Effect:</strong> One creature of less than CR 27</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -4299,7 +4299,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -4322,7 +4322,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect</p><p><strong>Target/Effect:</strong> One creature of less than CR 21</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -4368,7 +4368,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Caleraction",
+    "name": "Calefaction",
     "type": "spell",
     "img": "",
     "system": {
@@ -4378,7 +4378,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d6+1)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As burst of flame, except this spell has a longer recast time but deals (3d6+1)x10 points of fire damage.",
@@ -4402,7 +4402,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burst of flame, except this spell has a longer recast time but deals (3d6+1)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -4418,7 +4418,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "(D) (see text)",
+      "duration": "(D) (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -4445,6 +4445,45 @@ export const SAMPLE_SPELLS = [
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As dark pact, except this spell allows the caster to convert 6 hit points into 3 mana each round. In addition, while this spell is in effect, the necromancer is transformed into a skeleton. He has in a sense transformed his flesh into the energy of magic. Therefore, while the spell is in effect, the caster gains the type “undead.” If killed when this spell is in effect, the caster will revert to his original form. Finally, while this spell is active, the caster gains the ability to see with ultravision.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> No</p>"
+    }
+  },
+  {
+    "name": "Call of Earth",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 7,
+      "manaCost": 8,
+      "school": "Alteration",
+      "castingTime": "1 action",
+      "range": "Touch",
+      "duration": "30 minutes/level",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "fortitude",
+      "effect": "This spell grants the target a damage shield (1) that will work in conjunction with any other damage shield. In addition, the target receives a +4 bonus to Armor Class. Whenever the target is struck by a foe, earth and stone sprays from him and strikes the aggressor.",
+      "recastTime": 0,
+      "classes": [
+        "ranger"
+      ],
+      "classLevels": [
+        "ranger:7"
+      ],
+      "spellLine": "Riftwind's protection",
+      "rawLevel": "Rng 7",
+      "components": "V, S, M",
+      "targetEffect": "One creature",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "",
+      "sourcePage": "236",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "negates",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>This spell grants the target a damage shield (1) that will work in conjunction with any other damage shield. In addition, the target receives a +4 bonus to Armor Class. Whenever the target is struck by a foe, earth and stone sprays from him and strikes the aggressor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
@@ -4487,46 +4526,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "CALLOFEarth",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 7,
-      "manaCost": 8,
-      "school": "Alteration",
-      "castingTime": "1 action",
-      "range": "Touch",
-      "duration": "30 minutes/level",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "fortitude",
-      "effect": "This spell grants the target a damage shield (1) that will work in conjunction with any other damage shield. In addition, the target receives a +4 bonus to Armor Class. Whenever the target is struck by a foe, earth and stone sprays from him and strikes the aggressor.",
-      "recastTime": 0,
-      "classes": [
-        "ranger"
-      ],
-      "classLevels": [
-        "ranger:7"
-      ],
-      "spellLine": "Riftwind's protection",
-      "rawLevel": "Rng 7",
-      "components": "V, S, M",
-      "targetEffect": "One creature",
-      "spellResistance": "Yes (harmless)",
-      "materialComponent": "",
-      "sourcePage": "236",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "negates",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>This spell grants the target a damage shield (1) that will work in conjunction with any other damage shield. In addition, the target receives a +4 bonus to Armor Class. Whenever the target is struck by a foe, earth and stone sprays from him and strikes the aggressor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
-    }
-  },
-  {
-    "name": "Callor Flame",
+    "name": "Call of Flame",
     "type": "spell",
     "img": "",
     "system": {
@@ -4536,7 +4536,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As burn, except this spell deals (5d10)x2 points of fire damage.",
@@ -4558,14 +4558,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burn, except this spell deals (5d10)x2 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Callor Sky",
+    "name": "Call of Sky",
     "type": "spell",
     "img": "",
     "system": {
@@ -4604,46 +4604,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Callorkarana",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 13,
-      "manaCost": 37,
-      "school": "Alteration [Mind-Affecting]",
-      "castingTime": "1 action",
-      "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "will",
-      "effect": "As charm, except this spell can affect only animale beasts, or vermin of CR 28 or ess.",
-      "recastTime": 2,
-      "classes": [
-        "druid"
-      ],
-      "classLevels": [
-        "druid:13"
-      ],
-      "spellLine": "Charm",
-      "rawLevel": "Dru 13",
-      "components": "V, S",
-      "targetEffect": "One creature of less than CR 29",
-      "spellResistance": "Yes",
-      "materialComponent": "",
-      "sourcePage": "236",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "negates",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>As charm, except this spell can affect only animale beasts, or vermin of CR 28 or ess.</p><p><strong>Target/Effect:</strong> One creature of less than CR 29</p><p><strong>Spell Resistance:</strong> Yes</p>"
-    }
-  },
-  {
-    "name": "Callorthe Predator",
+    "name": "Call of the Predator",
     "type": "spell",
     "img": "",
     "system": {
@@ -4675,10 +4636,49 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As mark of the predator, but this spell increases each target&#x27;s base attack bonus</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
+    }
+  },
+  {
+    "name": "Callorkarana",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 13,
+      "manaCost": 37,
+      "school": "Alteration [Mind-Affecting]",
+      "castingTime": "1 action",
+      "range": "Medium (100 ft. + 10 ft./level)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "will",
+      "effect": "As charm, except this spell can affect only animale beasts, or vermin of CR 28 or ess.",
+      "recastTime": 2,
+      "classes": [
+        "druid"
+      ],
+      "classLevels": [
+        "druid:13"
+      ],
+      "spellLine": "Charm",
+      "rawLevel": "Dru 13",
+      "components": "V, S",
+      "targetEffect": "One creature of less than CR 29",
+      "spellResistance": "Yes",
+      "materialComponent": "",
+      "sourcePage": "236",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "negates",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>As charm, except this spell can affect only animale beasts, or vermin of CR 28 or ess.</p><p><strong>Target/Effect:</strong> One creature of less than CR 29</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
@@ -4718,7 +4718,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lull, except this spell has a longer duration, and the target suffers a penalty to the Will save equal to the caster’s Charisma modifier. Calm Animal Alteration (Charm)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -4759,7 +4759,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lull, except this spell targets only animals.</p><p><strong>Target/Effect:</strong> One animal, beast, or vermin</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -4798,14 +4798,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell temporarily makes the target much less threatening in appearance. For the duration of the spell, all opponents must succeed at a Will save (DC 20 + caster’s Intelligence modifier + caster’s Charisma modifier) to attack the target creature directly.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
-    "name": "Camourlage",
+    "name": "Camouflage",
     "type": "spell",
     "img": "",
     "system": {
@@ -4903,7 +4903,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "Free action (see text)",
       "range": "Personal",
       "duration": "Instantaneous",
-      "damageFormula": "4d8",
+      "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
       "effect": "With this spell (which costs no mana), the caster taps deeply into his own life force and converts 5 hit points into 6 mana. The process is actually painless, but does cause welts, bruises, and small lacerations to appear on the caster’s body. If the caster reduces his hit points to 0 or less, he falls unconscious. Hit points converted to mana with this spell cannot be recovered by any means — including normal or magical healing — until 12 hours after this spell is cast. Although the spell requires only a free action to cast, it may be cast no more than twice in a single round, and a second casting requires an attack action.",
@@ -4925,10 +4925,49 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "",
       "saveDC": "",
-      "deliveryType": "attack",
+      "deliveryType": "utility",
       "attackMode": "ranged",
       "attackBonus": 0,
       "description": "<p>With this spell (which costs no mana), the caster taps deeply into his own life force and converts 5 hit points into 6 mana. The process is actually painless, but does cause welts, bruises, and small lacerations to appear on the caster’s body. If the caster reduces his hit points to 0 or less, he falls unconscious. Hit points converted to mana with this spell cannot be recovered by any means — including normal or magical healing — until 12 hours after this spell is cast. Although the spell requires only a free action to cast, it may be cast no more than twice in a single round, and a second casting requires an attack action.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> No</p>"
+    }
+  },
+  {
+    "name": "Cannibalize II",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 10,
+      "manaCost": 0,
+      "school": "Alteration",
+      "castingTime": "Free action",
+      "range": "Personal",
+      "duration": "Instantaneous",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "none",
+      "effect": "As cannibalize, but the caster can convert 7 hit points into 9 mana points. Cannibalize lll Alteration tele oS",
+      "recastTime": 0,
+      "classes": [
+        "shaman"
+      ],
+      "classLevels": [
+        "shaman:10"
+      ],
+      "spellLine": "Cannibalize",
+      "rawLevel": "Shm 10",
+      "components": "V, S",
+      "targetEffect": "Caster",
+      "spellResistance": "No",
+      "materialComponent": "",
+      "sourcePage": "237",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "",
+      "saveDC": "",
+      "deliveryType": "utility",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>As cannibalize, but the caster can convert 7 hit points into 9 mana points. Cannibalize lll Alteration tele oS</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> No</p>"
     }
   },
   {
@@ -4971,46 +5010,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Cannibalizell",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 10,
-      "manaCost": 0,
-      "school": "Alteration",
-      "castingTime": "Free action",
-      "range": "Personal",
-      "duration": "Instantaneous",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "none",
-      "effect": "As cannibalize, but the caster can convert 7 hit points into 9 mana points. Cannibalize lll Alteration tele oS",
-      "recastTime": 0,
-      "classes": [
-        "shaman"
-      ],
-      "classLevels": [
-        "shaman:10"
-      ],
-      "spellLine": "Cannibalize",
-      "rawLevel": "Shm 10",
-      "components": "V, S",
-      "targetEffect": "Caster",
-      "spellResistance": "No",
-      "materialComponent": "",
-      "sourcePage": "237",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>As cannibalize, but the caster can convert 7 hit points into 9 mana points. Cannibalize lll Alteration tele oS</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> No</p>"
-    }
-  },
-  {
-    "name": "Cannibalizelv",
+    "name": "Cannibalize IV",
     "type": "spell",
     "img": "",
     "system": {
@@ -5083,7 +5083,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A slender stroke of lightning hurtles unerringly from the caster’s fingertip to strike a single target within range, dealing 6d10 points of electrical damage. The lightning stroke is unimpeded by minor obstacles, but cover bonuses to the target’s Reflex save do apply.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -5122,7 +5122,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A wave of ice and hail rains down on the affected area each round, each wave dealing 3d8 points of cold damage to anyone within the area. A Reflex save is allowed each round for half damage. Cascading Oarkness Conjuration (Summoning) [Magic, Shadow]</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -5241,7 +5241,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As bind sight, except this spell also grants the caster (not the host subject) ultravision. sperm ener fae ee Cavorting Bones Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -5358,7 +5358,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The wizard who casts this spell teleports up to six targets of his choice within range to the pyramid within the heart of the very dangerous Temple of Cazic’Thule.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -5397,7 +5397,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>By making a forceful gesture at a creature, the caster is able to briefly stun the target with an invisible jolt of force: on a failed save, the target is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -5438,7 +5438,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The targeted being gains the benefit of a haste (6) effect, resulting in a +2 haste bonus to AC, 1 extra attack action every round, and —1 weapon delay. Celestial Cleansing Alteration (Healing)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -5454,7 +5454,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration (Healing)",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "4 rounds (D) (see text)",
+      "duration": "4 rounds (D) (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "fortitude",
@@ -5477,7 +5477,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As celestial remedy, except this spell heals 7d10 points each round. Celestial ELixir Alteration (Healing)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -5493,7 +5493,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration (Healing)",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "4 rounds (D) (see text)",
+      "duration": "4 rounds (D) (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "fortitude",
@@ -5516,7 +5516,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As celestial remedy, except this spell heals (6d10)x2 points each round. Celestial Healing Alteration (Healing)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -5532,7 +5532,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration (Healing)",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "4 rounds (D) (see text)",
+      "duration": "4 rounds (D) (see",
       "damageFormula": "",
       "healFormula": "7d10",
       "savingThrow": "fortitude",
@@ -5555,7 +5555,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As celestial remedy, except this spell heals 7d10 points each round. Celestial Remedy Alteration (Healing)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -5571,7 +5571,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration (Healing)",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "4 rounds (D) (see text)",
+      "duration": "4 rounds (D) (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "fortitude",
@@ -5594,7 +5594,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster channels benevolent energies through the target of the spell, which are held within the target until released by the cleric. The spell may be carried by the target for up to 1 minute per level of the cleric, and no more than one spell of this line may be stored in this manner at a time. Activating the spell requires a free action on the part of the cleric, and the spell then heals the target for 5d10 hit points immediately, and then a similar amount each round for the next 3 rounds. The healing occurs on the cleric’s initiative count each round, before any actions are taken. The target of the spell can never gain more hit points than his normal maximum with this spell, and hit points of potential healing are not carried over to be added to those points gained in the next round.</p><p><strong>Target/Effect:</strong> Living creature touched</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -5635,14 +5635,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As courage, except this spell grants + 1 AC and +13 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
-    "name": "Cessation orc Cor",
+    "name": "Cessation of Cor",
     "type": "spell",
     "img": "",
     "system": {
@@ -5674,7 +5674,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster specifies a number of beings within range of the spell. These beings are infected with a terrible, fast-acting rotting disease that immediately deals 2d8 points of disease damage to all targets (Fort half). Each target then takes 10 points of disease damage per round (5 points if the initial Fortitude save was successful) until a total of 100 points of damage (50 with Fort save) have been = to that target by this spell, or until he ies.</p><p><strong>Target/Effect:</strong> One living creature per caster level</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -5691,7 +5691,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "5d8",
+      "damageFormula": "8d10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As chaotic feedback, except this spell deals 8d10 points of magic damage and its confusion effect lasts for 1d6 rounds. Also, unlike earlier spells of the chaotic feedback line, a Will save completely negates the damage and confusion.",
@@ -5752,7 +5752,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell strikes the target with a blast of pure chaos-energy, dealing 4d8 points of magic damage (Will half) and also causing the target to act unpredictably for 1 round if it fails the initial Will save. The ouatite reacts according to the following table: 1d10 Action 1 Flee from the caster as quickly as possible. 2 Attack nearest creature. 3-6 Stunned (cannot take AC; foes gain +2 to hit). 7-8 Do nothing but defend (see “Total Defense” in Chapter 12: Combat). ent noise (unable to cast spells with verbal com ponents). 10 Attack caster immediately (using either the charge or full attack option).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -5769,7 +5769,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+1)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As burn, except this spell deals (4d6+1)x10 points of fire damage.",
@@ -5791,7 +5791,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burn, except this spell deals (4d6+1)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -5830,7 +5830,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of snake, except the target gains</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -5846,7 +5846,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -5869,7 +5869,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The spell causes any one living creature witha CR of 12 or less to regard the caster as a trusted friend and ally. For the duration of the spell, the creature will do anything asked of it by its new friend, including fighting or using spells for the benefit of the caster. The creature will aid and protect the caster to the best of its ability, even if this means its own death. The creature will even fight its former friends at the behest of the caster (for example, once charmed, an orc who ambushed the caster will turn on his former troll companion in order to defend the caster). The caster can communicate with her new friend instantaneously by means of a telepathic bond that the spell establishes between the two. This bond allows the caster to ask questions and receive answers from his new ally even if the two do not share a common language, but the bond is not useful for any means other than communicating with the creature. During each round in which the caster directs the charmed creature to do something clearly suicidal, the creature receives anew saving throw against the spell. If the save is successful, the spell immediately ends. A troll commanded to slit its own throat or a creature directed to stand still while other creatures attack it are clearly suicidal acts. What other act might constitute a suicidal act is left to the GM&#x27;s discretion. Attacking another creature, no matter how powerful, in order to aid and defend the caster almost never qualifies as a suicidal act. As with all mind-affecting magic, Will saves against spells of the charm spell line are based on the caster&#x27;s Charisma, not her Intelligence or Wisdom. The Will save DC is 10 + charm spell level + caster&#x27;s Cha modifier, and if this save is failed by 5 or more the spell will last 8d10 rounds. However, if the target fails its Will save by 4 or less, it is charmed, but for only 1d8 rounds. The caster of the spell does not know how long the spell will last, but does know the instant the spell ends since her telepathic bond with the target ends. All extra saving throws due to suicidal commands are made against the normal saving throw DC of the spell, and always result in the spell&#x27;s being broken instantly with a successful save.</p><p><strong>Target/Effect:</strong> One living creature of less than CRS</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -5885,7 +5885,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -5910,7 +5910,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only animals, beasts, or vermin of CR 16 or less.</p><p><strong>Target/Effect:</strong> One creature of less than CR 16</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -5949,7 +5949,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As fear, except this spell has a greater potential duration.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -5968,7 +5968,7 @@ export const SAMPLE_SPELLS = [
       "duration": "See text",
       "damageFormula": "",
       "healFormula": "",
-      "savingThrow": "",
+      "savingThrow": "fortitude",
       "effect": "As ignite bones, except this spell sends a chill of undeath through the target's bones, transforming him for 1d4 rounds into a, skeletal form and dealing 4d6x10 points of cold damage (Fortitude half). If the Fortitude save fails, the target is also stunned for | round. (A stunned creature cannot act and loses any positive Dexterity bonus to AC. Attackers gain a +2 bonus to attack the creature.)",
       "recastTime": 2,
       "classes": [
@@ -5986,9 +5986,9 @@ export const SAMPLE_SPELLS = [
       "sourcePage": "240",
       "verified": "Y",
       "notes": "",
-      "saveEffect": "",
+      "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ignite bones, except this spell sends a chill of undeath through the target&#x27;s bones, transforming him for 1d4 rounds into a, skeletal form and dealing 4d6x10 points of cold damage (Fortitude half). If the Fortitude save fails, the target is also stunned for | round. (A stunned creature cannot act and loses any positive Dexterity bonus to AC. Attackers gain a +2 bonus to attack the creature.)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -6068,7 +6068,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell alters the target’s temperature to the cold of death. The target of the spell takes 2d8 points of cold damage immediately (Fort half) and an additional 2d8 points of cold damage each round for 14 rounds (1d8 if the initial Fort save was successful).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -6086,7 +6086,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels).",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "4d8+4",
+      "healFormula": "(3d6)*10",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals (3d6)x10 hit points.",
       "recastTime": 0,
@@ -6154,7 +6154,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As regeneration, except this spell sends a vibrant green beam shooting from the caster’s hand to the target, which grants the target fast healing (2).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -6173,7 +6173,7 @@ export const SAMPLE_SPELLS = [
       "duration": "5 rounds",
       "damageFormula": "",
       "healFormula": "",
-      "savingThrow": "",
+      "savingThrow": "fortitude",
       "effect": "As shallow breath, except this spell deals 3d6 points of magic damage immediately (Fort half), and an additional 1d6 points of magic damage each round (halved if the initial Fort save was successful) for the duration of the spell. The initial Fortitude save will also negate the additional effects of the spell: a—3 penalty to Strength and Dexterity.",
       "recastTime": 0,
       "classes": [
@@ -6191,9 +6191,9 @@ export const SAMPLE_SPELLS = [
       "sourcePage": "241",
       "verified": "Y",
       "notes": "",
-      "saveEffect": "",
+      "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shallow breath, except this spell deals 3d6 points of magic damage immediately (Fort half), and an additional 1d6 points of magic damage each round (halved if the initial Fort save was successful) for the duration of the spell. The initial Fortitude save will also negate the additional effects of the spell: a—3 penalty to Strength and Dexterity.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -6210,7 +6210,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Long (400 ft. + 40 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d10+2)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As flame bolt, except this spell deals (7d10+2)x2 points of fire damage.",
@@ -6232,7 +6232,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As flame bolt, except this spell deals (7d10+2)x2 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -6271,7 +6271,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Just as an animal will shy away from fire, so too will any creature who fails her Will save steer clear of the caster of this spell if at all possible. An affected creature in the midst of combat cannot select the caster of this spell as a target for her attacks, unless the caster is the only available opponent, until the spell expires. At that time, the creature is free to choose as she likes.</p><p><strong>Target/Effect:</strong> One creature.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -6310,7 +6310,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of his choice within range to the druid circle within the Butcher Block Mountains.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6349,7 +6349,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of his choice within range to the dragon circle of the Cobalt Scar.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6388,7 +6388,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of his choice within range to the druid circle within the West Commonlands.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6427,7 +6427,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of his choice within range to the druid circle still standing in the Dreadlands of the continent Kunark.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6466,7 +6466,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of his choice within range to the remnants of the druid circle within the Feerott.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6505,7 +6505,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost spiral of Al’ Kabor, except this spell causes rockets of flame to explode outward to a radius of 25 feet, dealing (5d10+2)x2 points of damage to all in the area, half of which is fire damage and the other half blunt force.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -6544,7 +6544,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of her choice within range to the dragon circle in the Great Divide.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6583,7 +6583,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of her choice within range to the dragon circle =&lt;</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart SUN Va</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6622,7 +6622,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of her choice within range to the druid circle within the northern portion of the Plains =) Circle of Lavastorm 1 Alteration [Teleportation]} +</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6661,7 +6661,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of his choice within range to the druid circle within the Lavastorm Mountains.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6700,7 +6700,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of his choice within range to the druid circle within the Misty Thicket.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6739,7 +6739,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of her choice within range to the druid circle in the southern reaches of the Ro Desert.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more C than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6778,7 +6778,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asendure cold, except this spell grants up to six targets a +5 bonus on saves against effects with the [cold] or [fire] descriptors, and cold and fire resistance (22).</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -6817,7 +6817,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of his choice within range to the druid circle within the Steamfront Mountains.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6833,7 +6833,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "10 minutes/level (see text)",
+      "duration": "10 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -6856,7 +6856,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As endure cold, except this spell grants up to six targets a +4 bonus on saves against effects with the [cold] descriptor and cold resistance (22).</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -6895,7 +6895,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of her choice within range to the interior of a great tree in the druid haven of Surefall Glade. Circle ofr the Combine Alteration [Teleportation] eleje OK. e</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6934,7 +6934,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of his choice within range to the druid circle within the Toxxulia Forest.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6973,7 +6973,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster teleports up to six targets of her choice within range to the dragon circle in the remote Wakening Lands of Velious.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -6989,7 +6989,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration [Fire]",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "10 minutes/level (see text)",
+      "duration": "10 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -7012,7 +7012,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As endure cold, except this spell grants up to six targets a +4 bonus on saves against £ effects with the [fire] descriptor and fire resistance (22).</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -7058,7 +7058,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Clarity Il",
+    "name": "Clarity II",
     "type": "spell",
     "img": "",
     "system": {
@@ -7090,7 +7090,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As breeze, except the target recovers an additional 1 mana every minute.</p><p><strong>Target/Effect:</strong> One creaure</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -7131,7 +7131,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell causes a target&#x27;s own shadow to animate, clutching at him and slowing his movement while inflicting damage. The target’s base speed is reduced by one-quarter, and he takes 1d4 points of magic damage on the round the spell is cast and in each of the next 5 rounds. A Will save in the first round negates all effects. This spell will not function if the target is not casting a shadow, although the caster can provide some light source to make up for this, such as by wielding a torch at night.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -7209,7 +7209,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As haze, except this spell grants damage reduction 6/-.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -7287,7 +7287,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the dragon circle in the Cobalt Scar. Coldlight Conjuration (Summoning) [Light]</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -7443,7 +7443,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As color flux, except that even with a successful Will save, the target is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.)</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -7482,7 +7482,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As color flux, except a failed save means the target is stunned for 2 rounds and a successful save means he is stunned for 1 round. ne Lay</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -7521,7 +7521,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As color flux, except a failed save means the target is stunned for 2 rounds and a successful save means he is stunned for 1 round. In addition, all targets with a mana pool will immediately lose 16 points of mana (8 points if the Will save was successful).</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -7638,7 +7638,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell creates a blast of flame that shoots downward, dealing 4d8 points of fire damage to all creatures within the area.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -7716,7 +7716,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of his choice within range to the wizard spires in the Dreadlands.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -7733,7 +7733,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As burst of flame, except this spell deals (5d10)x2 points of fire damage.",
@@ -7755,7 +7755,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burst of flame, except this spell deals (5d10)x2 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -7833,7 +7833,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of his choice within range to the pyramid in the West Commonlands. Companion Spirit Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -7957,7 +7957,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Conglaciationor Bones",
+    "name": "Conglaciation of Bones",
     "type": "spell",
     "img": "",
     "system": {
@@ -8201,7 +8201,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of fire, except this spell deals (4d6)x10 points of fire damage.",
@@ -8223,7 +8223,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of fire, except this spell deals (4d6)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -8381,7 +8381,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As dark empathy, except the caster transfers 50 hit points to the target.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -8553,7 +8553,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As rapacious subversion, except the target gains 40 mana. Creeping Crud Conjuration (Summoning) [Magic]</p><p><strong>Target/Effect:</strong> One spellcaster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -8592,7 +8592,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As stinging swarm, except the swarm deals 1d10 points of magic damage each round for 11 rounds.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -8711,7 +8711,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As despair, except this spell transfers the target’s —3 attack penalty to up to six targets within 20 feet of the caster, each of whom thus gains a +3 attack bonus. With a successful Will save, the target suffers only a —1 attack penalty, which grants only a +1 bonus to the targets.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -8752,7 +8752,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell restores sight to a blinded creature, whether the blindness is natural (sand in the eyes) or magical (the spell flash of light) in origin. It cannot give sight to naturally blind creatures, nor can it regenerate eyes that have been removed.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -8799,7 +8799,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell can cancel any one effect that has the [disease] descriptor, as well as natural diseases inflicted by monsters and other creatures. The caster targets a disease effect and may attempt to cancel that specific disease. To determine whether this cancellation takes place, the caster makes a dispel check by rolling 1d20 +1 per caster level (maximum +10), versus the disease’s DC (the DC for a diseasebased spell is 11 + the caster level of the one who cast the spell being dispelled). If successful, cure disease instantly cancels the disease. Cure disease has no effect on diseases of instantaneous duration, nor does it heal any damage already caused by the canceled disease.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -8846,7 +8846,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell can cancel any one effect that has the [poison] descriptor, as well as natural poisons inflicted by monsters and other creatures. The caster targets a poison effect and may attempt to cancel that specific poison. To determine whether this cancellation takes place, the caster makes a dispel check by rolling 1d20 +1 per caster level (maximum +10), versus the poison’s DC (the DC for a poisonbased spell is 11 + the caster level of the one who cast the spell being dispelled). If successful, cure poison instantly cancels the poison. Cure poison has no effect on poisons of instantaneous duration, nor does it heal any damage already caused by the canceled poison.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -8885,7 +8885,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This terrible spell reduces a creature&#x27;s Intelligence and Wisdom; each of these abilities receives a —5 buff penalty, with the reductions in ability bonuses and perhaps mana pool applying immediately. The affected scores can’t be lowered to below 1. Oagger ofr Symbols Conjuration (Creation)</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -9006,7 +9006,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As courage, except this spell grants +2 AC and +28 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -9047,7 +9047,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>By opening a necromantic channel between himself and another creature, the caster is able to instantly transfer 7 of his own hit points to the target of the spell. Ugly bruises and small cuts appear on the caster’s body, although the hit point transfer is painless for the caster and functions as curative magic for the target.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -9063,7 +9063,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "(D) (see text)",
+      "duration": "(D) (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -9125,88 +9125,10 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As mesmerize, except that the duration is longer and, if the mesmerization effect runs its full course, the target forgets the period 4 minutes prior to this spell’s casting.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
-    }
-  },
-  {
-    "name": "De Froliate",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 8,
-      "manaCost": 17,
-      "school": "Evocation [Disease]",
-      "castingTime": "1 action",
-      "range": "Medium (100 ft. + 10 ft./level) Area: All normal plants ina 5-ft. radius or one plant creature",
-      "duration": "Instantaneous",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "fortitude",
-      "effect": "Defoliate can be cast one of two ways. In its first permutation, it instantly kills all normal plants within its area of effect, turning them into powdery gray ash. This includes plants controlled (but not animated) by spells. Animated plants suffer (5d10+2)x2 points of disease damage (Fort half). An area affected by defoliate will not sustain normal plant growth for at least a year. The second version of this spell targets one plant creature, dealing (5d10+2)x2 points of disease damage (Fort half). Ifa plant creature is killed by defoliate it also turns into ash.",
-      "recastTime": 0,
-      "classes": [
-        "necromancer"
-      ],
-      "classLevels": [
-        "necromancer:8"
-      ],
-      "spellLine": "Defoliate",
-      "rawLevel": "Nec 8",
-      "components": "V, S",
-      "targetEffect": "",
-      "spellResistance": "Yes",
-      "materialComponent": "",
-      "sourcePage": "250",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "half",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>Defoliate can be cast one of two ways. In its first permutation, it instantly kills all normal plants within its area of effect, turning them into powdery gray ash. This includes plants controlled (but not animated) by spells. Animated plants suffer (5d10+2)x2 points of disease damage (Fort half). An area affected by defoliate will not sustain normal plant growth for at least a year. The second version of this spell targets one plant creature, dealing (5d10+2)x2 points of disease damage (Fort half). Ifa plant creature is killed by defoliate it also turns into ash.</p><p><strong>Spell Resistance:</strong> Yes</p>"
-    }
-  },
-  {
-    "name": "De Froliation",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 13,
-      "manaCost": 42,
-      "school": "Evocation [Disease]",
-      "castingTime": "1 action",
-      "range": "Medium (100 ft. + 10 ft./level) Area: All normal plants in a 10-ft. radius or one plant creature",
-      "duration": "Instantaneous",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "fortitude",
-      "effect": "As defoliate, except this spell has a larger area of effect against normal plants, or deals (4d6+2)x10 points of disease damage to animated plants or a single plant creature.",
-      "recastTime": 0,
-      "classes": [
-        "necromancer"
-      ],
-      "classLevels": [
-        "necromancer:13"
-      ],
-      "spellLine": "Defoliate",
-      "rawLevel": "Nec 13",
-      "components": "V, S",
-      "targetEffect": "",
-      "spellResistance": "Yes",
-      "materialComponent": "",
-      "sourcePage": "250",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "half",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>As defoliate, except this spell has a larger area of effect against normal plants, or deals (4d6+2)x10 points of disease damage to animated plants or a single plant creature.</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
@@ -9478,10 +9400,168 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As abscond, except this spell allows the wizard to teleport any one creature.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> No</p>"
+    }
+  },
+  {
+    "name": "Defoliate",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 8,
+      "manaCost": 17,
+      "school": "Evocation [Disease]",
+      "castingTime": "1 action",
+      "range": "Medium (100 ft. + 10 ft./level) Area: All normal plants ina 5-ft. radius or one plant creature",
+      "duration": "Instantaneous",
+      "damageFormula": "(5d10+2)*2",
+      "healFormula": "",
+      "savingThrow": "fortitude",
+      "effect": "Defoliate can be cast one of two ways. In its first permutation, it instantly kills all normal plants within its area of effect, turning them into powdery gray ash. This includes plants controlled (but not animated) by spells. Animated plants suffer (5d10+2)x2 points of disease damage (Fort half). An area affected by defoliate will not sustain normal plant growth for at least a year. The second version of this spell targets one plant creature, dealing (5d10+2)x2 points of disease damage (Fort half). Ifa plant creature is killed by defoliate it also turns into ash.",
+      "recastTime": 0,
+      "classes": [
+        "necromancer"
+      ],
+      "classLevels": [
+        "necromancer:8"
+      ],
+      "spellLine": "Defoliate",
+      "rawLevel": "Nec 8",
+      "components": "V, S",
+      "targetEffect": "",
+      "spellResistance": "Yes",
+      "materialComponent": "",
+      "sourcePage": "250",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "half",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>Defoliate can be cast one of two ways. In its first permutation, it instantly kills all normal plants within its area of effect, turning them into powdery gray ash. This includes plants controlled (but not animated) by spells. Animated plants suffer (5d10+2)x2 points of disease damage (Fort half). An area affected by defoliate will not sustain normal plant growth for at least a year. The second version of this spell targets one plant creature, dealing (5d10+2)x2 points of disease damage (Fort half). Ifa plant creature is killed by defoliate it also turns into ash.</p><p><strong>Spell Resistance:</strong> Yes</p>"
+    }
+  },
+  {
+    "name": "Defoliation",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 13,
+      "manaCost": 42,
+      "school": "Evocation [Disease]",
+      "castingTime": "1 action",
+      "range": "Medium (100 ft. + 10 ft./level) Area: All normal plants in a 10-ft. radius or one plant creature",
+      "duration": "Instantaneous",
+      "damageFormula": "(4d6+2)*10",
+      "healFormula": "",
+      "savingThrow": "fortitude",
+      "effect": "As defoliate, except this spell has a larger area of effect against normal plants, or deals (4d6+2)x10 points of disease damage to animated plants or a single plant creature.",
+      "recastTime": 0,
+      "classes": [
+        "necromancer"
+      ],
+      "classLevels": [
+        "necromancer:13"
+      ],
+      "spellLine": "Defoliate",
+      "rawLevel": "Nec 13",
+      "components": "V, S",
+      "targetEffect": "",
+      "spellResistance": "Yes",
+      "materialComponent": "",
+      "sourcePage": "250",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "half",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>As defoliate, except this spell has a larger area of effect against normal plants, or deals (4d6+2)x10 points of disease damage to animated plants or a single plant creature.</p><p><strong>Spell Resistance:</strong> Yes</p>"
+    }
+  },
+  {
+    "name": "Deftness",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 9,
+      "manaCost": 1,
+      "school": "Alteration",
+      "castingTime": "1 action",
+      "range": "Close (25 ft. + 5 ft./2 levels)",
+      "duration": "30 minutes/level",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "fortitude",
+      "effect": "As dextrous aura, except this spell grants a",
+      "recastTime": 0,
+      "classes": [
+        "beastlord",
+        "shaman"
+      ],
+      "classLevels": [
+        "beastlord:9",
+        "shaman:10"
+      ],
+      "spellLine": "Dextrous aura",
+      "rawLevel": "Bst 9, Shm 10",
+      "components": "V, S",
+      "targetEffect": "One creature",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "",
+      "sourcePage": "250",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "negates",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>As dextrous aura, except this spell grants a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
+    }
+  },
+  {
+    "name": "Deftness",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 14,
+      "manaCost": 25,
+      "school": "Alteration",
+      "castingTime": "1 full round",
+      "range": "Close (25 ft. + 5 ft./2 levels)",
+      "duration": "30 minutes/level",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "fortitude",
+      "effect": "As dextrous aura, except this spell grants a",
+      "recastTime": 0,
+      "classes": [
+        "shaman"
+      ],
+      "classLevels": [
+        "shaman:14"
+      ],
+      "spellLine": "Dextrous aura",
+      "rawLevel": "Shm 14",
+      "components": "V, S",
+      "targetEffect": "One creature",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "",
+      "sourcePage": "298",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "negates",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>As dextrous aura, except this spell grants a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
@@ -9517,7 +9597,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As siphon strength, except this spell imposes —6 Strength and Constitution penalties to a target; each of up to six other targets within a 20-foot radius of the caster then gains a +6 bonus to Strength and to Constitution. The initial target&#x27;s Fortitude save reduces the penalty to —3 and resulrant bonuses to +3. Oeliriously Nimble Alteration</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -9572,7 +9652,7 @@ export const SAMPLE_SPELLS = [
       "school": "Evocation [Magic]",
       "castingTime": "1 full round",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -9595,7 +9675,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As chaotic feedback, except this spell takes longer to cast, but deals (2d10+4)x10 points of magic damage and its confusion effect lasts until removed by spells of the cancel magic or strip enchantment lines. Also, unlike some earlier spells of the chaotic feedback line, a Will save completely negates the damage and confusion.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -9612,7 +9692,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+1)*10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "The spell draws upon the same energies as spells of the chaotic feedback spell line, but causes a stunning effect instead of confusion. The target suffers (4d6+1)x 10 points of magic damage (Will half) and, regardless of the save, is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.)",
@@ -9634,7 +9714,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The spell draws upon the same energies as spells of the chaotic feedback spell line, but causes a stunning effect instead of confusion. The target suffers (4d6+1)x 10 points of magic damage (Will half) and, regardless of the save, is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -9650,7 +9730,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "(D) (see text)",
+      "duration": "(D) (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -9690,7 +9770,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels) rge",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d10+2)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As lifetap, except this spells deals (7d10+2)x2 points of magic damage and transfers that amount to the caster.",
@@ -9712,90 +9792,10 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lifetap, except this spells deals (7d10+2)x2 points of magic damage and transfers that amount to the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
-    }
-  },
-  {
-    "name": "Dertness",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 9,
-      "manaCost": 1,
-      "school": "Alteration",
-      "castingTime": "1 action",
-      "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "30 minutes/level",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "fortitude",
-      "effect": "As dextrous aura, except this spell grants a",
-      "recastTime": 0,
-      "classes": [
-        "beastlord",
-        "shaman"
-      ],
-      "classLevels": [
-        "beastlord:9",
-        "shaman:10"
-      ],
-      "spellLine": "Dextrous aura",
-      "rawLevel": "Bst 9, Shm 10",
-      "components": "V, S",
-      "targetEffect": "One creature",
-      "spellResistance": "Yes (harmless)",
-      "materialComponent": "",
-      "sourcePage": "250",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "negates",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>As dextrous aura, except this spell grants a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
-    }
-  },
-  {
-    "name": "Dertness",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 14,
-      "manaCost": 25,
-      "school": "Alteration",
-      "castingTime": "1 full round",
-      "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "30 minutes/level",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "fortitude",
-      "effect": "As dextrous aura, except this spell grants a",
-      "recastTime": 0,
-      "classes": [
-        "shaman"
-      ],
-      "classLevels": [
-        "shaman:14"
-      ],
-      "spellLine": "Dextrous aura",
-      "rawLevel": "Shm 14",
-      "components": "V, S",
-      "targetEffect": "One creature",
-      "spellResistance": "Yes (harmless)",
-      "materialComponent": "",
-      "sourcePage": "298",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "negates",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>As dextrous aura, except this spell grants a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
@@ -9831,7 +9831,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cease, except the target suffers a —2 divine penalty to the Fortitude save. Oespair Alteration pell Line: Vespair Mana: 2 Components: V,S Casting Time: 1 action Recast: 1 round Range: Close (25 ft. + 5 ft./2 levels) Target: One creature Duration: 1 minute/level A profound sense of doubt and lack of confidence overcomes the target, who receives a —1 penalty on attack rolls for the duration of the spell. Oevouring Oarkness Conjuration (Summoning) [Magic, Shadow]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -9870,7 +9870,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As engulfing darkness, except the target&#x27;s base speed is reduced by three-quarters (or one-third with a successful Will save), and the target takes 3d10 points of magic damage on the round the spell is cast and in each of the next 15 rounds (halved if the initial Will save was successful).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -9948,7 +9948,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target gains a +3 buff bonus to Dexterity.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -9964,7 +9964,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "30 minutes/level (see text)",
+      "duration": "30 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -10030,7 +10030,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell does not have a random duration: it always lasts for 8 rounds. Further, it can affect creatures of up to CR 30. Also, it is more difficult to resist than most spells; the Will save DC is 25 + (the caster’s Charisma modifier x2). Finally, the caster gains virtually complete control over the target creature, which means that the spell does not automatically end if the caster or her allies attack the target. Instead, the target creature immediately receives an additional Will save when any attack is launched against it (this means multiple save attempts versus iterative attacks within the same round). (</p><p><strong>Target/Effect:</strong> One creature of less than CR 31</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -10125,7 +10125,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+1)*10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As chaotic feedback, except this spell takes __ longer to cast, but deals (2d10+1)x10 points of magic damage and its confusion effect lasts for 2d6 rounds. Also, unlike some earlier spells of the chaotic feedback line, a Will save completely negates the damage and confusion. Disease Cloud Conjuration (Summoning) [Disease]",
@@ -10147,7 +10147,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As chaotic feedback, except this spell takes __ longer to cast, but deals (2d10+1)x10 points of magic damage and its confusion effect lasts for 2d6 rounds. Also, unlike some earlier spells of the chaotic feedback line, a Will save completely negates the damage and confusion. Disease Cloud Conjuration (Summoning) [Disease]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -10229,14 +10229,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>By sapping the vitality from a target, an enchanter can dramatically reduce a creature&#x27;s combat effectiveness. The target of this spell suffers a —4 penalty to Strength and Constitution and a —1 penalty to Armor Class.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Disin Fecting Aura",
+    "name": "Disinfecting Aura",
     "type": "spell",
     "img": "",
     "system": {
@@ -10268,7 +10268,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cure disease, except this spell also acts as cure poison; the dispel roll for each disease or poison to be removed is 1d20 + 1 per caster level, with no maximum bonus due to level. In addition, a single casting of this spell allows the caster to attempt to abolish any andall disease and poison effects on the target, although only one attempt per effect is allowed per casting.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -10285,7 +10285,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "This powerful spell causes its target (along with any equipment and possessions) to vanish into nothingness. Even if the target succeeds on the Fortitude save, it suffers (2d10)x10 points of magic damage. A creature slain by disintegrate is forever destroyed, and cannot be raised from the dead in any fashion. In addition, a foe killed with this spell does not yield any experience points.",
@@ -10307,14 +10307,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "partial",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This powerful spell causes its target (along with any equipment and possessions) to vanish into nothingness. Even if the target succeeds on the Fortitude save, it suffers (2d10)x10 points of magic damage. A creature slain by disintegrate is forever destroyed, and cannot be raised from the dead in any fashion. In addition, a foe killed with this spell does not yield any experience points.</p><p><strong>Material Component:</strong> An opal.</p><p><strong>Target/Effect:</strong> One creature or object</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Dismiss SUMMONED",
+    "name": "Dismiss Summoned",
     "type": "spell",
     "img": "",
     "system": {
@@ -10324,7 +10324,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d6+1)*2",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward summoned, except this spell deals (7d6+1)x2 points of magic damage. Dismiss Undead Evocation [Magic]",
@@ -10352,7 +10352,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward summoned, except this spell deals (7d6+1)x2 points of magic damage. Dismiss Undead Evocation [Magic]</p><p><strong>Target/Effect:</strong> One summoned creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -10369,7 +10369,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d6+1)*2",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward undead, except this spell deals (7d6+1)x2 points of magic damage. ial fA PULLS OF TAI Udita. 4",
@@ -10397,7 +10397,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward undead, except this spell deals (7d6+1)x2 points of magic damage. ial fA PULLS OF TAI Udita. 4</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -10493,7 +10493,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "Free action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1 minute/level (see text)",
+      "duration": "1 minute/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -10516,7 +10516,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As rune, but this spell grants a buff bonus of 8d10 temporary hit points and can be cast asa free action. In addition, no material component is required.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -10555,7 +10555,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>(harmless) (harmless) As divine vigor, except this spell grants +38 bonus hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -10612,7 +10612,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(5d6+1)*10",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals (5d6+1)x10 hit points.",
       "recastTime": 0,
@@ -10633,7 +10633,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals (5d6+1)x10 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -10750,7 +10750,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ae or except this spell grants +50 bonus hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -10789,7 +10789,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This very flexible spell grants a +25 bonus to hit points that will work in conjunction with any other bonus hit point spell except other spells in this line. Oizzying Wind Conjuration (Summoning) [Force, Magic]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -10806,7 +10806,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "7d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As whirling wind, except this spell deals 7d10 points of magic damage and the target is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) A Medium-size or smaller creature must make a second Reflex save (DC 18) to avoid being knocked prone if it fails the first save. A flying creature that fails thissave is instead blown back (1d6)x10 feet.",
@@ -10828,7 +10828,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As whirling wind, except this spell deals 7d10 points of magic damage and the target is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) A Medium-size or smaller creature must make a second Reflex save (DC 18) to avoid being knocked prone if it fails the first save. A flying creature that fails thissave is instead blown back (1d6)x10 feet.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -10844,7 +10844,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -10867,7 +10867,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only undead of CR 16 or less, and the spell is not considered mind-affecting, for the control over the undead comes through necromantic magic. Oooming Darkness Conjuration (Summoning) [Magic, Shadow]</p><p><strong>Target/Effect:</strong> One creature of less than CR 17</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -10925,7 +10925,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "3d8+5",
+      "damageFormula": "(7d10+2)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As lifetap, except this spells deals (7d10+2)x2 points of magic damage and transfers that amount to the caster.",
@@ -10966,7 +10966,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d10)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As lifetap, except this spells deals (6d10)x2 points of magic damage and transfers that amount to the caster.",
@@ -10990,7 +10990,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lifetap, except this spells deals (6d10)x2 points of magic damage and transfers that amount to the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -11007,7 +11007,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+2)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of frost, except this spell deals (4d6+2)x10 points of cold damage.",
@@ -11029,7 +11029,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of frost, except this spell deals (4d6+2)x10 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -11046,7 +11046,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "| action",
       "range": "Medium (100ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+1)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of fire, except this spell deals (4d6+1)x10 points of fire damage.",
@@ -11068,7 +11068,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of fire, except this spell deals (4d6+1)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -11085,7 +11085,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+4)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As force shock, except this spell deals (2d10+4)x10 points of magic damage and stuns the target for 1 round.",
@@ -11107,7 +11107,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As force shock, except this spell deals (2d10+4)x10 points of magic damage and stuns the target for 1 round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -11148,7 +11148,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As the spell fear, except this spell affects undead only. Orirting Death Conjuration (Summoning) [Magic]</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -11187,14 +11187,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As stinging swarm, except this spell deals 3d10 points of magic damage each round for 9 rounds. Orones oF DOOM Conjuration (Summoning) [Magic]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Drones of DOOM",
+    "name": "Drones of Doom",
     "type": "spell",
     "img": "",
     "system": {
@@ -11204,7 +11204,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "8 rounds",
-      "damageFormula": "2d6",
+      "damageFormula": "2d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As stinging swarm, except this spell deals 2d10 points of magic damage each round for 8 rounds.",
@@ -11269,7 +11269,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The spell causes the target to feel as though fatigued, imposing a slow (2) effect upon the target, which causes a—1 slow penalty to AC, a +1 weapon delay, and the loss of 1 attack of opportunity every second round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -11308,7 +11308,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As whirl till you hurl, except that at the end of the spell the target must make an additional Fortitude save of DC 12 + caster’s level or be nauseated for an additional 1d4 rounds. Oyzil’s Dearening Oecoy Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> One creature (see text)</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -11466,7 +11466,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As weaken, except this spell imposes a —5 buff penalty to Strength. Egress Alteration [Teleportation]}</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -11522,7 +11522,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10+4)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of lightning, except this spell deals (5d10+4)x10 points of electrical damage.",
@@ -11544,7 +11544,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of lightning, except this spell deals (5d10+4)x10 points of electrical damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -11702,7 +11702,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell calls evokes a tiny but fierce storm of magical wind, fire, lightning and hail that settles around a single target, dealing (6d10)x2 points of damage in the round the spell is cast, and 3d10 additional points ofdamage each roundforthe next 5 rounds. This damage is composed of equal parts cold, electricity, fire, and magic, so an immunity or resistance to any one type cannot negate more than one quarter of the maelstrom’s total damage each round. AECL PE, rs An initial Fortitude save will halve all damage (before dividing it into 4 types).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -12211,14 +12211,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell encases the target creature in a thick layer of ice. If the target fails his Reflex saving throw, he suffers (8d10)x2 points of cold damage immediately and is held fast in his current position. The ice may be damaged normally by attacks (see “Attacking an Object” in Chapter 12: Combat), and has a hardness of | and 50 hit points. In the target&#x27;s first round following the casting of this spell, and each round thereafter, he may attempt to use a move action to break free, but this requires a Strength check witha DC equal to the ice’s current hit points. If the check fails, the victim can take no other action that requires movement. In subsequent rounds, the target takes no further damage, and the ice melts away, losing 10 hit points every round until it reaches 0, at which point the ice is completely melted. The magically created ice will not last longer than 5 rounds even in frigid climates, but its melting may be hastened by very high local temperatures, at the GM&#x27;s discretion. Damage of any type will affect the entombed target only if the attack does enough damage to destroy the ice — any damage remaining from the attack beyond that which reduced the ice to 0 hit points is dealt to the creature instead. Otherwise, the attack is considered to have hit the ice (and will lower the entombed creature’s escape DC appropriately). Other types of targetable spells such as weaken or mana sieve may be cast at the entombed target as normal.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Emissaryor Thule",
+    "name": "Emissary of Thule",
     "type": "spell",
     "img": "",
     "system": {
@@ -12297,7 +12297,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As endure cold, except this spell’s benefits apply against attacks, spells, or abilities with the [acid] descriptor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -12344,7 +12344,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell grants the target a buff bonus of cold resistance (8) and a +2 buff bonus to saving throws against effects with the [cold] descriptor. For example, if a wizard cast shock of frost at a target protected by endure cold and the wizard’s damage roll resulted in 6 points of cold damage, the target would first receive a +2 cold buff bonus to her Reflex save; if successful, she suffers only half damage (3 points). The target’s buff bonus of cold resistance (8) would thus negate the remaining damage. If she fails her save, she takes 2 points of damage, as her cold resistance (8) does not stop all 6 points of damags from the shock of frost. Note that spells which cause damage over time are treated as a single attack in determining how much of the spell’s total damage is absorbed by a target&#x27;s cold resistances (see “Resistance” in Chapter 8: Using Magic).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -12481,7 +12481,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As endure cold, except this spell’s benefits apply against attacks, spells, or abilities with the [fire] descriptor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -12528,7 +12528,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>raver. ees. ery ee As endure cold, except this spell’s benefits apply against attacks, spells, or abilities with the [magic] descriptor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -12575,7 +12575,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As endure cold, except this spell’s benefits apply against attacks, spells, or abilities with the [poison] descriptor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -12667,7 +12667,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell allows the target to exist without the need for oxygenation. Air-breathers may go underwater, waterbreathers may goon land, and either could walk the airless face of the moon. scales.</p><p><strong>Material Component:</strong> A pinch of fish</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -12706,10 +12706,49 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Aslighming storm, except this spell creates waves of multicolored magical energy that rain down on the affected area, each dealing 6d10 points of magic damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
+    }
+  },
+  {
+    "name": "Enfeeblement",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 2,
+      "manaCost": 3,
+      "school": "Alteration",
+      "castingTime": "1 action",
+      "range": "Close (25 ft. + 5 ft./2 levels)",
+      "duration": "1 minute/level",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "fortitude",
+      "effect": "As weaken, except this spell imposes a —4 buff penalty to Strength. In addition, the target also suffers a —1 buff penalty to Armor Class.",
+      "recastTime": 0,
+      "classes": [
+        "enchanter"
+      ],
+      "classLevels": [
+        "enchanter:2"
+      ],
+      "spellLine": "Weaken",
+      "rawLevel": "Enc 2",
+      "components": "V, S",
+      "targetEffect": "One creature",
+      "spellResistance": "Yes",
+      "materialComponent": "",
+      "sourcePage": "259",
+      "verified": "Y",
+      "notes": "",
+      "saveEffect": "negates",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>As weaken, except this spell imposes a —4 buff penalty to Strength. In addition, the target also suffers a —1 buff penalty to Armor Class.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
@@ -12723,7 +12762,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d10)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As stun, except this spell deals (6d10)x2 points of magic damage, and, if the save is failed, the target is stunned for 1d2 rounds.",
@@ -12745,7 +12784,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As stun, except this spell deals (6d10)x2 points of magic damage, and, if the save is failed, the target is stunned for 1d2 rounds.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -12761,7 +12800,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "3d10 rounds (see text)",
+      "duration": "3d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -12784,14 +12823,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As grasping roots, except this spell deals (5d10)x2 points of magic damage, nosave. This spell is also much easier to cast than most other spells in the root line, so the caster gains a +2 bonus toany Channeling check when casting engorging roots. Engulring Darkness Conjuration (Summoning) [Magic, Shadow]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Engulring Darkness",
+    "name": "Engulfing Darkness",
     "type": "spell",
     "img": "",
     "system": {
@@ -12841,7 +12880,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "3d10 rounds (see text)",
+      "duration": "3d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -12864,7 +12903,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As grasping roots, except this spell deals (7d6+1)x2 points of magic damage, no save.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -12903,49 +12942,10 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As insight, except the target gains +5 Intelligence and Wisdom.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
-    }
-  },
-  {
-    "name": "Enreeblement",
-    "type": "spell",
-    "img": "",
-    "system": {
-      "spellLevel": 2,
-      "manaCost": 3,
-      "school": "Alteration",
-      "castingTime": "1 action",
-      "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1 minute/level",
-      "damageFormula": "",
-      "healFormula": "",
-      "savingThrow": "fortitude",
-      "effect": "As weaken, except this spell imposes a —4 buff penalty to Strength. In addition, the target also suffers a —1 buff penalty to Armor Class.",
-      "recastTime": 0,
-      "classes": [
-        "enchanter"
-      ],
-      "classLevels": [
-        "enchanter:2"
-      ],
-      "spellLine": "Weaken",
-      "rawLevel": "Enc 2",
-      "components": "V, S",
-      "targetEffect": "One creature",
-      "spellResistance": "Yes",
-      "materialComponent": "",
-      "sourcePage": "259",
-      "verified": "Y",
-      "notes": "",
-      "saveEffect": "negates",
-      "saveDC": "",
-      "deliveryType": "utility",
-      "attackMode": "",
-      "attackBonus": 0,
-      "description": "<p>As weaken, except this spell imposes a —4 buff penalty to Strength. In addition, the target also suffers a —1 buff penalty to Armor Class.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
@@ -12981,7 +12981,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As dictate, except this spell affects only undead of CR 30 or less</p><p><strong>Target/Effect:</strong> One creature of less than CR 31</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13022,7 +13022,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A Snare</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13038,7 +13038,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "2d8 rounds (see text)",
+      "duration": "2d8 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -13063,7 +13063,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As grasping roots, except this spell deals 4d10 points of magic damage, no save.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13079,7 +13079,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "2d8 rounds (see text)",
+      "duration": "2d8 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -13110,7 +13110,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Enthrall _Coxjuration [Mind-Affecting]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13149,7 +13149,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As mesmerize, except that the duration is longer and, if the mesmerization effect runs its full course, the target forgets the period 2 minutes prior to this spell’s casting.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13166,7 +13166,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(8d10)*2",
       "healFormula": "",
       "savingThrow": "none",
       "effect": "As lure of frost, except this spell has a longer casting time and deals (8d10)x2 points of fire damage that cannot be resisted; creatures immune to fire take no damage.",
@@ -13188,7 +13188,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "attack",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lure of frost, except this spell has a longer casting time and deals (8d10)x2 points of fire damage that cannot be resisted; creatures immune to fire take no damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -13243,7 +13243,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: Up to six creatures, no two more than 20 ft. apart",
-      "duration": "3d10 rounds (see text)",
+      "duration": "3d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -13266,14 +13266,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asgrasping roots, except this spell affects up to six targets, dealing (5d10)x2 points of magic damage to each target, no save.</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Enve Loping Roots",
+    "name": "Enveloping Roots",
     "type": "spell",
     "img": "",
     "system": {
@@ -13282,7 +13282,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft-/level)",
-      "duration": "1d10 rounds (see text)",
+      "duration": "1d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -13307,7 +13307,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As grasping roots, except this spell deals 6d10 points of magic damage, no save. This spell is also much easier to cast than most other spells in the root line, so the caster gains a +2 bonus toany Channeling check when casting enveloping roots. Envenomed Bolt Conjuration (Summoning) [Poison]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13324,7 +13324,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + eeseieve)",
       "duration": "7 rounds",
-      "damageFormula": "1d4",
+      "damageFormula": "6d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As poison bolt, except the target takes 6d10 points of poison damage immediately (Fort half), then takes an additional 6d 10 points of poison damage (3d 10 if the initial save was successful) per round until the spell ends or is dispelled. Envenomed Breath Conjuration (Summoning) [Poison]",
@@ -13389,7 +13389,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As poison bolt, except the target takes 4d6 poison damage immediately (Fort half), then takes an additional 2d8 points of poison damage (1d8 if the initial save was successful) per round until the spell ends</p><p><strong>Target/Effect:</strong> Ray</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13428,7 +13428,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As eternity&#x27;s torment, except this spell deals 5d8 points of magic damage each round for 5 rounds.</p><p><strong>Target/Effect:</strong> One undead</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13467,7 +13467,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell deals 1d10 points of magic damage in the round the spell is cast, and an additional 1d10 points of magic damage in each of the next 20 rounds. An initial Fortitude save halves all damage dealt by the spell.</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13506,7 +13506,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asabscond, except this spell transports up to six targets of the caster’s choice within range.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -13545,7 +13545,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of his choice within range to the spires of Greater Faydark. Because this spell is cast so much more quickly than other group teleports, there is a chance that someone (including the caster himself) could be left behind. Each character evacuating has a 5% chance of being left behind. Each target should roll 1d20, and on a result of 1, that creature has been left behind.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -13584,7 +13584,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of his choice within range to the pyramid in Nektulos Forest. Because this spell is cast so much more quickly than other group teleports, there is a chance that someone (including the caster himself) could be left behind. Each character evacuating has a 5% chance of being left behind. Each target should roll 1d20, and on a result of 1, that creature has been left behind.</p><p><strong>Target/Effect:</strong> Up to six creatures, notwo more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -13623,7 +13623,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the spires in the Plains of Karana. Because this spell is cast so much more quickly than other group teleports, there is a chance that someone (including the caster himself) could be left behind. Each character evacuating has a 5% chance of being left behind. Each target should roll 1d20, and on a result of 1, that creature has been left behind.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -13662,7 +13662,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of his choice within range to the pyramid far south in the Ro Desert. Because this spell is castsomuch more quickly than other group teleports, there is a chance that someone (including the caster himself) could be left behind. Each character evacuating has a 5% chance of being left behind. Each target should roll 1d20, and on a result of 1, that creature has been left behind.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -13701,7 +13701,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the pyramid in the western Plains of Karana. Because this spell is cast so much more quickly than other group teleports, there isachance thatsomeone (including the caster himself) could be left behind. Each character evacuating has a 5% chance of being left behind. Each target should roll 1d20, and ona result of 1, that creature has been left behind. Everrount Conjuration (Creation)</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -13744,7 +13744,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As enduring breath, except as above.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -13800,7 +13800,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+2)*10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward summoned, except this spell deals (4d6+2)x10 points of magic damage.",
@@ -13824,7 +13824,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward summoned, except this spell deals (4d6+2)x10 points of magic damage.</p><p><strong>Target/Effect:</strong> One summoned creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13841,7 +13841,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+2)*10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward undead, except this spell deals (4d6+2)x10 points of magic damage.",
@@ -13865,7 +13865,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward undead, except this spell deals (4d6+2)x10 points of magic damage.</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13921,7 +13921,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d10+3)*2",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward summoned, except this spell deals (6d10+3)x2 points of magic damage.",
@@ -13947,7 +13947,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward summoned, except this spell deals (6d10+3)x2 points of magic damage.</p><p><strong>Target/Effect:</strong> One summoned creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -13964,7 +13964,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d10+3)*2",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward undead, except this spell deals (6d10+3)x2 points of magic damage.",
@@ -13992,7 +13992,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward undead, except this spell deals (6d10+3)x2 points of magic damage.</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14009,7 +14009,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft/level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "6d10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward summoned, except this spell deals 6d10 points of magic damage.",
@@ -14035,7 +14035,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward summoned, except this spell deals 6d10 points of magic damage.</p><p><strong>Target/Effect:</strong> One summoned creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14052,7 +14052,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "6d10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As ward undead, except this spell deals 6d10 points of magic damage. Extinguish Fatigue Alteration (Healing)",
@@ -14080,7 +14080,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As ward undead, except this spell deals 6d10 points of magic damage. Extinguish Fatigue Alteration (Healing)</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14127,7 +14127,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As vigor, except this spell either cancels the fatigued condition and cures (7d10)x2 hit points of subdual damage, or else it reduces the target from the exhausted to the fatigued condition and cures 4d6 hit points of subdual damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -14166,7 +14166,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As flash of light, except this spell will also affect nonliving targets, as it magically clouds their senses. Eye of Tallon Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14255,7 +14255,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Eyesorthe Cat",
+    "name": "Eyes of the Cat",
     "type": "spell",
     "img": "",
     "system": {
@@ -14404,7 +14404,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As mesmerize, except that the spell affects multiple creatures and the duration is slightly longer. Spells and effects that mesmerize individual creatures, such as dazzle, do not stack with fascination. Fay Gate Alteration [Teleportation]</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14521,7 +14521,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the wizard spires in Greater Faydark. Fear Alteration (Compulsion, Fear]</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -14566,7 +14566,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell causes the target to flee from the caster’s perceived location to the best of its ability. If cornered, the target fights to defend itself but suffers a -2 morale penalty to attack and damage rolls.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14605,7 +14605,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As weaken, except this spell imposes a —6 -</p><p><strong>Target/Effect:</strong> One creature ;</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14685,7 +14685,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell grants the target a +1 bonus to 1 initiative anda +1 dodge bonus to Armor Class.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -14726,7 +14726,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell is like the monk class ability (see “Feign Death” in Chapter 3: Classes), 1 except it is necromancers’ and shadow knights’ affinity with death and deathmagic that allows them to simulate a state of death, and even to actually shift into a ghostly realm and be forgotten by the living. Any creature within line of sight of the caster is allowed a Will save witha DC of 10 + spell level + (the caster’s Int modifier x2) to see through the spell. Any creature not within line of sight at the time of the casting will automatically be fooled by the spell even if he later wanders within proximity of the caster. While in the state of pseudo-death created by this spell, the caster is aware of his surroundings, although he cannot move or else the spell is broken. Further, he can recover no hit points or mana except for magical recovery granted by spells or spelllike abilities such as chloroplast or clarity.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -14765,7 +14765,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Adruid may cast thisspell only on hisown pet, either his bearsummoned with nature walker&#x27;s behest or an animal that has been charmed with a spell of the befriend animal line. The affected pet gains +5 buff bonus to Strength, a +2 bonus to Armor Class, and haste (3), which grants a +1 haste bonus to AC, 1 extra attackaction every thirdround,and—1 weapon delay. The spell cannot be dispelled and will run its entire duration, even though that might mean a previously charmed animal is now fighting the caster while augmented by the caster’s magic.</p><p><strong>Target/Effect:</strong> Caster’s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -14781,7 +14781,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "3d10 rounds (see text)",
+      "duration": "3d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -14806,7 +14806,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As root, except this spell is much easier to cast than most other spells in the root line, so the caster gains a +2 bonus to any Channeling check when casting fetter.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14845,7 +14845,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A sheet of flames shoots from the caster’s outstretched hand, dealing 3d8 points of fire damage to all creatures within the affected area (Reflex half). The caster is unharmed.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14861,7 +14861,7 @@ export const SAMPLE_SPELLS = [
       "school": "Evocation [Fire]",
       "castingTime": "1 full round",
       "range": "Long (400 ft. + 40 ft./level) Area: 25-ft. radius spread",
-      "duration": "Instantaneous (see text)",
+      "duration": "Instantaneous (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -14884,7 +14884,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Searing flames erupt from any point the caster chooses within range, dealing (8d10+2)x2 points of fire damage to all in the area. In addition, all creatures affected by the spell will suffer a severe reduction in their ability to resist cold-based attacks. For two rounds, such creatures suffer a penalty of cold resistance (—20). [A resistance penalty can never reduce a target&#x27;s resistance to less than (0).] A successful Reflex saving throw reduces both the damage and the cold resistance penalty by half.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14962,7 +14962,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A wave of roiling fire flares out in all directions from the caster, dealing 1d10 points of fire damage toall creatures within a 10-foot radius. The caster is unharmed.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -14979,7 +14979,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: 20-ft. radius spread",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "5d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost spiral of Al’ Kabor, except this spell creates a swirling spiral of flames that deals 5d10 points of fire damage.",
@@ -15001,7 +15001,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost spiral of Al’ Kabor, except this spell creates a swirling spiral of flames that deals 5d10 points of fire damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15018,7 +15018,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal",
       "duration": "1 minute/level (D)",
-      "damageFormula": "1d6",
+      "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "The caster’s hands flicker with flames that grant a +1 bonus on all melee attacks, whether armed or unarmed.",
@@ -15042,7 +15042,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "save",
+      "deliveryType": "utility",
       "attackMode": "ranged",
       "attackBonus": 0,
       "description": "<p>The caster’s hands flicker with flames that grant a +1 bonus on all melee attacks, whether armed or unarmed.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -15098,7 +15098,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d10)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As burst of flame, except this spell deals (7d10)x2 points of fire damage.",
@@ -15122,7 +15122,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burst of flame, except this spell deals (7d10)x2 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15239,7 +15239,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A blast of divine energy explodes outward, dealing (3d10)x10 points of magic damage in a 20-foot radius. This spell works outdoors only.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15278,7 +15278,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell causes the target to become incapable of remaining focused on combat, resulting in a—4 penalty to his Armor Class and a —8 attack penalty. A successful Will save halves both of these penalties.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15295,7 +15295,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal Area: 10-ft. burst centered on caster",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "Asfire flux, except this spell deals (5d10)x2 points of fire damage.",
@@ -15317,7 +15317,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asfire flux, except this spell deals (5d10)x2 points of fire damage.</p><p><strong>Material Component:</strong> Focus Component: Fire beetle eye</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15356,7 +15356,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A bolt of fire shoots from the caster’s outstretched hand, dealing 3d10 points of fire damage to its target. The caster must make a ranged touch attack to hit the target.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15373,7 +15373,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal Area: 10-ft. burst centered on caster",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "6d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As fire flux, except this spell deals 6d10 points of fire damage.",
@@ -15395,7 +15395,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As fire flux, except this spell deals 6d10 points of fire damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15414,7 +15414,7 @@ export const SAMPLE_SPELLS = [
       "duration": "8 rounds",
       "damageFormula": "1d6",
       "healFormula": "",
-      "savingThrow": "",
+      "savingThrow": "fortitude",
       "effect": "The target creature bursts into flames, taking 1d6 points of fire damage immediately (Fortitude half), and an additional 2 points of fire damage (1 if the initial Fort save was successful) each subsequent round for 7 rounds. A target that fails its Fortitude save must also roll a Will save, or also suffer a —1 circumstance penalty to AC for the duration of the spell. Focus: A fire beetle eye. Flame oF Light Evocation [Fire] 1",
       "recastTime": 1,
       "classes": [
@@ -15434,7 +15434,7 @@ export const SAMPLE_SPELLS = [
       "sourcePage": "267",
       "verified": "Y",
       "notes": "",
-      "saveEffect": "",
+      "saveEffect": "half",
       "saveDC": "",
       "deliveryType": "save",
       "attackMode": "",
@@ -15453,7 +15453,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "7d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of fire, except this spell deals 7d10 points of fire damage.",
@@ -15475,7 +15475,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of fire, except this spell deals 7d10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15492,7 +15492,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "6d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of fire, except this spell deals 6d10 points of fire damage. Flaming Sword oF Xuzl Conjuration (Summoning)",
@@ -15514,7 +15514,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of fire, except this spell deals 6d10 points of fire damage. Flaming Sword oF Xuzl Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15569,7 +15569,7 @@ export const SAMPLE_SPELLS = [
       "school": "Evocation [Light]",
       "castingTime": "1 action",
       "range": "Long (400 ft. + 40 ft./level)",
-      "duration": "Instantaneous (see text)",
+      "duration": "Instantaneous (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -15592,7 +15592,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell creates a small ball of illusory flame that fires away from the caster toward a chosen target within range, dissipating when it reaches the target. The caster need not know the target&#x27;s location (in fact, this spell is usually used when the caster does not know the direction to the target), but he does need to be familiar with the target or at least to have seen it within the past hour. This flare travels slowly enough that the caster can easily track its progress with the naked eye (approximately 100 feet per second). If the chosen target is not within range, then the spell fails and the flare never materializes. The flare is not real fire, although it does provide illumination in a 5-foot radius, and cannot inflict any damage. Flashor Light Conjuration (Summoning) [Light]</p><p><strong>Target/Effect:</strong> Creates a light</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -15637,7 +15637,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell creates a small flash of light that blindsa target creature for 2 rounds. A blinded target suffers a 50% miss chance in combat as if its foes had total concealment. The target also moves at half speed, loses its positive Dexterity bonus to AC (if any), and suffers a —4 penalty on most Strength or Dexteritybased skills or checks. Any creature attacking the target gains a +2 bonus on attack rolls.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15754,7 +15754,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p><strong>Target/Effect:</strong> One creature</p>"
@@ -15834,7 +15834,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As stun, except this spell deals 5d10 points I of magic damage, and, if the save is failed, the target is stunned for 1 round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15873,7 +15873,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As regeneration, except this spell also grants the target a +2 attack bonus and damage shield (1), although the attack bonuses do not stack with those granted by spells of the wolf form line.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -15929,7 +15929,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: 30-ft. radius spread",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d6+1)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost spiral of Al’ Kabor, except this spell creates a spiral of magical force that deals (7d6+1)x2 points of magic damage.",
@@ -15951,7 +15951,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost spiral of Al’ Kabor, except this spell creates a spiral of magical force that deals (7d6+1)x2 points of magic damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -15968,7 +15968,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As force shock, except this spell deals (4d6)x10 points of magic damage.",
@@ -15990,7 +15990,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As force shock, except this spell deals (4d6)x10 points of magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16029,7 +16029,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target suffers a slow (6) effect, which imposes a —3 slow penalty to AC, loss of 2 attacks of opportunity per round, inability to make full-round attack actions, and the loss of 1 attack every second round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16263,7 +16263,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Ascourage, except this spell grants +3 AC and +85 hit points. Note that although this spell provides lesser bonuses than heroism, it persists twice as long. Frenzied Spirit Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -16343,7 +16343,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As reckless strength, except the initial buff bonus to Strength is +7 and the spell lasts for 3d4 minutes. Therefore, if a casting of this spell were to extend to the maximum duration of 12 minutes, the target would receive a —4 buff penalty to Strength during the final minute.</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -16401,7 +16401,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Long (400 ft. + 40 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+3)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost rift, except this spell has a longer range and casting time and deals (4d6+3)x10 points of cold damage.",
@@ -16423,7 +16423,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost rift, except this spell has a longer range and casting time and deals (4d6+3)x10 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16501,7 +16501,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A chilling shock of cold strikes one target within range, dealing 4d4 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16518,7 +16518,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of frost, except this spell deals (5d10)x2 points of cold damage.",
@@ -16540,7 +16540,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of frost, except this spell deals (5d10)x2 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16557,7 +16557,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: 20-ft.-radius spread",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "3d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "A swirling vortex of freezing cold roars outward from any point within range to a radius of 20 feet. All creatures within the spell’s area suffer 3d10 points of cold damage.",
@@ -16579,7 +16579,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A swirling vortex of freezing cold roars outward from any point within range to a radius of 20 feet. All creatures within the spell’s area suffer 3d10 points of cold damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16618,7 +16618,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cascade of hail, except that each wave deals (6d10)x2 points of cold damage and the area of effect is slightly larger.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16635,7 +16635,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "8d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost rift, except this spell deals 8d10 points of cold damage.",
@@ -16657,14 +16657,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost rift, except this spell deals 8d10 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
     }
   },
   {
-    "name": "Funeral Pyre of Ke Lador",
+    "name": "Funeral Pyre of Kelador",
     "type": "spell",
     "img": "",
     "system": {
@@ -16696,7 +16696,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As heat blood, except this spell deals 6d10 points of fire damage per round for 10 rounds.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16735,7 +16735,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strengthen, except this spell grants a +6 buff bonus to Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -16752,7 +16752,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "2d8",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "Asstrike, except this spell deals 2d8 points of magic damage.",
@@ -16774,7 +16774,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asstrike, except this spell deals 2d8 points of magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16830,7 +16830,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d10)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As whirling wind, except this spell deals (6d10)x2 points of magic damage and the target is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) A Medium-size or smaller creature must make a second Reflex save (DC 18) to avoid being knocked prone if it fails the first save. A flying creature that fails this save is instead blown back (1d6)x10 feet.",
@@ -16852,7 +16852,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As whirling wind, except this spell deals (6d10)x2 points of magic damage and the target is interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) A Medium-size or smaller creature must make a second Reflex save (DC 18) to avoid being knocked prone if it fails the first save. A flying creature that fails this save is instead blown back (1d6)x10 feet.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16891,7 +16891,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As poison storm, except that each wave deals 7d10 points of poison damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16908,7 +16908,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "3d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As lifetap, except this spells deals 3d10 points of disease damage (rather than magic damage) and transfers that amount C to the caster. Garrison’s Mighty",
@@ -16930,7 +16930,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lifetap, except this spells deals 3d10 points of disease damage (rather than magic damage) and transfers that amount C to the caster. Garrison’s Mighty</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16969,7 +16969,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A fine spray of charged magical energy assaults a single target within range, dealing 8d10 points of magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -16986,7 +16986,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(10d6)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As Garrison's mighty mana shock, except this spell deals (10d6)x 10 points of magic damage. 1",
@@ -17008,7 +17008,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As Garrison&#x27;s mighty mana shock, except this spell deals (10d6)x 10 points of magic damage. 1</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -17047,7 +17047,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asshallow breath, except this spell deals 6d6 points of magic damage immediately (Fort half), and an additional 2d6 points of magic damage each round (1d6 if the initial Fort save was successful) for the duration of the spell. The initial Fortitude save will also negate the additional effects of the spell: a -6 penalty to Strength and Dexterity.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -17213,7 +17213,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Like the spell gift of magic, except this spell adds 25 points to the target’s maximum mana pool. In addition, gift of brilliance adds a slight increase to mana recovery that will stack with the breeze line of spells. Mana recovery is increased by an additional 3 mana every 10 minutes.</p><p><strong>Target/Effect:</strong> One spellcaster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -17252,7 +17252,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Like the spell gift of magic, except this spell adds 17 points to the target’s maximum mana pool. In addition, gift of brilliance adds a slight increase to mana recovery that will stack with the breeze line of spells. Mana recovery is increased by an additional 2 mana every 10 minutes.</p><p><strong>Target/Effect:</strong> One spellcaster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -17291,7 +17291,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster infuses the target with magical energy. This spell increases the target’s mana pool maximum by +8. Note that the spell provides the potential for the target to have a maximum mana pool 8 points greater, but it does not also grant those mana points. The target gains any actual additional mana in the same manner as his other mana from his level, items, etc.</p><p><strong>Target/Effect:</strong> Any creature with a mana pool</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -17330,7 +17330,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Like the spell breeze, except mana recovery with this spell is at a rate of 1 mana/ minute. In addition, the spell affects up to six creatures of the caster’s choice within range.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -17447,7 +17447,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell temporarily makes the target much less threatening in appearance. For the duration of the spell, all opponents must succeed at a Will save (DC 24 + caster’s Intelligence modifier + caster’s Charisma modifier) to directly attack the target creature.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -17525,7 +17525,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As mesmerize, except that the duration is 1 round longer and the target suffers a —-4 insight penalty to the initial Will save.</p><p><strong>Target/Effect:</strong> 1 creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -17621,7 +17621,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d10 rounds (see text)",
+      "duration": "1d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -17646,7 +17646,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As root, except when this spell first affects the target it deals 1d10 points of magic damage, no save. Gravity Flux Alteration/Evocation [Magic]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -17687,7 +17687,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell causesa burst of magical energy that deals (5d10)x2 points of magic damage (Fort half) to those within its area of effect. Worse, gravity flux reverses gravity within the area of thespell, causing unattached objectsandcreatures to “fall” upward, reachinga height of 100 feet before plunging downward once again. If creatures strike a solid obstacle (likely a ceiling), they sufferthe same amount of damage as if they&#x27;d fallen the same distance, and they then fall downward again (see “Falling Damage” in Chapter 12: Combat). There is no save to avoid the falling damage, although the Safe Fall or Tumble skill may apply, nor will spell resistance or magic resistance overcome this aspect of gravity flux. If there is something heavy to grab onto, creatures within the area of reversed gravity can make a Reflex save against the spell’s save DC to secure themselves and keep from falling (although they are still affected fully by the change in gravity). Creatures that can fly or levitate can automatically keep themselves from fall- E ing with a similar Reflex save; in this case, however, a save is required each time the gravity changes direction, so two Reflex saves are required for such creatures to avoid the falling damage completely. Enchanters learn to cast this spell using powers of alteration, while wizards learn it</p><p><strong>Spell Resistance:</strong> Yes (see text)</p>"
@@ -17765,7 +17765,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the dragon circle in the Great Divide of Velious. Greater Conjuration: Air Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -18007,7 +18007,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals (8d10)x2 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -18485,7 +18485,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As endure magic, except the caster can affect up to six creatures within range who gain the benefits of a buff bonus of +5 to saves against magic, and magic resistance (22).</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -18524,7 +18524,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell allows the caster to increase the size of a target by one category (e.g., Medium-size to Large). No target may be increased to larger than Huge size, and each casting of the spell increases the target by only one size category. The saves against this spell may be treated as (harmless) for willing subjects. If the spell is to be used against an unwilling target, then</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -18565,7 +18565,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As holy armor, except this spell grants damage reduction 10/-.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -18604,7 +18604,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As scale skin, except this spell grants damage reduction 12/-.</p><p><strong>Target/Effect:</strong> One creature STROLE~</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -18928,7 +18928,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This multifunctional spell grants the tar- 24 get the ability to commune with his v= innermost self, so that he might gather his bo energy and enhance his abilities. The ee ; target gains a +10 buff bonus to Strength, eon] a +8 buff bonus to Dexterity, and a buff toa : bonus of +63 hit points.</p><p><strong>Target/Effect:</strong> One creature Pek! a</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19047,7 +19047,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell temporarily makes the target much more threatening in appearance. For the duration of the spell, all opponents must succeed at a Will save (DC 18 + caster’s Intelligence modifier + caster’s Charisma modifier) each I round for 2 rounds or attack the target creature to the exclusion of all others. An opponent will only strike at a target that he would attack under normal circumstances (i.e., the spell will not force someone to attack a friend, but only allows the caster of the spell to help choose the opponent&#x27;s target from among the opponent&#x27;s enemies).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19125,7 +19125,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell causes a thin layer of hazy air to build around the target. This does not obscure the target’s vision, nor does the haze hide the target; it does, however, grant the target damage resistance 2/-. The haze appears to swirl and fill in wherever an attack has managed to land.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19172,7 +19172,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals 6d10 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19211,7 +19211,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As word of health, except each of the targets is healed (2d10+4)x10 hit points of damage.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19252,7 +19252,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of bear, except this spell grants a , Se +6 buff bonus to Constitution.</p><p><strong>Target/Effect:</strong> One creature a</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19293,7 +19293,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>gates (see text) P The spell throws the target’s heartbeat = out of rhythm, immediately causing 2 a) points of temporary Strength and Consti- Feu tution damage (Fort negates); this damage red is recovered at the rate of 1 point per 4 », L455 hours. Further, the target takes 1d6 points bsooy of disease damage in the round the spell is &#x27; cast, as well as for the next 11 rounds Pad (damage is halved if the initial Fort save hee was successful).</p><p><strong>Target/Effect:</strong> One living being ey 4</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -19334,7 +19334,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell literally brings the blood flow- 9) ing in the target&#x27;s vein toward a boiling b point. Hence, itaffects living targets only. i) The target sustains 1d10 points of fire ‘t= damage on the round the spell is cast as be . well as an additional 1d10 fire damage at “e! the beginning of each round for the next e 2) 9 rounds. An initial Fortitude save will red half the damage sustained each round.</p><p><strong>Target/Effect:</strong> One living creature tox</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -19391,7 +19391,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(7d10)*2",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals only the caster's pet, curing (7d10)x2 hit points.",
       "recastTime": 0,
@@ -19412,7 +19412,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals only the caster&#x27;s pet, curing (7d10)x2 hit points.</p><p><strong>Target/Effect:</strong> Caster’s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19451,7 +19451,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As courage, except this spell affects up to six targets within range. Each target gains +4 AC and +100 hit points.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19490,7 +19490,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Ascourage, except this spell grants +4 AC and +100 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19611,7 +19611,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell temporarily makes the target much more threatening in appearance. For the duration of the spell, all opponents must succeed at a Will save (DC 24 + caster’s Intelligence modifier + caster’s Charisma modifier) every round for 3 rounds or attack the target creature to the exclusion of all others. An opponent will only strike at a target that he would attack under normal circumstances (i.e., the spell will not force someone to attack a friend, but only allows the caster of the spell to help choose the opponent&#x27;s target from among the opponent&#x27;s enemies).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -19650,7 +19650,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell targets only giants, creating a beam of magical energy that strikes at a giant&#x27;s nervous system, dealing (6d10)x10 points of damage. Spells such as those of the rune spell line will negate a portion of the damage as normal.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -19666,7 +19666,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d8 rounds (see text)",
+      "duration": "1d8 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -19689,7 +19689,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As root, except this spell affects only undead targets. If the target fails a Reflex save, then italso takes 6d6 points of magic damage when the spell takes effect.</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -19705,10 +19705,10 @@ export const SAMPLE_SPELLS = [
       "school": "Evocation [Cold]",
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "Instantaneous (see text)",
+      "duration": "Instantaneous (see",
       "damageFormula": "",
       "healFormula": "",
-      "savingThrow": "",
+      "savingThrow": "reflex",
       "effect": "A powerful blast of cold strikes a target within range, dealing (4d6)x10 points of cold damage (Reflex half). Additionally, ice reduces the target's ability to resist subsequent fire-based effects, although this component of the spell is negated with a successful Fortitude save, made independently of the Reflex save against ice’s cold damage. A failed Fortitude save grants a penalty of fire resistance (—20) and a —5 penalty on saves against effects with the |fire] descriptor. A resistance penalty can never reduce a target's resistance to less than (0).",
       "recastTime": 2,
       "classes": [
@@ -19726,9 +19726,9 @@ export const SAMPLE_SPELLS = [
       "sourcePage": "278",
       "verified": "Y",
       "notes": "",
-      "saveEffect": "",
+      "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A powerful blast of cold strikes a target within range, dealing (4d6)x10 points of cold damage (Reflex half). Additionally, ice reduces the target&#x27;s ability to resist subsequent fire-based effects, although this component of the spell is negated with a successful Fortitude save, made independently of the Reflex save against ice’s cold damage. A failed Fortitude save grants a penalty of fire resistance (—20) and a —5 penalty on saves against effects with the |fire] descriptor. A resistance penalty can never reduce a target&#x27;s resistance to less than (0).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -19784,7 +19784,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft,/level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d10+2)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of frost, except this spell deals (7d10+2)x2 points of cold damage.",
@@ -19806,7 +19806,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of frost, except this spell deals (7d10+2)x2 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -19823,7 +19823,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d10+4)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of frost, except this spell deals (4d10+4)x10 points of cold damage.",
@@ -19845,7 +19845,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of frost, except this spell deals (4d10+4)x10 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -19862,7 +19862,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+4)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost rift, except this spell deals (2d10+4)x10 points of cold damage. loentiry",
@@ -19884,7 +19884,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost rift, except this spell deals (2d10+4)x10 points of cold damage. loentiry</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -19962,7 +19962,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the dragon circle in the Iceclad Ocean of Velious.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -20063,7 +20063,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "3d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As burst of flame, except this spell deals 3d10 points of fire damage.",
@@ -20087,7 +20087,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burst of flame, except this spell deals 3d10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -20106,7 +20106,7 @@ export const SAMPLE_SPELLS = [
       "duration": "See text",
       "damageFormula": "",
       "healFormula": "",
-      "savingThrow": "",
+      "savingThrow": "fortitude",
       "effect": "This bizarre spell sends scorching fires of the underworld coursing through the target’s flesh, transforming him for 2 rounds into a skeletal form of himself and dealing (2d10)x10 points of fire damage (Fortitude half). If the Fortitude save fails, the target is also interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) There is no save to resist the transformation into a skeleton, although spell resistance does apply. While the target is in this skeletal form, it can be affected by any spells or other effects to which undead creatures are normally susceptible. ILlusion—Air }",
       "recastTime": 2,
       "classes": [
@@ -20124,9 +20124,9 @@ export const SAMPLE_SPELLS = [
       "sourcePage": "279",
       "verified": "Y",
       "notes": "",
-      "saveEffect": "",
+      "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This bizarre spell sends scorching fires of the underworld coursing through the target’s flesh, transforming him for 2 rounds into a skeletal form of himself and dealing (2d10)x10 points of fire damage (Fortitude half). If the Fortitude save fails, the target is also interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) There is no save to resist the transformation into a skeleton, although spell resistance does apply. While the target is in this skeletal form, it can be affected by any spells or other effects to which undead creatures are normally susceptible. ILlusion—Air }</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21000,7 +21000,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d10 rounds (see text)",
+      "duration": "1d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -21029,7 +21029,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As root, except this is much easier to cast than most other spells in the root line, so the caster gains a +2 bonus toany Channeling check when casting immobilize.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21107,7 +21107,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The spell imposes a -3 buff penalty to Strength on the caster and transfers the energy thus provided into a +3 buff bonus to Strength for the target of the spell. The caster cannot reduce his Strength score below 1 with this spell.</p><p><strong>Target/Effect:</strong> One creature.</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -21230,7 +21230,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As disempower, except the target suffers a —8 penalty to Strength and Dexterity and</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21310,7 +21310,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As disease cloud, except this airborne ailment attacks a number of beings within the specified area. Each creature takes 2d10 points of disease damage immediately (Fortitude half), and takes an additional 2 points of disease damage (or 1 point if the save was successful) for the next 20 rounds thereafter until the spell ends or the disease is halted or cured.</p><p><strong>Target/Effect:</strong> 15-ft.-radius spread</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21327,7 +21327,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Long (400 ft. + 40 ft./level) Area: 35-ft.-radius spread",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d10)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As fire spiral of Al’ Kabor, except range and area are increased and this spell deals (3d10)x10 points of fire damage.",
@@ -21349,7 +21349,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As fire spiral of Al’ Kabor, except range and area are increased and this spell deals (3d10)x10 points of fire damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21366,7 +21366,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d10)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of fire, except this spell deals (6d10)x2 points of fire damage.",
@@ -21388,7 +21388,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of fire, except this spell deals (6d10)x2 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21585,7 +21585,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target begins to shake and sweat from fever and becomes much more susceptible to further effects with the [disease] descriptor. The affected creature suffers a buff penalty of disease resistance (—14) and a —3 buff penalty to saves against disease.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21624,7 +21624,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asinsidious fever, except the affected creature suffers a buff penalty of disease resistance (—24) and a —6 buff penalty to saves against disease.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21663,7 +21663,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell inflicts a debilitating illness on the target, slowing his movement while inflicting damage. The target’s base speed is reduced by two-thirds (one-third with a successful Fort save), and he takes 2d8 points of disease damage on the round the spell is cast and in each of the next 12 rounds (1d8 if the initial Fort save is successful). The speed reduction will stack with that from spells of the clinging darkness spell line (and either will stack with the snare spell line), so a target with a base speed of 30 feet might have his speed cut by insidious retrogression to only 10 feet, and then again by clinging darkness, for a final speed of only just over 7 feet.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21702,7 +21702,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell is a boon to all spellcasters, for the target of the spell gains a +3 bonus to Intelligence and a +4 bonus to Wisdom for the spell’s duration. This spell may have the additional effect of increasing the size of a spellcaster&#x27;s maximum mana pool, but his current mana is not affected. The additional mana will have to be recovered in the normal fashion.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -21741,7 +21741,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As weaken, except this spell imposes a-8 buff penalty to Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21780,7 +21780,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As the spell fear, except this spell has a longer potential duration.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -21858,7 +21858,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As intellectual advancement, except this spell grants the target a +5 bonus toChanneling checks.</p><p><strong>Target/Effect:</strong> One spellcaster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -21913,7 +21913,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration/Evocation [Magic]",
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level) Area: 20-ft. radius around target",
-      "duration": "1 round (see text)",
+      "duration": "1 round (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "fortitude",
@@ -21936,7 +21936,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As gravity flux, except this spell has a slightly longer casting time and larger area of effect, the initial burst of magical energy deals (6d10)x2 points of magic damage, and the spell hurls affected creatures as high as 150 feet before dropping them again.</p><p><strong>Spell Resistance:</strong> Yes (see text)</p>"
@@ -21983,7 +21983,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell instantly restores energy to a tired target, with two effects based on the target&#x27;s condition at the time of casting: it either cancels the fatigued condition and cures 4d6 hit points of subdual damage, or restores the target from the exhausted to the fatigued condition.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -22249,7 +22249,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As the spell fear, but the deep terror of invoke fear causes the target to suffer a 4 morale penalty on attack rolls, saving J throws and weapon damage rolls.</p><p><strong>Target/Effect:</strong> One living creature, with 12 or less hit dice or levels.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22266,7 +22266,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "3d6",
+      "damageFormula": "2d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "This spell creates four clusters of electrical bolts that may target up to four separate creatures, each cluster dealing 2d10 points of electrical damage. Up to two clusters may target any one creature, but no more, regardless of the target’s size. This spell can only be cast outdoors under an open sky.",
@@ -22368,7 +22368,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Just as an animal shies away from fire, a target that fails its Will save steers clear of the caster of this spell if at all possible. For the spell’s duration, the target cannot attack the caster unless the caster is the only available opponent. At that time, the target is free to choose as it likes.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22385,7 +22385,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d10+2)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As strike, except this spell deals (3d10+2)x10 points of magic damage.",
@@ -22407,7 +22407,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strike, except this spell deals (3d10+2)x10 points of magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22423,7 +22423,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning)",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -22463,7 +22463,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: 10-ft. burst centered on caster.",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As project lightning, except this spell deals (2d10)x10 points of electrical damage (Ref half) and also will interrupt those who fail their Reflex save. (An interrupted creature loses one action and cannot cast spells in its next turn.)",
@@ -22485,7 +22485,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As project lightning, except this spell deals (2d10)x10 points of electrical damage (Ref half) and also will interrupt those who fail their Reflex save. (An interrupted creature loses one action and cannot cast spells in its next turn.)</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22502,7 +22502,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action 1",
       "range": "Personal Area: 15-ft. burst centered on you",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+4)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As fingers of fire, except this spell deals (2d10+4)x10 points of fire damage in a 15-ft. radius.",
@@ -22524,7 +22524,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As fingers of fire, except this spell deals (2d10+4)x10 points of fire damage in a 15-ft. radius.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22541,7 +22541,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal Area: 15-ft. burst centered on caster",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+3)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As numbing cold, except this spell deals (2d10+3)x10 points of cold damage to all within a 15-foot radius.",
@@ -22563,7 +22563,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As numbing cold, except this spell deals (2d10+3)x10 points of cold damage to all within a 15-foot radius.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22581,7 +22581,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "6d10",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals only the caster’s pet, curing 6d10 hit points. kKhura’s Focusing",
       "recastTime": 0,
@@ -22602,7 +22602,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals only the caster’s pet, curing 6d10 hit points. kKhura’s Focusing</p><p><strong>Target/Effect:</strong> Caster’s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -22641,7 +22641,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>less) r As harnessing of spirit, except this spell — grants each of up to six targets a +10 buff = bonus to Strength, a +9 buff bonus to eu Dexterity, and a buff bonus of +108 hit aed. points.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more ee : than 20 ft. apart sit</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -22696,7 +22696,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning)",
       "castingTime": "2 full rounds",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -22726,7 +22726,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Koabdic's Endless Intellect",
+    "name": "Koadic's Endless Intellect",
     "type": "spell",
     "img": "",
     "system": {
@@ -22758,7 +22758,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This unique spell actually belongs to three different spell lines, superseding the effects of any other spells of those lines when cast. As breeze, this spell increases a target’s mana recovery, adding 2 mana per minute to his mana pool. As gift of magic, this spell increases the target’s maximum mana pool, in this case by 42. Finally, as imsight, this spell grants a bonus to both Intelligence and Wisdom, but in this case the bonus is +4 to each ability. Koadic&#x27;s endless intellect affects up to six targets within range.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -22797,7 +22797,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The spell imposes slow (3) upon the targeted creature, causing it to move and attack at a slower pace, resulting ina-2 slow penalty to AC, the loss of 1 attack of opportunity every second round, and the inability to make full-round attack actions.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22836,7 +22836,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A shimmering ray springs forth from the caster’s hand to unerringly strike a target within range. The target is stunned for Id2 rounds and immediately loses 12 points of mana. For targets with multiple mana pools, this mana comes from the largest mana pool. Lost mana may be recovered normally.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22853,7 +22853,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Long (400 ft. + 40 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d10)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As flame bolt, except the casting time is longer and this spell deals (3d10)x10 points of fire damage.",
@@ -22875,7 +22875,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As flame bolt, except the casting time is longer and this spell deals (3d10)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22914,7 +22914,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As firestorm, except that each wave deals 7d10 points of fire damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -22969,7 +22969,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "30 minutes/level (see text)",
+      "duration": "30 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -23074,7 +23074,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shield of thistles, except this spell grants up to six creatures damage shield (5).</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -23113,7 +23113,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shield of thistles, except this spell grants up to six creatures damage shield (7).</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -23681,7 +23681,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As levitate, except the target of the spell may choose to either ascend or descend in a vertical line at the rate of 10 feet per round, and no material component is required to cast this spell.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -23697,7 +23697,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "(D) (see text)",
+      "duration": "(D) (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -23759,7 +23759,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Aslifetap, except this spells deals (7d10)x2 | points of magic damage and transfers that amount to the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -23776,7 +23776,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "6d6",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As lifetap, except this spells deals 6d6 points of magic damage and transfers that amount to the caster.",
@@ -23800,7 +23800,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lifetap, except this spells deals 6d6 points of magic damage and transfers that amount to the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -23847,7 +23847,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>By renewing vigor in the target, the caster cures 1d4 points of temporary ability damage (see “Ability Damage and Ability Drain” in Chapter 1 2: Combat). This spell will not affect or cure permanent ability drain, nor does it affect ability penalties imposed from a spell such as weaken.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -23864,7 +23864,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "1d10+1",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As lifetap, except this spells deals 1d10+1 points of magic damage and transfers that amount to the caster.",
@@ -23888,7 +23888,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lifetap, except this spells deals 1d10+1 points of magic damage and transfers that amount to the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -23905,7 +23905,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "This spell immediately transfers part of the target’s life force to the caster. The target takes 2 points of magic damage (only 1 point with a successful Fort save), which the caster immediately gains. This spell cannot raise the caster’s current hit point total past her normal maximum total. If the spell reduces the target to Ohit points, the target falls unconscious. It is possible to kill a target with this spell if the drain causes the victim to reach —10 hit points.",
@@ -23929,7 +23929,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell immediately transfers part of the target’s life force to the caster. The target takes 2 points of magic damage (only 1 point with a successful Fort save), which the caster immediately gains. This spell cannot raise the caster’s current hit point total past her normal maximum total. If the spell reduces the target to Ohit points, the target falls unconscious. It is possible to kill a target with this spell if the drain causes the victim to reach —10 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -23947,7 +23947,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "2d8+2",
+      "healFormula": "4d6",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals 4d6 hit points.",
       "recastTime": 0,
@@ -23993,7 +23993,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As invoke lighming, except each cluster deals (2d10)x10 points of electrical damage.",
@@ -24015,7 +24015,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As invoke lighming, except each cluster deals (2d10)x10 points of electrical damage.</p><p><strong>Target/Effect:</strong> Up to four creatures no two more than 15 ft. apart.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -24071,7 +24071,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(8d10+2)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of lighming, except this spell deals (8d10+2)x2 points of electrical damage.",
@@ -24093,7 +24093,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of lighming, except this spell deals (8d10+2)x2 points of electrical damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -24132,7 +24132,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A wave of lightning bolts rains down on the affected area each round, each wave dealing 5d10 points of electrical damage to anyone within the area. A Reflex save is allowed each round for half damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -24149,7 +24149,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As invoke lighming, except each cluster deals (5d10)x2 points of electrical damage.",
@@ -24171,7 +24171,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As invoke lighming, except each cluster deals (5d10)x2 points of electrical damage.</p><p><strong>Target/Effect:</strong> Up to four creatures no two more than 15 ft. apart.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -24298,7 +24298,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell soothes the target and partially hypnotizes it so it’s less aware of its surroundings or an impending threat. If the 1 target fails its saving throw, then for the duration of the spell, it is unaware of what happens more than 5 feet away from itself, including a melee against a nearby comrade. This spell does not work if the target is already involved in combat, and its effects end immediately if the target is attacked in any manner.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -24356,7 +24356,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6)*10",
       "healFormula": "",
       "savingThrow": "none",
       "effect": "As lure of frost, except this spell deals (4d6)x10 points of fire damage that cannot be resisted; creatures immune to fire take no damage.",
@@ -24378,7 +24378,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "attack",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lure of frost, except this spell deals (4d6)x10 points of fire damage that cannot be resisted; creatures immune to fire take no damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -24395,7 +24395,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6)*10",
       "healFormula": "",
       "savingThrow": "none",
       "effect": "This spell deals (4d6)x10 points of cold damage to any creature that is not completely immune to cold, with no save allowed. Further, spell resistance is ineffective against this spell. Creatures immune to cold take no damage.",
@@ -24417,7 +24417,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "attack",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell deals (4d6)x10 points of cold damage to any creature that is not completely immune to cold, with no save allowed. Further, spell resistance is ineffective against this spell. Creatures immune to cold take no damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -24434,7 +24434,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d6)*10",
       "healFormula": "",
       "savingThrow": "none",
       "effect": "As lure of frost, except this spell deals (5d6)x10 points of cold damage.",
@@ -24456,7 +24456,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "attack",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lure of frost, except this spell deals (5d6)x10 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -24473,7 +24473,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+1)*10",
       "healFormula": "",
       "savingThrow": "none",
       "effect": "As lure of frost, except this spell deals (4d6+1)x10 points of electrical damage that cannot be resisted; creatures immune",
@@ -24495,7 +24495,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "attack",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lure of frost, except this spell deals (4d6+1)x10 points of electrical damage that cannot be resisted; creatures immune</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -24659,7 +24659,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "",
       "saveDC": "",
-      "deliveryType": "save",
+      "deliveryType": "utility",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cavorting bones, except the caster summons a type 10 skeleton.</p><p><strong>Material Component:</strong> 2 finger-sized pieces of bone.</p><p><strong>Target/Effect:</strong> One summoned creature</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -24741,7 +24741,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As malise, except the target suffers a —4 save penalty and resistance (—16) against acid, cold, electricity, fire, magic, or poison effects, and a—2 save penalty to saves against sonic attacks, as well as sonic resistance (—8).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -24821,7 +24821,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As malise, except the target suffers a -6 save penalty and resistance (—24) against acid, cold, electricity, fire, magic, or poison effects, and a—3 save penalty to saves against sonic attacks, as well as sonic resistance (—12).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -24862,7 +24862,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As malise, except the target suffers a -6 save penalty and resistance (—24) against acid, cold, electricity, fire, magic, or poison effects, and a—3 save penalty to saves against sonic attacks, as well as sonic resistance (—12). This spell has a casting time of a free action, but if it’s to be cast a second time in the same round, an attack action is required for the second casting.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -24917,7 +24917,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "30 minutes/level (see text)",
+      "duration": "30 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -24956,7 +24956,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "1 day (see text)",
+      "duration": "1 day (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -25020,7 +25020,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As tears of Druzzil, except the casting time is slightly longer, and each wave deals (4d6+1)x10 points of cold damage and drains 8 mana from the mana pool (if any) of anyone within the area. A Fortitude save isallowed each round for half damage and half mana loss (one save for both effects). Magic resistance has no effect on the mana loss.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -25176,7 +25176,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell increases each target&#x27;s base attack bonus by +2. Unlike most effects that provide bonuses to a character&#x27;s attack rolls, mark of the predator (and other spells in this line) increase the target’s base attack bonus, soa recipient not only has a higher total attack bonus for attack rolls, but may also realize additional iterative attacks when making a full-attack action (see “Iterative Attacks” in Chapter 12: Combat and “Table 7—3: Delay and Iterative Attacks” in Chapter 7: Equipment). The normal limit of no more than five iterative attacks still applies.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -25193,7 +25193,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10+2)*2",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "As Tishan's clash, except this spell deals (5d10+2)x2 points of magic damage and stuns for 1d2 rounds ona failed Will save.",
@@ -25215,7 +25215,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As Tishan&#x27;s clash, except this spell deals (5d10+2)x2 points of magic damage and stuns for 1d2 rounds ona failed Will save.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -25254,7 +25254,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As Tishan&#x27;s clash, except this spell has a longer range, and it deals (4d6+3)x10 magic damage and stuns for |d2 rounds on a failed Will save.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -25293,7 +25293,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six willing targets to a location in the southwestern portion of the Emerald Jungle between the cliff rises toward the Field of Bone and the marshy region knownas Trakanon’s Teeth. This destination is not entirely safe.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -25309,7 +25309,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "30 minutes/level (see text)",
+      "duration": "30 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -25332,7 +25332,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As symbol of Transal, except this spell grants up to six targets (4d6+1)x10 bonus hit points.</p><p><strong>Material Component:</strong> 3 peridots.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -25410,7 +25410,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As memory blur, except this spell causes up to six targets of the caster’s choice to forget slights against them that have taken place within the past day per enchanter level of the caster.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -25449,7 +25449,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster causes a target’s memories of recent events to blur, becoming hazy and inconsistent enough that the target is unlikely to trust its own recollection. If the target fails a Will save, it forgets all slights and abuses committed against it within the past 1 hour per enchanter level of the caster. The spell does not prevent the target from reacting negatively to any future slights against it, nor does it guarantee change regarding a present circumstance (e.g., a hungry giant might forget that a human attacked him with magic spells, but he won&#x27;t forget that he’s hungry). A target affected by this spell in the midst of combat is considered flatflooted and must reroll initiative to determine the new count for its actions.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -25488,7 +25488,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As memory blur, except this spell is much more potent: the Will save DC is 24 + enchanter’s Int modifier + enchanter’s Cha modifier, and the target loses all memory of a number of days equal to the enchanter level of the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -25506,7 +25506,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "3d10",
       "savingThrow": "none",
       "effect": "This spell heals the caster's skeleton pet of 3d10 hit points of damage.",
       "recastTime": 1,
@@ -25566,7 +25566,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As vampiric embrace, except this effect has a Proc DC 21 and drains 5 mana from the target and transfers that amount to the caster.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -25605,7 +25605,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As mesmerize, except that the spell affects multiple creatures. Spells and effects that mesmerize individual creatures, such as dazzle, do not stack with fascination.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -25683,7 +25683,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As theft of thought, except this powerful spell drains up to 50 mana from the target&#x27;s mana pool (Will half) and then amplifies the mana stolen, transferring a like amount of mana to up to six other targets. For example, if a magician loses 50 mana to this spell, up to six other recipients may then gain 50 mana each; the stolen mana is not divided among them. If the initial target&#x27;s current mana pool is less than 50, then his entire pool is drained and the recipients gain only a like amount. This I mana transfer is possible even if the target is incapacitated, but not if the target is dead. A successful Will save means that only 25 mana (or half the target’s pool if currently lower than 50) are drained or gained. Note that the caster can include himself as one of the six recipients and thereby potentially regain half the mana expended to cast the spell.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -25935,7 +25935,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels) e'",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "1d8+1",
+      "healFormula": "1d10",
       "savingThrow": "will",
       "effect": "The caster channels divine energy to heal > the target of wounds and injuries, curing (-s 1d10 hit points. This spell may be cast as h a free action, but only once per round. le ~ castings of the spell within the same round require | attack action.",
       "recastTime": 0,
@@ -26220,7 +26220,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning)",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -26282,7 +26282,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As haze, except this spell grants damage reduction 4/—.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -26455,7 +26455,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d6+4)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost rift, except this spell has a longer casting time and deals (6d6+4)x10 points of cold damage.",
@@ -26477,7 +26477,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost rift, except this spell has a longer casting time and deals (6d6+4)x10 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -26493,7 +26493,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "24 hours (see text)",
+      "duration": "24 hours (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -26532,7 +26532,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 full round",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "10 minutes/level (see text)",
+      "duration": "10 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -26555,7 +26555,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As symbol of Transal, except this spell grants up to six targets (3d16+1)x10 bonus hit points.</p><p><strong>Material Component:</strong> A peridot.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -26633,7 +26633,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As firefist, except the duration is increased and the attack bonus is +2.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -26672,7 +26672,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As regeneration, except the target regains 2d6 hit points per round for 30 rounds.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -26750,7 +26750,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like wood, except this spell grants a +3 divine bonus to AC and a divine bonus of +100 hit points. In addition, the target regains lost hit points at the rate of 1 hit point per minute.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -26828,7 +26828,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the pyramid in the Nektulos Forest.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -26906,7 +26906,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of his choice within range to the Nexus on the moon of Luclin.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -26945,7 +26945,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As feet like cat, except this spell grants +3 bonuses.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -27023,7 +27023,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the wizard spires in North Karana.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -27109,7 +27109,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lull, except this spell affects undead only. piece of bone.</p><p><strong>Material Component:</strong> A finger-sized</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -27148,7 +27148,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A wave of numbing cold spreads out from the caster, dealing 1d6 points of cold damage to all creatures within a 10-foot radius. The caster is unharmed.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -27304,7 +27304,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As haze, except this spell grants damage reduction 7/— and has a longer duration than other spells of the same line.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -27382,7 +27382,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of snake, except this spell grants a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -27464,7 +27464,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As chloroplast, except this spell affects up to six targets.</p><p><strong>Target/Effect:</strong> Up to six targets, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -27503,7 +27503,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As regeneration, except this spell affects</p><p><strong>Target/Effect:</strong> Up to six targets, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -27581,7 +27581,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shadow compact, except this spell transfers 20 hit points per round for 4 rounds.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -27665,7 +27665,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As fear, except this spell affects only undead.</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -27681,7 +27681,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "3d10 rounds (see text)",
+      "duration": "3d10 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -27961,7 +27961,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: Cylinder (20-ft. radius, 40 ft. high)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "5d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As column of fire, except this spell deals 5d10 points of fire damage.",
@@ -27983,7 +27983,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As column of fire, except this spell deals 5d10 points of fire damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28000,7 +28000,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: Cylinder (20-ft. radius, 50 ft. high)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d10+2)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As pillar of fire, except the pillar is slightly higher and deals (3d10+2)x10 points of fire damage.",
@@ -28022,7 +28022,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As pillar of fire, except the pillar is slightly higher and deals (3d10+2)x10 points of fire damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28039,7 +28039,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: Cylinder (20-ft. radius, 40 ft. high)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d10)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As column of frost, except this spell deals (3d10)x10 points of cold damage.",
@@ -28061,7 +28061,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As column of frost, except this spell deals (3d10)x10 points of cold damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28078,7 +28078,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft,/level) Area: Cylinder (20-ft. radius, 40 ft. high)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d6)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "Ascolumn of lightning, except this spell deals (5d6)x10 points of electrical damage.",
@@ -28100,7 +28100,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Ascolumn of lightning, except this spell deals (5d6)x10 points of electrical damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28117,7 +28117,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "21 rounds",
-      "damageFormula": "1d8",
+      "damageFormula": "4d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As sicken, except that the affected creature immediately takes 4d10 points of disease damage (Fort half), and takes an additional 2d10 points of disease damage (1d10 if the initial save was successful) each round thereafter, until the spell ends",
@@ -28180,7 +28180,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A swarm of seemingly minute insects appears around the target and promptly burrows into the target’s flesh, quickly spreading a potent disease. The disease imposes a slow (3) effect that causes a —2 slow penalty to AC, the loss of 1 attack of opportunity every second round, and the inability to make full-round attack actions. While this slow effect is not as potent as the shaman’s magic-based ones she possesses at this level, there is a better chance of this spell affecting some opponents who might be highly magic resistant.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28258,7 +28258,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost storm, except as listed above.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28297,7 +28297,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target of this spell is afflicted with a virulent poison that eats away at the flesh. The target takes 1d6 poison damage immediately (Fort half), and takes an additional 1d4 points of poison damage (1d2 if the initial save was successful) each round thereafter, until the spell ends</p><p><strong>Target/Effect:</strong> Ray</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28336,7 +28336,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A wave of vile, toxic gas and liquid rains down on the affected area each round, each wave dealing 4d10 points of poison damage to anyone within the area. A Fortitude save is allowed each round for half damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28375,7 +28375,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell targets only dragons, creating a beam of magical energy that strikes at a dragon’s nervous system, dealing (6d10)x10 points of damage. Spells such as those of the rune spell line will negate a portion of the damage as normal.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -28461,7 +28461,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lifeforce, except this spell cures all temporary ability damage and also restores any permanent ability drain to any one ability score of the caster’s choice. In addition, this spell also cancels negative energy levels (see “Negative Levels” in Chapter 12: Combat) and restores 1 experience level lost due to a negative level becoming a permanent level loss. The spell will not restore levels lost due to death.</p><p><strong>Material Component:</strong> A black pearl.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -28500,7 +28500,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As sicken, except that the affected creature immediately takes 5d10 disease damage (Fort half), and takes an additional 3d10 disease damage (halved if the initial save was successful) each round thereafter, until the spell ends or is countered.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28539,7 +28539,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As avatar, except this spell is much rarer, as it does not require an emerald to be expended in the casting.</p><p><strong>Target/Effect:</strong> One humanoid</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -28656,7 +28656,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like diamond, except this spell</p><p><strong>Target/Effect:</strong> Up to six targets, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -28695,7 +28695,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like nature, except this spell affects</p><p><strong>Target/Effect:</strong> Up to six targets, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -28734,7 +28734,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like rock, except this spell affects</p><p><strong>Target/Effect:</strong> Up to six targets, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -28773,7 +28773,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like steel, except this spell affects</p><p><strong>Target/Effect:</strong> Up to six targets, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -28812,7 +28812,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like wood, except this spell grants up to six targets a +4 divine bonus to AC and a divine bonus of +112 hit points. The spell also speeds mana recovery, allowing the recovery of 1 mana per round for the duration of the spell.</p><p><strong>Target/Effect:</strong> Up to six targets, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -28851,7 +28851,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like wood, except this spell affects</p><p><strong>Target/Effect:</strong> Up to six targets, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -28890,7 +28890,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As heat blood, except this spell deals 3d10 points of fire damage per round for 18 rounds.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -28931,7 +28931,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell causes the target to move with supernatural speed while in combat, granting the target haste (4), which results ina 1 +2 haste bonus to AC and 1 extra attack action every second round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29048,7 +29048,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of snake, except this spell grants a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29167,7 +29167,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strengthen, except this spell grants a +5 buff bonus to Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29206,7 +29206,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Sharp blades of magical energy rain down in a wave over the affected area each round, each wave dealing 4d6 points of magic slashing damage to all within the area. A Reflex save is allowed each round for half damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -29245,7 +29245,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As firestorm, except that each wave deals 4d10 points of fire damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -29284,7 +29284,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As firestorm, except that each wave deals (5d10)x2 points of fire damage. sRainor Spikes</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -29323,7 +29323,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As rain of blades, except that this spell creates spikes of magical energy and each wave deals (5d10)x2 points of magic piercing damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -29362,7 +29362,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As rain of blades, except that this spell deals (7d10+2)x2 points of magic slashing damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -29401,7 +29401,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As berserker strength, except the target receives a +7 buff bonus to Strength and a —3 buff penalty to Armor Class. The spell also grants 22 temporary hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29440,7 +29440,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster creates a temporary magical bond that effectively allows him to transfer mana to a target. The target gains 20 mana. The unfortunate side effect of this spell is that mana transferred by the caster cannotbe recovered by virtually any means for a period of 12 hours; neither normal meditation nor spells that augment mana recovery, such as clarity, will replenish the caster’s mana pool. In fact, the only means of recovering at least a portion of the 30 mana expended in casting this spell is if a second necromancer casts rapacious subversion on the first caster. After the 12 hours have elapsed, the caster may recover his lost mana normally.</p><p><strong>Target/Effect:</strong> One spellcaster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29600,7 +29600,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell sends a surge of power through the target that temporarily though dramatically increases his Strength. However, this tires the target, which loses the Strength and fora period of time will have a penalty to Strength. On the round the spell is cast, the target gains a +5 buff bonus to Strength. This bonus decreases by 1 per minute thereafter, so that the buff bonus is +4 in the second minute, then I +3, and so on, and is actually a penalty of —3 during the final minute of the spell. Other spells in the strengthen spell line will not stack with this spell until this spell’s bonus becomes a buff penalty, and even then will only serve to offset penalties — for the final 3 minutes of this spell, the greatest bonus a target can have through spells of this line is +0.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29617,7 +29617,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+4)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As strike, except this spell deals (2d10+4)x10 points of magic damage.",
@@ -29639,7 +29639,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strike, except this spell deals (2d10+4)x10 points of magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -29762,7 +29762,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As memory blur, except one casting of this spell allows a chance for the target to be affected by memory blur up to four times over the next 4 rounds. In the round the spell is cast and at the end of each of the next 3 rounds, the target of this spell receives a Will save or it forgets slights made against it for the past hour per enchanter level of the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -29803,7 +29803,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>NODOOK he ayer. ay nnhook. rans x Tt: voce This spell grants the target the ability to heal wounds at an extraordinary rate. The target recovers 1 hit point at the beginning of every round, or 100 hit points total over the 10-minute duration of the spell. The target cannot have more hit points than his maximum, but the spell does not end if the target reaches his maximum hit points. If the target sustains more damage before the conclusion of the spell, then the fast healing effect continues.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29821,7 +29821,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "10 minutes",
       "damageFormula": "",
-      "healFormula": "2d4",
+      "healFormula": "",
       "savingThrow": "will",
       "effect": "As regeneration, except this spell grants fast healing (3).",
       "recastTime": 0,
@@ -29844,7 +29844,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "save",
+      "deliveryType": "utility",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As regeneration, except this spell grants fast healing (3).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29883,7 +29883,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As regrowth, except this spell affects up to six targets.</p><p><strong>Target/Effect:</strong> Up to six targets, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29940,7 +29940,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(3d6)*10",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals (3d6)x10 hit points.",
       "recastTime": 0,
@@ -29961,7 +29961,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals (3d6)x10 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -29978,7 +29978,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+3)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As force shock, except this spell has a slightly longer casting time and deals (4d6+3)x10 points of magic damage, and stuns the target for 1 round on a failed save.",
@@ -30000,7 +30000,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As force shock, except this spell has a slightly longer casting time and deals (4d6+3)x10 points of magic damage, and stuns the target for 1 round on a failed save.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -30018,7 +30018,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(5d10)*2",
       "savingThrow": "none",
       "effect": "As mend bones, except this spell heals (5d10)x2 hit points.",
       "recastTime": 1,
@@ -30057,7 +30057,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "3d10",
       "savingThrow": "none",
       "effect": "This spell heals the caster’s elemental pet of 3d10 hit points of damage.",
       "recastTime": 1,
@@ -30096,7 +30096,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(5d10+2)*2",
       "savingThrow": "none",
       "effect": "As renew elements, except this spell heals (5d10+2)x2 hit points.",
       "recastTime": 1,
@@ -30236,7 +30236,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As the spell fear, except this spell affects only animals, beasts and vermin.</p><p><strong>Target/Effect:</strong> One animal, beast or vermin</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -30281,7 +30281,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As resist cold, except this spell’s benefits apply against attacks, spells, or abilities with the [acid] descriptor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -30373,7 +30373,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As resist cold, except this spell’s benefits apply against attacks, spells, or abilities with the [disease] descriptor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -30418,7 +30418,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As resist cold, except this spell’s benefits apply against attacks, spells, or abilities with the [electricity] descriptor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -30463,7 +30463,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As resist cold, except this spell’s benefits apply against attacks, spells, or abilities with the [fire] descriptor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -30553,7 +30553,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As resist cold, except this spell’s benefits apply against attacks, spells, or abilities with the [poison] descriptor. Resist Sonic Abjuration Levels Clr 10, Dru 11, Enc 9, Shm 10 Spell Line: Endure cold Mana: 8 Components: V,S Casting Time: 1 action Recast: Instant Range: Close (25 ft. + 5 ft./2 levels) Target: One creature Duration: 10 minutes/level As resist cold, except this spell’s benefits apply against attacks, spells, or abilities with the [sonic] descriptor.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -30633,7 +30633,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As courage, except this spell grants +3 AC and +62 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -30674,7 +30674,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lull, except this spell affects undead only. of bone.</p><p><strong>Material Component:</strong> A finger-sized piece</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -30853,7 +30853,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+1)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As strike, except this spell deals (2d10+1)x10 points of magic damage.",
@@ -30875,7 +30875,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strike, except this spell deals (2d10+1)x10 points of magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -30892,7 +30892,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Long (400 ft. + 40 ft./level) Area: 40-ft.-radius spread",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d6+1)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost spiral of Al’Kabor, except range and area are increased and this spell deals (5d6+1)x10 points of cold damage.",
@@ -30914,7 +30914,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost spiral of Al’Kabor, except range and area are increased and this spell deals (5d6+1)x10 points of cold damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -31033,7 +31033,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target of this spell gains a damage shield (1) that works in conjunction with any other damage shield, though it works only outdoors in a natural environment. Whenever the target is struck by a foe, earth and stone spray from the ground and bruise the aggressor. In addition, the target receives a +2 bonus to Armor Class.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -31618,7 +31618,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of bear, except this spell grants a +8 buff bonus to Constitution. In addition, while this spell is active, the target can sustain any activity for twice as long as normal before becoming fatigued.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -31657,7 +31657,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As dextrous aura, except this spell grants a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -31735,7 +31735,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the sand-swept pyramid in the northern reachesof the Ro Desert.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -31774,7 +31774,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell imposes a —3 penalty to the target&#x27;s Armor Class and decreases the target’s ability to resist fire attacks. The target receives penalties as follows: fire saves —3 and fire resistance (—12). A resistance penalty can never reduce a target&#x27;s resistance to less than (0).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -31813,7 +31813,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell combines the effects of the spells of its spell line into one. The target receives the following penalties: a—6 penalty to Armor Class, fire saves —6, fire resistance (—28) and an attack penalty of —6. In addition, the target sustains fire damage. All of the penalties and the damage are halved with a successful Will save. Runel</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -31868,7 +31868,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d8 rounds (see text)",
+      "duration": "1d8 rounds (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "reflex",
@@ -31915,7 +31915,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "10 minutes/level (see text)",
+      "duration": "10 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -31938,7 +31938,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell grants the target a buff bonus of 6d6 temporary hit points. The target cannot heal lost temporary hit points. The spell ends at the conclusion of its duration or when all the temporary hit points have been removed due to damage. In addition, a target protected by an active spell of the I rune line cannot be affected by spells of the lifetap spell line. These buff temporary hit points do not stack with any other buff bonus hit points, such as those provided by spells of the shieldskin spell line.</p><p><strong>Material Component:</strong> A cat&#x27;s eye agate.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -31977,7 +31977,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As rune I, except this spell grants 7d10 temporary hit points.</p><p><strong>Material Component:</strong> A bloodstone.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -31993,7 +31993,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "30 minutes/level (see text)",
+      "duration": "30 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -32016,7 +32016,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asrune I, except this spell grants (6d10)x2 temporary hit points and has a longer duration.</p><p><strong>Material Component:</strong> A jasper.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -32032,7 +32032,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "30 minutes/level (see text)",
+      "duration": "30 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -32055,7 +32055,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As rune I, except this spell grants (8d10+2)x2 temporary hit points and has a longer duration.</p><p><strong>Material Component:</strong> A peridot.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -32071,7 +32071,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1 day (see text)",
+      "duration": "1 day (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -32094,7 +32094,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As rune I, except this spell grants (4d6+1)x10 temporary hit points and lasts one day.</p><p><strong>Material Component:</strong> A peridot.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -32133,7 +32133,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster speaks a word of power and stuns creatures within 15 feet of a point she indicates. Foes and friends (caster included) within range must make a Fortitude save (made at a —2 divine penalty) or be stunned for the duration of the spell and sustain 5d10+2 magic damage. Stunned creatures can’t act and lose any Dexterity bonuses to AC. Attackers gain</p><p><strong>Target/Effect:</strong> All creatures within a 15 ft. radius burst</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32289,7 +32289,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As chaotic feedback, except this spell deals 6d10 and its confusion effect lasts for 1d3 rounds.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32328,7 +32328,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>less) As feral spirit, except this spell grants a +8 buff bonus to Strength, a +3 bonus to Armor Class, and haste (8), which grants a +3 haste bonus to AC, alternating 1 or 2 extraattack actions every second round, and —1 weapon delay.</p><p><strong>Target/Effect:</strong> Caster’s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -32369,7 +32369,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of the wolf,exceptthe target of thisspell has its base speed increased by 66%. However, if the target either attacks or casts a spell, then scale of wolf immediately ends.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -32427,7 +32427,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Long (400 ft. + 40 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d6+1)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As flame bolt, except this spell deals (3d6+1)x10 points of fire damage.",
@@ -32449,7 +32449,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As flame bolt, except this spell deals (3d6+1)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32488,7 +32488,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As scent of dusk, except the target suffers a—3 penalty on saves against disease, fire, and poison attacks, as well as disease, fire, and poison resistance (—10).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32527,7 +32527,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As scent of dusk, except the target suffers a—2 penalty on saves against disease, fire, and poison attacks, as well as disease, fire, and poison resistance (—8).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32566,7 +32566,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target suffers a —1 penalty to saves against attacks or effects with the [disease], [fire] or [poison] descriptors. In addition, the target is suffers a penalty of disease, fire, and poison resistance (—4). A resistance penalty can never reduce a target&#x27;s resistance to less than (0).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32605,7 +32605,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As scent of dusk, except the target suffers a—4 penalty on saves against disease, fire, and poison attacks, as well as disease, fire, and poison resistance (—14).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32622,7 +32622,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal Area: 15-ft. burst centered on caster",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+3)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As fire flux, except this spell has a greater area and deals (2d10+3)x10 points of fire damage. Scirocco Evocation [Fire] ri POSES",
@@ -32644,7 +32644,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As fire flux, except this spell has a greater area and deals (2d10+3)x10 points of fire damage. Scirocco Evocation [Fire] ri POSES</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32683,7 +32683,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As firestorm, except waves of burning sand blast the affected area each round, dealing (4d6)x10 points of damage. Half of this damage is from impact and tearing sand, while the other half is heat and fire, so defenses that protect against only one of these resist only against half of the spell’s damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32722,7 +32722,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burst of flame, except this spell deals (4d6+1)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32763,7 +32763,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As sicken, except that the affected creature immediately takes 3d 10 disease damage (Fort half), and takes an additional 1d10 disease damage(halved if the initial save was successful) each round thereafter, until the spell ends or is countered.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32802,7 +32802,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As despair, except this spell transfers the target&#x27;s —1 attack penalty to the caster in the form of a +1 attack bonus. This bonus persists for the dutation of the spell, even if the target dies.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32880,7 +32880,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target suffers a —1 penalty to Armor Class, which is transferred to the caster in the form of a +1 bonus to Armor Class. This bonus persists for the duration of the spell, even if the target dies. :</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32919,7 +32919,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell has a similar effect to that of mesmerize. The spell pulls the target’s deepest fears from the recesses of its with sudden and overwhelming force. If the target fails a Will save (a normal save, not the more difficult one as per enchanter spells of this line), it is frozen with terror for 3 rounds. The target remains in its stupor until the spell expires, or until it takes damage as per mesmerize. The mental shock of facing these fears means the target is not allowed a saving throw to forget recent events if the spell runs its entire course. However, only the most recent 1 round/ level of the spellcaster is forgotten. Note that unlike other spells of this line, screaming terror is considrc ered a fear effect and not mind-affecting.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -32958,7 +32958,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As rapacious subversion, except the target gains 65 mana.</p><p><strong>Target/Effect:</strong> One spellcaster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -33022,7 +33022,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Long (400 ft. + 40 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d10+4)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As flame bolt, except this spell deals (3d10+4)x10 points of fire damage.",
@@ -33044,7 +33044,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As flame bolt, except this spell deals (3d10+4)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> Ray</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -33253,7 +33253,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As eternity&#x27;s torment, except this spell deals 1d8 points of magic damage each round for 16 rounds.</p><p><strong>Target/Effect:</strong> One undead</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -33374,7 +33374,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell imposes slow (4) on the target, causing it to suffer a —2 slow penalty to AC, the loss of 1 attack of opportunity every second round, the inability to make full-round attack actions, and the loss of 1 attack every third round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -33452,7 +33452,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell imposes slow (3) on the target, causing it to suffer a —2 slow penalty to AC, the loss of 1 attack of opportunity every second round, and the inability to make full-round attack actions. Sha’s Restoration Alteration (Healing)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -33470,7 +33470,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(7d6+2)*10",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals only the caster’s pet, curing (7d6+2)x10 hit points.",
       "recastTime": 0,
@@ -33491,7 +33491,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals only the caster’s pet, curing (7d6+2)x10 hit points.</p><p><strong>Target/Effect:</strong> Caster’s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -33530,7 +33530,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell imposes slow (3) on an undead target, causing it to suffer a—2 slow penalty to AC, the loss of 1 attack of opportunity every second round, and the inability to make full-round attack actions.</p><p><strong>Target/Effect:</strong> One undead ‘</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -33569,7 +33569,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell imposes slow (4) on an undead target, causing it to suffer a —2 slow penalty to AC, the loss of 1 attack of opportunity every second round, the inability to make full-round attack actions, and the loss of 1 attack every third round.</p><p><strong>Target/Effect:</strong> One undead</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -33608,7 +33608,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As obscure, except this spell grants damage reduction 9/-.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -33647,7 +33647,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As haze, except tendrils of darkness swirl around the target’s body and seem to move to intercept incoming attacks, granting damage reduction 10/-.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -33686,7 +33686,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As dark empathy, except this spell transfers 5 hit points per round for 5 rounds, starting on the round in which the spell is cast. This transfer is possible no matter the distance between the caster and target, as long as the target was within range of the spell when it was cast. No target can be affected by more than one pact of shadow Note that once this spell is cast it cannot be reversed, even if the target of the spell is killed or is otherwise unable to receive the hit points. Note too that the caster can die from the loss of hit points caused by this spell.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -33809,7 +33809,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell transfers a target&#x27;s —2 penalty to Armor Class to the caster, who gains a +2 bonus to Armor Class.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -33848,7 +33848,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shadow compact, except this spell transfers 30 hit points per round for 3 rounds.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -33864,7 +33864,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning)",
       "castingTime": "1 action c",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -33906,7 +33906,7 @@ export const SAMPLE_SPELLS = [
       "duration": "8 rounds",
       "damageFormula": "",
       "healFormula": "",
-      "savingThrow": "",
+      "savingThrow": "fortitude",
       "effect": "This spell constricts the target’s throat, dealing 1d4 points of magic damage (Fort half). Further, the target suffers a—2 penalty to Strength and Dexterity for 8 rounds; if the initial Fortitude save is successful, then these penalties are not applied.",
       "recastTime": 0,
       "classes": [
@@ -33924,9 +33924,9 @@ export const SAMPLE_SPELLS = [
       "sourcePage": "318",
       "verified": "Y",
       "notes": "",
-      "saveEffect": "",
+      "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell constricts the target’s throat, dealing 1d4 points of magic damage (Fort half). Further, the target suffers a—2 penalty to Strength and Dexterity for 8 rounds; if the initial Fortitude save is successful, then these penalties are not applied.</p><p><strong>Target/Effect:</strong> One living creature .</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -33983,7 +33983,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "4d6",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals only the caster’s pet, curing 4d6 hit points.",
       "recastTime": 0,
@@ -34004,7 +34004,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals only the caster’s pet, curing 4d6 hit points.</p><p><strong>Target/Effect:</strong> Caster’s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -34043,7 +34043,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shield of thistles, except this spell grants damage shield (3).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -34082,7 +34082,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shield of thistles, except this spell grants damage shield (38.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -34123,7 +34123,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shield of thistles, except this spell grants damage shield (4). &#x27;</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -34281,7 +34281,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shield of thistles, except this spell grants damage shield (5).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -34367,7 +34367,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Waxy leaves and prickly thorns emerge from thin air and form a protective layer around the target. Any creature making a successful attack on the target with either its body or a hand-held weapon deals normal damage; however, it also takes 2 points of damage from the shield of thistles. Creatures that attack witha reach weapon, such as a longspear, avoid the shield of thistles and risk no damage from it.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -34406,7 +34406,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shield of thistles, except this spell grants damage shield (6).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -34447,7 +34447,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As holy armor, except this spell grants damage reduction 16/-.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -34508,7 +34508,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "10 minutes/level (see text)",
+      "duration": "10 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -34617,7 +34617,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As bind sight, except this spell also grants the caster (not the host subject) infravision.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -34656,7 +34656,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target suffers a slow (5) effect, which imposes a —3 slow penalty to AC, the loss of 1 attack of opportunity per round, the inability to make full-round attack actions, and the loss of 1 attack every third round. Shockor Blades Conjuration (Summoning) [Magic]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -34712,7 +34712,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d6)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of blades, except this spell conjures flaming shards that deal (3d6)x10 points of fire damage and (3d6)x10 points of magic damage. Thus, a creature immune to either fire or magic still takes half damage (or one-quarter with a successful Reflex save).",
@@ -34734,7 +34734,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of blades, except this spell conjures flaming shards that deal (3d6)x10 points of fire damage and (3d6)x10 points of magic damage. Thus, a creature immune to either fire or magic still takes half damage (or one-quarter with a successful Reflex save).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -34773,7 +34773,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A gout of flame erupts in any 5-foot square the caster chooses within range, doing 3d6 points of fire damage to any creature in that space.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -34790,7 +34790,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "6d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As burn, except this spell deals 6d10 points of fire damage.",
@@ -34812,7 +34812,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burn, except this spell deals 6d10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -34851,7 +34851,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A chilling shock of cold strikes one target within range, dealing 1d6 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -34968,7 +34968,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This vicious spell literally conjures poison inside the body of the target of the spell, dealing 9d10 points of poison damage. Shockor Spikes Conjuration (Summoning) [Magic]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -34985,7 +34985,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of blades, except this spell produces a stream of pointed magical spikes that deal (5d10)x2 points of magic piereing damage. Shockor Steel Conjuration (Summoning) [Magic]",
@@ -35007,7 +35007,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of blades, except this spell produces a stream of pointed magical spikes that deal (5d10)x2 points of magic piereing damage. Shockor Steel Conjuration (Summoning) [Magic]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35024,7 +35024,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d6)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of blades, except the target takes (5d6)x 10 points of magic slashing damage. ShockorSworods Conjuration (Summoning) [Magic]",
@@ -35046,7 +35046,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of blades, except the target takes (5d6)x 10 points of magic slashing damage. ShockorSworods Conjuration (Summoning) [Magic]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35063,7 +35063,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10+3)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of blades, except this spell has a slightly longer casting time but deals (2d10+3)x10 points of magic slashing damage. ShockoFr the Tainted Conjuration (Summoning) [Poison]",
@@ -35085,7 +35085,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of blades, except this spell has a slightly longer casting time but deals (2d10+3)x10 points of magic slashing damage. ShockoFr the Tainted Conjuration (Summoning) [Poison]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35102,7 +35102,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "12d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As shock of poison, except the target takes 12d 10 points of poison damage.",
@@ -35124,7 +35124,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of poison, except the target takes 12d 10 points of poison damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35141,7 +35141,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: 25-ft. radius spread",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "7d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost spiral of Al'Kabor, except this spell creates a spiral of electricity that deals 7d10 points of electrical damage.",
@@ -35163,7 +35163,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost spiral of Al&#x27;Kabor, except this spell creates a spiral of electricity that deals 7d10 points of electrical damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35204,7 +35204,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell allows the caster to reduce the size of a target by one category (e.g., Large to Medium-size). No target may be reduced to smaller than Tiny size, and each casting of the spell only reduces the target by only one size category. The saves against this spell may be treated as (harmless) for willing subjects. If the spell is to be used against an unwilling target, then a touch attack is required.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35282,7 +35282,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As scream of hate, except the target&#x27;s —2 attack penalty grants the caster a +2 attack bonus.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35321,7 +35321,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As scream of pain, except the target&#x27;s —3 AC penalty grants the caster a +3 bonus</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35401,7 +35401,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target of this spell is weakened by a virulent disease that slowly eats away at the flesh. The target takes 1d10 points of disease damage immediately, and an additional 1 point of disease damage each round thereafter, until the spell ends or is dispelled.</p><p><strong>Target/Effect:</strong> One creature ~</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35479,7 +35479,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asbind sight, except this spell allows the caster to see through the eyes of his undead pet.</p><p><strong>Target/Effect:</strong> Caster’s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -35496,7 +35496,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "8d6",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As lifetap, except this spells deals 8d6 points of magic damage and transfers that amount to the caster.",
@@ -35520,7 +35520,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lifetap, except this spells deals 8d6 points of magic damage and transfers that amount to the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35641,7 +35641,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like wood, except this spell grants a +3 divine bonus to AC and a divine bonus of +50 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -35682,7 +35682,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like wood, except this spell grants a +3 divine bonus to AC and a divine bonus of +60 hit points. In addition, the target regains lost hit points at the rate of 1 hit point every 2 minutes.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -35723,7 +35723,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like wood, except this spell grants a +2 divine bonus to AC and a divine bonus of +18 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -35764,7 +35764,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As skin like wood, excépt this spell grants a +2 divine bonus to AC and a divine bonus of +26 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -35805,7 +35805,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Wherever exposed, the target’s skin appears to harden and crack, thickening, darkening, and drying, taking on the sturdiness of wood while maintaining the flexibility of flesh. This grants a +1 divine bonus to AC and a divine bonus of +3 hit points.</p><p><strong>Target/Effect:</strong> One creature</p>"
@@ -35861,7 +35861,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "5d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As strike, except this spell deals 5d10 points of magic damage.",
@@ -35883,7 +35883,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strike, except this spell deals 5d10 points of magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35967,7 +35967,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lull, except that the target suffers a penalty to the Will save equal to the caster’s Charisma modifier.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -35984,7 +35984,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10+2)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "Asstun, except thisspell deals (5d10+2)x2 points of magic damage, and, if the save is failed, the target is stunned for |d2 rounds.",
@@ -36006,7 +36006,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asstun, except thisspell deals (5d10+2)x2 points of magic damage, and, if the save is failed, the target is stunned for |d2 rounds.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -36084,7 +36084,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As augmentation, except this grants up to six targets haste (7),a +7 bonus to Dexterity, and a +6 insight bonus to Armor Class, and each target is instantly healed of all subdual damage at the beginning of every round. Sphere or Light Conjuration (Summoning) [Light]</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -36164,7 +36164,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As thistlecoat, except this spell grants +4 AC and damage shield (1).</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -36207,7 +36207,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As holy armor, except this spell grants damage reduction 7/-.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -36365,7 +36365,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As feet like cat, except this spell grants +2 bonuses.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -36445,7 +36445,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell grants the target the ability to fly at 160% of its base ground speed (e.g., a human druid who can run 120 feet in 1 round could now fly 192 feet in that same time). The target may not carry more than its maximum load while flying, and it has good maneuverability while in the air. Flying does not require concentration, so the creature may attack or otherwise take actions normally. Also, flying upwards is done at one-half the normal flight speed, and diving can be done at twice the normal speed (e.g., the human druid above could ascend at 96 feet per round or dive a distance of 384 feet in 1 round, although this kind of flight speed is sustainable only in short bursts, of course). In addition, the target of this spell gains the effects of the spells see invisible and ultravision. A creature under the effects of spirit of eagle does sense when the spell is about to end. It begins to feel heavier and sluggish about 1 minute prior to the end of the duration. If the target has not landed before the end of the spell’s duration, it will fall from its current height. Note that as this spell is part of two spell lines, it will supersede other spells from either or both of these lines. For instance, it is not possible to cast levitate on a creature while it currently has spirit of eagle in effect.</p><p><strong>Target/Effect:</strong> One creature &gt;a)</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -36798,7 +36798,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Spee eee a &gt;1 As dextrous aura, except this spell grants a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -36958,7 +36958,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As scale of wolf, except this spell affects up to six targets. Ifany target either attacks or casts a spell, then spirit of scale immediately ends, but only for that target. Others affected by the spell continue to benefit from the speed increase until the spell ends or they too attack or cast.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -37075,7 +37075,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell grants the target a +4 buff bonus to Charisma. Spirit or the Howler Conjuration (Summoning)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -37514,7 +37514,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strengthen, except this spell grants a +4 buff bonus to Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -37531,7 +37531,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "5d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost rift, except this spell deals 5d10 points of cold damage.",
@@ -37553,7 +37553,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost rift, except this spell deals 5d10 points of cold damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -37570,7 +37570,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "8d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As lifetap, except this spells deals 8d10 points of magic damage and transfers that amount to the caster.",
@@ -37594,7 +37594,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lifetap, except this spells deals 8d10 points of magic damage and transfers that amount to the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -37633,7 +37633,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As breeze, except the target recovers an additional 1 mana every 2 minutes.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -37672,7 +37672,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As harnessing of spirit, except the target gains a +10 buff bonus to Strength, a +8 buff bonus to Dexterity, and a buff bonus of +63 temporary hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -37951,7 +37951,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of bear, except this spell grants a</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -37968,7 +37968,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft:/level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As burst of flame, except this spell has a longer casting time and deals (4d6)x10 points of fire damage. Starshine Conjuration (Summoning) [Light]",
@@ -37990,7 +37990,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burst of flame, except this spell has a longer casting time and deals (4d6)x10 points of fire damage. Starshine Conjuration (Summoning) [Light]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -38045,7 +38045,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Personal",
-      "duration": "30 minutes/level (see text)",
+      "duration": "30 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -38088,8 +38088,8 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning) [Magic]",
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1] rounds",
-      "damageFormula": "1d4",
+      "duration": "11 rounds",
+      "damageFormula": "1d6",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "This spell calls forth a swarm of what appear to be stinging insects that envelops and harasses an opponent. These insects are really magical wisps of energy that inflict 1d6 points of magic damage on the target immediately (Ref half), and then an additional 1d6 points of magic damage (1d3 if the initial save was successful) each round for the next 10 rounds.",
@@ -38154,7 +38154,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strength of earth, except this spell grants a +9 buff bonus to Strength if the target is in contact with the earth and outdoors; otherwise, it grants a +4 buff bonus to Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -38193,7 +38193,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strengthen, except this spell grants a +10 buff bonus to Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -38273,7 +38273,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As firefist, except this is a spell may target another creature, granting a +3 attack bonus and 18 bonus hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -38314,7 +38314,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strength of earth, except this spell grants a +7 buff bonus to Strength if the target is in contact with the earth and outdoors; otherwise, it grants a +3 buff bonus to Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -38357,7 +38357,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target of this spell gains a +3 buff bonus to Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -38435,7 +38435,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A blast of magical force strikes a single target within range, dealing 1d8 points of magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -38554,7 +38554,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster speaks a powerful imprecation that stuns all within a 15-foot radius. All creatures within the area (caster included) must make a Fortitude save, with a —6 divine penalty to the save, or be stunned for 2 rounds. Stunned creatures can&#x27;t act and lose any positive Dexterity modifiers to AC. Attackers gain a +2 bonus to attack a stunned creature. Succession oF Shadows</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -38593,7 +38593,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell imposes a —3 penalty to Armor Class on an initial target, and then each of up to six secondary targets gains a +3 bonus to Armor Class. A successful Will save means the target suffers only a —1 penalty, which results in only a +1 AC bonus for the secondary target(s).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -38671,7 +38671,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This relatively quick spell is an excellent means of saving lives, allowing the caster to simultaneously teleport a number of creatures to safety. A druid may teleport up to six willing creatures tothedruidringinthe — , Butcher Block Mountains. ,</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -38710,7 +38710,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This relatively quick spell is an excellent means of saving lives, allowing the caster to simultaneously teleport a number of creatures to safety. A druid may teleport up to six willing creatures tothedruidringinthe — , eastern portion of the Plains of Karana. &#x27;</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -38749,7 +38749,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This relatively quick spell is an excellent means of saving lives, allowing the caster creatures to safety. A druid may teleport up to six willing creatures to the druid ring in the Lavastorm Mountains.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -38788,7 +38788,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This relatively quick spell is an excellent means of saving lives, allowing the caster creatures to safety. A druid may teleport up to six willing creatures to the druid ring in the northern Plains of Karana.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -38827,7 +38827,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This relatively quick spell is an excellent means of saving lives, allowing the caster to simultaneously teleport a number of creatures to safety. A druid may teleport up to six willing creatures to the druid ring in the southern portion of the Ro Desert.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -38866,7 +38866,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shallow breath, except this spell deals 4d10 points of magic damage immediately (Fort half), and an additional 1d10 points of magic damage each round (halved if the initial Fort save was successful) for the duration of the spell. The initial Fortitude save will also negate the additional effects of the spell: a—5 penalty to Strength and Dexterity.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -38905,7 +38905,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shallow breath, except this spell deals 1d8 points of magic damage immediately (Fort half), and an additional 1d8 points of magic damage each round (halved if the initial Fort save was successful) for the duration of the spell. The initial Fortitude save will also negate the additional effects of the spell: a —2 penalty to Strength and Dexterity.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -39945,7 +39945,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As flash of light, except this spell calls down a ray of bright light from the sky, temporarily blinding anyone caught in the area thus created. The blindness casued by this spell lasts for 3 rounds. This spell can only be cast outdoors.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -40001,7 +40001,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10+1)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of fire, except this spell deals (5d10+1)x10 points of fire damage.",
@@ -40023,7 +40023,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of fire, except this spell deals (5d10+1)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -40082,7 +40082,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(4d6)*10",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals (4d6)x10 hit points.",
       "recastTime": 0,
@@ -40109,7 +40109,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals (4d6)x10 hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40126,7 +40126,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Personal Area: Semicircular burst of flames 10 ft. long, centered on caster’s hand",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d6)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As fingers of fire, except this spell has a longer casting time and deals (5d6)x10 points of fire damage.",
@@ -40148,7 +40148,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As fingers of fire, except this spell has a longer casting time and deals (5d6)x10 points of fire damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -40187,7 +40187,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As wave of enfeeblement, except this spell imposes a —6 buff penalty to Strength to all creatures within the area of effect.</p><p><strong>Target/Effect:</strong> All creatures within range, except the caster</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -40226,7 +40226,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell grants haste (7) to the target, granting a +3 haste bonus to AC and alternating | or 2 extraattack actions every second round. |</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40281,7 +40281,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action 1",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "30 minutes/level (see text)",
+      "duration": "30 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -40304,7 +40304,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As symbol of Transal, except this spell grants (4d6+1)x10 bonus hit points.</p><p><strong>Material Component:</strong> A peridot.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40320,7 +40320,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "30 minutes/level (see text)",
+      "duration": "30 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -40345,7 +40345,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As symbol of Transal, except this spell grants (2d10+1)x10 bonus hit points.</p><p><strong>Material Component:</strong> A peridot.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40361,7 +40361,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "10 minutes/level (see text)",
+      "duration": "10 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -40386,7 +40386,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As symbol of Transal, except this spell grants (7d10)x2 bonus hit points.</p><p><strong>Material Component:</strong> A jasper.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40402,7 +40402,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "10 minutes/level (see text)",
+      "duration": "10 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -40427,7 +40427,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As symbol of Transal, except this spell grants (7d6+1)x2 bonus hit points.</p><p><strong>Material Component:</strong> A bloodstone.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40443,7 +40443,7 @@ export const SAMPLE_SPELLS = [
       "school": "Abjuration",
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "10 minutes/level (see text)",
+      "duration": "10 minutes/level (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -40507,7 +40507,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of snake.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40546,7 +40546,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A swarm of insects rises up and harasses the target, causing a distraction that imposes a slow (4) effect, which applies a —2 slow penalty to AC, the loss of 1 attack of opportunity every second round, the inability to make full-round attack actions, and the loss of 1 attack every third round. Tainted Breath Conjuration (Summoning) [Poison]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -40587,7 +40587,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As poison bolt, except the target takes 1d10 poison damage immediately (Fort half), then takes an additional 1d8 points of poison damage (1d4 if the initial save was successful) per round until the spell</p><p><strong>Target/Effect:</strong> Ray</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -40628,7 +40628,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As talisman of Tnarg, except the target gains 62 bonus hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40667,7 +40667,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>less) As endure cold, except this spell grants up to six targets a +5 bonus to saves against effects with the [disease] descriptor and also grants a buff bonus of disease resistance (22).</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40745,7 +40745,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As talisman of Tnarg, except the target gains 95 bonus hit points.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40784,7 +40784,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As dextrous aura, except this spell grants a +9 buff bonus to Dexterity to up to six targets within range.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40823,7 +40823,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As endure cold, except this spell grants up to six targets a +4 bonus to saves against effects with the [poison] descriptor and also grants a buff bonus of poison resistance (18).</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40862,7 +40862,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strengthen, except this spell grants up tosix targets a buff bonus of +3 to Strength.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40901,7 +40901,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As the spell spirit of bear, except this spell grants a +8 buff bonus to Constitution for up to six targets within range.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40940,7 +40940,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As feet like cat, except this spell grants +5 bonuses to up to six targets.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -40997,7 +40997,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. +5 ft./level)",
       "duration": "30 minutes/level",
       "damageFormula": "",
-      "healFormula": "5d8+15",
+      "healFormula": "",
       "savingThrow": "will",
       "effect": "This potent spell allows the shaman to trace a mystical symbol in the air in the direction of his target. That creature gains 37 bonus hit points for the duration of the spell.",
       "recastTime": 0,
@@ -41018,7 +41018,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "save",
+      "deliveryType": "utility",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This potent spell allows the shaman to trace a mystical symbol in the air in the direction of his target. That creature gains 37 bonus hit points for the duration of the spell.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -41057,7 +41057,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As snare, except this spell reduces the target&#x27;s speed by only one-quarter, but may be cast as a free action.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41291,7 +41291,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A wave of magical energy rains down on the affected area each round, each wave dealing (2d10+3)x10 points of magic damage to anyone within the area. A Fortitude save is allowed each round for half damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41330,7 +41330,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As cascade of hail, except the area of effect is slightly larger, and each wave deals (4d6+1)x10 points of cold damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41369,7 +41369,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asfirestorm, except that the range is longer and each wave deals (2d10+4)x10 points of fire damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41447,7 +41447,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As the spell fear, except this spell affects only animals, beasts, and vermin.</p><p><strong>Target/Effect:</strong> One animal, beast, or vermin</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41486,7 +41486,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "varies",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster speaks a word of incredible power, and all enemies within 15 feet of a point she indicates must make three separate Fortitude saving throws. Allies of the caster are not affected by this spell, even if they are within the area of effect. The first saving throw determines whether or not the target is blinded for 1 round. The second save determines whether or not the target has been interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) The third save is against (4d6)x10 points of magic damage; if successful, the target takes only half damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41525,7 +41525,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell drains mana from the target spellcaster’s pool and adds it to the caster&#x27;s. The target loses 67 mana and the caster instantly gains a like amount. If the target&#x27;s mana pool is currently smaller than 67, then the entire pool is drained and transferred to the caster. This mana transfer is possible even if the target is incapacitated, but not if the target is dead.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41566,7 +41566,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell toughens the caster’s skin, which grows a coat of thorny barbs that break away and pierce attackers. The caster gains a +1 natural armor bonus to AC and damage shield (1). The damage shield component of the thistlecoat spell line stacks with all other damage shields, including those of the druid spell line shield of thistles.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -41607,7 +41607,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As thistlecoat, except this spell grants +5 AC and damage shield (2).</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -41623,7 +41623,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration",
       "castingTime": "1 full round",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "1d8 rounds or 8d1 0 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d1 0 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -41646,7 +41646,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only undead of CR 26 or less, and the spell is not considered mind-affecting, for the control over the undead comes through necromantic magic, not a compulsion.</p><p><strong>Target/Effect:</strong> One creature of less than CR 27 Bee eee AN</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41724,7 +41724,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As force shock, except this spell deals (6d10+3)x2 magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41741,7 +41741,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level) Area: Cylinder (20-ft. radius, 40 ft. high)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As column of lighming, except this spell deals (4d6)x10 points of electrical damage. Further, those who fail the initial Reflex save are also interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.)",
@@ -41763,7 +41763,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As column of lighming, except this spell deals (4d6)x10 points of electrical damage. Further, those who fail the initial Reflex save are also interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.)</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41780,7 +41780,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal Area: 10-ft. burst centered on caster",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d10)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As project lightning, except this spell deals (6d10)x2 points of electrical damage. Further, those who fail the initial Reflex save are also interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.)",
@@ -41802,7 +41802,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As project lightning, except this spell deals (6d10)x2 points of electrical damage. Further, those who fail the initial Reflex save are also interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.)</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41841,7 +41841,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The spell causes thick clouds of insects to rise up and swarm around up to six creatures that the caster indicates. No two targets may be more than 20 ft. apart. Those that fail a Will saving throw are all so distracted by the swarming bugs that they suffer slow (4), which imposes a —2 slow penalty to AC, the loss of 1 attack of opportunity every second round, the inability to make full-round attack actions, and the loss of 1 attack every third round.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41919,7 +41919,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As Tishan&#x27;s clash, except this spell has a longer range, and it deals (6d10+3)x2 magic damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -41958,7 +41958,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six willing creatures to a location within the Skyfire Mountains near a pass to the Burning Woods. This destination is not entirely safe.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -41997,7 +41997,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The spell summons magical insects that sting and bite the target, and greatly slows its speed in combat, imposing slow (5), which results in a —3 slow penalty to AC, the loss of 1 attack of opportunity per round, the inability to make full-round attack actions, and the loss of 1 attack every third round. Sat) Ween ye eae Torba’s Acid Blast Conjuration (Summoning) [Acid]</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -42036,7 +42036,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A great gout of acid spews in a stream toward asingle target, dealing (5d10+2)x2 points of acid damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -42114,7 +42114,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As regeneration, except the target regains (7d10)x2 hit points per round for 4 rounds. However, during those 4 rounds, the target suffers a slow (3) effect anda one-third reduction in speed. In addition, if the target is a spellcaster, he loses 8 mana; if the target has fewer than 8 mana remaining, then his mana pool is reduced to 0. This mana may be recovered normally.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -42153,7 +42153,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell literally sucks the vitality out of the target and transfers it to up to six q secondary targets who must be within 20 feet of the caster. The target becomes fatigued (he suffers a —2 penalty to both Strength and Dexterity and may not run or charge). Each of up to six secondary targets then gains a +4 bonus to Strength and a +4 bonus to Constitution. These bonuses persist for the duration of the spell, even if the initial target dies.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -42192,7 +42192,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As despair, except this spell transfers the target&#x27;s —3 attack penalty to up to six whom thus gains a +3 attack bonus.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -42231,7 +42231,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell transfers a target&#x27;s —4 penalty to Armor Class to up to six targets within 20 feet of the caster, each of whom thus gains</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -42270,7 +42270,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As poison storm, except the casting time is slightly longer and each wave deals (3d6+3)x10 points of poison damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -42287,7 +42287,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+2)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As lifetap, except this spells deals (4d6+2)x10 points of magic damage and transfers that amount to the caster.",
@@ -42309,7 +42309,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lifetap, except this spells deals (4d6+2)x10 points of magic damage and transfers that amount to the caster.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -42387,7 +42387,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the wizard spires in the Toxxulia Forest.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -42990,7 +42990,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(2d10+3)*10",
       "savingThrow": "none",
       "effect": "As renew elements, except this spell heals (2d10+3)x10 hit points.",
       "recastTime": 1,
@@ -43029,7 +43029,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(5d6+1)*10",
       "savingThrow": "none",
       "effect": "As renew elements, except this spell heals (5d6+1)x10 hit points.",
       "recastTime": 1,
@@ -43147,7 +43147,7 @@ export const SAMPLE_SPELLS = [
       "duration": "1 round",
       "damageFormula": "",
       "healFormula": "",
-      "savingThrow": "",
+      "savingThrow": "reflex",
       "effect": "This spell causes an brief, powerful tremor to shake the area for 1 round. The tremor knocks down creatures, collapses structures, opens cracks in the ground, and so forth. During the round in which the tremor lasts, creatures cannot move or attack. Spellcasters touching the ground must make Channeling checks (DC 20 + spell level) to avoid losing any spells they attempt to cast or are currently casting. The tremor affects all terrain types, structures, and creatures within the area as follows: Caves and Tunnels: Ceilings and walls collapse, dealing 8d6 points of damage to any creature caught in the cave-in (Reflex half DC 15). A tremor cast in part of a large cavern may bring about the collapse of a larger area, resulting in some damage outside the area of the spell (at the GM's discretion). Cliffs: Rock-faces crumble, creating a landslide that extends as far horizontally as it falls vertically. Thus a tremor that strikes a 100-foot cliff causes a landslide that extends 100 feet down and 100 feet out from the cliff-face. Creatures caught in its path suffer 8d6 points of damage (Reflex half DC 15). Open Ground: All creatures must make Reflex saves (DC 15) or fall down. Cracks and fissures open in the ground, and every creature has a 25% chance to have one pen under it (Reflex DC 20 to avoid falling). At the end of the spell all fissures grind shut, instantly killing the creatures trapped inside. Structures: Structures standing in the affected area collapse, dealing 8d6 points of damage to any creatures caught inside them (Reflex half DC 15). River, Lake or Marsh: Fissures open underwater, draining away the water and leaving muddy ground. Marsh or swampland effectively becomes quicksand for the duration of the spell, drawing down creatures and structures (Reflex DC 15 to avoid being drawn down into the mud). When the spell ends, the water (if any remains) rushes in, potentially drowning trapped creatures.",
       "recastTime": 2,
       "classes": [
@@ -43167,9 +43167,9 @@ export const SAMPLE_SPELLS = [
       "sourcePage": "343",
       "verified": "Y",
       "notes": "",
-      "saveEffect": "",
+      "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell causes an brief, powerful tremor to shake the area for 1 round. The tremor knocks down creatures, collapses structures, opens cracks in the ground, and so forth. During the round in which the tremor lasts, creatures cannot move or attack. Spellcasters touching the ground must make Channeling checks (DC 20 + spell level) to avoid losing any spells they attempt to cast or are currently casting. The tremor affects all terrain types, structures, and creatures within the area as follows: Caves and Tunnels: Ceilings and walls collapse, dealing 8d6 points of damage to any creature caught in the cave-in (Reflex half DC 15). A tremor cast in part of a large cavern may bring about the collapse of a larger area, resulting in some damage outside the area of the spell (at the GM&#x27;s discretion). Cliffs: Rock-faces crumble, creating a landslide that extends as far horizontally as it falls vertically. Thus a tremor that strikes a 100-foot cliff causes a landslide that extends 100 feet down and 100 feet out from the cliff-face. Creatures caught in its path suffer 8d6 points of damage (Reflex half DC 15). Open Ground: All creatures must make Reflex saves (DC 15) or fall down. Cracks and fissures open in the ground, and every creature has a 25% chance to have one pen under it (Reflex DC 20 to avoid falling). At the end of the spell all fissures grind shut, instantly killing the creatures trapped inside. Structures: Structures standing in the affected area collapse, dealing 8d6 points of damage to any creatures caught inside them (Reflex half DC 15). River, Lake or Marsh: Fissures open underwater, draining away the water and leaving muddy ground. Marsh or swampland effectively becomes quicksand for the duration of the spell, drawing down creatures and structures (Reflex DC 15 to avoid being drawn down into the mud). When the spell ends, the water (if any remains) rushes in, potentially drowning trapped creatures.</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -43212,7 +43212,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As fear, but the target suffers a —6 morale penalty to attack and damage rolls.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -43251,7 +43251,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As boon of the garou, except the target for all intents and purposes becomes an imp (see EverQuest: Monsters of Norrath).</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -43376,7 +43376,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strengthen, except this spell grants up to six targets a +6 buff bonus to Strength.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -43392,7 +43392,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration [Mind-Affecting]",
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level)",
-      "duration": "1d8 rounds or 8d10 rounds (see text) text)",
+      "duration": "1d8 rounds or 8d10 rounds (see text)",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
@@ -43415,7 +43415,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As charm, except this spell can affect only animals, beasts, or vermin of CR 17 or less. However, whenever the spell breaks and no matter the circumstances of the spell ending (e.g., the caster attacked the target), the target will under no circumstances attack the caster of the spell and will instead generally wander away. If the caster attacks the target after the spell has worn off, then the target will again react normally, but will otherwise take no aggressive actions toward the caster.</p><p><strong>Target/Effect:</strong> One creature of less than CR 18</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -43432,7 +43432,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "1 minute/level",
-      "damageFormula": "1d4",
+      "damageFormula": "",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "A swarm of bugs rises up and surrounds the target, causing a distraction that imposes slow (6), ora—3 slow penalty to AC, loss of 2 attacks of opportunity per round, inability to make full-round attack actions, and the loss of 1 attack every second round.",
@@ -43493,7 +43493,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell causesadivine lighttosettleontoan undead creature within range, dealing 2d6 points of magic damage per round for 16 rounds (1d6 if the initial Will save is successful), after which time the light fades away.</p><p><strong>Target/Effect:</strong> One undead creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -43550,7 +43550,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning)",
       "castingTime": "2 full rounds",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -43655,7 +43655,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As obscure, except this spell grants damage reduction 13/-.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -43694,7 +43694,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As spirit of snake, except this spell grants +9 to Charisma.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -43910,7 +43910,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "9 rounds",
-      "damageFormula": "2d8",
+      "damageFormula": "1d12",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As leach, except this spell transfers 1d12 hit points per round.",
@@ -44031,7 +44031,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "| action",
       "range": "Long (400 ft. + 40 ft./level) Area: 50-ft. radius spread",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(3d10+2)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As force spiral of Al’ Kabor, except this spell has a larger area and deals (3d10+2)x10 points of magic damage. Further, any creature that takes damage from this spell is stunned for | round (no save).",
@@ -44053,7 +44053,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As force spiral of Al’ Kabor, except this spell has a larger area and deals (3d10+2)x10 points of magic damage. Further, any creature that takes damage from this spell is stunned for | round (no save).</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -44096,7 +44096,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As poison bolt, except the target takes 3d10 points of poison damage immediately (Fort half), then takes an additional 3d10 points of poison damage (halved if the initial save was successful) per round until the spell ends or is dispelled.</p><p><strong>Target/Effect:</strong> Ray</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -44135,7 +44135,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As leach, except this spell transfers 4d10 hit points per round.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -44192,7 +44192,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(5d6+1)*10",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals only the caster’s pet, curing (5d6+1)x10 hit points.",
       "recastTime": 0,
@@ -44213,7 +44213,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals only the caster’s pet, curing (5d6+1)x10 hit points.</p><p><strong>Target/Effect:</strong> Caster&#x27;s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -44252,7 +44252,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As bind sight, except this spell also grants the target (not the host subject) ultravision, as well as a +2 bonus on all Spot checks. For every round the spell remainsactive, the target suffers 1d6 points of damage. The caster may not target himself with this spell.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -44291,7 +44291,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As augmentation, except this spell provides haste (7), a +7 bonus to Dexterity, a +6 bonus to Armor Class and a +2 bonus to attack rolls.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -44486,7 +44486,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As sight graft, except this spell allows the caster to speak through her pet. It’s not necessary for the pet to be able to physically form the appropriate sounds, as the sound is transferred magically.</p><p><strong>Target/Effect:</strong> Caster’s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -44542,7 +44542,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(4d6+1)*10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As shock of lighming, except this spell deals (4d6+1)x10 points of electrical damage.",
@@ -44564,7 +44564,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As shock of lighming, except this spell deals (4d6+1)x10 points of electrical damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -44580,7 +44580,7 @@ export const SAMPLE_SPELLS = [
       "school": "Alteration",
       "castingTime": "1 full round",
       "range": "1 mile Area: 20-mile radius",
-      "duration": "Instantaneous (see text)",
+      "duration": "Instantaneous (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -44644,7 +44644,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As lull, except it can affect up to six targets, and each target suffers a penalty to the Will save equal to the caster’s Charisma modifier.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -44683,7 +44683,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the dragon circle in the Waking Lands of Velious.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -44722,7 +44722,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The spell causes the target to slip into a somnambulistic state that imposes a slow (3) effect, causing a —2 slow penalty to AC, the loss of 1 attack of opportunity every second round, and the inability to make full-round attack actions.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -44761,7 +44761,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell drains mana from the target spellcaster’s pool and adds it to the caster’s own, at a rate of 1 mana per round for 24 rounds. The target gets one saving throw only to resist the spell initially, after which the transfer proceeds apace. The mana transfer continues even if the target becomes incapacitated, but ends if the target leaves the spell’s range. If the target&#x27;s mana pool reaches 0, then no more transfer is possible, but if the target somehow gains more mana before the wandering mind duration expires, then the mana transfer resumes.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -44806,7 +44806,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Thisspell deals 3d10 pointof magic damage to any one creature within range either summoned with conjuration magic or of the elemental or outsider type (unless such creatures are encountered on their own plane). It has no affect on any other sort of creature, &quot; includingelementalsoroutsiderson theirown plane, such as an abhorrent encountered on the Plane of Hate.</p><p><strong>Target/Effect:</strong> One summoned creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -44970,7 +44970,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This fear spell causes all those within 10 feet of the caster (friend as well as foe) to flee for 1d4 rounds unless they succeed at a Will save.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45009,7 +45009,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As word of health, except each of up to six targets is healed of (5d10)x2 hit points, and the spell requires only a free action to cast.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -45048,7 +45048,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The target of this spell suffers a —-4 buff penalty to Strength. This spell cannot reduce the target’s Strength below 1.</p><p><strong>Target/Effect:</strong> One living creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45087,7 +45087,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As weaken, except this spell imposes a—10 buff penalty to Strength.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45165,7 +45165,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of her choice within range to the pyramid in the western Plains of Karana. Whirling Wind Conjuration (Summoning) [Force, Magic]</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -45243,7 +45243,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>A powerful funnel of air strikes one target within range, dealing 2d10 points of magic damage and the target is also interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) A Small or smaller creature must make a second Reflex save (DC 15) to avoid being knocked prone if it fails the first save. A flying creature that fails this save is instead blown back (1d6)x10 feet. This spell can be used only outdoors.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45260,7 +45260,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(6d6)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As burst of flame, except this spell deals (6d6)x10 points of fire damage.",
@@ -45282,7 +45282,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As burst of flame, except this spell deals (6d6)x10 points of fire damage.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45321,7 +45321,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six targets of his choice within range to a location in the Skyfire Mountains near the Burning Woods. This destination is not entirely safe.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -45360,7 +45360,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>The caster transports up to six willing creatures within range toa location deep within the Emerald Jungle somewhat near the marshy region knownas Trakanon’s Teeth. This destination is not entirely safe.</p><p><strong>Target/Effect:</strong> Up to six willing creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> No</p>"
@@ -45455,7 +45455,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Personal Area: 20-ft. burst centered on caster",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d6+2)*10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As numbing cold, except the casting time is slightly longer, the radius is increased, and this spell deals (7d6+2)x10 points of cold damage. Winged Death Conjuration (Summoning) [Magic] -",
@@ -45477,7 +45477,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As numbing cold, except the casting time is slightly longer, the radius is increased, and this spell deals (7d6+2)x10 points of cold damage. Winged Death Conjuration (Summoning) [Magic] -</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45516,7 +45516,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As stinging swarm, except this spell deals 4d10 points of magic damage each round for 10 rounds.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45533,7 +45533,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Long (400 ft. + 40 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "5d6",
+      "damageFormula": "(6d10+3)*2",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As frost rift, except the range is longer and this spell deals (6d10+3)x2 points of cold damage. WolF Form",
@@ -45652,7 +45652,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal Area: 30-ft. burst centered on caster \\",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d10+2)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As word of pain, except this spell deals (7d10+2)x2 points of magic damage to all within 30 feet.",
@@ -45674,7 +45674,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As word of pain, except this spell deals (7d10+2)x2 points of magic damage to all within 30 feet.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45713,7 +45713,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As word of health, except each of up to six targets is healed of (2d10)x 10 hit points of damage.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 40 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -45752,7 +45752,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>This spell allows the caster to heal damage to up to six creatures at one time, as long as all six are within range of the spell. Each of the targets is healed of 6d10 hit points of damage.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 40 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -45830,7 +45830,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As complete healing, except this spell affects up to six targets.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 40 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -45869,7 +45869,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As word of health, except each of up to six targets is healed of (4d6)x10 hit points of damage. In addition, each target is affected as though the spells abolish disease and abolish poison had been cast on it.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 40 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -45886,7 +45886,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal Area: 20-ft. burst centered on caster",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "4d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As word of pain, except this spell deals 4d10 points of magic damage.",
@@ -45910,7 +45910,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As word of pain, except this spell deals 4d10 points of magic damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45927,7 +45927,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal Area: 20-ft. burst centered on caster",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(7d6+1)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As word of pain, except this spell deals (7d6+1)x2 points of magic damage.",
@@ -45951,7 +45951,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As word of pain, except this spell deals (7d6+1)x2 points of magic damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -45968,7 +45968,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal Area: 20-ft. burst centered on caster",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "6d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As word of pain, except this spell deals 6d10 points of magic damage.",
@@ -45994,7 +45994,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As word of pain, except this spell deals 6d10 points of magic damage.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -46033,7 +46033,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Asword of health, except each of up to six targets is healed for (4d6)x10 hit points. In addition, each target is affected as though the spell extinguish fatigue has been cast upon it.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 40 ft. apart</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -46050,7 +46050,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "6d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "(see text) Asstun, except this spell also deals 6d10 points of magic damage (halved if the Fort save was successful), and, if the save is failed, the target is stunned for 1d2 rounds. &",
@@ -46072,7 +46072,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>(see text) Asstun, except this spell also deals 6d10 points of magic damage (halved if the Fort save was successful), and, if the save is failed, the target is stunned for 1d2 rounds. &amp;</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -46089,7 +46089,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(5d10+2)*2",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As strike, except this spell deals (5d10+2)x2 points of magic damage. cenit tiie aria te RD PRM. Pat.",
@@ -46111,7 +46111,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As strike, except this spell deals (5d10+2)x2 points of magic damage. cenit tiie aria te RD PRM. Pat.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -46128,7 +46128,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 full round",
       "range": "Medium (100 ft. + 10 ft./level) Area: 35-ft. radius spread",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "(2d10)*10",
       "healFormula": "",
       "savingThrow": "",
       "effect": "As frost spiral of Al’ Kabor, except the area is increased and this spell deals (2d10)x10 points of cold damage. Further, any creature caught in the area must make a Will save or be stunned for 1 round.",
@@ -46150,7 +46150,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "attack",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As frost spiral of Al’ Kabor, except the area is increased and this spell deals (2d10)x10 points of cold damage. Further, any creature caught in the area must make a Will save or be stunned for 1 round.</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -46189,7 +46189,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>Aselemental maelstrom, except this spell deals (7d10+2)x2 points of damage the round the spell is cast, plus 4410 points of damage each round for the next 5 rounds.</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -46271,7 +46271,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As Yaulp I, except this spell grants a +2 1 deflection bonus to AC and +5 to Strength.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> *Yes (harmless)</p>"
@@ -46312,7 +46312,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As Yaulp I, except this spell grants a +3 deflection bonus to AC and +6 to Strength.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -46353,14 +46353,14 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As Yaulp I, except this spell grants a +2 deflection bonus to AC, a +5 to Strength, an additional +2 attack bonus, and fast healing (1).</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   },
   {
-    "name": "Yegorerr's Animation",
+    "name": "Yegoreff's Animation",
     "type": "spell",
     "img": "",
     "system": {
@@ -46369,7 +46369,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning)",
       "castingTime": "2 full rounds",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
@@ -46449,7 +46449,7 @@ export const SAMPLE_SPELLS = [
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "Instantaneous",
       "damageFormula": "",
-      "healFormula": "",
+      "healFormula": "(2d10)*10",
       "savingThrow": "will",
       "effect": "As minor healing, except this spell heals only the caster’s pet, curing (2d10)x 10 hit points. Yonoer Alteration [Teleportation]}",
       "recastTime": 0,
@@ -46470,7 +46470,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "negates",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As minor healing, except this spell heals only the caster’s pet, curing (2d10)x 10 hit points. Yonoer Alteration [Teleportation]}</p><p><strong>Target/Effect:</strong> Caster&#x27;s pet</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
@@ -46548,7 +46548,7 @@ export const SAMPLE_SPELLS = [
       "notes": "",
       "saveEffect": "half",
       "saveDC": "",
-      "deliveryType": "utility",
+      "deliveryType": "save",
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As leach, except the powerful magic of this spell drains 4d10 hit points per round from a target and then amplifies the life force stolen, transferringa like amountof hit points toup to six other targets.</p><p><strong>Target/Effect:</strong> Up to six creatures, no two more than 20 ft. apart</p><p><strong>Spell Resistance:</strong> Yes</p>"
@@ -46564,7 +46564,7 @@ export const SAMPLE_SPELLS = [
       "school": "Conjuration (Summoning)",
       "castingTime": "2 full rounds",
       "range": "Close (25 ft. + 5 ft./2 levels)",
-      "duration": "Permanent (see text)",
+      "duration": "Permanent (see",
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",

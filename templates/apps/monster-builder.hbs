@@ -1,0 +1,204 @@
+<div class="monster-builder-shell">
+  <div class="monster-builder-toolbar">
+    <div>
+      <strong>{{localize "EQRPG.MonsterBuilder"}}</strong>
+      <span class="monster-builder-subtitle">{{localize "EQRPG.MonsterBuilderSubtitle"}}</span>
+    </div>
+    <div class="monster-builder-actions">
+      <button type="button" data-action="applyTypeDefaults">{{localize "EQRPG.MonsterBuilderApplyType"}}</button>
+      <button type="button" data-action="exportJson">{{localize "EQRPG.ExportJSON"}}</button>
+      {{#if actor}}
+      <button type="button" data-action="updateActor">{{localize "EQRPG.UpdateActor"}}</button>
+      {{/if}}
+      <button type="button" data-action="createActor">{{localize "EQRPG.CreateActor"}}</button>
+      <button type="button" data-action="reset">{{localize "EQRPG.Reset"}}</button>
+    </div>
+  </div>
+
+  <nav class="monster-builder-tabs">
+    {{#each tabs as |tab|}}
+    <button type="button" data-action="builderTab" data-builder-tab="{{tab.id}}" class="{{tab.cssClass}}">
+      {{tab.label}}
+    </button>
+    {{/each}}
+  </nav>
+
+  <div class="monster-builder-body">
+    <aside class="monster-builder-summary">
+      <div class="mb-summary-card">
+        <h3>{{monster.name}}</h3>
+        <div>{{derived.sizeRule.label}} {{derived.typeRule.label}}</div>
+        <div>{{derived.hd}}d{{derived.die}} / {{derived.hp}} HP</div>
+      </div>
+      <div class="mb-derived-grid">
+        <div><span>AC</span><strong>{{#if monster.combat.armorClass.manualOverride}}{{monster.combat.armorClass.total}}{{else}}{{derived.ac}}{{/if}}</strong></div>
+        <div><span>BAB</span><strong>{{#if (gte derived.bab 0)}}+{{/if}}{{derived.bab}}</strong></div>
+        <div><span>Init</span><strong>{{#if (gte derived.initiative 0)}}+{{/if}}{{derived.initiative}}</strong></div>
+        <div><span>Fort</span><strong>{{#if (gte derived.saves.fortitude 0)}}+{{/if}}{{derived.saves.fortitude}}</strong></div>
+        <div><span>Ref</span><strong>{{#if (gte derived.saves.reflex 0)}}+{{/if}}{{derived.saves.reflex}}</strong></div>
+        <div><span>Will</span><strong>{{#if (gte derived.saves.will 0)}}+{{/if}}{{derived.saves.will}}</strong></div>
+      </div>
+      <div class="mb-rule-card">
+        <div><strong>{{localize "EQRPG.HitDice"}}:</strong> d{{derived.typeRule.hitDie}}</div>
+        <div><strong>{{localize "EQRPG.BAB"}}:</strong> {{derived.typeRule.bab}}</div>
+        <div><strong>{{localize "EQRPG.GoodSaves"}}:</strong> {{#if derived.typeRule.goodSaves.length}}{{derived.typeRule.goodSaves}}{{else}}-{{/if}}</div>
+        <div><strong>{{localize "EQRPG.Skills"}}:</strong> {{derived.skillBudget}}</div>
+        <div><strong>{{localize "EQRPG.Feats"}}:</strong> {{derived.featSlots}}</div>
+      </div>
+      <div class="mb-warnings">
+        <h4>{{localize "EQRPG.Validation"}}</h4>
+        {{#if derived.warnings.length}}
+          {{#each derived.warnings as |warning|}}
+          <div class="mb-warning mb-warning-{{warning.severity}}">{{warning.text}}</div>
+          {{/each}}
+        {{else}}
+          <div class="mb-warning mb-warning-ok">{{localize "EQRPG.NoWarnings"}}</div>
+        {{/if}}
+      </div>
+    </aside>
+
+    <main class="monster-builder-panels">
+      <section class="mb-panel {{#if (eq activeTab 'identity')}}active{{/if}}">
+        <div class="mb-grid two">
+          <label><span>{{localize "EQRPG.Name"}}</span><input type="text" name="name" value="{{monster.name}}" /></label>
+          <label><span>{{localize "EQRPG.Source"}}</span><input type="text" name="source" value="{{monster.source}}" /></label>
+          <label><span>{{localize "EQRPG.Size"}}</span>
+            <select name="identity.size">
+              {{#each sizeOptions as |size|}}<option value="{{size.key}}" {{#if size.selected}}selected{{/if}}>{{size.label}}</option>{{/each}}
+            </select>
+          </label>
+          <label><span>{{localize "EQRPG.Type"}}</span>
+            <select name="identity.type">
+              {{#each typeOptions as |type|}}<option value="{{type.key}}" {{#if type.selected}}selected{{/if}}>{{type.label}}</option>{{/each}}
+            </select>
+          </label>
+          <label><span>{{localize "EQRPG.Subtypes"}}</span><input type="text" name="identity.subtypes" value="{{monster.identity.subtypes}}" /></label>
+          <label><span>{{localize "EQRPG.Alignment"}}</span><input type="text" name="identity.alignment" value="{{monster.identity.alignment}}" /></label>
+          <label><span>{{localize "EQRPG.Faction"}}</span><input type="text" name="identity.faction" value="{{monster.identity.faction}}" /></label>
+          <label><span>{{localize "EQRPG.Image"}}</span><input type="text" name="img" value="{{monster.img}}" /></label>
+        </div>
+        <label class="mb-full"><span>{{localize "EQRPG.Description"}}</span><textarea name="description" rows="8">{{monster.description}}</textarea></label>
+      </section>
+
+      <section class="mb-panel {{#if (eq activeTab 'hd')}}active{{/if}}">
+        <div class="mb-grid six">
+          <label><span>STR</span><input type="number" name="abilities.str" value="{{monster.abilities.str}}" /></label>
+          <label><span>DEX</span><input type="number" name="abilities.dex" value="{{monster.abilities.dex}}" /></label>
+          <label><span>CON</span><input type="number" name="abilities.con" value="{{monster.abilities.con}}" data-nullable="true" placeholder="-" /></label>
+          <label><span>INT</span><input type="number" name="abilities.int" value="{{monster.abilities.int}}" data-nullable="true" placeholder="-" /></label>
+          <label><span>WIS</span><input type="number" name="abilities.wis" value="{{monster.abilities.wis}}" /></label>
+          <label><span>CHA</span><input type="number" name="abilities.cha" value="{{monster.abilities.cha}}" /></label>
+        </div>
+        <div class="mb-grid four">
+          <label><span>{{localize "EQRPG.HitDice"}}</span><input type="number" name="hitDice.count" value="{{monster.hitDice.count}}" min="1" /></label>
+          <label><span>{{localize "EQRPG.HitDie"}}</span><input type="number" name="hitDice.die" value="{{monster.hitDice.die}}" min="1" /></label>
+          <label><span>{{localize "EQRPG.HPBonus"}}</span><input type="number" name="hitDice.bonus" value="{{monster.hitDice.bonus}}" /></label>
+          <label><span>{{localize "EQRPG.AverageHP"}}</span><input type="number" value="{{derived.averageHp}}" disabled /></label>
+          <label class="mb-check"><input type="checkbox" name="hitDice.overrideAverage" {{#if monster.hitDice.overrideAverage}}checked{{/if}} /> <span>{{localize "EQRPG.ManualHP"}}</span></label>
+          <label><span>{{localize "EQRPG.ManualHP"}}</span><input type="number" name="hitDice.manualHp" value="{{monster.hitDice.manualHp}}" min="1" /></label>
+        </div>
+      </section>
+
+      <section class="mb-panel {{#if (eq activeTab 'combat')}}active{{/if}}">
+        <div class="mb-grid four">
+          <label><span>{{localize "EQRPG.NaturalArmor"}}</span><input type="number" name="combat.armorClass.natural" value="{{monster.combat.armorClass.natural}}" /></label>
+          <label><span>{{localize "EQRPG.ArmorBonus"}}</span><input type="number" name="combat.armorClass.armor" value="{{monster.combat.armorClass.armor}}" /></label>
+          <label><span>{{localize "EQRPG.ShieldBonus"}}</span><input type="number" name="combat.armorClass.shield" value="{{monster.combat.armorClass.shield}}" /></label>
+          <label><span>{{localize "EQRPG.Misc"}}</span><input type="number" name="combat.armorClass.misc" value="{{monster.combat.armorClass.misc}}" /></label>
+          <label class="mb-check"><input type="checkbox" name="combat.armorClass.manualOverride" {{#if monster.combat.armorClass.manualOverride}}checked{{/if}} /> <span>{{localize "EQRPG.ManualAC"}}</span></label>
+          <label><span>{{localize "EQRPG.ArmorClass"}}</span><input type="number" name="combat.armorClass.total" value="{{monster.combat.armorClass.total}}" /></label>
+          <label><span>{{localize "EQRPG.InitMisc"}}</span><input type="number" name="combat.initiativeMisc" value="{{monster.combat.initiativeMisc}}" /></label>
+          <label><span>{{localize "EQRPG.AttackMisc"}}</span><input type="number" name="combat.attackMisc" value="{{monster.combat.attackMisc}}" /></label>
+          <label class="mb-check"><input type="checkbox" name="combat.babManualOverride" {{#if monster.combat.babManualOverride}}checked{{/if}} /> <span>{{localize "EQRPG.ManualBAB"}}</span></label>
+          <label><span>{{localize "EQRPG.BAB"}}</span><input type="number" name="combat.baseAttackBonus" value="{{monster.combat.baseAttackBonus}}" /></label>
+          <label><span>{{localize "EQRPG.Speed"}}</span><input type="number" name="combat.speed.walk" value="{{monster.combat.speed.walk}}" min="0" /></label>
+          <label><span>{{localize "EQRPG.OtherSpeeds"}}</span><input type="text" name="combat.speed.other" value="{{monster.combat.speed.other}}" placeholder="fly 80 ft. (good)" /></label>
+          <label><span>{{localize "EQRPG.Face"}}</span><input type="text" name="combat.face" value="{{monster.combat.face}}" /></label>
+          <label><span>{{localize "EQRPG.Reach"}}</span><input type="number" name="combat.reach" value="{{monster.combat.reach}}" min="0" /></label>
+        </div>
+
+        <div class="mb-save-grid">
+          <label><span>Fort Misc</span><input type="number" name="combat.saves.fortitude.misc" value="{{monster.combat.saves.fortitude.misc}}" /></label>
+          <label><span>Ref Misc</span><input type="number" name="combat.saves.reflex.misc" value="{{monster.combat.saves.reflex.misc}}" /></label>
+          <label><span>Will Misc</span><input type="number" name="combat.saves.will.misc" value="{{monster.combat.saves.will.misc}}" /></label>
+          <label class="mb-check"><input type="checkbox" name="combat.saves.fortitude.manualOverride" {{#if monster.combat.saves.fortitude.manualOverride}}checked{{/if}} /> <span>Manual Fort</span></label>
+          <label class="mb-check"><input type="checkbox" name="combat.saves.reflex.manualOverride" {{#if monster.combat.saves.reflex.manualOverride}}checked{{/if}} /> <span>Manual Ref</span></label>
+          <label class="mb-check"><input type="checkbox" name="combat.saves.will.manualOverride" {{#if monster.combat.saves.will.manualOverride}}checked{{/if}} /> <span>Manual Will</span></label>
+          <label><span>Fort Total</span><input type="number" name="combat.saves.fortitude.total" value="{{monster.combat.saves.fortitude.total}}" /></label>
+          <label><span>Ref Total</span><input type="number" name="combat.saves.reflex.total" value="{{monster.combat.saves.reflex.total}}" /></label>
+          <label><span>Will Total</span><input type="number" name="combat.saves.will.total" value="{{monster.combat.saves.will.total}}" /></label>
+        </div>
+
+        <div class="mb-section-heading">
+          <h3>{{localize "EQRPG.Attacks"}}</h3>
+          <button type="button" data-action="addAttack">+</button>
+        </div>
+        <div class="mb-attack-list">
+          {{#each derived.attacks as |attack idx|}}
+          <div class="mb-attack-row">
+            <input type="text" name="combat.attacks.{{idx}}.name" value="{{attack.name}}" placeholder="Bite" />
+            <select name="combat.attacks.{{idx}}.category">
+              <option value="natural" {{#if (eq attack.category "natural")}}selected{{/if}}>Natural</option>
+              <option value="manufactured" {{#if (eq attack.category "manufactured")}}selected{{/if}}>Manufactured</option>
+              <option value="spellLike" {{#if (eq attack.category "spellLike")}}selected{{/if}}>Spell-like</option>
+              <option value="special" {{#if (eq attack.category "special")}}selected{{/if}}>Special</option>
+            </select>
+            <input type="text" name="combat.attacks.{{idx}}.mode" value="{{attack.mode}}" placeholder="melee" />
+            <label class="mb-check inline"><input type="checkbox" name="combat.attacks.{{idx}}.primary" {{#if attack.primary}}checked{{/if}} /> Primary</label>
+            <input type="number" name="combat.attacks.{{idx}}.attackBonus" value="{{attack.attackBonus}}" title="Attack bonus" />
+            <span class="mb-suggested">suggest {{#if (gte attack.suggestedAttackBonus 0)}}+{{/if}}{{attack.suggestedAttackBonus}}</span>
+            <input type="text" name="combat.attacks.{{idx}}.damageFormula" value="{{attack.damageFormula}}" placeholder="1d6+2" />
+            <input type="text" name="combat.attacks.{{idx}}.damageType" value="{{attack.damageType}}" placeholder="piercing, slashing" />
+            <input type="text" name="combat.attacks.{{idx}}.notes" value="{{attack.notes}}" placeholder="and poison" />
+            <button type="button" data-action="removeAttack" data-index="{{idx}}">X</button>
+          </div>
+          {{/each}}
+        </div>
+      </section>
+
+      <section class="mb-panel {{#if (eq activeTab 'traits')}}active{{/if}}">
+        <div class="mb-grid two">
+          <label><span>{{localize "EQRPG.Vision"}}</span><textarea name="traits.vision" data-type="list" rows="3">{{monster.traits.vision}}</textarea></label>
+          <label><span>{{localize "EQRPG.Immunities"}}</span><textarea name="traits.immunities" data-type="list" rows="3">{{monster.traits.immunities}}</textarea></label>
+          <label><span>{{localize "EQRPG.Resistances"}}</span><textarea name="traits.resistances" data-type="list" rows="3">{{monster.traits.resistances}}</textarea></label>
+          <label><span>{{localize "EQRPG.Vulnerabilities"}}</span><textarea name="traits.vulnerabilities" data-type="list" rows="3">{{monster.traits.vulnerabilities}}</textarea></label>
+          <label><span>{{localize "EQRPG.SpecialAttacks"}}</span><textarea name="traits.specialAbilities" rows="6">{{monster.traits.specialAbilities}}</textarea></label>
+          <label><span>{{localize "EQRPG.SpecialQualities"}}</span><textarea name="traits.specialQualities" rows="6">{{monster.traits.specialQualities}}</textarea></label>
+        </div>
+      </section>
+
+      <section class="mb-panel {{#if (eq activeTab 'skills')}}active{{/if}}">
+        <div class="mb-budget-row">
+          <span>{{localize "EQRPG.SkillBudget"}}: <strong>{{derived.skillBudget}}</strong></span>
+          <span>{{localize "EQRPG.FeatSlots"}}: <strong>{{derived.featSlots}}</strong></span>
+        </div>
+        <div class="mb-grid two">
+          <label><span>{{localize "EQRPG.Skills"}}</span><textarea name="skills" rows="12" placeholder="Listen +6, Spot +6, Taunt +6">{{monster.skills}}</textarea></label>
+          <label><span>{{localize "EQRPG.Feats"}}</span><textarea name="feats" rows="12" placeholder="Dodge, Multiattack, Power Attack">{{monster.feats}}</textarea></label>
+        </div>
+      </section>
+
+      <section class="mb-panel {{#if (eq activeTab 'ecology')}}active{{/if}}">
+        <div class="mb-grid two">
+          <label><span>{{localize "EQRPG.CR"}}</span><input type="text" name="advancement.challengeRating" value="{{monster.advancement.challengeRating}}" placeholder="1/2, 3, 12" /></label>
+          <label><span>{{localize "EQRPG.ClimateTerrain"}}</span><input type="text" name="advancement.climateTerrain" value="{{monster.advancement.climateTerrain}}" /></label>
+          <label><span>{{localize "EQRPG.Organization"}}</span><input type="text" name="advancement.organization" value="{{monster.advancement.organization}}" /></label>
+          <label><span>{{localize "EQRPG.Treasure"}}</span><input type="text" name="advancement.treasure" value="{{monster.advancement.treasure}}" /></label>
+          <label class="mb-full"><span>{{localize "EQRPG.Advancement"}}</span><input type="text" name="advancement.advancementRange" value="{{monster.advancement.advancementRange}}" /></label>
+        </div>
+        <label class="mb-full"><span>{{localize "EQRPG.Notes"}}</span><textarea name="advancement.notes" rows="8">{{monster.advancement.notes}}</textarea></label>
+      </section>
+
+      <section class="mb-panel {{#if (eq activeTab 'export')}}active{{/if}}">
+        <div class="mb-grid two">
+          <label><span>{{localize "EQRPG.ExportJSON"}}</span><textarea name="exportText" rows="20">{{exportText}}</textarea></label>
+          <label><span>{{localize "EQRPG.ImportJSON"}}</span><textarea name="importText" rows="20" placeholder="{{schemaVersion}}">{{importText}}</textarea></label>
+        </div>
+        <div class="monster-builder-actions bottom">
+          <button type="button" data-action="exportJson">{{localize "EQRPG.RefreshExport"}}</button>
+          <button type="button" data-action="importJson">{{localize "EQRPG.ImportJSON"}}</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>

@@ -1,3 +1,5 @@
+import { renderMonsterBuilder } from "../apps/monster-builder.mjs";
+
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
@@ -29,6 +31,7 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       createItem:     EQNPCSheet._onCreateItem,
       editItem:       EQNPCSheet._onEditItem,
       deleteItem:     EQNPCSheet._onDeleteItem,
+      openMonsterBuilder: EQNPCSheet._onOpenMonsterBuilder,
     },
   };
 
@@ -250,5 +253,11 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async _onDeleteItem(event, target) {
     const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     if (item) await item.delete();
+  }
+
+  static _onOpenMonsterBuilder(event) {
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
+    renderMonsterBuilder(this.actor);
   }
 }

@@ -410,6 +410,25 @@ export class EQItem extends Item {
       + `</div>`;
   }
 
+  static _buildSpellTransferHealPanel(spell, total, context = {}) {
+    const text = `${spell.system.effect ?? ""} ${spell.system.description ?? ""}`;
+    const transfersToCaster = /transfers? (?:that|the|an equal|a like) amount[^.]{0,50}(?:to the caster|to caster)/i.test(text)
+      || /which the caster immediately gains/i.test(text);
+    if (!transfersToCaster || !Number.isFinite(total)) return "";
+
+    let healAmount = total;
+    const saveResult = context.saveResults?.[0];
+    if (saveResult?.success) {
+      if (context.saveEffect === "half") healAmount = Math.floor(total / 2);
+      else if (context.saveEffect === "negates") healAmount = 0;
+      else if (context.saveEffect === "partial" || context.saveEffect === "varies") return "";
+    }
+    if (healAmount <= 0) return "";
+
+    return EQItem._buildTargetedHealPanel(context.selfTargets ?? [], healAmount)
+      || EQItem._buildApplyHealPanel(healAmount);
+  }
+
   static _buildTargetedStatusPanel(targets, statusId, label, title = "") {
     const rows = targets
       .filter((target) => (target?.document?.uuid ?? target?.uuid))
@@ -1158,6 +1177,19 @@ export class EQItem extends Item {
     return this.rollDamage({ sneakAttack: true });
   }
 
+  static _getClassSkillBonus(actor, skillName) {
+    const features = actor?.system?.classFeatures ?? {};
+    const normalizedName = String(skillName ?? "").toLowerCase();
+
+    if (features.alchemyMasteryBonus && normalizedName.includes("trade skill") && normalizedName.includes("alchemy")) {
+      return features.alchemyMasteryBonus;
+    }
+    if (features.fletcherBonus && normalizedName.includes("trade skill") && normalizedName.includes("fletch")) {
+      return features.fletcherBonus;
+    }
+    return 0;
+  }
+
   /**
    * Roll a skill check (1d20 + ranks + ability mod).
    */
@@ -1172,7 +1204,8 @@ export class EQItem extends Item {
     const ability = this.system.ability ?? "int";
     const abilMod = actor?.system.abilities?.[ability]?.mod ?? 0;
     const armorPenalty = this.system.armorCheckPenalty ? (actor?.system?.combat?.armorCheckPenalty ?? 0) : 0;
-    const total   = ranks + abilMod + armorPenalty;
+    const classBonus = EQItem._getClassSkillBonus(actor, this.name);
+    const total   = ranks + abilMod + armorPenalty + classBonus;
     const sign    = total >= 0 ? "+" : "";
     const abilAbbr = game.i18n.localize(
       CONFIG.EQRPG?.abilityAbbreviations?.[ability] ?? ability.toUpperCase());
@@ -1180,7 +1213,7 @@ export class EQItem extends Item {
     const header = EQItem._buildCardHeader(
       this.img,
       actor?.name ?? "?",
-      `<strong>${this.name}</strong> <span class="eq-skill-detail">${ranks} ranks ${abilMod >= 0 ? "+" : ""}${abilMod} ${abilAbbr}${armorPenalty ? ` ${armorPenalty} ACP` : ""}</span>`,
+      `<strong>${this.name}</strong> <span class="eq-skill-detail">${ranks} ranks ${abilMod >= 0 ? "+" : ""}${abilMod} ${abilAbbr}${armorPenalty ? ` ${armorPenalty} ACP` : ""}${classBonus ? ` +${classBonus} ${game.i18n.localize("EQRPG.ClassBonus")}` : ""}</span>`,
       false,
     );
 
@@ -1200,6 +1233,13 @@ export class EQItem extends Item {
   static _getSpellcastingAbility(actor) {
     const classKey = actor?.system?.details?.class ?? "";
     return CONFIG.EQRPG?.classes?.[classKey]?.spellcastingAbility ?? (classKey === "bard" ? "cha" : null);
+  }
+
+  static _getSpellDCAbility(actor, spell) {
+    const classKey = actor?.system?.details?.class ?? "";
+    const school = String(spell?.system?.school ?? "");
+    if (classKey === "enchanter" && /mind[\s-]*(?:affect|aten)/i.test(school)) return "cha";
+    return EQItem._getSpellcastingAbility(actor);
   }
 
   static _getEffectiveSpellLevel(spell, actor) {
@@ -1311,6 +1351,8 @@ export class EQItem extends Item {
 
     const castAbility = EQItem._getSpellcastingAbility(actor);
     const castMod     = castAbility ? (actor?.system?.abilities?.[castAbility]?.mod ?? 0) : 0;
+    const dcAbility   = EQItem._getSpellDCAbility(actor, this);
+    const dcMod       = dcAbility ? (actor?.system?.abilities?.[dcAbility]?.mod ?? 0) : 0;
     const saveType    = (this.system.savingThrow && this.system.savingThrow !== "none")
       ? this.system.savingThrow
       : "";
@@ -1320,7 +1362,7 @@ export class EQItem extends Item {
     const dcOverride   = Number(this.system.saveDC);
     const dc           = Number.isFinite(dcOverride) && dcOverride > 0
       ? dcOverride
-      : 10 + spellLevel + castMod;
+      : 10 + spellLevel + dcMod;
 
     const levelPill  = `<span class="eq-spell-meta-pill level">Lvl ${spellLevel}</span>`;
     const manaPill   = `<span class="eq-spell-meta-pill mana">${manaCost} MP</span>`;
@@ -1405,6 +1447,10 @@ export class EQItem extends Item {
         if (!hasDamagePanel) {
           await ChatMessage.create({ speaker, content: EQItem._buildApplyDamagePanel(damageRoll.total), rollMode });
         }
+        const transferHealPanel = EQItem._buildSpellTransferHealPanel(this, damageRoll.total, { selfTargets });
+        if (transferHealPanel) {
+          await ChatMessage.create({ speaker, content: transferHealPanel, rollMode });
+        }
         for (const panel of EQItem._buildSpellAutomationPanels(this, { targets, selfTargets })) {
           if (panel) await ChatMessage.create({ speaker, content: panel, rollMode });
         }
@@ -1458,6 +1504,14 @@ export class EQItem extends Item {
       }
       if (!hasDamagePanel) {
         await ChatMessage.create({ speaker, content: EQItem._buildApplyDamagePanel(roll.total), rollMode });
+      }
+      const transferHealPanel = EQItem._buildSpellTransferHealPanel(this, roll.total, {
+        selfTargets,
+        saveResults,
+        saveEffect,
+      });
+      if (transferHealPanel) {
+        await ChatMessage.create({ speaker, content: transferHealPanel, rollMode });
       }
       return roll;
     }

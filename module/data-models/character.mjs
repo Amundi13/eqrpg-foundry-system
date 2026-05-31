@@ -7,6 +7,12 @@ function getCombatRound() {
   return Math.max(1, Number(game?.combat?.round ?? 1) || 1);
 }
 
+const HYBRID_MANA_CLASSES = new Set(["bard", "beastlord", "paladin", "ranger", "shadowknight"]);
+
+function countMilestones(level, milestones) {
+  return milestones.filter((milestone) => level >= milestone).length;
+}
+
 function collectEffectSummary(actor) {
   const effects = actor?.effects ?? [];
   const hasteBySource = new Map();
@@ -417,8 +423,9 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     if (classConfig?.spellcastingAbility) {
       const castAbility = classConfig.spellcastingAbility;
       const castMod = this._getAbilityMod(castAbility);
+      const manaMultiplier = HYBRID_MANA_CLASSES.has(classKey) ? 2 : 3;
       this.resources.mana.max = (castMod > 0 && level > 0)
-        ? (castMod * 2) * level
+        ? (castMod * manaMultiplier) * level
         : 0;
 
       const baseRegen = classKey === "bard" ? 0 : Math.max(1, Math.floor(level / 5));
@@ -509,6 +516,47 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       this.classFeatures.harmTouchDamage = level * 3;
       this.classFeatures.harmTouchDC = 10 + this._getAbilityMod("int") + Math.floor(level / 2);
       this.classFeatures.leechTouch = level >= 20;
+    }
+
+    if (classKey === "enchanter") {
+      this.classFeatures.mindAffectingUsesCha = true;
+      this.classFeatures.bonusMysticFeats = countMilestones(level, [3, 15, 21, 27]);
+      this.classFeatures.schoolSpecialization = level >= 6;
+      this.classFeatures.greaterEnchantments = countMilestones(level, [9, 18, 24, 30]);
+      this.classFeatures.greaterSpecialization = level >= 12;
+    }
+
+    if (classKey === "necromancer") {
+      this.classFeatures.deathMasteries = countMilestones(level, [3, 15, 21, 27]);
+      this.classFeatures.schoolSpecialization = level >= 6;
+      this.classFeatures.bonusMysticFeats = countMilestones(level, [9, 18, 24, 30]);
+      this.classFeatures.greaterSpecialization = level >= 12;
+    }
+
+    if (classKey === "shaman") {
+      this.classFeatures.spiritMasteries = countMilestones(level, [4, 12, 20, 25, 30]);
+      this.classFeatures.schoolSpecialization = level >= 8;
+      this.classFeatures.alchemyMasteryBonus = level >= 8 ? 8 : 0;
+      this.classFeatures.greaterSpecialization = level >= 16;
+    }
+
+    if (classKey === "ranger") {
+      this.classFeatures.track = true;
+      this.classFeatures.elementalResistance = level >= 2 ? 3 : 0;
+      this.classFeatures.fletcherBonus = level >= 3 ? 3 : 0;
+      this.classFeatures.wildsMasteries = countMilestones(level, [4, 9, 14, 19, 23, 28]);
+      this.classFeatures.archerySpecializationEligible = level >= 8;
+      this.classFeatures.parryBonusFeat = level >= 10;
+      this.classFeatures.dualWieldEligible = level >= 11;
+      this.classFeatures.doubleAttackEligible = level >= 12;
+      this.classFeatures.archeryBonusFeats = countMilestones(level, [13, 20]);
+      this.classFeatures.riposteEligible = level >= 18;
+      this.classFeatures.rangerDisciplines = [
+        level >= 21 ? "Resistant" : "",
+        level >= 24 ? "Fearless" : "",
+        level >= 27 ? "Trueshot" : "",
+        level >= 30 ? "Weapon Shield" : "",
+      ].filter(Boolean);
     }
 
     this.raceAbilities = config.races?.[raceKey]?.abilities ?? [];

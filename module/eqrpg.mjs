@@ -24,6 +24,7 @@ import { EQItemSheet } from "./sheets/item-sheet.mjs";
 // Applications
 import { CharacterWizard } from "./apps/character-wizard.mjs";
 import { EQStore, renderStore } from "./apps/store.mjs";
+import { MonsterBuilder, renderMonsterBuilder } from "./apps/monster-builder.mjs";
 
 // Config
 import { EQRPG } from "./helpers/config.mjs";
@@ -87,6 +88,8 @@ Hooks.once("init", () => {
   game.eqrpg.EQStore = EQStore;
   game.eqrpg.openStore = (actor = game.user?.character ?? globalThis.canvas?.tokens?.controlled?.[0]?.actor ?? null, options = {}) =>
     renderStore(actor, options);
+  game.eqrpg.MonsterBuilder = MonsterBuilder;
+  game.eqrpg.openMonsterBuilder = (actor = null, options = {}) => renderMonsterBuilder(actor, options);
   CONFIG.EQRPG = EQRPG;
 
   // Register document classes
@@ -143,6 +146,26 @@ Hooks.once("init", () => {
 
 Hooks.once("ready", () => {
   console.log("eqrpg | EverQuest RPG System Ready");
+});
+
+Hooks.on("renderActorDirectory", (_app, html) => {
+  const root = html instanceof HTMLElement ? html : html?.[0];
+  if (!root || root.querySelector(".eq-monster-builder-directory-btn")) return;
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "eq-monster-builder-directory-btn";
+  button.textContent = game.i18n.localize("EQRPG.MonsterBuilder");
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    renderMonsterBuilder();
+  });
+
+  const target = root.querySelector(".directory-footer")
+    ?? root.querySelector(".directory-header")
+    ?? root.querySelector(".header-actions")
+    ?? root;
+  target.append(button);
 });
 
 async function _ensureCharacterTokenLink(tokenDoc) {
@@ -599,6 +622,8 @@ game.eqrpg.CharacterWizard = CharacterWizard;
 game.eqrpg.EQStore = EQStore;
 game.eqrpg.openStore = (actor = game.user?.character ?? globalThis.canvas?.tokens?.controlled?.[0]?.actor ?? null, options = {}) =>
   renderStore(actor, options);
+game.eqrpg.MonsterBuilder = MonsterBuilder;
+game.eqrpg.openMonsterBuilder = (actor = null, options = {}) => renderMonsterBuilder(actor, options);
 
 // ---------------------------------------------------------------------------
 // Compendium: Auto-populate packs on first launch (GM only)

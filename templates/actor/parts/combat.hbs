@@ -215,7 +215,7 @@
 
     {{!-- Class Features --}}
     {{#if classFeatures}}
-    {{#if (or classFeatures.sneakAttackDice classFeatures.unarmedDamageDie classFeatures.layOnHandsPool classFeatures.harmTouchDamage classFeatures.leechTouch)}}
+    {{#if (or classFeatures.sneakAttackDice classFeatures.unarmedDamageDie classFeatures.layOnHandsPool classFeatures.harmTouchDamage classFeatures.leechTouch additionalClassFeatures.length)}}
     <div class="combat-block features-block">
       <h3>{{localize "EQRPG.ClassFeatures"}}</h3>
 
@@ -266,6 +266,13 @@
                 title="{{localize 'EQRPG.UseLeechTouch'}}">LT</button>
       </div>
       {{/if}}
+
+      {{#each additionalClassFeatures as |feature|}}
+      <div class="combat-row">
+        <label>{{feature.label}}</label>
+        <span class="combat-value">{{feature.value}}</span>
+      </div>
+      {{/each}}
 
     </div>
     {{/if}}

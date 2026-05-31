@@ -39,7 +39,7 @@ After making changes, reload Foundry and use the browser console for runtime deb
 ## Install
 
 - Manifest URL: `https://github.com/Amundi13/eqrpg-foundry-system/releases/latest/download/system.json`
-- Release download: `https://github.com/Amundi13/eqrpg-foundry-system/releases/latest/download/eqrpg-foundry-system-v0.1.4.zip`
+- Release download: `https://github.com/Amundi13/eqrpg-foundry-system/releases/latest/download/eqrpg-foundry-system-v0.1.5.zip`
 
 ## Release
 

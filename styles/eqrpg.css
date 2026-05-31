@@ -3943,4 +3943,331 @@
     padding: 0 10px;
   }
 
+  /* -------------------------------------------------------------------------
+     Monster Creator
+  -------------------------------------------------------------------------- */
+
+  .eqrpg .npc-builder-row {
+    margin: 4px 0 2px;
+  }
+
+  .eqrpg .monster-builder-open-btn,
+  .eq-monster-builder-directory-btn {
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 3px;
+    background: rgba(201,168,76,0.12);
+    color: var(--eq-gold);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 3px 10px;
+  }
+
+  .eqrpg .monster-builder-open-btn:hover,
+  .eq-monster-builder-directory-btn:hover {
+    background: var(--eq-gold-dim);
+    color: var(--eq-bg-dark);
+  }
+
+  .monster-builder .window-content {
+    padding: 0;
+    overflow: hidden;
+    background: var(--eq-bg-panel);
+  }
+
+  .monster-builder-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--eq-text);
+  }
+
+  .monster-builder-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--eq-bg-dark);
+    border-bottom: 1px solid var(--eq-gold-dim);
+  }
+
+  .monster-builder-subtitle {
+    color: var(--eq-text-dim);
+    margin-left: 8px;
+    font-size: 0.82em;
+  }
+
+  .monster-builder-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .monster-builder-actions button,
+  .monster-builder-tabs button,
+  .mb-section-heading button,
+  .mb-attack-row button {
+    border: 1px solid var(--eq-gold-dim);
+    border-radius: 3px;
+    background: rgba(201,168,76,0.1);
+    color: var(--eq-gold);
+    font-weight: bold;
+    cursor: pointer;
+    min-height: 24px;
+  }
+
+  .monster-builder-actions button:hover,
+  .monster-builder-tabs button:hover,
+  .monster-builder-tabs button.active,
+  .mb-section-heading button:hover,
+  .mb-attack-row button:hover {
+    background: var(--eq-gold-dim);
+    color: var(--eq-bg-dark);
+  }
+
+  .monster-builder-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.16);
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+  }
+
+  .monster-builder-tabs button {
+    padding: 4px 9px;
+  }
+
+  .monster-builder-body {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 0;
+    flex: 1;
+    overflow: hidden;
+    padding: 12px;
+  }
+
+  .monster-builder-summary,
+  .monster-builder-panels {
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .mb-summary-card,
+  .mb-rule-card,
+  .mb-warnings,
+  .mb-panel {
+    border: 1px solid rgba(122,110,90,0.36);
+    border-radius: 4px;
+    background: var(--eq-bg-raised);
+  }
+
+  .mb-summary-card,
+  .mb-rule-card,
+  .mb-warnings {
+    padding: 9px;
+    margin-bottom: 8px;
+  }
+
+  .mb-summary-card h3,
+  .mb-warnings h4 {
+    margin: 0 0 5px;
+    color: var(--eq-gold);
+  }
+
+  .mb-derived-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .mb-derived-grid div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 7px;
+    border: 1px solid rgba(201,168,76,0.22);
+    border-radius: 3px;
+    background: rgba(0,0,0,0.16);
+  }
+
+  .mb-derived-grid span,
+  .mb-rule-card {
+    color: var(--eq-text-dim);
+    font-size: 0.84em;
+  }
+
+  .mb-derived-grid strong {
+    color: var(--eq-text-bright);
+  }
+
+  .mb-warning {
+    margin-top: 5px;
+    padding: 5px 7px;
+    border-radius: 3px;
+    font-size: 0.84em;
+  }
+
+  .mb-warning-error {
+    border: 1px solid rgba(255,138,128,0.68);
+    background: rgba(148,38,32,0.28);
+    color: #ffc0ba;
+  }
+
+  .mb-warning-warning {
+    border: 1px solid rgba(255,208,92,0.55);
+    background: rgba(255,208,92,0.12);
+    color: #ffe28f;
+  }
+
+  .mb-warning-ok {
+    border: 1px solid rgba(142,234,154,0.5);
+    background: rgba(42,126,66,0.22);
+    color: #b6ffc0;
+  }
+
+  .mb-panel {
+    display: none;
+    padding: 12px;
+  }
+
+  .mb-panel.active {
+    display: block;
+  }
+
+  .mb-grid {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .mb-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mb-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .mb-grid.six { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+  .mb-grid label,
+  .mb-full {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .mb-grid label > span,
+  .mb-full > span {
+    color: var(--eq-gold);
+    font-size: 0.78em;
+    font-weight: bold;
+  }
+
+  .monster-builder input,
+  .monster-builder select,
+  .monster-builder textarea {
+    width: 100%;
+    min-width: 0;
+    background: var(--eq-bg-input);
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+    color: var(--eq-text);
+    font-family: inherit;
+  }
+
+  .monster-builder textarea {
+    resize: vertical;
+  }
+
+  .mb-check {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mb-check input {
+    width: auto;
+  }
+
+  .mb-check.inline {
+    white-space: nowrap;
+    color: var(--eq-text-dim);
+    font-size: 0.82em;
+  }
+
+  .mb-save-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  .mb-save-grid label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--eq-gold);
+    font-size: 0.82em;
+    font-weight: bold;
+  }
+
+  .mb-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0 6px;
+  }
+
+  .mb-section-heading h3 {
+    margin: 0;
+    color: var(--eq-gold);
+  }
+
+  .mb-attack-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mb-attack-row {
+    display: grid;
+    grid-template-columns: minmax(110px, 1.2fr) minmax(100px, 0.9fr) minmax(70px, 0.7fr) auto 58px auto minmax(90px, 0.8fr) minmax(110px, 1fr) minmax(110px, 1fr) 28px;
+    gap: 6px;
+    align-items: center;
+    padding: 7px;
+    border: 1px solid rgba(122,110,90,0.34);
+    border-radius: 4px;
+    background: rgba(0,0,0,0.13);
+  }
+
+  .mb-suggested {
+    color: var(--eq-text-dim);
+    font-size: 0.78em;
+    white-space: nowrap;
+  }
+
+  .mb-budget-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    color: var(--eq-text-dim);
+  }
+
+  .monster-builder-actions.bottom {
+    margin-top: 8px;
+  }
+
+  @media (max-width: 900px) {
+    .monster-builder-body {
+      grid-template-columns: 1fr;
+    }
+    .mb-grid.two,
+    .mb-grid.four,
+    .mb-grid.six,
+    .mb-save-grid {
+      grid-template-columns: 1fr;
+    }
+    .mb-attack-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
 } /* end @layer eqrpg */

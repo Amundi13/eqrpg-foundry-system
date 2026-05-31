@@ -383,6 +383,12 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // Class features and race abilities (PHB-derived)
     context.classFeatures = system.classFeatures ?? {};
     context.frontSheetFeatures = [];
+    context.additionalClassFeatures = [];
+    const addClassFeature = (labelKey, value) => {
+      const feature = { label: game.i18n.localize(labelKey), value };
+      context.frontSheetFeatures.push(feature);
+      context.additionalClassFeatures.push(feature);
+    };
     if (context.classFeatures.sneakAttackDice) {
       context.frontSheetFeatures.push({
         label: game.i18n.localize("EQRPG.SneakAttack"),
@@ -416,6 +422,63 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         label: game.i18n.localize("EQRPG.LeechTouch"),
         value: game.i18n.localize("EQRPG.Active"),
       });
+    }
+    if (context.classFeatures.mindAffectingUsesCha) {
+      addClassFeature("EQRPG.MindAffectingDC", "CHA");
+    }
+    if (context.classFeatures.deathMasteries) {
+      addClassFeature("EQRPG.DeathMasteries", `${context.classFeatures.deathMasteries} earned`);
+    }
+    if (context.classFeatures.spiritMasteries) {
+      addClassFeature("EQRPG.SpiritMasteries", `${context.classFeatures.spiritMasteries} earned`);
+    }
+    if (context.classFeatures.greaterEnchantments) {
+      addClassFeature("EQRPG.GreaterEnchantments", `${context.classFeatures.greaterEnchantments} earned`);
+    }
+    if (context.classFeatures.bonusMysticFeats) {
+      addClassFeature("EQRPG.BonusMysticFeats", `${context.classFeatures.bonusMysticFeats} earned`);
+    }
+    if (context.classFeatures.schoolSpecialization) {
+      addClassFeature("EQRPG.SchoolSpecialization", game.i18n.localize("EQRPG.BonusFeat"));
+    }
+    if (context.classFeatures.greaterSpecialization) {
+      addClassFeature("EQRPG.GreaterSpecialization", "10% mana reduction");
+    }
+    if (context.classFeatures.alchemyMasteryBonus) {
+      addClassFeature("EQRPG.AlchemyMastery", `+${context.classFeatures.alchemyMasteryBonus} checks`);
+    }
+    if (context.classFeatures.track) {
+      addClassFeature("EQRPG.Track", game.i18n.localize("EQRPG.BonusFeat"));
+    }
+    if (context.classFeatures.elementalResistance) {
+      addClassFeature("EQRPG.ColdFireResistance", `${context.classFeatures.elementalResistance}`);
+    }
+    if (context.classFeatures.fletcherBonus) {
+      addClassFeature("EQRPG.Fletcher", `+${context.classFeatures.fletcherBonus} checks`);
+    }
+    if (context.classFeatures.wildsMasteries) {
+      addClassFeature("EQRPG.WildsMasteries", `${context.classFeatures.wildsMasteries} earned`);
+    }
+    if (context.classFeatures.archerySpecializationEligible) {
+      addClassFeature("EQRPG.ArcherySpecialization", game.i18n.localize("EQRPG.Eligible"));
+    }
+    if (context.classFeatures.parryBonusFeat) {
+      addClassFeature("EQRPG.Parry", game.i18n.localize("EQRPG.BonusFeat"));
+    }
+    if (context.classFeatures.dualWieldEligible) {
+      addClassFeature("EQRPG.DualWield", game.i18n.localize("EQRPG.Eligible"));
+    }
+    if (context.classFeatures.doubleAttackEligible) {
+      addClassFeature("EQRPG.DoubleAttack", game.i18n.localize("EQRPG.Eligible"));
+    }
+    if (context.classFeatures.archeryBonusFeats) {
+      addClassFeature("EQRPG.ArcheryBonusFeats", `${context.classFeatures.archeryBonusFeats} earned`);
+    }
+    if (context.classFeatures.riposteEligible) {
+      addClassFeature("EQRPG.Riposte", game.i18n.localize("EQRPG.Eligible"));
+    }
+    if (context.classFeatures.rangerDisciplines?.length) {
+      addClassFeature("EQRPG.Disciplines", context.classFeatures.rangerDisciplines.join(", "));
     }
 
     // Transform raw ability key strings into display objects using raceAbilities dict

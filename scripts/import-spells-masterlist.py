@@ -37,6 +37,62 @@ CLASS_COLUMNS = {
     "Wizard": "wizard",
 }
 
+NAME_OVERRIDES = {
+    "animate 0ead": "Animate Dead",
+    "asphyxiate": "Asphyxiate",
+    "bane of ni fe": "Bane of Nife",
+    "banishmentor shadows": "Banishment of Shadows",
+    "bi ind affinity": "Bind Affinity",
+    "boonor the clear mind": "Boon of the Clear Mind",
+    "breathorthedead": "Breath of the Dead",
+    "burstor fire": "Burst of Fire",
+    "caleraction": "Calefaction",
+    "callofearth": "Call of Earth",
+    "callor flame": "Call of Flame",
+    "callor sky": "Call of Sky",
+    "callorthe predator": "Call of the Predator",
+    "camourlage": "Camouflage",
+    "cannibalizell": "Cannibalize II",
+    "cannibalizelv": "Cannibalize IV",
+    "cessation orc cor": "Cessation of Cor",
+    "clarity il": "Clarity II",
+    "conglaciationor bones": "Conglaciation of Bones",
+    "de froliate": "Defoliate",
+    "de froliation": "Defoliation",
+    "dertness": "Deftness",
+    "disin fecting aura": "Disinfecting Aura",
+    "dismiss summoned": "Dismiss Summoned",
+    "drones of doom": "Drones of Doom",
+    "emissaryor thule": "Emissary of Thule",
+    "engulring darkness": "Engulfing Darkness",
+    "enreeblement": "Enfeeblement",
+    "enve loping roots": "Enveloping Roots",
+    "eyesorthe cat": "Eyes of the Cat",
+    "funeral pyre of ke lador": "Funeral Pyre of Kelador",
+    "koabdic's endless intellect": "Koadic's Endless Intellect",
+    "yegorerr's animation": "Yegoreff's Animation",
+}
+
+SPELL_METADATA_OVERRIDES = {
+    "Cannibalize": {"damageFormula": "", "deliveryType": "utility"},
+    "Chaos Flux": {"damageFormula": "8d10"},
+    "Chloroblast": {"healFormula": "(3d6)*10"},
+    "Drain Soul": {"damageFormula": "(7d10+2)*2"},
+    "Drones of Doom": {"damageFormula": "2d10"},
+    "Envenomed Bolt": {"damageFormula": "6d10"},
+    "Firefist": {"damageFormula": "", "deliveryType": "utility"},
+    "Invoke Lightning": {"damageFormula": "2d10"},
+    "Light Healing": {"healFormula": "4d6"},
+    "Minor Healing": {"healFormula": "1d10"},
+    "Plague": {"damageFormula": "4d10"},
+    "Regrowth": {"healFormula": "", "deliveryType": "utility"},
+    "Stinging Swarm": {"damageFormula": "1d6", "duration": "11 rounds"},
+    "Talisman of Tnarg": {"healFormula": "", "deliveryType": "utility"},
+    "Turgur's Insects": {"damageFormula": ""},
+    "Vampiric Curse": {"damageFormula": "1d12"},
+    "Winter's Roar": {"damageFormula": "(6d10+3)*2"},
+}
+
 
 def column_index(cell_ref: str) -> int:
     match = re.match(r"([A-Z]+)", cell_ref)
@@ -122,7 +178,9 @@ def normalize_name(name: str) -> str:
     text = re.sub(r"\bLirespike\b", "Lifespike", text)
     text = re.sub(r"\bLire\b", "Life", text)
     text = re.sub(r"([a-z])([A-Z])", r"\1 \2", text)
-    return re.sub(r"\s+", " ", text).strip()
+    text = re.sub(r"\s+", " ", text).strip()
+    key = re.sub(r"[^a-z0-9']+", " ", text.lower()).strip()
+    return NAME_OVERRIDES.get(key, text)
 
 
 def lookup_key(name: str) -> str:
@@ -178,6 +236,69 @@ def infer_save_effect(value: str) -> str:
     return ""
 
 
+def infer_text_save(value: str) -> tuple[str, str]:
+    text = str(value or "")
+    match = re.search(
+        r"\b(Fortitude|Fort|Reflex|Ref|Will)(?:itude)?(?:\s+save)?\s+(half|negates?|partial)\b",
+        text,
+        flags=re.I,
+    )
+    if not match:
+        return "", ""
+    return normalize_save(match.group(1)), infer_save_effect(match.group(2))
+
+
+def normalize_category(value: str) -> str:
+    text = str(value or "").strip()
+    text = re.sub(r"\[\s*Mind-\s*Aten!?\s*$", "[Mind-Affecting]", text, flags=re.I)
+    return text
+
+
+def normalize_duration(value: str) -> str:
+    text = str(value or "").strip()
+    text = re.sub(r"\s+text\)\s*$", "", text, flags=re.I)
+    return text
+
+
+ROLL_FORMULA = r"(\(?\s*\d+\s*d\s*\d+(?:\s*[+-]\s*\d+)?\s*\)?(?:\s*[x×*]\s*\d+)?|\d+)"
+
+
+def normalize_roll_formula(value: str) -> str:
+    text = re.sub(r"\s+", "", str(value or "")).lower().replace("×", "x")
+    text = re.sub(r"(?<=\d)x(?=\d)", "*", text)
+    text = re.sub(r"\)x(?=\d)", ")*", text)
+    if re.match(r"^\d+d\d+(?:[+-]\d+)?\)\*\d+$", text):
+        text = f"({text}"
+    return text
+
+
+def infer_direct_damage_formula(record: dict[str, str]) -> str:
+    if not str(record.get("Duration", "")).strip().lower().startswith("instant"):
+        return ""
+
+    text = record.get("Spell Text", "")
+    patterns = [
+        rf"\b(?:deals?|does|takes?|suffers?|inflicts?)\s+{ROLL_FORMULA}\s+points?\s+of\s+[a-z -]*damage\b",
+        rf"\b(?:deals?|does|takes?|suffers?|inflicts?)\s+{ROLL_FORMULA}\s+points?\s+damage\b",
+        rf"\b(?:deals?|does|takes?|suffers?|inflicts?)\s+{ROLL_FORMULA}\s+damage\b",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.I)
+        if match:
+            return normalize_roll_formula(match.group(1))
+    return ""
+
+
+def infer_direct_heal_formula(record: dict[str, str]) -> str:
+    if not str(record.get("Duration", "")).strip().lower().startswith("instant"):
+        return ""
+
+    text = record.get("Spell Text", "")
+    pattern = rf"\b(?:heals?|restores?|regains?)\b[^.]{{0,80}}?\b{ROLL_FORMULA}\s+hit points?\b"
+    match = re.search(pattern, text, flags=re.I)
+    return normalize_roll_formula(match.group(1)) if match else ""
+
+
 def html_description(record: dict[str, str]) -> str:
     parts: list[str] = []
     text = record.get("Spell Text", "").strip()
@@ -227,26 +348,38 @@ def build_spell(record: dict[str, str], existing_by_name: dict[str, dict]) -> di
     existing = existing_by_name.get(lookup_key(name), {})
     existing_system = existing.get("system", {})
     classes, class_levels, spell_level = class_data(record)
-    saving_throw = normalize_save(record.get("Saving Throw", ""))
+    inferred_save, inferred_save_effect = infer_text_save(record.get("Spell Text", ""))
+    saving_throw = normalize_save(record.get("Saving Throw", "")) or inferred_save
     preserved_damage = existing_system.get("damageFormula", "")
     preserved_heal = existing_system.get("healFormula", "")
     preserved_delivery = existing_system.get("deliveryType", "")
 
+    damage_formula = normalize_roll_formula(preserved_damage) if preserved_damage else infer_direct_damage_formula(record)
+    heal_formula = normalize_roll_formula(preserved_heal) if preserved_heal else infer_direct_heal_formula(record)
     delivery_type = preserved_delivery or "utility"
-    if preserved_damage and saving_throw not in {"", "none"}:
+    metadata_override = SPELL_METADATA_OVERRIDES.get(name, {})
+    if "damageFormula" in metadata_override:
+        damage_formula = metadata_override["damageFormula"]
+    if "healFormula" in metadata_override:
+        heal_formula = metadata_override["healFormula"]
+    if saving_throw not in {"", "none"} and delivery_type != "attack":
         delivery_type = "save"
-    elif preserved_damage and delivery_type == "utility":
+    elif delivery_type == "save":
+        delivery_type = "attack" if damage_formula else "utility"
+    elif damage_formula and delivery_type == "utility":
         delivery_type = "attack"
+    if "deliveryType" in metadata_override:
+        delivery_type = metadata_override["deliveryType"]
 
     system = {
         "spellLevel": spell_level,
         "manaCost": parse_int(record.get("Mana", ""), existing_system.get("manaCost", 0)),
-        "school": record.get("Category", ""),
+        "school": normalize_category(record.get("Category", "")),
         "castingTime": record.get("Casting Time", ""),
         "range": record.get("Range", ""),
-        "duration": record.get("Duration", ""),
-        "damageFormula": preserved_damage,
-        "healFormula": preserved_heal,
+        "duration": metadata_override.get("duration", normalize_duration(record.get("Duration", ""))),
+        "damageFormula": damage_formula,
+        "healFormula": heal_formula,
         "savingThrow": saving_throw,
         "effect": record.get("Spell Text", ""),
         "recastTime": parse_recast_rounds(record.get("Recast", "")),
@@ -261,7 +394,7 @@ def build_spell(record: dict[str, str], existing_by_name: dict[str, dict]) -> di
         "sourcePage": record.get("Source Page", ""),
         "verified": record.get("Verified", ""),
         "notes": record.get("Notes", ""),
-        "saveEffect": infer_save_effect(record.get("Saving Throw", "")),
+        "saveEffect": infer_save_effect(record.get("Saving Throw", "")) or inferred_save_effect,
         "saveDC": existing_system.get("saveDC", ""),
         "deliveryType": delivery_type,
         "attackMode": existing_system.get("attackMode", ""),

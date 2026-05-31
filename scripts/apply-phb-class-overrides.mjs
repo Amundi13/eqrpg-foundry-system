@@ -208,6 +208,7 @@ function levelForClass(spell, classId) {
 
 for (const [classId, levels] of Object.entries(overrides)) {
   const wantedByName = new Map();
+  const overriddenLevels = new Set(Object.keys(levels).map(Number));
   for (const [levelKey, names] of Object.entries(levels)) {
     const level = Number(levelKey);
     for (const name of names) wantedByName.set(name, level);
@@ -215,7 +216,7 @@ for (const [classId, levels] of Object.entries(overrides)) {
 
   for (const spell of spells) {
     const existingLevel = levelForClass(spell, classId);
-    if (existingLevel && existingLevel <= 3 && !wantedByName.has(spell.name)) {
+    if (existingLevel && overriddenLevels.has(existingLevel) && !wantedByName.has(spell.name)) {
       spell.system.classLevels = spell.system.classLevels.filter((entry) => !String(entry).startsWith(`${classId}:`));
       spell.system.classes = (spell.system.classes ?? []).filter((entry) => entry !== classId);
     }

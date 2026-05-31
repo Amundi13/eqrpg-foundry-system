@@ -264,7 +264,7 @@ EQRPG.classes = {
     babProgression: "full",
     saves: { fortitude: "good", reflex: "good", will: "poor" },
     spellcastingAbility: "wis",
-    armorProficiency: ["light", "medium"],
+    armorProficiency: ["light", "medium", "shields"],
     skillPoints: 5,
   },
   rogue: {
@@ -291,7 +291,7 @@ EQRPG.classes = {
     babProgression: "medium",
     saves: { fortitude: "medium", reflex: "poor", will: "good" },
     spellcastingAbility: "wis",
-    armorProficiency: ["light", "medium"],
+    armorProficiency: ["light", "medium", "heavy", "shields"],
     skillPoints: 5,
   },
   warrior: {
@@ -658,6 +658,10 @@ EQRPG.classFeatures = {
   monk:         { unarmoredAC: true, wisToAC: true },
   paladin:      { layOnHands: true },
   shadowknight: { harmTouch: true },
+  enchanter:    { greaterEnchantments: true },
+  necromancer:  { deathMasteries: true },
+  ranger:       { wildsMasteries: true },
+  shaman:       { spiritMasteries: true },
   bard:         { songs: true },
   warrior:      { combatMastery: true },
 };
@@ -709,10 +713,9 @@ EQRPG.classSkills = {
     "Sense Heading", "Spellcraft", "Swim", "Trade Skill", "Wilderness Lore",
   ],
   enchanter: [
-    "Appraise", "Bluff", "Channeling", "Diplomacy", "Gather Information",
-    "Intimidate", "Knowledge (Art and Literature)", "Knowledge (Local Lore)",
-    "Knowledge (Mysticism)", "Language", "Listen", "Meditation",
-    "Read Lips", "Sense Motive", "Spellcraft",
+    "Appraise", "Bluff", "Channeling", "Diplomacy", "Intimidate",
+    "Knowledge (Monster Lore)", "Knowledge (Mysticism)", "Meditation",
+    "Profession", "Sense Motive", "Spellcraft", "Trade Skill",
   ],
   magician: [
     "Appraise", "Channeling", "Knowledge (Mysticism)", "Knowledge (Planar Travel)",
@@ -732,9 +735,10 @@ EQRPG.classSkills = {
     "Knowledge (Warcraft)", "Listen", "Meditation", "Ride", "Sense Motive", "Spot",
   ],
   ranger: [
-    "Animal Empathy", "Climb", "Handle Animal", "Heal", "Hide", "Jump",
-    "Knowledge (Geography)", "Knowledge (Nature)", "Listen", "Ride", "Search",
-    "Spot", "Swim", "Wilderness Lore",
+    "Alcohol Tolerance", "Animal Empathy", "Channeling", "Climb", "Handle Animal",
+    "Heal", "Hide", "Jump", "Knowledge (Local Lore)", "Knowledge (Monster Lore)",
+    "Knowledge (Nature)", "Listen", "Profession", "Ride", "Sense Heading", "Sneak",
+    "Spot", "Swim", "Taunt", "Trade Skill", "Use Rope", "Wilderness Lore",
   ],
   rogue: [
     "Appraise", "Balance", "Bluff", "Climb", "Diplomacy", "Disable Device",
@@ -748,9 +752,10 @@ EQRPG.classSkills = {
     "Knowledge (Warcraft)", "Listen", "Meditation", "Ride", "Sense Motive", "Spellcraft",
   ],
   shaman: [
-    "Animal Empathy", "Channeling", "Diplomacy", "Handle Animal", "Heal",
-    "Intimidate", "Knowledge (Folklore)", "Knowledge (Nature)", "Knowledge (Religion)",
-    "Listen", "Meditation", "Profession", "Spellcraft", "Wilderness Lore",
+    "Alcohol Tolerance", "Channeling", "Handle Animal", "Heal", "Knowledge (Folklore)",
+    "Knowledge (Mysticism)", "Knowledge (Nature)", "Knowledge (Religion)", "Meditation",
+    "Profession", "Ride", "Sense Heading", "Spellcraft", "Swim", "Trade Skill",
+    "Trade Skill (Alchemy)", "Wilderness Lore",
   ],
   warrior: [
     "Climb", "Handle Animal", "Intimidate", "Jump", "Knowledge (Warcraft)",

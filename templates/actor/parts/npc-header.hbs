@@ -36,6 +36,13 @@
                placeholder="Always orderly evil" {{#unless isEditable}}disabled{{/unless}} />
       </div>
     </div>
+    {{#if isEditable}}
+    <div class="npc-builder-row">
+      <button type="button" data-action="openMonsterBuilder" class="monster-builder-open-btn">
+        {{localize "EQRPG.MonsterBuilder"}}
+      </button>
+    </div>
+    {{/if}}
     <div class="header-resources">
       <div class="resource hp">
         <label>{{localize "EQRPG.HP"}}</label>
