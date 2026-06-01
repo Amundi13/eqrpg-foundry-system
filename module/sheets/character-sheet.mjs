@@ -509,8 +509,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   /** @override */
-  _preparePartContext(partId, context, options) {
-    context = super._preparePartContext(partId, context, options);
+  async _preparePartContext(partId, context, options) {
+    context = await super._preparePartContext(partId, context, options);
     context.partId = `${this.id}-${partId}`;
     // Set tab object for this part — templates use {{tab.cssClass}} for visibility
     if (context.tabs?.[partId]) {
@@ -524,8 +524,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   // -------------------------------------------------------------------------
 
   /** @override */
-  _onRender(context, options) {
-    super._onRender(context, options);
+  async _onRender(context, options) {
+    await super._onRender(context, options);
 
     // Sync active tab classes manually — ensures correct tab is shown on every render
     const activeTab = this.tabGroups?.sheet ?? "attributes";

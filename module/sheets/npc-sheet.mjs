@@ -143,8 +143,8 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   /** @override */
-  _preparePartContext(partId, context, options) {
-    context = super._preparePartContext(partId, context, options);
+  async _preparePartContext(partId, context, options) {
+    context = await super._preparePartContext(partId, context, options);
     context.partId = `${this.id}-${partId}`;
     if (context.tabs?.[partId]) context.tab = context.tabs[partId];
     return context;
@@ -155,8 +155,8 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   // ---------------------------------------------------------------------------
 
   /** @override */
-  _onRender(context, options) {
-    super._onRender(context, options);
+  async _onRender(context, options) {
+    await super._onRender(context, options);
 
     const activeTab = this.tabGroups?.sheet ?? "stats";
 
