@@ -151,40 +151,6 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   // ---------------------------------------------------------------------------
-  // Render — sync tab active states
-  // ---------------------------------------------------------------------------
-
-  /** @override */
-  async _onRender(context, options) {
-    await super._onRender(context, options);
-
-    const activeTab = this.tabGroups?.sheet ?? "stats";
-
-    for (const s of this.element.querySelectorAll("section[data-group='sheet']")) {
-      s.classList.toggle("active", s.dataset.tab === activeTab);
-    }
-    for (const link of this.element.querySelectorAll("nav.sheet-tabs .item[data-tab]")) {
-      link.classList.toggle("active", link.dataset.tab === activeTab);
-    }
-
-    // Tab click handler
-    for (const link of this.element.querySelectorAll("nav.sheet-tabs .item[data-tab]")) {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const tabId = e.currentTarget.dataset.tab;
-        if (!this.tabGroups) this.tabGroups = {};
-        this.tabGroups.sheet = tabId;
-        for (const a of this.element.querySelectorAll("nav.sheet-tabs .item[data-tab]")) {
-          a.classList.toggle("active", a.dataset.tab === tabId);
-        }
-        for (const s of this.element.querySelectorAll("section[data-group='sheet']")) {
-          s.classList.toggle("active", s.dataset.tab === tabId);
-        }
-      });
-    }
-  }
-
-  // ---------------------------------------------------------------------------
   // Roll Handlers
   // ---------------------------------------------------------------------------
 

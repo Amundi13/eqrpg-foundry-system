@@ -3,6 +3,11 @@ import { renderStore } from "../apps/store.mjs";
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
+const finiteNumber = (value, fallback = 0) => {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : fallback;
+};
+
 /**
  * Character sheet for EverQuest RPG player characters.
  * Uses ApplicationV2 with HandlebarsApplicationMixin for tabbed layout.
@@ -141,6 +146,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const context = await super._prepareContext(options);
     const system = this.actor.system;
     const config = CONFIG.EQRPG;
+    const sourceAbilities = this.actor.toObject().system?.abilities ?? {};
+    const pointBuy = this._getPointBuySummary(sourceAbilities);
 
     context.system = system;
     context.config = config;
@@ -204,26 +211,32 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // Use Object.keys(config.abilities) rather than Object.entries(system.abilities)
     // because Foundry TypeDataModel SchemaField getters are non-enumerable, so
     // Object.entries() silently returns an empty array on the model instance.
+    // Combat refreshes can briefly expose a partial prepared model, so persisted
+    // actor data remains the fallback for the six cards.
     context.abilities = {};
     context.abilityList = [];
     for (const key of Object.keys(config.abilities)) {
-      const ab = system.abilities[key];
-      if (!ab) continue;
-      const total = (ab.value != null) ? ab.value : (ab.base + ab.racial + ab.misc);
-      const mod = (ab.mod != null) ? ab.mod : Math.floor((total - 10) / 2);
+      const prepared = system.abilities?.[key];
+      const source = sourceAbilities[key] ?? {};
+      const base = finiteNumber(prepared?.base ?? source.base, 8);
+      const racial = finiteNumber(prepared?.racial ?? source.racial);
+      const misc = finiteNumber(prepared?.misc ?? source.misc);
+      const buff = finiteNumber(prepared?.buff);
+      const total = finiteNumber(prepared?.value, base + racial + misc + buff);
+      const mod = finiteNumber(prepared?.mod, Math.floor((total - 10) / 2));
       const display = {
         key,
-        base:    ab.base,
-        racial:  ab.racial,
-        misc:    ab.misc,
-        buff:    ab.buff ?? 0,
+        base,
+        racial,
+        misc,
+        buff,
         value:   total,
         mod:     mod,
         label:   game.i18n.localize(config.abilities[key]),
         abbr:    game.i18n.localize(config.abilityAbbreviations[key]),
         miscField: `system.abilities.${key}.misc`,
-        canIncrement: this._canIncrementAbility(key),
-        canDecrement: ab.base > 8,
+        canIncrement: this._canIncrementAbility(key, base, pointBuy.remaining),
+        canDecrement: base > 8,
       };
       context.abilities[key] = display;
       context.abilityList.push(display);
@@ -231,7 +244,7 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.frontsheetAbilities = context.abilityList;
 
     // Point-buy info
-    context.pointBuy = system.pointBuy;
+    context.pointBuy = pointBuy;
 
     // Alignment options
     context.alignmentOptions = Object.entries(config.alignments).map(([key, label]) => ({
@@ -527,33 +540,6 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   async _onRender(context, options) {
     await super._onRender(context, options);
 
-    // Sync active tab classes manually — ensures correct tab is shown on every render
-    const activeTab = this.tabGroups?.sheet ?? "attributes";
-    for (const section of this.element.querySelectorAll("section[data-group='sheet']")) {
-      section.classList.toggle("active", section.dataset.tab === activeTab);
-    }
-    for (const link of this.element.querySelectorAll("nav.sheet-tabs .item[data-tab]")) {
-      link.classList.toggle("active", link.dataset.tab === activeTab);
-    }
-
-    // Tab click handler — update tabGroups and re-sync classes
-    for (const link of this.element.querySelectorAll("nav.sheet-tabs .item[data-tab]")) {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const tabId = e.currentTarget.dataset.tab;
-        if (!this.tabGroups) this.tabGroups = {};
-        this.tabGroups.sheet = tabId;
-        // Update nav active states
-        for (const a of this.element.querySelectorAll("nav.sheet-tabs .item[data-tab]")) {
-          a.classList.toggle("active", a.dataset.tab === tabId);
-        }
-        // Update section active states
-        for (const s of this.element.querySelectorAll("section[data-group='sheet']")) {
-          s.classList.toggle("active", s.dataset.tab === tabId);
-        }
-      });
-    }
-
     // data-action only fires on click; selects need change listeners
     const raceSelect = this.element.querySelector('[name="system.details.race"]');
     if (raceSelect) {
@@ -642,13 +628,32 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   // Point-Buy Logic
   // -------------------------------------------------------------------------
 
-  _canIncrementAbility(abilityKey) {
+  _getAbilityBase(abilityKey, sourceAbilities = null) {
+    const source = sourceAbilities ?? this.actor.toObject().system?.abilities ?? {};
+    return finiteNumber(this.actor.system.abilities?.[abilityKey]?.base ?? source[abilityKey]?.base, 8);
+  }
+
+  _getPointBuySummary(sourceAbilities = null) {
     const system = this.actor.system;
-    const base = system.abilities[abilityKey].base;
+    const source = sourceAbilities ?? this.actor.toObject().system?.abilities ?? {};
+    const fallbackSpent = Object.keys(CONFIG.EQRPG.abilities ?? {}).reduce((spent, key) => {
+      return spent + (CONFIG.EQRPG.pointBuyCost[this._getAbilityBase(key, source)] ?? 0);
+    }, 0);
+
+    return {
+      ...(system.pointBuy ?? {}),
+      spent: finiteNumber(system.pointBuy?.spent, fallbackSpent),
+      remaining: finiteNumber(system.pointBuy?.remaining, CONFIG.EQRPG.pointBuyTotal - fallbackSpent),
+    };
+  }
+
+  _canIncrementAbility(abilityKey, base = this._getAbilityBase(abilityKey), remaining = this._getPointBuySummary().remaining) {
+    base = finiteNumber(base, 8);
+    remaining = finiteNumber(remaining);
     if (base >= 18) return false;
     const newCost = CONFIG.EQRPG.pointBuyCost[base + 1] ?? 0;
     const oldCost = CONFIG.EQRPG.pointBuyCost[base] ?? 0;
-    return system.pointBuy.remaining >= (newCost - oldCost);
+    return remaining >= (newCost - oldCost);
   }
 
   // -------------------------------------------------------------------------
@@ -680,8 +685,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async _onIncrementAbility(event, target) {
     const ability = target.dataset.ability;
-    if (!ability || !this.actor.system.abilities[ability]) return;
-    const current = this.actor.system.abilities[ability].base;
+    if (!ability || !(ability in (CONFIG.EQRPG.abilities ?? {}))) return;
+    const current = this._getAbilityBase(ability);
     if (current >= 18) return;
 
     const newBase = current + 1;
@@ -689,14 +694,14 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const oldCost = CONFIG.EQRPG.pointBuyCost[current] ?? 0;
     const costDiff = newCost - oldCost;
 
-    if (this.actor.system.pointBuy.remaining < costDiff) return;
+    if (this._getPointBuySummary().remaining < costDiff) return;
     await this.actor.update({ [`system.abilities.${ability}.base`]: newBase });
   }
 
   static async _onDecrementAbility(event, target) {
     const ability = target.dataset.ability;
-    if (!ability || !this.actor.system.abilities[ability]) return;
-    const current = this.actor.system.abilities[ability].base;
+    if (!ability || !(ability in (CONFIG.EQRPG.abilities ?? {}))) return;
+    const current = this._getAbilityBase(ability);
     if (current <= 8) return;
     await this.actor.update({ [`system.abilities.${ability}.base`]: current - 1 });
   }
