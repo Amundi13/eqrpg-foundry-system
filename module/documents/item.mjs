@@ -1,3 +1,5 @@
+import { getValidAttackSound, previewAttackSound } from "../helpers/audio.mjs";
+
 /**
  * Extend the base Item for EverQuest RPG.
  */
@@ -103,6 +105,14 @@ export class EQItem extends Item {
   getDisplayDamage() {
     const profile = this._resolveAttackProfile();
     return this._adjustDamageForSize(profile.damage || "");
+  }
+
+  getAttackSound() {
+    return getValidAttackSound(this.system?.attackSound);
+  }
+
+  async previewAttackSound() {
+    return previewAttackSound(this.system?.attackSound);
   }
 
   _resolveAttackProfile() {
@@ -989,6 +999,7 @@ export class EQItem extends Item {
       content:  cardHtml,
       rolls:    results.flatMap((r) => r.critRoll ? [r.roll, r.critRoll] : [r.roll]),
       rollMode,
+      sound:    this.getAttackSound() || undefined,
     });
 
     if (isNet && targets.length) {

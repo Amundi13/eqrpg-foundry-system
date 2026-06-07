@@ -8,6 +8,7 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
       description: new HTMLField({ initial: "" }),
       damage: new StringField({ initial: "1d8" }),
       damageType: new StringField({ initial: "slashing" }),
+      attackSound: new StringField({ initial: "" }),
       attackBonus: new NumberField({ integer: true, initial: 0 }),
       range: new NumberField({ integer: true, min: 0, initial: 0 }),
       weight: new NumberField({ min: 0, initial: 1 }),

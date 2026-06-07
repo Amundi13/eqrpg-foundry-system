@@ -218,6 +218,12 @@
                   DMG
                 </button>
                 {{/if}}
+                {{#if attack.attackSound}}
+                <button type="button" data-action="previewStatblockAttackSound" data-attack-id="{{attack.id}}"
+                        class="sound-preview-btn" title="{{localize 'EQRPG.PreviewSound'}}">
+                  <i class="fa-solid fa-volume-high"></i>
+                </button>
+                {{/if}}
               </div>
             </div>
             {{/each}}

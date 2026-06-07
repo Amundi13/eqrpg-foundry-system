@@ -17,6 +17,17 @@
               {{#if attack.damageText}}
               <span class="npc-quick-action-detail dim">{{attack.damageText}}</span>
               {{/if}}
+              {{#if @root.isEditable}}
+              <div class="npc-attack-sound-row">
+                <file-picker type="audio" name="flags.eqrpg.attackSounds.{{attack.id}}" value="{{attack.attackSound}}"
+                             placeholder="{{localize 'EQRPG.AttackSoundPlaceholder'}}"></file-picker>
+                <button type="button" data-action="previewStatblockAttackSound" data-attack-id="{{attack.id}}"
+                        class="sound-preview-btn" title="{{localize 'EQRPG.PreviewSound'}}"
+                        {{#unless attack.attackSound}}disabled{{/unless}}>
+                  <i class="fa-solid fa-play"></i>
+                </button>
+              </div>
+              {{/if}}
             </div>
             <div class="npc-quick-action-controls">
               <button type="button" class="roll-btn atk-btn"

@@ -58,6 +58,16 @@
             <input type="number" name="system.range" value="{{system.range}}"
                    {{#unless isEditable}}disabled{{/unless}} />
           </div>
+          <div class="field-group attack-sound-field">
+            <label>{{localize "EQRPG.AttackSound"}}</label>
+            <file-picker type="audio" name="system.attackSound" value="{{system.attackSound}}"
+                         placeholder="{{localize 'EQRPG.AttackSoundPlaceholder'}}"
+                         {{#unless isEditable}}disabled{{/unless}}></file-picker>
+            <button type="button" data-action="previewAttackSound" class="sound-preview-btn"
+                    title="{{localize 'EQRPG.PreviewSound'}}" {{#unless system.attackSound}}disabled{{/unless}}>
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
         </div>
         <div class="item-prop-section">
           <div class="item-prop-title">{{localize "EQRPG.Properties"}}</div>

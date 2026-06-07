@@ -24,6 +24,7 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollDamage:     EQNPCSheet._onRollDamage,
       rollStatblockAttack: EQNPCSheet._onRollStatblockAttack,
       rollStatblockDamage: EQNPCSheet._onRollStatblockDamage,
+      previewStatblockAttackSound: EQNPCSheet._onPreviewStatblockAttackSound,
       castSpell:      EQNPCSheet._onCastSpell,
       rollSkill:      EQNPCSheet._onRollSkill,
       useSpecialAbility: EQNPCSheet._onUseSpecialAbility,
@@ -186,6 +187,10 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async _onRollStatblockDamage(event, target) {
     await this.actor.rollNPCStatblockDamage(target.dataset.attackId);
+  }
+
+  static async _onPreviewStatblockAttackSound(event, target) {
+    await this.actor.previewNPCStatblockAttackSound(target.dataset.attackId);
   }
 
   static async _onCastSpell(event, target) {

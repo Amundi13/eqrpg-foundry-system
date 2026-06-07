@@ -1948,6 +1948,34 @@
     flex-shrink: 0;
   }
 
+  .eqrpg.npc-sheet .npc-attack-sound-row,
+  .eqrpg .attack-sound-field {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .eqrpg.npc-sheet .npc-attack-sound-row file-picker,
+  .eqrpg .attack-sound-field file-picker {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .eqrpg.npc-sheet .npc-attack-sound-row file-picker input,
+  .eqrpg .attack-sound-field file-picker input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .eqrpg .sound-preview-btn {
+    flex: 0 0 26px;
+    width: 26px;
+    height: 24px;
+    padding: 0;
+  }
+
   .eqrpg.npc-sheet .npc-stats-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;

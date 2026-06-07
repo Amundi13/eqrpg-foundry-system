@@ -1,3 +1,5 @@
+import { getValidAttackSound, previewAttackSound } from "../helpers/audio.mjs";
+
 /**
  * Extend the base Actor for EverQuest RPG.
  */
@@ -227,6 +229,7 @@ export class EQActor extends Actor {
 
     const attackText = String(this.system?.statblock?.attacks ?? "").trim();
     const damageText = String(this.system?.statblock?.damage ?? "").trim();
+    const attackSounds = this.getFlag("eqrpg", "attackSounds") ?? {};
     if (!attackText) return [];
 
     const damageMap = new Map();
@@ -259,6 +262,7 @@ export class EQActor extends Actor {
       const name = rawName.trim();
       const normalized = EQActor._normalizeNPCActionName(name);
       const damage = damageMap.get(normalized) ?? null;
+      const attackSound = String(attackSounds[normalized] ?? "").trim();
       profiles.push({
         id: normalized || `attack-${profiles.length + 1}`,
         name,
@@ -269,6 +273,7 @@ export class EQActor extends Actor {
         mode: mode.trim(),
         damageFormula: damage?.formula ?? "",
         damageText: damage ? `${damage.formula}${damage.rider ? ` ${damage.rider}` : ""}` : "",
+        attackSound,
       });
     }
 
@@ -334,8 +339,14 @@ export class EQActor extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flavor: content,
       rollMode: game.settings.get("core", "rollMode"),
+      sound: getValidAttackSound(profile.attackSound) || undefined,
     });
     return roll;
+  }
+
+  async previewNPCStatblockAttackSound(attackId) {
+    const profile = this.getNPCStatblockAttacks().find((entry) => entry.id === attackId);
+    return previewAttackSound(profile?.attackSound);
   }
 
   async rollNPCStatblockDamage(attackId) {

@@ -15,6 +15,7 @@ export class EQItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
       castSpell: EQItemSheet._onCastSpell,
+      previewAttackSound: EQItemSheet._onPreviewAttackSound,
     },
   };
 
@@ -86,5 +87,9 @@ export class EQItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
   static async _onCastSpell(event, target) {
     await this.item.castSpell();
+  }
+
+  static async _onPreviewAttackSound(event, target) {
+    await this.item.previewAttackSound();
   }
 }
