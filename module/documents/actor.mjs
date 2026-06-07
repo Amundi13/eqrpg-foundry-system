@@ -679,13 +679,8 @@ export class EQActor extends Actor {
         const hasIt = tokenActor.statuses?.has(statusId)
           ?? tokenDoc.hasStatusEffect?.(statusId)
           ?? false;
-        if (hasIt !== active) {
-          if (tokenActor.toggleStatusEffect) {
-            await tokenActor.toggleStatusEffect(statusId, { active });
-          } else if (tokenDoc.toggleActiveEffect) {
-            const status = CONFIG.statusEffects?.find((entry) => entry.id === statusId) ?? { id: statusId };
-            await tokenDoc.toggleActiveEffect(status, { active });
-          }
+        if (hasIt !== active && tokenActor.toggleStatusEffect) {
+          await tokenActor.toggleStatusEffect(statusId, { active });
         }
       }
     }

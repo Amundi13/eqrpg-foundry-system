@@ -186,12 +186,6 @@ async function _toggleStatusEffect(doc, statusId, options = {}) {
     return true;
   }
 
-  if (doc?.toggleActiveEffect && statusId) {
-    const status = CONFIG.statusEffects?.find((entry) => entry.id === statusId) ?? { id: statusId };
-    await doc.toggleActiveEffect(status, options);
-    return true;
-  }
-
   return false;
 }
 
