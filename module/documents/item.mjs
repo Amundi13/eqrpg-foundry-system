@@ -133,43 +133,68 @@ export class EQItem extends Item {
   }
 
   _getActorAbilityValue(actor, key) {
-    const sourceAbility = actor?.toObject?.()?.system?.abilities?.[key];
-    if (sourceAbility) {
-      if (Number.isFinite(sourceAbility.value)) return sourceAbility.value;
-      const total = Number((sourceAbility.base ?? 0) + (sourceAbility.racial ?? 0) + (sourceAbility.misc ?? 0));
+    const ability = actor?.system?.abilities?.[key];
+    if (ability) {
+      if (Number.isFinite(ability.value)) return ability.value;
+      const total = Number(ability.base ?? 0) + Number(ability.racial ?? 0) + Number(ability.misc ?? 0);
       if (Number.isFinite(total) && total > 0) return total;
     }
 
     const rollAbility = actor?.getRollData?.()?.abilities?.[key];
-    if (rollAbility && Number.isFinite(rollAbility.value)) return rollAbility.value;
+    if (rollAbility) {
+      if (Number.isFinite(rollAbility.value)) return rollAbility.value;
+      const total = Number(rollAbility.base ?? 0) + Number(rollAbility.racial ?? 0) + Number(rollAbility.misc ?? 0);
+      if (Number.isFinite(total) && total > 0) return total;
+    }
 
-    const ability = actor?.system?.abilities?.[key];
-    if (!ability) return 10;
-    if (Number.isFinite(ability.value)) return ability.value;
-    return Number((ability.base ?? 0) + (ability.racial ?? 0) + (ability.misc ?? 0)) || 10;
+    const sourceAbility = actor?.toObject?.()?.system?.abilities?.[key];
+    if (sourceAbility) {
+      if (Number.isFinite(sourceAbility.value)) return sourceAbility.value;
+      const total = Number(sourceAbility.base ?? 0) + Number(sourceAbility.racial ?? 0) + Number(sourceAbility.misc ?? 0);
+      if (Number.isFinite(total) && total > 0) return total;
+    }
+
+    return 10;
   }
 
   _getActorAbilityMod(actor, key) {
-    const sourceAbility = actor?.toObject?.()?.system?.abilities?.[key];
-    if (sourceAbility) {
-      if (Number.isFinite(sourceAbility.mod)) return sourceAbility.mod;
-      const total = Number((sourceAbility.value ?? ((sourceAbility.base ?? 0) + (sourceAbility.racial ?? 0) + (sourceAbility.misc ?? 0)))) || 10;
-      return Math.floor((total - 10) / 2);
+    const ability = actor?.system?.abilities?.[key];
+    if (ability) {
+      if (Number.isFinite(ability.mod)) return ability.mod;
+      const total = Number.isFinite(ability.value)
+        ? ability.value
+        : Number(ability.base ?? 0) + Number(ability.racial ?? 0) + Number(ability.misc ?? 0);
+      if (Number.isFinite(total)) return Math.floor((total - 10) / 2);
     }
 
     const rollAbility = actor?.getRollData?.()?.abilities?.[key];
-    if (rollAbility && Number.isFinite(rollAbility.mod)) return rollAbility.mod;
+    if (rollAbility) {
+      if (Number.isFinite(rollAbility.mod)) return rollAbility.mod;
+      const total = Number.isFinite(rollAbility.value)
+        ? rollAbility.value
+        : Number(rollAbility.base ?? 0) + Number(rollAbility.racial ?? 0) + Number(rollAbility.misc ?? 0);
+      if (Number.isFinite(total)) return Math.floor((total - 10) / 2);
+    }
 
-    const ability = actor?.system?.abilities?.[key];
-    if (!ability) return 0;
-    if (Number.isFinite(ability.mod)) return ability.mod;
-    const total = this._getActorAbilityValue(actor, key);
-    return Math.floor((total - 10) / 2);
+    const sourceAbility = actor?.toObject?.()?.system?.abilities?.[key];
+    if (sourceAbility) {
+      if (Number.isFinite(sourceAbility.mod)) return sourceAbility.mod;
+      const total = Number.isFinite(sourceAbility.value)
+        ? sourceAbility.value
+        : Number(sourceAbility.base ?? 0) + Number(sourceAbility.racial ?? 0) + Number(sourceAbility.misc ?? 0);
+      if (Number.isFinite(total)) return Math.floor((total - 10) / 2);
+    }
+
+    return 0;
   }
 
   _getAttackAbilityMod(actor) {
     const range = this._resolveAttackProfile().range ?? 0;
-    const isRanged = range > 0;
+    const isRanged = this._isProjectileWeapon()
+      || this._isThrownWeapon()
+      || this._hasProperty("ranged-touch")
+      || this.system?.combatClass === "ranged"
+      || range > 0;
     if (isRanged) return this._getActorAbilityMod(actor, "dex");
 
     const strMod = this._getActorAbilityMod(actor, "str");
