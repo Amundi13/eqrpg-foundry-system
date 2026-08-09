@@ -110,6 +110,9 @@
       },
       "npc": {
         "htmlFields": ["biography"]
+      },
+      "pet": {
+        "htmlFields": ["biography"]
       }
     },
     "Item": {

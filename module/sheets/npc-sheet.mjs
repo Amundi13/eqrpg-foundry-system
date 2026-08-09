@@ -24,6 +24,7 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollDamage:     EQNPCSheet._onRollDamage,
       rollStatblockAttack: EQNPCSheet._onRollStatblockAttack,
       rollStatblockDamage: EQNPCSheet._onRollStatblockDamage,
+      rollStatblockSkill: EQNPCSheet._onRollStatblockSkill,
       castSpell:      EQNPCSheet._onCastSpell,
       rollSkill:      EQNPCSheet._onRollSkill,
       useSpecialAbility: EQNPCSheet._onUseSpecialAbility,
@@ -129,6 +130,7 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ["armor", "consumable", "equipment"].includes(i.type));
     context.statblockAttacks = this.actor.getNPCStatblockAttacks();
     context.specialAbilities = this.actor.getNPCSpecialAbilities();
+    context.statblockSkills = this.actor.getNPCStatblockSkills();
 
     // Iterative attack array from BAB (same thresholds as character sheet)
     const bab = system.combat.bab ?? 0;
@@ -186,6 +188,10 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async _onRollStatblockDamage(event, target) {
     await this.actor.rollNPCStatblockDamage(target.dataset.attackId);
+  }
+
+  static async _onRollStatblockSkill(event, target) {
+    await this.actor.rollNPCStatblockSkill(target.dataset.skillId);
   }
 
   static async _onCastSpell(event, target) {

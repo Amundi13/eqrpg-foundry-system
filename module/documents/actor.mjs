@@ -223,7 +223,7 @@ export class EQActor extends Actor {
   }
 
   getNPCStatblockAttacks() {
-    if (this.type !== "npc") return [];
+    if (!["npc", "pet"].includes(this.type)) return [];
 
     const attackText = String(this.system?.statblock?.attacks ?? "").trim();
     const damageText = String(this.system?.statblock?.damage ?? "").trim();
@@ -276,7 +276,7 @@ export class EQActor extends Actor {
   }
 
   getNPCSpecialAbilities() {
-    if (this.type !== "npc") return [];
+    if (!["npc", "pet"].includes(this.type)) return [];
 
     const names = [
       ...String(this.system?.statblock?.specialAttacks ?? "").split(","),
@@ -312,6 +312,25 @@ export class EQActor extends Actor {
     }
 
     return abilities;
+  }
+
+  getNPCStatblockSkills() {
+    if (!["npc", "pet"].includes(this.type)) return [];
+
+    return String(this.system?.statblock?.skills ?? "")
+      .split(",")
+      .map((entry, index) => {
+        const text = entry.trim();
+        const match = text.match(/^(.+?)\s+([+-]\d+)$/);
+        if (!match) return null;
+        const [, name, bonus] = match;
+        return {
+          id: `skill-${index}`,
+          name: name.trim(),
+          bonus: Number(bonus),
+        };
+      })
+      .filter(Boolean);
   }
 
   async rollNPCStatblockAttack(attackId) {
@@ -358,6 +377,26 @@ export class EQActor extends Actor {
     await ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor: this }),
       content: EQActor._buildApplyDamagePanel(roll.total),
+      rollMode: game.settings.get("core", "rollMode"),
+    });
+    return roll;
+  }
+
+  async rollNPCStatblockSkill(skillId) {
+    const skill = this.getNPCStatblockSkills().find((entry) => entry.id === skillId);
+    if (!skill) return null;
+
+    const roll = await new Roll(`1d20 + ${skill.bonus}`, this.getRollData()).evaluate();
+    const sign = skill.bonus >= 0 ? "+" : "";
+    const content = `<div class="eq-chat-card eq-skill-card">`
+      + this._buildActorCardHeader(`<strong>${skill.name}</strong> ${game.i18n.localize("EQRPG.RollSkill")}`)
+      + `<div class="eq-card-body"><span class="eq-roll-mod">${sign}${skill.bonus}</span>`
+      + ` <span class="eq-roll-arrow">&rarr;</span> <span class="eq-roll-total">${roll.total}</span></div></div>`;
+
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      content,
+      rolls: [roll],
       rollMode: game.settings.get("core", "rollMode"),
     });
     return roll;

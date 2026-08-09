@@ -1,0 +1,137 @@
+<section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="stats" id="{{partId}}">
+  <div class="pet-stats-layout">
+    <section class="npc-manual-card pet-core-card">
+      <div class="npc-manual-title">{{localize "EQRPG.PetCombatStats"}}</div>
+
+      <div class="pet-abilities-row">
+        {{#each abilities as |ab key|}}
+        <div class="npc-ability-box">
+          <span class="ability-abbr">{{ab.abbr}}</span>
+          <input type="number" name="system.abilities.{{key}}.value" value="{{ab.value}}"
+                 {{#unless @root.isEditable}}disabled{{/unless}} />
+          <button type="button" data-action="rollAbility" data-ability="{{key}}"
+                  class="ability-mod-btn roll-btn" title="{{localize 'EQRPG.RollAbility'}} {{ab.label}}">
+            {{#if (gte ab.mod 0)}}+{{/if}}{{ab.mod}}
+          </button>
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="pet-combat-grid">
+        <label>{{localize "EQRPG.ArmorClass"}}</label>
+        <input type="number" name="system.combat.ac.value" value="{{system.combat.ac.value}}"
+               {{#unless isEditable}}disabled{{/unless}} />
+        <label>{{localize "EQRPG.BAB"}}</label>
+        <input type="number" name="system.combat.bab" value="{{system.combat.bab}}"
+               {{#unless isEditable}}disabled{{/unless}} />
+        <label>{{localize "EQRPG.Initiative"}}</label>
+        <div class="stat-roll-pair">
+          <input type="number" name="system.combat.initiative.value" value="{{system.combat.initiative.value}}"
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <button type="button" data-action="rollInitiative" class="roll-btn">ROLL</button>
+        </div>
+        <label>{{localize "EQRPG.Speed"}}</label>
+        <div class="stat-roll-pair">
+          <input type="number" name="system.details.speed" value="{{system.details.speed}}" min="0"
+                 {{#unless isEditable}}disabled{{/unless}} />
+          <span class="npc-unit-label">ft.</span>
+        </div>
+      </div>
+
+      <div class="pet-save-row">
+        {{#each petSaves as |save|}}
+        <div class="pet-save-control">
+          <label>{{save.label}}</label>
+          <input type="number" name="system.combat.saves.{{save.key}}.value" value="{{save.value}}"
+                 {{#unless @root.isEditable}}disabled{{/unless}} />
+          <button type="button" class="pet-save-button" data-action="rollSave" data-save="{{save.key}}">ROLL</button>
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="npc-manual-title npc-manual-subtitle">{{localize "EQRPG.QuickActions"}}</div>
+      <div class="npc-quick-actions">
+        <section class="npc-quick-action-block">
+          <div class="npc-quick-action-header">{{localize "EQRPG.QuickAttacks"}}</div>
+          {{#if statblockAttacks.length}}
+          <div class="npc-quick-action-list">
+            {{#each statblockAttacks as |attack|}}
+            <div class="npc-quick-action-row">
+              <div class="npc-quick-action-copy">
+                <span class="npc-quick-action-name">{{attack.label}}</span>
+                <span class="npc-quick-action-detail">{{attack.attackText}}</span>
+                {{#if attack.damageText}}<span class="npc-quick-action-detail dim">{{attack.damageText}}</span>{{/if}}
+              </div>
+              <div class="npc-quick-action-controls">
+                <button type="button" class="roll-btn atk-btn" data-action="rollStatblockAttack" data-attack-id="{{attack.id}}">ATK</button>
+                {{#if attack.damageFormula}}<button type="button" class="roll-btn dmg-btn" data-action="rollStatblockDamage" data-attack-id="{{attack.id}}">DMG</button>{{/if}}
+              </div>
+            </div>
+            {{/each}}
+          </div>
+          {{else}}<p class="empty-list">{{localize "EQRPG.NoStatblockAttacks"}}</p>{{/if}}
+        </section>
+
+        <section class="npc-quick-action-block">
+          <div class="npc-quick-action-header">{{localize "EQRPG.SpecialAbilities"}}</div>
+          {{#if specialAbilities.length}}
+          <div class="npc-quick-action-list">
+            {{#each specialAbilities as |ability|}}
+            <div class="npc-quick-action-row">
+              <div class="npc-quick-action-copy">
+                <span class="npc-quick-action-name">{{ability.label}}</span>
+                {{#if ability.description}}<span class="npc-quick-action-detail">{{ability.description}}</span>{{/if}}
+              </div>
+              <button type="button" class="roll-btn cast-btn" data-action="useSpecialAbility" data-ability-id="{{ability.id}}">{{localize "EQRPG.Use"}}</button>
+            </div>
+            {{/each}}
+          </div>
+          {{else}}<p class="empty-list">{{localize "EQRPG.NoSpecialAbilities"}}</p>{{/if}}
+        </section>
+
+        <section class="npc-quick-action-block">
+          <div class="npc-quick-action-header">{{localize "EQRPG.Skills"}}</div>
+          {{#if statblockSkills.length}}
+          <div class="pet-skill-buttons">
+            {{#each statblockSkills as |skill|}}
+            <button type="button" class="pet-skill-button" data-action="rollStatblockSkill" data-skill-id="{{skill.id}}">
+              <span>{{skill.name}}</span><strong>{{#if (gte skill.bonus 0)}}+{{/if}}{{skill.bonus}}</strong>
+            </button>
+            {{/each}}
+          </div>
+          {{else}}<p class="empty-list">{{localize "EQRPG.NoSkills"}}</p>{{/if}}
+        </section>
+      </div>
+    </section>
+
+    <section class="npc-manual-card pet-statblock-card">
+      <div class="npc-manual-title">{{localize "EQRPG.CompanionStatblock"}}</div>
+      <div class="pet-statblock-list">
+        <label>{{localize "EQRPG.HitDice"}}</label>
+        <input type="text" name="system.statblock.hitDice" value="{{system.statblock.hitDice}}" placeholder="1d12 (6 hp)" {{#unless isEditable}}disabled{{/unless}} />
+        <label>{{localize "EQRPG.Attacks"}}</label>
+        <input type="text" name="system.statblock.attacks" value="{{system.statblock.attacks}}" placeholder="2 claws +0 melee" {{#unless isEditable}}disabled{{/unless}} />
+        <label>{{localize "EQRPG.Damage"}}</label>
+        <input type="text" name="system.statblock.damage" value="{{system.statblock.damage}}" placeholder="Claw 1d3-1" {{#unless isEditable}}disabled{{/unless}} />
+        <label>{{localize "EQRPG.FaceReach"}}</label>
+        <input type="text" name="system.statblock.faceReach" value="{{system.statblock.faceReach}}" placeholder="5 ft. by 5 ft./5 ft." {{#unless isEditable}}disabled{{/unless}} />
+        <label>{{localize "EQRPG.SpecialAttacks"}}</label>
+        <textarea name="system.statblock.specialAttacks" rows="2" {{#unless isEditable}}disabled{{/unless}}>{{system.statblock.specialAttacks}}</textarea>
+        <label>{{localize "EQRPG.SpecialQualities"}}</label>
+        <textarea name="system.statblock.specialQualities" rows="3" {{#unless isEditable}}disabled{{/unless}}>{{system.statblock.specialQualities}}</textarea>
+        <label>{{localize "EQRPG.AbilityDetails"}}</label>
+        <textarea name="system.statblock.rawText" rows="4" placeholder="Ability Name: Rules text" {{#unless isEditable}}disabled{{/unless}}>{{system.statblock.rawText}}</textarea>
+        <label>{{localize "EQRPG.Skills"}}</label>
+        <textarea name="system.statblock.skills" rows="2" {{#unless isEditable}}disabled{{/unless}}>{{system.statblock.skills}}</textarea>
+        <label>{{localize "EQRPG.Feats"}}</label>
+        <textarea name="system.statblock.feats" rows="2" {{#unless isEditable}}disabled{{/unless}}>{{system.statblock.feats}}</textarea>
+      </div>
+      <div class="pet-reference-grid">
+        <div><label>{{localize "EQRPG.CR"}}</label><input type="text" name="system.statblock.challengeRating" value="{{system.statblock.challengeRating}}" placeholder="1/3" {{#unless isEditable}}disabled{{/unless}} /></div>
+        <div><label>{{localize "EQRPG.Alignment"}}</label><input type="text" name="system.details.alignment" value="{{system.details.alignment}}" {{#unless isEditable}}disabled{{/unless}} /></div>
+        <div><label>{{localize "EQRPG.Faction"}}</label><input type="text" name="system.details.faction" value="{{system.details.faction}}" {{#unless isEditable}}disabled{{/unless}} /></div>
+        <div><label>{{localize "EQRPG.Source"}}</label><input type="text" name="system.statblock.source" value="{{system.statblock.source}}" {{#unless isEditable}}disabled{{/unless}} /></div>
+      </div>
+    </section>
+  </div>
+</section>

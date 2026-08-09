@@ -2186,6 +2186,209 @@
   }
 
   /* -------------------------------------------------------------------------
+     Player Pet Sheet
+  -------------------------------------------------------------------------- */
+
+  .eqrpg.pet-sheet .pet-header {
+    background: linear-gradient(115deg, rgba(45, 57, 42, 0.6), rgba(18, 16, 13, 0.96) 58%);
+    border-bottom: 2px solid var(--eq-gold-dim);
+  }
+
+  .eqrpg.pet-sheet .pet-portrait-frame {
+    border-color: #78916a;
+    box-shadow: 0 0 16px rgba(91, 126, 76, 0.22);
+  }
+
+  .eqrpg.pet-sheet .pet-title-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eqrpg.pet-sheet .pet-title-line h1 { flex: 1; }
+
+  .eqrpg.pet-sheet .pet-sheet-badge {
+    padding: 3px 8px;
+    border: 1px solid #78916a;
+    border-radius: 999px;
+    color: #b7d1aa;
+    background: rgba(54, 82, 48, 0.28);
+    font-size: 0.68em;
+    font-weight: bold;
+    letter-spacing: 0.65px;
+    text-transform: uppercase;
+  }
+
+  .eqrpg.pet-sheet .pet-identity-fields {
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) minmax(120px, 1fr) 72px minmax(90px, 0.8fr);
+    gap: 6px 10px;
+  }
+
+  .eqrpg.pet-sheet .pet-owner-field {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto minmax(140px, 240px) auto;
+    align-items: center;
+    justify-content: start;
+    gap: 7px;
+  }
+
+  .eqrpg.pet-sheet .pet-owner-apply {
+    width: auto;
+    padding: 2px 9px;
+    color: #b7d1aa;
+    border-color: #78916a;
+    background: rgba(54, 82, 48, 0.28);
+  }
+
+  .eqrpg.pet-sheet .pet-resource-row {
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .eqrpg.pet-sheet .pet-quick-stats { margin: 0 0 0 auto; }
+
+  .eqrpg.pet-sheet .pet-roll-stat {
+    height: auto;
+    line-height: normal;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .eqrpg.pet-sheet .pet-roll-stat:hover {
+    background: rgba(120, 145, 106, 0.26);
+  }
+
+  .eqrpg.pet-sheet .pet-stats-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+    gap: 10px;
+    padding: 10px 12px;
+    align-items: start;
+  }
+
+  .eqrpg.pet-sheet .pet-abilities-row {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(52px, 1fr));
+    gap: 5px;
+  }
+
+  .eqrpg.pet-sheet .pet-combat-grid {
+    display: grid;
+    grid-template-columns: auto minmax(90px, 1fr) auto minmax(90px, 1fr);
+    align-items: center;
+    gap: 6px 8px;
+    padding: 8px;
+    border: 1px solid rgba(122, 110, 90, 0.35);
+    background: rgba(16, 13, 11, 0.32);
+  }
+
+  .eqrpg.pet-sheet .pet-combat-grid > label,
+  .eqrpg.pet-sheet .pet-statblock-list > label,
+  .eqrpg.pet-sheet .pet-reference-grid label,
+  .eqrpg.pet-sheet .pet-save-control label {
+    color: var(--eq-gold-dim);
+    font-size: 0.7em;
+    font-weight: bold;
+    letter-spacing: 0.35px;
+    text-transform: uppercase;
+  }
+
+  .eqrpg.pet-sheet .pet-combat-grid input[type="number"],
+  .eqrpg.pet-sheet .pet-save-control input[type="number"] {
+    width: 52px;
+    text-align: center;
+  }
+
+  .eqrpg.pet-sheet .pet-save-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .eqrpg.pet-sheet .pet-save-control {
+    display: grid;
+    grid-template-columns: 1fr 44px auto;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 6px;
+    border: 1px solid rgba(122, 110, 90, 0.35);
+    border-radius: 4px;
+    background: rgba(16, 13, 11, 0.32);
+  }
+
+  .eqrpg.pet-sheet .pet-save-button,
+  .eqrpg.pet-sheet .pet-skill-button {
+    color: #b7d1aa;
+    border-color: #58704e;
+    background: rgba(54, 82, 48, 0.22);
+  }
+
+  .eqrpg.pet-sheet .pet-skill-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .eqrpg.pet-sheet .pet-skill-button {
+    width: auto;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 7px;
+  }
+
+  .eqrpg.pet-sheet .pet-core-card .npc-quick-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .eqrpg.pet-sheet .pet-statblock-list {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    align-items: start;
+    gap: 6px 8px;
+  }
+
+  .eqrpg.pet-sheet .pet-statblock-list input,
+  .eqrpg.pet-sheet .pet-statblock-list textarea { width: 100%; }
+
+  .eqrpg.pet-sheet .pet-reference-grid {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(122, 110, 90, 0.35);
+  }
+
+  .eqrpg.pet-sheet .pet-reference-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .eqrpg.pet-sheet .pet-notes-heading {
+    margin: 10px 12px 0;
+    color: var(--eq-gold);
+    font-size: 0.82em;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 720px) {
+    .eqrpg.pet-sheet .pet-identity-fields,
+    .eqrpg.pet-sheet .pet-stats-layout,
+    .eqrpg.pet-sheet .pet-core-card .npc-quick-actions {
+      grid-template-columns: 1fr;
+    }
+
+    .eqrpg.pet-sheet .pet-abilities-row { grid-template-columns: repeat(3, 1fr); }
+    .eqrpg.pet-sheet .pet-save-row { grid-template-columns: 1fr; }
+  }
+
+  /* -------------------------------------------------------------------------
      Item Sheet
   -------------------------------------------------------------------------- */
   .eqrpg.item-sheet .sheet-header {

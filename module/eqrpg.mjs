@@ -5,6 +5,7 @@ import { EQItem } from "./documents/item.mjs";
 // Data models - Actors
 import { CharacterData } from "./data-models/character.mjs";
 import { NPCData } from "./data-models/npc.mjs";
+import { PetData } from "./data-models/pet.mjs";
 
 // Data models - Items
 import { WeaponData } from "./data-models/weapon.mjs";
@@ -19,6 +20,7 @@ import { FeatData } from "./data-models/feat.mjs";
 // Sheet classes
 import { EQCharacterSheet } from "./sheets/character-sheet.mjs";
 import { EQNPCSheet } from "./sheets/npc-sheet.mjs";
+import { EQPetSheet } from "./sheets/pet-sheet.mjs";
 import { EQItemSheet } from "./sheets/item-sheet.mjs";
 
 // Applications
@@ -100,6 +102,7 @@ Hooks.once("init", () => {
   CONFIG.Actor.dataModels = {
     character: CharacterData,
     npc: NPCData,
+    pet: PetData,
   };
   CONFIG.Item.dataModels = {
     weapon: WeaponData,
@@ -122,6 +125,10 @@ Hooks.once("init", () => {
       bar: ["resources.hp", "resources.mana"],
       value: [],
     },
+    pet: {
+      bar: ["resources.hp", "resources.mana"],
+      value: [],
+    },
   };
 
   // Register actor sheets
@@ -134,6 +141,11 @@ Hooks.once("init", () => {
     types: ["npc"],
     makeDefault: true,
     label: "EQRPG.SheetNPC",
+  });
+  Actors.registerSheet("eqrpg", EQPetSheet, {
+    types: ["pet"],
+    makeDefault: true,
+    label: "EQRPG.SheetPet",
   });
 
   // Register item sheets
@@ -170,7 +182,7 @@ Hooks.on("renderActorDirectory", (_app, html) => {
 
 async function _ensureCharacterTokenLink(tokenDoc) {
   const actor = tokenDoc?.actor ?? game.actors.get(tokenDoc?.actorId);
-  if (!tokenDoc || !actor || actor.type !== "character") return;
+  if (!tokenDoc || !actor || !["character", "pet"].includes(actor.type)) return;
   if (tokenDoc.actorLink) return;
   try {
     await tokenDoc.update({ actorLink: true });
@@ -201,7 +213,7 @@ Hooks.once("ready", async () => {
     const updates = [];
     for (const token of scene.tokens ?? []) {
       const actor = token.actor ?? game.actors.get(token.actorId);
-      if (!actor || actor.type !== "character" || token.actorLink) continue;
+      if (!actor || !["character", "pet"].includes(actor.type) || token.actorLink) continue;
       updates.push({ _id: token.id, actorLink: true });
     }
     if (updates.length) {
@@ -602,16 +614,17 @@ Hooks.on("renderCombatTracker", (_tracker, html) => {
 // Character Wizard: auto-open on new character creation
 // ---------------------------------------------------------------------------
 Hooks.on("createActor", (actor, _options, userId) => {
-  if (actor.type !== "character") return;
+  if (!["character", "pet"].includes(actor.type)) return;
   if (game.userId !== userId) return;
   actor.update({ "prototypeToken.actorLink": true }).catch(() => {});
+  if (actor.type === "pet") return;
   // Short delay so the default sheet can open first, then the wizard appears on top
   setTimeout(() => new CharacterWizard(actor).render(true), 250);
 });
 
 Hooks.on("preCreateToken", (tokenDoc, data, options, userId) => {
   const actor = tokenDoc.actor ?? game.actors.get(data.actorId ?? tokenDoc.actorId);
-  if (!actor || actor.type !== "character") return;
+  if (!actor || !["character", "pet"].includes(actor.type)) return;
   if (data.actorLink === true) return;
   tokenDoc.updateSource({ actorLink: true });
 });
