@@ -16,10 +16,9 @@ import {
   SAMPLE_ARMOR,
   SAMPLE_CONSUMABLES,
   SAMPLE_EQUIPMENT,
-  SAMPLE_SPELLS,
   SAMPLE_WEAPONS,
 } from "../packs/sample-data.mjs";
-import { LEVEL1_CLASS_SPELLS } from "../packs/level1-class-spells.mjs";
+import { getClassSpellTemplates } from "../packs/class-spells.mjs";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 // ── Constants ──────────────────────────────────────────────────────────────
@@ -37,7 +36,6 @@ const SAMPLE_LOOKUPS = {
   armor: new Map(SAMPLE_ARMOR.map((item) => [item.name, item])),
   consumable: new Map(SAMPLE_CONSUMABLES.map((item) => [item.name, item])),
   equipment: new Map(SAMPLE_EQUIPMENT.map((item) => [item.name, item])),
-  spell: new Map(SAMPLE_SPELLS.map((item) => [item.name, item])),
 };
 
 function cloneTemplateItem(type, name) {
@@ -69,25 +67,8 @@ function getStarterKit(classKey) {
   return CONFIG.EQRPG.starterKits?.[classKey] ?? [];
 }
 
-function getSpellLevelForClass(spell, classKey) {
-  const classLevels = Array.isArray(spell?.system?.classLevels) ? spell.system.classLevels : [];
-  for (const entry of classLevels) {
-    const match = String(entry).match(/^([^:]+):(\d+)$/);
-    if (!match) continue;
-    if (match[1] === classKey) return Number(match[2]);
-  }
-  return Number(spell?.system?.spellLevel ?? 0) || 0;
-}
-
 function getStarterSpellTemplates(classKey, level = 1) {
-  if (level === 1 && Array.isArray(LEVEL1_CLASS_SPELLS[classKey])) {
-    return LEVEL1_CLASS_SPELLS[classKey].map((spell) => foundry.utils.deepClone(spell));
-  }
-
-  return SAMPLE_SPELLS
-    .filter((spell) => Array.isArray(spell.system?.classes) && spell.system.classes.includes(classKey))
-    .filter((spell) => getSpellLevelForClass(spell, classKey) === level)
-    .map((spell) => foundry.utils.deepClone(spell));
+  return getClassSpellTemplates(classKey, level).map((spell) => foundry.utils.deepClone(spell));
 }
 
 // ── Wizard class ───────────────────────────────────────────────────────────

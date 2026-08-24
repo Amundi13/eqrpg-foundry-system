@@ -1,6 +1,8 @@
 /**
  * Extend the base Actor for EverQuest RPG.
  */
+import { getClassSpellTemplates } from "../packs/class-spells.mjs";
+
 export class EQActor extends Actor {
 
   static _extractSpellEffectBonuses(changes = []) {
@@ -528,9 +530,41 @@ export class EQActor extends Actor {
   // Level Up
   // ---------------------------------------------------------------------------
 
+  async _grantClassSpellsForLevel(classKey, level) {
+    const templates = getClassSpellTemplates(classKey, level);
+    if (!templates.length) return [];
+
+    const knownNames = new Set(
+      this.items
+        .filter((item) => item.type === "spell")
+        .map((item) => item.name.trim().toLocaleLowerCase()),
+    );
+    const createData = [];
+
+    for (const template of templates) {
+      const normalizedName = template.name.trim().toLocaleLowerCase();
+      if (knownNames.has(normalizedName)) continue;
+
+      const spellData = foundry.utils.deepClone(template);
+      spellData.flags = foundry.utils.mergeObject(spellData.flags ?? {}, {
+        eqrpg: {
+          levelUpGranted: true,
+          levelUpGrantClass: classKey,
+          levelUpGrantLevel: level,
+        },
+      });
+      createData.push(spellData);
+      knownNames.add(normalizedName);
+    }
+
+    if (!createData.length) return [];
+    await this.createEmbeddedDocuments("Item", createData);
+    return createData.map((spell) => spell.name);
+  }
+
   /**
    * Level up the character: increment level, roll the hit die for HP,
-   * then recalculate all derived stats.
+   * grant newly unlocked class spells, then recalculate all derived stats.
    */
   async levelUp() {
     const system    = this.system;
@@ -559,12 +593,18 @@ export class EQActor extends Actor {
       "system.details.level":       newLevel,
       "system.resources.hp.value":  Math.min(system.resources.hp.value + hpGain, system.resources.hp.max + hpGain),
     });
+    const grantedSpells = classConfig?.spellcastingAbility
+      ? await this._grantClassSpellsForLevel(classKey, newLevel)
+      : [];
 
     const content = `<div class="eq-chat-card eq-levelup-card">`
       + this._buildActorCardHeader(`Level Up — Now Level ${newLevel}`)
       + `<div class="eq-card-body">`
       + `<div class="eq-levelup-gain">+${hpGain} HP</div>`
       + `<div class="eq-levelup-detail">1d${hitDie} = ${hpRoll.total} ${conSign}${conMod} CON</div>`
+      + (grantedSpells.length
+        ? `<div class="eq-levelup-detail"><strong>New spells:</strong> ${grantedSpells.join(", ")}</div>`
+        : "")
       + `</div></div>`;
 
     await ChatMessage.create({

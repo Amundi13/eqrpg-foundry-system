@@ -7107,7 +7107,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "6 rounds",
-      "damageFormula": "",
+      "damageFormula": "1d4",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "This spell causes a target's own shadow to animate, clutching at him and slowing his movement while inflicting damage. The target’s base speed is reduced by one-quarter, and he takes 1d4 points of magic damage on the round the spell is cast and in each of the next 5 rounds. A Will save in the first round negates all effects. This spell will not function if the target is not casting a shadow, although the caster can provide some light source to make up for this, such as by wielding a torch at night.",
@@ -8826,17 +8826,19 @@ export const SAMPLE_SPELLS = [
         "cleric",
         "druid",
         "paladin",
-        "ranger"
+        "ranger",
+        "shaman"
       ],
       "classLevels": [
         "beastlord:2",
         "cleric:1",
         "druid:2",
         "paladin:1",
-        "ranger:2"
+        "ranger:2",
+        "shaman:2"
       ],
       "spellLine": "Cure poison",
-      "rawLevel": "Bst 2, Clr 1, Dru 2, Pal 1, Rng 2",
+      "rawLevel": "Bst 2, Clr 1, Dru 2, Pal 1, Rng 2, Shm 2",
       "components": "V, S",
       "targetEffect": "One creature",
       "spellResistance": "Yes (harmless)",
@@ -12324,17 +12326,19 @@ export const SAMPLE_SPELLS = [
         "cleric",
         "druid",
         "necromancer",
-        "ranger"
+        "ranger",
+        "shadowknight"
       ],
       "classLevels": [
         "beastlord:1",
         "cleric:4",
         "druid:3",
         "necromancer:1",
-        "ranger:3"
+        "ranger:3",
+        "shadowknight:2"
       ],
       "spellLine": "Endure cold",
-      "rawLevel": "Bst 1, Clr 4, Dru 3, Nec 1, Rng 3",
+      "rawLevel": "Bst 1, Clr 4, Dru 3, Nec 1, Rng 3, Shd 2",
       "components": "V, S",
       "targetEffect": "One creature",
       "spellResistance": "Yes",
@@ -14411,7 +14415,7 @@ export const SAMPLE_SPELLS = [
     }
   },
   {
-    "name": "Fave",
+    "name": "Fade",
     "type": "spell",
     "img": "",
     "system": {
@@ -14424,7 +14428,7 @@ export const SAMPLE_SPELLS = [
       "damageFormula": "",
       "healFormula": "",
       "savingThrow": "none",
-      "effect": "This spell will not teleport the caster very far, and even then it sends him in a random direction, but in times of duress, this quick-casting spell can save his life. Make Bere two dice rolls to determine the direction Sac and distance of the teleportation. A d4 roll determines direction: 1 = north, 2 = south, 3 = east, 4 = west, and (1d10)x5 determines the distance in feet. Note that the spell will not teleport the caster through structures, such as walls or doors. If the direction of the teleportation is blocked by such a structure, then the caster will appear next to it even if the distance roll indicated he should have teleported farther. For this reason, the spell works best outdoors.",
+      "effect": "This quick-casting spell teleports the caster a short distance in a random direction. Roll 1d4 for direction (1 north, 2 south, 3 east, 4 west) and (1d10)x5 for distance in feet. Fade cannot pass through structures; if blocked, the caster appears beside the obstruction.",
       "recastTime": 1,
       "classes": [
         "wizard"
@@ -14446,7 +14450,7 @@ export const SAMPLE_SPELLS = [
       "deliveryType": "utility",
       "attackMode": "",
       "attackBonus": 0,
-      "description": "<p>This spell will not teleport the caster very far, and even then it sends him in a random direction, but in times of duress, this quick-casting spell can save his life. Make Bere two dice rolls to determine the direction Sac and distance of the teleportation. A d4 roll determines direction: 1 = north, 2 = south, 3 = east, 4 = west, and (1d10)x5 determines the distance in feet. Note that the spell will not teleport the caster through structures, such as walls or doors. If the direction of the teleportation is blocked by such a structure, then the caster will appear next to it even if the distance roll indicated he should have teleported farther. For this reason, the spell works best outdoors.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> No</p>"
+      "description": "<p>This quick-casting spell teleports the caster a short distance in a random direction. Roll 1d4 for direction (1 north, 2 south, 3 east, 4 west) and (1d10)x5 for distance in feet. Fade cannot pass through structures; if blocked, the caster appears beside the obstruction.</p><p><strong>Target/Effect:</strong> Caster</p><p><strong>Spell Resistance:</strong> No</p>"
     }
   },
   {
@@ -14940,7 +14944,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Personal",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "1d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "A wave of roiling fire flares out in all directions from the caster, dealing 1d10 points of fire damage toall creatures within a 10-foot radius. The caster is unharmed.",
@@ -16479,7 +16483,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "4d4",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "A chilling shock of cold strikes one target within range, dealing 4d4 points of cold damage.",
@@ -17074,17 +17078,21 @@ export const SAMPLE_SPELLS = [
         "druid",
         "enchanter",
         "magician",
-        "necromancer"
+        "necromancer",
+        "shaman",
+        "wizard"
       ],
       "classLevels": [
         "cleric:2",
         "druid:2",
         "enchanter:2",
         "magician:2",
-        "necromancer:2"
+        "necromancer:2",
+        "shaman:2",
+        "wizard:2"
       ],
       "spellLine": "",
-      "rawLevel": "Clr 2, Dru 2, Enc 2, Mag 2, Nec 2",
+      "rawLevel": "Clr 2, Dru 2, Enc 2, Mag 2, Nec 2, Shm 2, Wiz 2",
       "components": "V, S",
       "targetEffect": "Caster",
       "spellResistance": "No",
@@ -17622,7 +17630,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "1d10 rounds (see",
-      "damageFormula": "",
+      "damageFormula": "1d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "As root, except when this spell first affects the target it deals 1d10 points of magic damage, no save. Gravity Flux Alteration/Evocation [Magic]",
@@ -28275,7 +28283,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "7 rounds",
-      "damageFormula": "",
+      "damageFormula": "1d6",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "The target of this spell is afflicted with a virulent poison that eats away at the flesh. The target takes 1d6 poison damage immediately (Fort half), and takes an additional 1d4 points of poison damage (1d2 if the initial save was successful) each round thereafter, until the spell ends",
@@ -31863,7 +31871,7 @@ export const SAMPLE_SPELLS = [
     "type": "spell",
     "img": "",
     "system": {
-      "spellLevel": 3,
+      "spellLevel": 2,
       "manaCost": 5,
       "school": "Alteration [Magic]",
       "castingTime": "1 action",
@@ -31879,17 +31887,19 @@ export const SAMPLE_SPELLS = [
         "enchanter",
         "necromancer",
         "paladin",
-        "shaman"
+        "shaman",
+        "wizard"
       ],
       "classLevels": [
         "cleric:3",
         "enchanter:3",
         "necromancer:9",
         "paladin:3",
-        "shaman:4"
+        "shaman:4",
+        "wizard:2"
       ],
       "spellLine": "Root",
-      "rawLevel": "Clr 3, Enc 3, Nec 9, Pal 3, Shm 4",
+      "rawLevel": "Clr 3, Enc 3, Nec 9, Pal 3, Shm 4, Wiz 2",
       "components": "V, S",
       "targetEffect": "One creature",
       "spellResistance": "Yes",
@@ -34751,7 +34761,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "3d6",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "A gout of flame erupts in any 5-foot square the caster chooses within range, doing 3d6 points of fire damage to any creature in that space.",
@@ -35377,7 +35387,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "21 rounds",
-      "damageFormula": "",
+      "damageFormula": "1d10",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "The target of this spell is weakened by a virulent disease that slowly eats away at the flesh. The target takes 1d10 points of disease damage immediately, and an additional 1 point of disease damage each round thereafter, until the spell ends or is dispelled.",
@@ -36735,7 +36745,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "10 minutes/level",
-      "damageFormula": "",
+      "damageFormula": "4d6",
       "healFormula": "",
       "savingThrow": "none",
       "effect": "As spirit of lighming, except this effect deals 4d6 points of electrical damage.",
@@ -38883,7 +38893,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Close (25 ft. + 5 ft./2 levels)",
       "duration": "4 rounds",
-      "damageFormula": "",
+      "damageFormula": "1d8",
       "healFormula": "",
       "savingThrow": "fortitude",
       "effect": "As shallow breath, except this spell deals 1d8 points of magic damage immediately (Fort half), and an additional 1d8 points of magic damage each round (halved if the initial Fort save was successful) for the duration of the spell. The initial Fortitude save will also negate the additional effects of the spell: a —2 penalty to Strength and Dexterity.",
@@ -44778,7 +44788,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "| action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "3d10",
       "healFormula": "",
       "savingThrow": "will",
       "effect": "Thisspell deals 3d10 pointof magic damage to any one creature within range either summoned with conjuration magic or of the elemental or outsider type (unless such creatures are encountered on their own plane). It has no affect on any other sort of creature, \" includingelementalsoroutsiderson theirown plane, such as an abhorrent encountered on the Plane of Hate.",
@@ -45221,7 +45231,7 @@ export const SAMPLE_SPELLS = [
       "castingTime": "1 action",
       "range": "Medium (100 ft. + 10 ft./level)",
       "duration": "Instantaneous",
-      "damageFormula": "",
+      "damageFormula": "2d10",
       "healFormula": "",
       "savingThrow": "reflex",
       "effect": "A powerful funnel of air strikes one target within range, dealing 2d10 points of magic damage and the target is also interrupted. (An interrupted creature loses one action and cannot cast spells in its next turn.) A Small or smaller creature must make a second Reflex save (DC 15) to avoid being knocked prone if it fails the first save. A flying creature that fails this save is instead blown back (1d6)x10 feet. This spell can be used only outdoors.",
@@ -46591,6 +46601,279 @@ export const SAMPLE_SPELLS = [
       "attackMode": "",
       "attackBonus": 0,
       "description": "<p>As Pendril&#x27;s animation, except the caster creates a type 1 3 animated swordand shield.</p><p><strong>Material Component:</strong> 3 tiny daggers.</p><p><strong>Target/Effect:</strong> One summoned creature</p><p><strong>Spell Resistance:</strong> No</p>"
+    }
+  },
+  {
+    "name": "Anthem De Arms",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 2,
+      "manaCost": 1,
+      "school": "Bard Song",
+      "castingTime": "Free action",
+      "range": "Close (25 ft. + 5 ft./2 levels)",
+      "duration": "Performance",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "will",
+      "effect": "Targets gain a +2 bonus to Strength and haste (1), granting a +1 haste bonus to AC and -1 weapon delay.",
+      "recastTime": 0,
+      "classes": [
+        "bard"
+      ],
+      "classLevels": [
+        "bard:2"
+      ],
+      "spellLine": "Chant of battle",
+      "rawLevel": "Brd 2",
+      "components": "",
+      "targetEffect": "One creature/level",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "",
+      "sourcePage": "188",
+      "verified": "Y",
+      "notes": "Instrument: None",
+      "saveEffect": "negates (harmless)",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>Targets gain a +2 bonus to Strength and haste (1), granting a +1 haste bonus to AC and -1 weapon delay.</p><p><strong>Song Line:</strong> Chant of battle</p><p><strong>Instrument:</strong> None</p><p><strong>Target/Effect:</strong> One creature/level</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
+    }
+  },
+  {
+    "name": "Elemental Rhythms",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 2,
+      "manaCost": 1,
+      "school": "Bard Song",
+      "castingTime": "Free action",
+      "range": "Close (25 ft. + 5 ft./2 levels)",
+      "duration": "Performance",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "will",
+      "effect": "Targets gain magic, electricity, fire, and cold resistance (4), increasing by 1 per 5 bard levels; +2 on saves against those effects; and +1 deflection AC. A successful percussion performance doubles these bonuses.",
+      "recastTime": 0,
+      "classes": [
+        "bard"
+      ],
+      "classLevels": [
+        "bard:2"
+      ],
+      "spellLine": "Elemental rhythms",
+      "rawLevel": "Brd 2",
+      "components": "",
+      "targetEffect": "One creature/2 levels",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "",
+      "sourcePage": "191",
+      "verified": "Y",
+      "notes": "Instrument: Percussion (Dex)",
+      "saveEffect": "negates (harmless)",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>Targets gain magic, electricity, fire, and cold resistance (4), increasing by 1 per 5 bard levels; +2 on saves against those effects; and +1 deflection AC. A successful percussion performance doubles these bonuses.</p><p><strong>Song Line:</strong> Elemental rhythms</p><p><strong>Instrument:</strong> Percussion (Dex)</p><p><strong>Target/Effect:</strong> One creature/2 levels</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
+    }
+  },
+  {
+    "name": "Hymn of Restoration",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 2,
+      "manaCost": 1,
+      "school": "Bard Song",
+      "castingTime": "Free action",
+      "range": "Close (25 ft. + 5 ft./2 levels)",
+      "duration": "Performance",
+      "damageFormula": "",
+      "healFormula": "1",
+      "savingThrow": "fortitude",
+      "effect": "Each target heals 1 hit point plus 1 per 10 bard levels each round. A successful string performance doubles the healing.",
+      "recastTime": 0,
+      "classes": [
+        "bard"
+      ],
+      "classLevels": [
+        "bard:2"
+      ],
+      "spellLine": "Hymn of restoration",
+      "rawLevel": "Brd 2",
+      "components": "",
+      "targetEffect": "One living creature/2 levels",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "",
+      "sourcePage": "191",
+      "verified": "Y",
+      "notes": "Instrument: String (Dex). The level-2 healing button rolls 1 HP; apply the instrument doubling manually.",
+      "saveEffect": "negates (harmless)",
+      "saveDC": "",
+      "deliveryType": "heal",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>Each target heals 1 hit point plus 1 per 10 bard levels each round. A successful string performance doubles the healing.</p><p><strong>Song Line:</strong> Hymn of restoration</p><p><strong>Instrument:</strong> String (Dex)</p><p><strong>Target/Effect:</strong> One living creature/2 levels</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
+    }
+  },
+  {
+    "name": "Jonathan's Whistling Warsong",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 2,
+      "manaCost": 1,
+      "school": "Bard Song",
+      "castingTime": "Free action",
+      "range": "Personal",
+      "duration": "Performance",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "none",
+      "effect": "The bard gains haste (2), a +2 buff bonus to Strength, and a +1 luck bonus to AC.",
+      "recastTime": 0,
+      "classes": [
+        "bard"
+      ],
+      "classLevels": [
+        "bard:2"
+      ],
+      "spellLine": "Jonathan's whistling warsong",
+      "rawLevel": "Brd 2",
+      "components": "",
+      "targetEffect": "Bard",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "",
+      "sourcePage": "192",
+      "verified": "Y",
+      "notes": "Instrument: None",
+      "saveEffect": "",
+      "saveDC": "",
+      "deliveryType": "utility",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>The bard gains haste (2), a +2 buff bonus to Strength, and a +1 luck bonus to AC.</p><p><strong>Song Line:</strong> Jonathan's whistling warsong</p><p><strong>Instrument:</strong> None</p><p><strong>Target/Effect:</strong> Bard</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
+    }
+  },
+  {
+    "name": "Kelin's Lugubrious Lament",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 2,
+      "manaCost": 1,
+      "school": "Bard Song [Mind-Affecting]",
+      "castingTime": "Performance",
+      "range": "Close (25 ft. + 5 ft./2 levels)",
+      "duration": "1 hour per Charisma modifier point",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "will",
+      "effect": "A target that fails its save becomes apathetic and remains listening. The song cannot affect a creature already in combat and ends immediately if the target is attacked. A successful string performance increases the save DC by 2.",
+      "recastTime": 0,
+      "classes": [
+        "bard"
+      ],
+      "classLevels": [
+        "bard:2"
+      ],
+      "spellLine": "Kelin's lugubrious lament",
+      "rawLevel": "Brd 2",
+      "components": "",
+      "targetEffect": "One creature",
+      "spellResistance": "Yes",
+      "materialComponent": "",
+      "sourcePage": "193",
+      "verified": "Y",
+      "notes": "Instrument: String (Dex). Apply the +2 save DC when the instrument check succeeds.",
+      "saveEffect": "negates",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>A target that fails its save becomes apathetic and remains listening. The song cannot affect a creature already in combat and ends immediately if the target is attacked. A successful string performance increases the save DC by 2.</p><p><strong>Song Line:</strong> Kelin's lugubrious lament</p><p><strong>Instrument:</strong> String (Dex)</p><p><strong>Target/Effect:</strong> One creature</p><p><strong>Spell Resistance:</strong> Yes</p>"
+    }
+  },
+  {
+    "name": "Magical Monologue",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 2,
+      "manaCost": 1,
+      "school": "Bard Song",
+      "castingTime": "Free action",
+      "range": "Personal",
+      "duration": "Performance",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "none",
+      "effect": "One nonmagical weapon wielded by the bard gains a +1 enhancement bonus on attack and damage rolls. Any wielded weapon also gains an effective +1 bonus per 3 bard levels solely for bypassing damage reduction.",
+      "recastTime": 0,
+      "classes": [
+        "bard"
+      ],
+      "classLevels": [
+        "bard:2"
+      ],
+      "spellLine": "Magical monologue",
+      "rawLevel": "Brd 2",
+      "components": "",
+      "targetEffect": "One weapon wielded by bard",
+      "spellResistance": "No",
+      "materialComponent": "",
+      "sourcePage": "194",
+      "verified": "Y",
+      "notes": "Instrument: None. Choose the affected weapon when the song begins.",
+      "saveEffect": "",
+      "saveDC": "",
+      "deliveryType": "utility",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>One nonmagical weapon wielded by the bard gains a +1 enhancement bonus on attack and damage rolls. Any wielded weapon also gains an effective +1 bonus per 3 bard levels solely for bypassing damage reduction.</p><p><strong>Song Line:</strong> Magical monologue</p><p><strong>Instrument:</strong> None</p><p><strong>Target/Effect:</strong> One weapon wielded by bard</p><p><strong>Spell Resistance:</strong> No</p>"
+    }
+  },
+  {
+    "name": "Peaceful Rhythms",
+    "type": "spell",
+    "img": "",
+    "system": {
+      "spellLevel": 2,
+      "manaCost": 1,
+      "school": "Bard Song",
+      "castingTime": "Free action",
+      "range": "Close (25 ft. + 5 ft./2 levels)",
+      "duration": "Performance",
+      "damageFormula": "",
+      "healFormula": "",
+      "savingThrow": "will",
+      "effect": "Targets gain magic and sonic resistance (4), increasing by 1 per 5 bard levels; +2 on saves against magic and sonic effects; and +1 deflection AC. A successful percussion performance doubles these bonuses.",
+      "recastTime": 0,
+      "classes": [
+        "bard"
+      ],
+      "classLevels": [
+        "bard:2"
+      ],
+      "spellLine": "Elemental rhythms",
+      "rawLevel": "Brd 2",
+      "components": "",
+      "targetEffect": "One creature/2 levels",
+      "spellResistance": "Yes (harmless)",
+      "materialComponent": "",
+      "sourcePage": "195",
+      "verified": "Y",
+      "notes": "Instrument: Percussion (Dex)",
+      "saveEffect": "negates (harmless)",
+      "saveDC": "",
+      "deliveryType": "save",
+      "attackMode": "",
+      "attackBonus": 0,
+      "description": "<p>Targets gain magic and sonic resistance (4), increasing by 1 per 5 bard levels; +2 on saves against magic and sonic effects; and +1 deflection AC. A successful percussion performance doubles these bonuses.</p><p><strong>Song Line:</strong> Elemental rhythms</p><p><strong>Instrument:</strong> Percussion (Dex)</p><p><strong>Target/Effect:</strong> One creature/2 levels</p><p><strong>Spell Resistance:</strong> Yes (harmless)</p>"
     }
   }
 ];
