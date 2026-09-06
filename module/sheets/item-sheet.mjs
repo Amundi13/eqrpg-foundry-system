@@ -64,12 +64,12 @@ export class EQItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "save",    label: game.i18n.localize("EQRPG.SpellDeliverySave") },
       ];
       context.attackModeOptions = [
-        { value: "",       label: "â€”" },
+        { value: "",       label: "--" },
         { value: "melee",  label: game.i18n.localize("EQRPG.SpellAttackMelee") },
         { value: "ranged", label: game.i18n.localize("EQRPG.SpellAttackRanged") },
       ];
       context.saveEffectOptions = [
-        { value: "",         label: "â€”" },
+        { value: "",         label: "--" },
         { value: "negates",  label: game.i18n.localize("EQRPG.SaveEffectNegates") },
         { value: "half",     label: game.i18n.localize("EQRPG.SaveEffectHalf") },
         { value: "partial",  label: game.i18n.localize("EQRPG.SaveEffectPartial") },

@@ -131,25 +131,26 @@ Hooks.once("init", () => {
     },
   };
 
-  // Register actor sheets
-  Actors.registerSheet("eqrpg", EQCharacterSheet, {
+  // Register V14 document sheets through the ApplicationV2 sheet registry.
+  const { DocumentSheetConfig } = foundry.applications.apps;
+  DocumentSheetConfig.registerSheet(foundry.documents.Actor, "eqrpg", EQCharacterSheet, {
     types: ["character"],
     makeDefault: true,
     label: "EQRPG.SheetCharacter",
   });
-  Actors.registerSheet("eqrpg", EQNPCSheet, {
+  DocumentSheetConfig.registerSheet(foundry.documents.Actor, "eqrpg", EQNPCSheet, {
     types: ["npc"],
     makeDefault: true,
     label: "EQRPG.SheetNPC",
   });
-  Actors.registerSheet("eqrpg", EQPetSheet, {
+  DocumentSheetConfig.registerSheet(foundry.documents.Actor, "eqrpg", EQPetSheet, {
     types: ["pet"],
     makeDefault: true,
     label: "EQRPG.SheetPet",
   });
 
   // Register item sheets
-  Items.registerSheet("eqrpg", EQItemSheet, {
+  DocumentSheetConfig.registerSheet(foundry.documents.Item, "eqrpg", EQItemSheet, {
     types: ["weapon", "armor", "spell", "skill", "consumable", "equipment", "faction", "feat"],
     makeDefault: true,
     label: "EQRPG.SheetItem",
@@ -230,8 +231,7 @@ Hooks.once("ready", async () => {
 // ---------------------------------------------------------------------------
 // Combat: Chat message buttons — apply damage or healing to targeted tokens
 // ---------------------------------------------------------------------------
-// V13 uses renderChatMessageHTML (HTMLElement); V12 used renderChatMessage (jQuery).
-// Register both so the system works across versions without deprecation warnings on V13.
+// V13+ uses renderChatMessageHTML with a native HTMLElement.
 function _onRenderChatMessage(message, html) {
   const root = (html instanceof HTMLElement) ? html : (html?.[0] ?? html);
   if (!root?.querySelectorAll) return;
@@ -239,7 +239,7 @@ function _onRenderChatMessage(message, html) {
   const resolveTargetDoc = async (uuid) => {
     if (!uuid) return null;
     try {
-      return await fromUuid(uuid);
+      return await foundry.utils.fromUuid(uuid);
     } catch (_err) {
       return null;
     }
@@ -444,12 +444,7 @@ function _onRenderChatMessage(message, html) {
     });
   });
 }
-// V13 primary hook (HTMLElement, no deprecation warning)
 Hooks.on("renderChatMessageHTML", _onRenderChatMessage);
-// V12 fallback — only active when the V13 hook is absent
-if (!("renderChatMessageHTML" in (Hooks.events ?? {}))) {
-  Hooks.on("renderChatMessage", _onRenderChatMessage);
-}
 
 // ---------------------------------------------------------------------------
 // Combat: Update token status effects from HP thresholds
@@ -619,7 +614,7 @@ Hooks.on("createActor", (actor, _options, userId) => {
   actor.update({ "prototypeToken.actorLink": true }).catch(() => {});
   if (actor.type === "pet") return;
   // Short delay so the default sheet can open first, then the wizard appears on top
-  setTimeout(() => new CharacterWizard(actor).render(true), 250);
+  setTimeout(() => new CharacterWizard(actor).render({ force: true }), 250);
 });
 
 Hooks.on("preCreateToken", (tokenDoc, data, options, userId) => {
@@ -671,11 +666,11 @@ async function _populatePack(packId, data, force = false) {
     if (existing.length > 0 && force) {
       console.log(`EQRPG | Clearing ${existing.length} existing entries from ${packId} …`);
       const ids = existing.map(d => d.id);
-      await Item.deleteDocuments(ids, { pack: pack.collection });
+      await pack.documentClass.deleteDocuments(ids, { pack: pack.collection });
     }
 
     console.log(`EQRPG | Populating ${packId} with ${data.length} entries …`);
-    await Item.createDocuments(data, { pack: pack.collection });
+    await pack.documentClass.createDocuments(data, { pack: pack.collection });
     console.log(`EQRPG | ✓ Populated ${data.length} entries → ${packId}`);
   } catch (err) {
     console.error(`EQRPG | Failed to populate ${packId}:`, err);
@@ -707,11 +702,11 @@ async function _populateActorPack(packId, data, force = false) {
     if (existing.length > 0 && force) {
       console.log(`EQRPG | Clearing ${existing.length} existing actors from ${packId} …`);
       const ids = existing.map((d) => d.id);
-      await Actor.deleteDocuments(ids, { pack: pack.collection });
+      await pack.documentClass.deleteDocuments(ids, { pack: pack.collection });
     }
 
     console.log(`EQRPG | Populating ${packId} with ${data.length} actors …`);
-    await Actor.createDocuments(data, { pack: pack.collection });
+    await pack.documentClass.createDocuments(data, { pack: pack.collection });
     console.log(`EQRPG | ✓ Populated ${data.length} actors → ${packId}`);
   } catch (err) {
     console.error(`EQRPG | Failed to populate actor pack ${packId}:`, err);
@@ -744,11 +739,11 @@ async function _populateJournalPack(packId, data, force = false) {
     if (existing.length > 0 && force) {
       console.log(`EQRPG | Clearing ${existing.length} journal entries from ${packId} …`);
       const ids = existing.map(d => d.id);
-      await JournalEntry.deleteDocuments(ids, { pack: pack.collection });
+      await pack.documentClass.deleteDocuments(ids, { pack: pack.collection });
     }
 
     console.log(`EQRPG | Populating ${packId} with ${data.length} journal entries …`);
-    await JournalEntry.createDocuments(data, { pack: pack.collection });
+    await pack.documentClass.createDocuments(data, { pack: pack.collection });
     console.log(`EQRPG | ✓ Populated ${data.length} journal entries → ${packId}`);
   } catch (err) {
     console.error(`EQRPG | Failed to populate ${packId}:`, err);

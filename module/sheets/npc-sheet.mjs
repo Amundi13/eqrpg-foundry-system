@@ -77,10 +77,7 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.document     = this.actor;
     context.systemFields = this.actor.system.schema.fields;
 
-    // Enrich biography
-    // V13+: TextEditor moved to foundry.applications.ux.TextEditor; fall back for V12
-    const TE = foundry.applications?.ux?.TextEditor ?? TextEditor;
-    context.enrichedBiography = await TE.enrichHTML(system.biography ?? "", {
+    context.enrichedBiography = await foundry.applications.ux.TextEditor.enrichHTML(system.biography ?? "", {
       async: true,
     });
 
@@ -219,7 +216,7 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async _onEditItem(event, target) {
     const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
-    item?.sheet.render(true);
+    item?.sheet.render({ force: true });
   }
 
   static async _onDeleteItem(event, target) {

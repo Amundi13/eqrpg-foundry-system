@@ -41,6 +41,11 @@ jobs:
       - name: Validate generated sample data
         run: node scripts/validate-sample-data.mjs
 
+      - name: Validate Foundry V14 compatibility
+        run: |
+          node scripts/validate-v14-compat.mjs
+          node scripts/smoke-v14-init.mjs
+
       - name: Build release assets
         shell: pwsh
         run: ./scripts/build-release.ps1 -Version "${{ steps.version.outputs.version }}" -OutputDir dist -Repository "${{ github.repository }}"

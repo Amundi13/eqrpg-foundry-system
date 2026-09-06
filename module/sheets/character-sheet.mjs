@@ -155,10 +155,7 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.document = this.actor;
     context.systemFields = this.actor.system.schema.fields;
 
-    // Enrich biography HTML
-    // V13+: TextEditor moved to foundry.applications.ux.TextEditor; fall back for V12
-    const TE = foundry.applications?.ux?.TextEditor ?? TextEditor;
-    context.enrichedBiography = await TE.enrichHTML(system.biography ?? "", {
+    context.enrichedBiography = await foundry.applications.ux.TextEditor.enrichHTML(system.biography ?? "", {
       async: true,
     });
 
@@ -723,7 +720,7 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async _onEditItem(event, target) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item = this.actor.items.get(itemId);
-    item?.sheet.render(true);
+    item?.sheet.render({ force: true });
   }
 
   static async _onDeleteItem(event, target) {
@@ -858,16 +855,18 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async _onCreateFaction(event, target) {
     // Prompt for faction name, then create a faction item on this actor
-    const name = await Dialog.prompt({
-      title:   game.i18n.localize("EQRPG.NewFaction"),
+    const formData = await foundry.applications.api.DialogV2.input({
+      window: { title: game.i18n.localize("EQRPG.NewFaction") },
       content: `<div style="margin:8px 0">
                   <label>${game.i18n.localize("EQRPG.FactionName")}</label><br>
-                  <input type="text" id="faction-name" style="width:100%;margin-top:4px"
+                  <input type="text" name="factionName" style="width:100%;margin-top:4px"
                          placeholder="${game.i18n.localize("EQRPG.FactionNamePlaceholder")}" />
                 </div>`,
-      label:   game.i18n.localize("EQRPG.Create"),
-      callback: (html) => html.find("#faction-name").val().trim(),
-    }).catch(() => null);
+      ok: { label: game.i18n.localize("EQRPG.Create") },
+      rejectClose: false,
+      modal: true,
+    });
+    const name = String(formData?.get("factionName") ?? "").trim();
 
     if (!name) return;
     await this.actor.createEmbeddedDocuments("Item", [{
@@ -909,17 +908,18 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     event?.preventDefault?.();
     event?.stopPropagation?.();
 
-    const existingWizard = Object.values(ui.windows ?? {}).find((app) =>
+    const Wizard = game.eqrpg.CharacterWizard;
+    const existingWizard = [...Wizard.instances()].find((app) =>
       app instanceof game.eqrpg.CharacterWizard && app.actor?.id === this.actor.id
     );
     if (existingWizard) {
-      existingWizard.render(true);
+      existingWizard.render({ force: true });
       return;
     }
 
-    const wizard = new game.eqrpg.CharacterWizard(this.actor);
+    const wizard = new Wizard(this.actor);
     this._wizardApp = wizard;
-    wizard.render(true);
+    wizard.render({ force: true });
   }
 
   // -------------------------------------------------------------------------

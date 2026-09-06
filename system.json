@@ -13,7 +13,8 @@
   "download": "https://github.com/Amundi13/eqrpg-foundry-system/releases/download/v0.1.9/eqrpg-foundry-system-v0.1.9.zip",
   "compatibility": {
     "minimum": "13",
-    "verified": "13"
+    "verified": "14.365",
+    "maximum": "14"
   },
   "esmodules": [
     "module/eqrpg.mjs"

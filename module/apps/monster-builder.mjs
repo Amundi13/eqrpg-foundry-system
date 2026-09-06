@@ -274,9 +274,9 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
       ui.notifications.error(errors[0].text);
       return;
     }
-    const actor = await Actor.create(buildNPCActorData(this.monster));
+    const actor = await foundry.documents.Actor.create(buildNPCActorData(this.monster));
     ui.notifications.info(game.i18n.format("EQRPG.MonsterBuilderCreated", { name: actor.name }));
-    actor.sheet?.render(true);
+    actor.sheet?.render({ force: true });
   }
 
   static async #onUpdateActor(event) {
@@ -291,7 +291,7 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
     delete actorData.type;
     await this.actor.update(actorData);
     ui.notifications.info(game.i18n.format("EQRPG.MonsterBuilderUpdated", { name: this.actor.name }));
-    this.actor.sheet?.render(true);
+    this.actor.sheet?.render({ force: true });
   }
 
   static #onExportJson(event) {
