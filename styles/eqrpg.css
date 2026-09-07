@@ -1447,6 +1447,46 @@
   .eqrpg .spell-recast { color: var(--eq-purple); }
   .eqrpg .known-spells-section { margin-top: 4px; }
 
+  .eqrpg .active-effects-section {
+    margin: 7px 0;
+    padding: 4px 7px 6px;
+    border: 1px solid var(--eq-border);
+    border-radius: 3px;
+    background: rgba(55, 75, 42, 0.12);
+  }
+  .eqrpg .active-effect-list { list-style: none; margin: 0; padding: 0; }
+  .eqrpg .active-effect-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 36px;
+    padding: 3px 2px;
+    border-top: 1px solid rgba(90, 78, 58, 0.45);
+  }
+  .eqrpg .active-effect-row.inactive { opacity: 0.58; }
+  .eqrpg .active-effect-icon { flex: 0 0 28px; border: 1px solid var(--eq-border); border-radius: 3px; }
+  .eqrpg .active-effect-copy { display: flex; flex: 1; min-width: 0; flex-direction: column; }
+  .eqrpg .active-effect-name { color: var(--eq-text-bright); font-weight: bold; }
+  .eqrpg .active-effect-details,
+  .eqrpg .active-effect-duration { color: var(--eq-text-dim); font-size: 0.76em; }
+  .eqrpg .active-effect-toggle {
+    width: 42px;
+    height: 23px;
+    padding: 0;
+    border: 1px solid #78504a;
+    border-radius: 12px;
+    background: rgba(100, 35, 30, 0.35);
+    color: #d6aaa2;
+    font-size: 0.72em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .eqrpg .active-effect-toggle.enabled {
+    border-color: #568244;
+    background: rgba(50, 105, 45, 0.4);
+    color: #b9dfaa;
+  }
+
   /* -------------------------------------------------------------------------
      Item Lists (shared by Spells & Inventory)
   -------------------------------------------------------------------------- */

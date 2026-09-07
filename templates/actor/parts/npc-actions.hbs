@@ -1,5 +1,36 @@
 <section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="actions" id="{{partId}}">
 
+  <div class="active-effects-section inventory-section">
+    <div class="section-header">
+      <h3>{{localize "EQRPG.ActiveBuffs"}}</h3>
+    </div>
+    {{#if activeSpellEffects.length}}
+    <ol class="active-effect-list">
+      {{#each activeSpellEffects as |effect|}}
+      <li class="active-effect-row {{#unless effect.active}}inactive{{/unless}}" data-effect-id="{{effect.id}}">
+        <img src="{{effect.img}}" class="active-effect-icon" width="28" height="28" />
+        <div class="active-effect-copy">
+          <span class="active-effect-name">{{effect.name}}</span>
+          {{#if effect.details}}<span class="active-effect-details">{{effect.details}}</span>{{/if}}
+          {{#if effect.duration}}<span class="active-effect-duration">{{effect.duration}}</span>{{/if}}
+        </div>
+        <button type="button" class="active-effect-toggle {{#if effect.active}}enabled{{/if}}"
+                data-action="toggleSpellEffectState" data-effect-id="{{effect.id}}"
+                aria-pressed="{{effect.active}}">
+          {{#if effect.active}}{{localize "EQRPG.BuffOn"}}{{else}}{{localize "EQRPG.BuffOff"}}{{/if}}
+        </button>
+        {{#if @root.isEditable}}
+        <button type="button" class="delete-btn" data-action="removeSpellEffect" data-effect-id="{{effect.id}}"
+                title="{{localize 'EQRPG.RemoveBuff'}}">X</button>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ol>
+    {{else}}
+    <p class="empty-list">{{localize "EQRPG.NoActiveBuffs"}}</p>
+    {{/if}}
+  </div>
+
   <div class="inventory-section">
     <div class="section-header">
       <h3>{{localize "EQRPG.QuickActions"}}</h3>

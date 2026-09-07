@@ -45,6 +45,7 @@ jobs:
         run: |
           node scripts/validate-v14-compat.mjs
           node scripts/smoke-v14-init.mjs
+          node scripts/test-buff-toggle.mjs
 
       - name: Build release assets
         shell: pwsh

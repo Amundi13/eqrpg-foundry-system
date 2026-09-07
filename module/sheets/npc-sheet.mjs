@@ -1,4 +1,5 @@
 import { renderMonsterBuilder } from "../apps/monster-builder.mjs";
+import { prepareSpellEffects } from "../helpers/active-effects.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -33,6 +34,8 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       editItem:       EQNPCSheet._onEditItem,
       deleteItem:     EQNPCSheet._onDeleteItem,
       openMonsterBuilder: EQNPCSheet._onOpenMonsterBuilder,
+      toggleSpellEffectState: EQNPCSheet._onToggleSpellEffectState,
+      removeSpellEffect: EQNPCSheet._onRemoveSpellEffect,
     },
   };
 
@@ -76,6 +79,7 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.isEditable   = this.isEditable;
     context.document     = this.actor;
     context.systemFields = this.actor.system.schema.fields;
+    context.activeSpellEffects = prepareSpellEffects(this.actor);
 
     context.enrichedBiography = await foundry.applications.ux.TextEditor.enrichHTML(system.biography ?? "", {
       async: true,
@@ -203,6 +207,14 @@ export class EQNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async _onUseSpecialAbility(event, target) {
     await this.actor.useNPCSpecialAbility(target.dataset.abilityId);
+  }
+
+  static async _onToggleSpellEffectState(event, target) {
+    await this.actor.toggleSpellEffectEnabled(target.dataset.effectId);
+  }
+
+  static async _onRemoveSpellEffect(event, target) {
+    await this.actor.removeSpellEffect(target.dataset.effectId);
   }
 
   // ---------------------------------------------------------------------------

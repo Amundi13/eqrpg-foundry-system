@@ -596,5 +596,12 @@
   "EQRPG.AmmoConsumed": "{count} {ammo} consumed. {remaining} remaining.",
   "EQRPG.NoDamageRoll": "This item does not roll direct damage.",
   "EQRPG.NetHitEffect": "On a hit, the target is entangled until it escapes or the net is removed.",
-  "EQRPG.NetMissEffect": "On a miss, the net lands harmlessly."
+  "EQRPG.NetMissEffect": "On a miss, the net lands harmlessly.",
+  "EQRPG.ActiveBuffs": "Active Buffs",
+  "EQRPG.NoActiveBuffs": "No spell buffs are currently applied.",
+  "EQRPG.EnableBuff": "Enable buff",
+  "EQRPG.DisableBuff": "Disable buff",
+  "EQRPG.RemoveBuff": "Remove buff",
+  "EQRPG.BuffOn": "On",
+  "EQRPG.BuffOff": "Off"
 }

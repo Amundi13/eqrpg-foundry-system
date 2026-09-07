@@ -637,6 +637,7 @@ export class EQActor extends Actor {
     const remaining = Math.max(0, damage - absorbed);
     const newTemp = Math.max(0, currentTemp - absorbed);
     const newValue = Math.max(this._getMinimumHP(), currentHP - remaining);
+    if (absorbed > 0) await this._consumeSpellEffectTempHP(absorbed);
     await this.update({
       "system.resources.hp.temp": newTemp,
       "system.resources.hp.value": newValue,
@@ -664,13 +665,7 @@ export class EQActor extends Actor {
     const effectKey = String(effectData.effectKey ?? label.toLowerCase()).trim();
     const existing = this.effects.find((effect) => effect.name === label || effect.flags?.eqrpg?.effectKey === effectKey);
     if (existing) {
-      const tempHPGrant = Math.max(0, Number(existing.flags?.eqrpg?.tempHPGrant) || 0);
-      await existing.delete();
-      await this._setTokenStatuses(effectData.statuses ?? effectData.statusIds ?? [], false);
-      if (tempHPGrant > 0) {
-        const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
-        await this.update({ "system.resources.hp.temp": Math.max(0, currentTemp - tempHPGrant) });
-      }
+      await this.removeSpellEffect(existing.id, effectData.statuses ?? effectData.statusIds ?? []);
       return null;
     }
 
@@ -678,13 +673,16 @@ export class EQActor extends Actor {
     const existingBonuses = effectData.flags?.eqrpg?.bonuses ?? {};
     const bonuses = EQActor._mergeSpellEffectBonuses(existingBonuses, extracted.bonuses);
     const changes = extracted.changes;
+    const rawStatusIds = effectData.statuses ?? effectData.statusIds ?? [];
+    const statusIds = [...new Set(Array.isArray(rawStatusIds) ? rawStatusIds : [rawStatusIds])].filter(Boolean);
     const createData = {
       name: label,
-      icon: effectData.icon || "icons/svg/aura.svg",
+      img: effectData.img || effectData.icon || "icons/svg/aura.svg",
       origin: effectData.origin || this.uuid,
       duration: effectData.duration ?? {},
       disabled: false,
       changes,
+      statuses: statusIds,
       description: effectData.description ?? "",
       flags: foundry.utils.mergeObject(effectData.flags ?? {}, {
         eqrpg: {
@@ -697,8 +695,10 @@ export class EQActor extends Actor {
           speedPct: Number(effectData.speedPct ?? 0) || 0,
           bonuses,
           tempHPGrant: Math.max(0, extracted.tempHP),
+          tempHPRemaining: Math.max(0, extracted.tempHP),
           breaksOnAttack: !!effectData.breaksOnAttack,
           breaksOnCast: !!effectData.breaksOnCast,
+          statusIds,
         },
       }),
     };
@@ -708,8 +708,96 @@ export class EQActor extends Actor {
       const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
       await this.update({ "system.resources.hp.temp": currentTemp + extracted.tempHP });
     }
-    await this._setTokenStatuses(effectData.statuses ?? effectData.statusIds ?? [], true);
+    await this._setTokenStatuses(statusIds, true);
     return created ?? null;
+  }
+
+  async setSpellEffectEnabled(effectId, enabled) {
+    const effect = this.effects.get?.(effectId) ?? this.effects.find((entry) => entry.id === effectId);
+    if (!effect?.flags?.eqrpg?.spellEffect) return null;
+
+    const active = !!enabled;
+    if ((!effect.disabled) === active) return effect;
+
+    const flags = effect.flags.eqrpg;
+    const tempHPGrant = Math.max(0, Number(flags.tempHPGrant) || 0);
+    const tempHPRemaining = Math.max(0, Number(flags.tempHPRemaining ?? tempHPGrant) || 0);
+    const statusIds = this._getSpellEffectStatusIds(effect);
+    await effect.update({
+      disabled: !active,
+      statuses: statusIds,
+      "flags.eqrpg.tempHPRemaining": active ? tempHPGrant : 0,
+      "flags.eqrpg.statusIds": statusIds,
+    });
+
+    if (tempHPGrant > 0) {
+      const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
+      const nextTemp = active ? currentTemp + tempHPGrant : Math.max(0, currentTemp - tempHPRemaining);
+      await this.update({ "system.resources.hp.temp": nextTemp });
+    }
+
+    await this._setTokenStatuses(statusIds, active);
+    return effect;
+  }
+
+  async toggleSpellEffectEnabled(effectId) {
+    const effect = this.effects.get?.(effectId) ?? this.effects.find((entry) => entry.id === effectId);
+    if (!effect) return null;
+    return this.setSpellEffectEnabled(effectId, !!effect.disabled);
+  }
+
+  async removeSpellEffect(effectId, fallbackStatusIds = []) {
+    const effect = this.effects.get?.(effectId) ?? this.effects.find((entry) => entry.id === effectId);
+    if (!effect?.flags?.eqrpg?.spellEffect) return false;
+
+    const flags = effect.flags.eqrpg;
+    let statusIds = [];
+    if (!effect.disabled) {
+      const tempHPRemaining = Math.max(0, Number(flags.tempHPRemaining ?? flags.tempHPGrant) || 0);
+      if (tempHPRemaining > 0) {
+        const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
+        await this.update({ "system.resources.hp.temp": Math.max(0, currentTemp - tempHPRemaining) });
+      }
+      statusIds = this._getSpellEffectStatusIds(effect, fallbackStatusIds);
+    }
+
+    await effect.delete();
+    if (statusIds.length) await this._setTokenStatuses(statusIds, false);
+    return true;
+  }
+
+  _getSpellEffectStatusIds(effect, fallbackStatusIds = []) {
+    const flags = effect?.flags?.eqrpg ?? {};
+    const stored = flags.statusIds ?? [...(effect?.statuses ?? [])];
+    const ids = Array.isArray(stored) ? [...stored] : [stored];
+    const fallback = Array.isArray(fallbackStatusIds) ? fallbackStatusIds : [fallbackStatusIds];
+    ids.push(...fallback);
+
+    const key = String(flags.effectKey ?? effect?.name ?? "").toLowerCase().replace(/^toggle\s+/, "");
+    if (Number(flags.slowRank ?? 0) > 0) ids.push("slowed");
+    if (["invisibility", "improved-invisibility", "improved invisibility"].includes(key)) ids.push("invisible");
+    return [...new Set(ids.filter(Boolean))];
+  }
+
+  async _consumeSpellEffectTempHP(amount) {
+    let remaining = Math.max(0, Number(amount) || 0);
+    const updates = [];
+
+    for (const effect of this.effects ?? []) {
+      if (!remaining || effect.disabled || !effect.flags?.eqrpg?.spellEffect) continue;
+      const flags = effect.flags.eqrpg;
+      const available = Math.max(0, Number(flags.tempHPRemaining ?? flags.tempHPGrant) || 0);
+      if (!available) continue;
+
+      const consumed = Math.min(available, remaining);
+      updates.push({
+        _id: effect.id,
+        "flags.eqrpg.tempHPRemaining": available - consumed,
+      });
+      remaining -= consumed;
+    }
+
+    if (updates.length) await this.updateEmbeddedDocuments("ActiveEffect", updates);
   }
 
   async normalizeSpellEffects() {
@@ -721,13 +809,18 @@ export class EQActor extends Actor {
       const extracted = EQActor._extractSpellEffectBonuses(effect.changes);
       if (extracted.changes.length === effect.changes.length && !Object.keys(extracted.bonuses).length && !extracted.tempHP) continue;
       const bonuses = EQActor._mergeSpellEffectBonuses(flags.bonuses, extracted.bonuses);
+      const previousGrant = Math.max(0, Number(flags.tempHPGrant) || 0);
+      const previousRemaining = effect.disabled
+        ? 0
+        : Math.max(0, Number(flags.tempHPRemaining ?? previousGrant) || 0);
       updates.push({
         _id: effect.id,
         changes: extracted.changes,
         "flags.eqrpg.bonuses": bonuses,
-        "flags.eqrpg.tempHPGrant": Math.max(0, Number(flags.tempHPGrant) || 0) + Math.max(0, extracted.tempHP),
+        "flags.eqrpg.tempHPGrant": previousGrant + Math.max(0, extracted.tempHP),
+        "flags.eqrpg.tempHPRemaining": previousRemaining + (effect.disabled ? 0 : Math.max(0, extracted.tempHP)),
       });
-      tempHPGrant += Math.max(0, extracted.tempHP);
+      if (!effect.disabled) tempHPGrant += Math.max(0, extracted.tempHP);
     }
 
     if (updates.length) await this.updateEmbeddedDocuments("ActiveEffect", updates);
