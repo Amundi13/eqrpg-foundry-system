@@ -1,6 +1,7 @@
 import {
   applyTypeDefaults,
   buildNPCActorData,
+  buildNPCActorUpdate,
   CREATURE_TYPE_RULES,
   createDefaultMonster,
   deriveMonster,
@@ -9,6 +10,9 @@ import {
   signed,
   SIZE_RULES,
 } from "./monster-builder-rules.mjs";
+
+import { SAMPLE_MONSTERS } from "../packs/sample-data.mjs";
+import { inspectMonsterSource } from "./monster-source.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -22,9 +26,8 @@ const TABS = [
   { id: "export", label: "EQRPG.MonsterBuilderTabExport" },
 ];
 
-function readActorMonster(actor) {
+export function readActorMonster(actor) {
   const flagged = actor?.flags?.eqrpg?.monsterBuilder;
-  if (flagged) return normalizeMonster(flagged);
 
   if (actor?.type !== "npc") return createDefaultMonster();
   const system = actor.system;
@@ -43,16 +46,20 @@ function readActorMonster(actor) {
   monster.hitDice.manualHp = Number(system.resources?.hp?.max) || 1;
   monster.hitDice.overrideAverage = true;
   for (const key of Object.keys(monster.abilities)) {
-    monster.abilities[key] = Number(system.abilities?.[key]?.value) || 10;
+    monster.abilities[key] = system.abilities?.[key]?.value === undefined ? 10 : system.abilities[key].value;
   }
   monster.combat.armorClass.manualOverride = true;
-  monster.combat.armorClass.total = Number(system.combat?.ac?.value) || 10;
+  monster.combat.armorClass.total = Number(system.combat?.ac?.value ?? 10);
   monster.combat.babManualOverride = true;
   monster.combat.baseAttackBonus = Number(system.combat?.bab) || 0;
-  monster.combat.initiativeMisc = Number(system.combat?.initiative?.value) || 0;
-  monster.combat.speed.walk = Number(system.details?.speed) || 30;
+  monster.combat.initiativeMisc = (Number(system.combat?.initiative?.value) || 0) - Math.floor(((Number(monster.abilities.dex ?? 10)) - 10) / 2);
+  for (const key of ["fortitude", "reflex", "will"]) {
+    monster.combat.saves[key].manualOverride = true;
+    monster.combat.saves[key].total = system.combat?.saves?.[key]?.value ?? 0;
+  }
+  monster.combat.speed.walk = Number(system.details?.speed ?? 30);
   monster.combat.face = String(system.statblock?.faceReach ?? "5 ft. by 5 ft./5 ft.").split("/")[0] || "5 ft. by 5 ft.";
-  monster.combat.reach = parseReach(system.statblock?.faceReach) || 5;
+  monster.combat.reach = parseReach(system.statblock?.faceReach) ?? 5;
   monster.combat.attacks = parseAttacks(system.statblock?.attacks, system.statblock?.damage);
   monster.traits.specialAbilities = system.statblock?.specialAttacks ?? "";
   monster.traits.specialQualities = system.statblock?.specialQualities ?? "";
@@ -63,7 +70,38 @@ function readActorMonster(actor) {
   monster.advancement.organization = system.statblock?.organization ?? "";
   monster.advancement.treasure = system.statblock?.treasure ?? "";
   monster.advancement.advancementRange = system.statblock?.advancement ?? "";
-  return normalizeMonster(monster);
+  if (!flagged) return normalizeMonster(monster);
+  const draft = normalizeMonster(flagged);
+  const generated = buildNPCActorData(draft);
+  const get = (object,path) => path.split(".").reduce((value,key)=>value?.[key],object);
+  const changed = path => JSON.stringify(get(actor,path)) !== JSON.stringify(get(generated,path));
+  const copy = (draftPath, actorPaths) => {
+    if (!actorPaths.some(changed)) return;
+    const keys=draftPath.split(".");let target=draft;
+    for (const key of keys.slice(0,-1)) target=target[key];
+    target[keys.at(-1)]=foundry.utils.deepClone(get(monster,draftPath));
+  };
+  copy("name",["name"]);copy("img",["img"]);copy("description",["system.biography"]);
+  copy("source",["system.statblock.source"]);
+  for(const key of ["size","type","subtypes","alignment","faction"]) copy(`identity.${key}`,[`system.details.${key}`]);
+  for(const key of Object.keys(monster.abilities)) copy(`abilities.${key}`,[`system.abilities.${key}.value`]);
+  copy("hitDice",["system.resources.hp.max","system.statblock.hitDice","system.abilities.con.value"]);
+  copy("combat.armorClass",["system.combat.ac.value","system.abilities.dex.value","system.details.size"]);
+  if(["system.combat.bab","system.statblock.hitDice","system.details.type"].some(changed)){draft.combat.babManualOverride=true;draft.combat.baseAttackBonus=monster.combat.baseAttackBonus;}
+  copy("combat.initiativeMisc",["system.combat.initiative.value","system.abilities.dex.value"]);
+  for(const [key,ability] of Object.entries({fortitude:"con",reflex:"dex",will:"wis"})) copy(`combat.saves.${key}`,[`system.combat.saves.${key}.value`,`system.abilities.${ability}.value`,"system.statblock.hitDice","system.details.type"]);
+  copy("combat.speed.walk",["system.details.speed"]);
+  copy("combat.attacks",["system.statblock.attacks","system.statblock.damage"]);
+  copy("combat.face",["system.statblock.faceReach"]);copy("combat.reach",["system.statblock.faceReach"]);
+  copy("traits.specialAbilities",["system.statblock.specialAttacks"]);
+  if(changed("system.statblock.specialQualities")) {
+    draft.traits.specialQualities=monster.traits.specialQualities;
+    for(const key of ["vision","immunities","resistances","vulnerabilities"]) draft.traits[key]=[];
+  }
+  for(const key of ["skills","feats"]) copy(key,[`system.statblock.${key}`]);
+  for(const key of ["challengeRating","climateTerrain","organization","treasure"]) copy(`advancement.${key}`,[`system.statblock.${key}`]);
+  copy("advancement.advancementRange",["system.statblock.advancement"]);
+  return normalizeMonster(draft);
 }
 
 function sizeKeyFromText(value) {
@@ -85,7 +123,8 @@ function parseHitDiceDie(value) {
 }
 
 function parseReach(value) {
-  return Number(String(value ?? "").split("/")[1]?.match(/(\d+)/)?.[1]) || 0;
+  const match=String(value ?? "").split("/")[1]?.match(/(\d+)/);
+  return match ? Number(match[1]) : undefined;
 }
 
 function parseAttacks(attacksText, damageText) {
@@ -96,6 +135,7 @@ function parseAttacks(attacksText, damageText) {
     const damage = damageChunks[index]?.match(/^(?:.+?)\s+((?:\d+d\d+|\d+)(?:[+-](?:\d+d\d+|\d+))*)/i)?.[1] ?? "1d4";
     return {
       name: match?.[2]?.trim() || text || `Attack ${index + 1}`,
+      count: Number(match?.[1] ?? 1),
       category: "natural",
       mode: match?.[4]?.trim() || "melee",
       primary: index === 0,
@@ -132,8 +172,13 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
       window: { title: game.i18n.localize("EQRPG.MonsterBuilder") },
     }, options));
     this.actor = actor;
+    this.mode = actor ? "advanced" : "quick";
+    this.sourceIndex = "";
+    this.sourceQuery = "";
+    this.sourceCreature = null;
     this.activeTab = "identity";
     this.monster = readActorMonster(actor);
+    this.initialMonster = foundry.utils.deepClone(this.monster);
     this.importText = "";
     this.exportText = "";
   }
@@ -145,6 +190,7 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
     position: { width: 980, height: 760 },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
+      builderMode: MonsterBuilder.#onMode,
       builderTab: MonsterBuilder.#onTab,
       applyTypeDefaults: MonsterBuilder.#onApplyTypeDefaults,
       addAttack: MonsterBuilder.#onAddAttack,
@@ -165,6 +211,11 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
     const derived = deriveMonster(this.monster);
     const exportPayload = this.exportText || JSON.stringify(this.monster, null, 2);
     return {
+      mode: this.mode,
+      sourceQuery: this.sourceQuery,
+      sourceOptions: SAMPLE_MONSTERS.map((source,index) => ({ index, name:source.name, selected:String(index)===String(this.sourceIndex), ...inspectMonsterSource(source) })).filter(source => `${source.name} ${source.locator}`.toLowerCase().includes(this.sourceQuery.toLowerCase())),
+      sourceStatus: this.sourceCreature ? inspectMonsterSource(this.sourceCreature) : null,
+      updatePreview: this.actor ? Object.entries(buildNPCActorUpdate(this.monster,this.initialMonster)).filter(([path]) => !path.startsWith("flags.") && path !== "system.statblock.rawText" && !path.startsWith("prototypeToken.")).map(([path,value]) => ({ field:path.replace(/^system\./, "").replace(/\.value$/, "").replace(/([a-z])([A-Z])/g,"$1 $2").replaceAll("."," · "), value: typeof value === "object" ? JSON.stringify(value) : value })) : [],
       actor: this.actor,
       monster: this.monster,
       derived,
@@ -195,6 +246,16 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
   _onChangeForm(_formConfig, event) {
     const target = event.target;
     if (!target?.name) return;
+    if (target.name === "sourceQuery") { this.sourceQuery=target.value; this.render(); return; }
+    if (target.name === "sourceIndex") {
+      this.sourceIndex=target.value;
+      this.sourceCreature=target.value === "" ? null : SAMPLE_MONSTERS[Number(target.value)] ?? null;
+      if (this.sourceCreature) {
+        this.monster=readActorMonster(this.sourceCreature);
+        this.initialMonster=foundry.utils.deepClone(this.monster);
+      }
+      this.render(); return;
+    }
     if (target.name === "importText") {
       this.importText = target.value;
       return;
@@ -249,6 +310,7 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
     event.preventDefault();
     this.monster.combat.attacks.push({
       name: `Attack ${this.monster.combat.attacks.length + 1}`,
+      count: 1,
       category: "natural",
       mode: "melee",
       primary: this.monster.combat.attacks.length === 0,
@@ -274,7 +336,18 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
       ui.notifications.error(errors[0].text);
       return;
     }
-    const actor = await foundry.documents.Actor.create(buildNPCActorData(this.monster));
+    let data=buildNPCActorData(this.monster);
+    if (this.sourceCreature) {
+      // Printed totals and unparsed text survive unchanged source creation.
+      const patch=buildNPCActorUpdate(this.monster,readActorMonster(this.sourceCreature));
+      data=foundry.utils.mergeObject(foundry.utils.deepClone(this.sourceCreature),foundry.utils.expandObject(patch),{inplace:false});
+      delete data._id;
+      const status=inspectMonsterSource(data);
+      if (!status.complete) { ui.notifications.warn(`Reconcile missing source fields before creating: ${status.missing.join(", ")}.`); return; }
+      data.system.resources.hp.value=data.system.resources.hp.max;
+      data.system.resources.hp.temp=0;
+    }
+    const actor = await foundry.documents.Actor.create(data);
     ui.notifications.info(game.i18n.format("EQRPG.MonsterBuilderCreated", { name: actor.name }));
     actor.sheet?.render({ force: true });
   }
@@ -287,9 +360,9 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
       ui.notifications.error(errors[0].text);
       return;
     }
-    const actorData = buildNPCActorData(this.monster);
-    delete actorData.type;
+    const actorData = buildNPCActorUpdate(this.monster, this.initialMonster);
     await this.actor.update(actorData);
+    this.initialMonster = foundry.utils.deepClone(this.monster);
     ui.notifications.info(game.i18n.format("EQRPG.MonsterBuilderUpdated", { name: this.actor.name }));
     this.actor.sheet?.render({ force: true });
   }
@@ -306,6 +379,8 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
     try {
       const parsed = JSON.parse(this.importText || this.exportText || "{}");
       this.monster = normalizeMonster(parsed);
+      this.sourceCreature = null;
+      this.sourceIndex = "";
       this.exportText = "";
       ui.notifications.info(game.i18n.localize("EQRPG.MonsterBuilderImported"));
       this.render();
@@ -318,9 +393,17 @@ export class MonsterBuilder extends HandlebarsApplicationMixin(ApplicationV2) {
   static #onReset(event) {
     event.preventDefault();
     this.monster = createDefaultMonster();
+    this.sourceCreature = null;
+    this.sourceIndex = "";
     this.importText = "";
     this.exportText = "";
     this.activeTab = "identity";
+    this.render();
+  }
+
+  static #onMode(event, target) {
+    event.preventDefault();
+    if (["quick","source","advanced"].includes(target.dataset.mode)) this.mode=target.dataset.mode;
     this.render();
   }
 }

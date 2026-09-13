@@ -8,6 +8,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Resist the effects of drink and other bodily impairments brought on by heavy alcohol consumption.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b4a867909f0feff6"
+      }
     }
   },
   {
@@ -20,6 +25,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Influence the attitude of animals and calm or direct them without violence.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "32ee71b3a046a77d"
+      }
     }
   },
   {
@@ -31,6 +41,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Estimate the market value of goods, art objects, jewelry, and other valuables.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f7c153109b2661ae"
+      }
     }
   },
   {
@@ -42,6 +57,11 @@
       "classSkill": false,
       "armorCheckPenalty": true,
       "description": "<p>Keep your footing on narrow, angled, or slippery surfaces.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "34703c7775500b05"
+      }
     }
   },
   {
@@ -54,6 +74,11 @@
       "armorCheckPenalty": false,
       "languageDependent": true,
       "description": "<p>Mislead, feint, or otherwise deceive another creature through word and demeanor.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "9678836cafef99d2"
+      }
     }
   },
   {
@@ -65,6 +90,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Maintain the focus needed to complete a spell while distracted, endangered, or physically threatened.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "10c509a452a4eac6"
+      }
     }
   },
   {
@@ -76,6 +106,11 @@
       "classSkill": false,
       "armorCheckPenalty": true,
       "description": "<p>Scale walls, ropes, trees, cliffs, and other steep surfaces.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "8dc30394629ba5b6"
+      }
     }
   },
   {
@@ -88,6 +123,11 @@
       "armorCheckPenalty": false,
       "languageDependent": true,
       "description": "<p>Negotiate, haggle, persuade, or beg without resorting to threats or force.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "cbdc94e56b3b832f"
+      }
     }
   },
   {
@@ -100,6 +140,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Disarm, jam, or sabotage locks, traps, and delicate mechanisms.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "9cc282457e78b963"
+      }
     }
   },
   {
@@ -112,6 +157,11 @@
       "armorCheckPenalty": false,
       "languageDependent": true,
       "description": "<p>Alter your appearance convincingly enough to pass as someone or something else.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "05fef99e43c74098"
+      }
     }
   },
   {
@@ -123,6 +173,11 @@
       "classSkill": false,
       "armorCheckPenalty": true,
       "description": "<p>Slip out of bonds, shackles, grapples, and other restraints.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "c81bfc5d019082e7"
+      }
     }
   },
   {
@@ -134,6 +189,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Create or detect false documents, seals, and handwriting.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "a0421b89d778ba27"
+      }
     }
   },
   {
@@ -146,6 +206,11 @@
       "armorCheckPenalty": false,
       "languageDependent": true,
       "description": "<p>Learn rumors, secrets, and local talk by asking around and listening well.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f07a7150c69cc9ce"
+      }
     }
   },
   {
@@ -158,6 +223,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Rear, train, calm, and direct domestic animals and beasts under your care.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "8b4c4cf99705908b"
+      }
     }
   },
   {
@@ -169,6 +239,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Stabilize allies, bind wounds, provide long-term care, and treat disease or poison.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "77776a515599cf2f"
+      }
     }
   },
   {
@@ -180,6 +255,11 @@
       "classSkill": false,
       "armorCheckPenalty": true,
       "description": "<p>Remain unseen by using cover, shadows, and concealment.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "201469a368995871"
+      }
     }
   },
   {
@@ -192,6 +272,11 @@
       "armorCheckPenalty": false,
       "languageDependent": true,
       "description": "<p>Threaten, cow, or bully another creature into backing down.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "db31e8a918e3f3fb"
+      }
     }
   },
   {
@@ -203,6 +288,11 @@
       "classSkill": false,
       "armorCheckPenalty": true,
       "description": "<p>Leap over gaps, obstacles, and hazards, or spring upward to higher ledges.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "8189843b4fabfd9d"
+      }
     }
   },
   {
@@ -214,6 +304,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall artists, texts, songs, ballads, legends, and other cultural works.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "c2727c3dd05efcef"
+      }
     }
   },
   {
@@ -225,6 +320,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall myths, superstitions, folk remedies, and cultural tales.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "65d3d1304d99a7d6"
+      }
     }
   },
   {
@@ -236,6 +336,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall lands, cities, landmarks, routes, and the peoples who dwell there.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "277cefd0e6dc0ad6"
+      }
     }
   },
   {
@@ -247,6 +352,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall local customs, laws, notable residents, and city politics.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "affd7ea3a76c01dd"
+      }
     }
   },
   {
@@ -258,6 +368,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall a creature type's habits, habitat, strengths, and weaknesses.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "7b241f50e86eda8a"
+      }
     }
   },
   {
@@ -269,6 +384,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall magical traditions, symbols, prophecy, and arcane mysteries.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b454b012a0efa1ec"
+      }
     }
   },
   {
@@ -280,6 +400,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall flora, fauna, weather, seasons, and other natural cycles.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "fa7d895d4d7fa567"
+      }
     }
   },
   {
@@ -291,6 +416,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall planes, planar hazards, inhabitants, and methods of travel between them.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f843fc1ee4352d9c"
+      }
     }
   },
   {
@@ -302,6 +432,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall gods, churches, dogma, sacred history, and religious practices.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "71cb094d4ebf7f57"
+      }
     }
   },
   {
@@ -313,6 +448,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall gangs, fences, criminal customs, and the unwritten rules of the streets.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "9d28c12d83a1e457"
+      }
     }
   },
   {
@@ -324,6 +464,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recall tactics, commanders, battle doctrine, and the history of war.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b70f33d24b379110"
+      }
     }
   },
   {
@@ -336,6 +481,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Speak, understand, or decipher tongues beyond the ones you begin with.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "02d9900d9e489bff"
+      }
     }
   },
   {
@@ -347,6 +497,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Notice distant, faint, or hidden sounds.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "4bc154b2bf6b4fc8"
+      }
     }
   },
   {
@@ -358,6 +513,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Recover mana through focused rest; in play this follows the caster's appropriate casting tradition.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "67f0f38b795e5161"
+      }
     }
   },
   {
@@ -369,6 +529,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Entertain through song, story, acting, dance, or other performance arts.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "9aa5a49c560887e6"
+      }
     }
   },
   {
@@ -381,6 +546,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Open mechanical locks using thieves' tools and a practiced hand.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "636719cfeaf23775"
+      }
     }
   },
   {
@@ -393,6 +563,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Lift small items from another creature without being noticed.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "d76b216cbd20e91a"
+      }
     }
   },
   {
@@ -405,6 +580,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Play horns and other brass instruments with proper breath, tone, and control.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "42b8c50faf516d39"
+      }
     }
   },
   {
@@ -417,6 +597,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Play drums and other percussion instruments with rhythm and precision.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "aac97173ac39c261"
+      }
     }
   },
   {
@@ -429,6 +614,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Play lutes, harps, and other stringed instruments with practiced technique.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "862e562b379ea791"
+      }
     }
   },
   {
@@ -441,6 +631,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Play flutes and other wind instruments with clean control and articulation.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "a0c2d17022abc386"
+      }
     }
   },
   {
@@ -453,6 +648,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Practice a trade or calling such as sailor, herbalist, miner, or scribe.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "cb7af34d619205f7"
+      }
     }
   },
   {
@@ -466,6 +666,11 @@
       "trainedOnly": true,
       "languageDependent": true,
       "description": "<p>Infer speech by carefully observing a speaker's mouth and expression.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "40b6ce29b613c53b"
+      }
     }
   },
   {
@@ -477,6 +682,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Guide, control, and fight effectively from the saddle.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "fda7a425b376d07f"
+      }
     }
   },
   {
@@ -488,6 +698,11 @@
       "classSkill": false,
       "armorCheckPenalty": true,
       "description": "<p>Reduce falling damage and land more safely when dropped from height.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "2e6e5395b60d8beb"
+      }
     }
   },
   {
@@ -499,6 +714,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Find hidden doors, concealed objects, and careful signs of tampering.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "eeb6e95375aca2ed"
+      }
     }
   },
   {
@@ -510,6 +730,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Maintain your bearings and know direction without obvious markers.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f3043f0fbabc50dd"
+      }
     }
   },
   {
@@ -521,6 +746,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Discern lies, hostility, hidden agendas, and social intent.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "0395b4f3e24bd78d"
+      }
     }
   },
   {
@@ -532,6 +762,11 @@
       "classSkill": false,
       "armorCheckPenalty": true,
       "description": "<p>Move quietly enough to avoid notice while traveling or closing on a target.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "3f56c7a385b41f69"
+      }
     }
   },
   {
@@ -543,6 +778,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Identify spells, understand magical workings, and interpret arcane signs.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "7fe0553f98b1bb45"
+      }
     }
   },
   {
@@ -554,6 +794,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Notice hidden creatures, small details, and things out of place.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "05f9dc23d3d24dd9"
+      }
     }
   },
   {
@@ -565,6 +810,11 @@
       "classSkill": false,
       "armorCheckPenalty": true,
       "description": "<p>Move through water, keep afloat, and survive strong currents.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "1c1f31775495cd9d"
+      }
     }
   },
   {
@@ -576,6 +826,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Draw attention, provoke an enemy, or goad a foe into reacting badly.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "180150d733eb66f5"
+      }
     }
   },
   {
@@ -589,6 +844,11 @@
       "isTradeskill": true,
       "trainedOnly": true,
       "description": "<p>Practice a chosen craft or trade; this broad entry covers the standard non-specialized crafts of Norrath.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "fe155bd244d246d8"
+      }
     }
   },
   {
@@ -602,6 +862,11 @@
       "isTradeskill": true,
       "trainedOnly": true,
       "description": "<p>Mix magical compounds, tonics, reagents, and other alchemical creations.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "257deda8e9ea5f12"
+      }
     }
   },
   {
@@ -615,6 +880,11 @@
       "isTradeskill": true,
       "trainedOnly": true,
       "description": "<p>Construct and repair intricate mechanisms, gadgets, and gnomish devices.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "4381e6c2d15b6b6c"
+      }
     }
   },
   {
@@ -627,6 +897,11 @@
       "armorCheckPenalty": true,
       "trainedOnly": true,
       "description": "<p>Roll, dive, and twist through danger without exposing yourself to easy strikes.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "0c5c2ff6ae3239e0"
+      }
     }
   },
   {
@@ -639,6 +914,11 @@
       "armorCheckPenalty": false,
       "trainedOnly": true,
       "description": "<p>Influence the behavior of mindless undead through force of presence and necromantic understanding.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "fa981330c692a0ba"
+      }
     }
   },
   {
@@ -650,6 +930,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Tie secure knots, lash gear, and work quickly with rope under pressure.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "bc4daf20bdfdc99a"
+      }
     }
   },
   {
@@ -661,6 +946,11 @@
       "classSkill": false,
       "armorCheckPenalty": false,
       "description": "<p>Read terrain, survive in the wild, and follow signs left by creatures and weather.</p>"
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "efd2e373bcc90539"
+      }
     }
   }
 ]

@@ -70,7 +70,30 @@ export function getSpellLevelForClass(spell, classKey) {
   return null;
 }
 
-export function getClassSpellTemplates(classKey, level = 1) {
+// PHB printed pp.52,90: spell levels unlock every other class level.
+export function getAccessibleSpellLevel(classKey, classLevel) {
+  const hybrid = ["beastlord", "paladin", "ranger", "shadowknight"].includes(classKey);
+  if (!["bard", "cleric", "druid", "enchanter", "magician", "necromancer", "shaman", "wizard"].includes(classKey) && !hybrid) return 0;
+  return Math.max(0, Math.min(hybrid ? 12 : 15, Math.ceil((classLevel - (hybrid ? 4 : 0)) / 2)));
+}
+
+export function getSpellEligibility(spell, classKey, classLevel) {
+  const accessible = getAccessibleSpellLevel(classKey, classLevel);
+  if (!accessible) return {allowed:false,reason:"This class cannot cast spells at its current level."};
+  const classLevels = spell.system?.classLevels ?? [];
+  const classes = spell.system?.classes ?? [];
+  const assigned = getSpellLevelForClass(spell,classKey);
+  if ((classLevels.length && assigned === null) || (!classLevels.length && classes.length && !classes.includes(classKey))) {
+    return {allowed:false,reason:"This spell is not on this character's class spell list."};
+  }
+  const level = assigned ?? Number(spell.system?.spellLevel ?? 1);
+  if (!Number.isInteger(level) || level < 1 || level > accessible) return {allowed:false,reason:`This character can cast spells through spell level ${accessible}.`};
+  return {allowed:true,spellLevel:level};
+}
+
+export function getClassSpellTemplates(classKey, classLevel = 1) {
+  const level = getAccessibleSpellLevel(classKey, classLevel);
+  if (!level || level === getAccessibleSpellLevel(classKey, classLevel - 1)) return [];
   if (level === 1 && Array.isArray(LEVEL1_CLASS_SPELLS[classKey])) {
     return LEVEL1_CLASS_SPELLS[classKey];
   }

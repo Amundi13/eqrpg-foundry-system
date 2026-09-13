@@ -37,6 +37,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "fc7b5593a055e409"
+      }
     }
   },
   {
@@ -75,6 +80,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "90100ac10a0ce81f"
+      }
     }
   },
   {
@@ -112,6 +122,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "5777a2921092b240"
       }
     }
   },
@@ -154,6 +169,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "16a9e2e7c7b160e5"
+      }
     }
   },
   {
@@ -194,6 +214,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f4ad02ed7852b02f"
       }
     }
   },
@@ -236,6 +261,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "0b68d9063b3b9e10"
+      }
     }
   },
   {
@@ -275,6 +305,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Double weapon. Off-hand attack uses the second 1d6 end and two-weapon rules."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "1f04ad89d32e5c5b"
       }
     }
   },
@@ -316,6 +351,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "5a864734c927c9d6"
+      }
     }
   },
   {
@@ -355,6 +395,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f6c9a83c94a4fcee"
       }
     }
   },
@@ -397,6 +442,11 @@
         "needsToggle": false,
         "notes": "Primary damage assumes sling bullets. Stones are a weaker improvised ammunition option."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "51605af03690e5f6"
+      }
     }
   },
   {
@@ -437,6 +487,11 @@
         "needsToggle": true,
         "notes": "PHB notes melee use is nonproficient and suffers a -4 attack penalty."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "db1dcf1ae0fca508"
+      }
     }
   },
   {
@@ -474,6 +529,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f9a56709fd711f47"
       }
     }
   },
@@ -513,6 +573,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "71bef968beb8738a"
+      }
     }
   },
   {
@@ -550,6 +615,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "670002c1d96b03c7"
       }
     }
   },
@@ -589,6 +659,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "3d15c7d3a3e01bed"
+      }
     }
   },
   {
@@ -626,6 +701,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b60cdb33dcea6499"
       }
     }
   },
@@ -667,6 +747,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "174662af349d9071"
+      }
     }
   },
   {
@@ -704,6 +789,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "087e68321d576a50"
       }
     }
   },
@@ -745,6 +835,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "09c799dd7769cb8b"
+      }
     }
   },
   {
@@ -782,6 +877,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "22c645aa6635ee48"
       }
     }
   },
@@ -821,6 +921,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "3fc8e16937941ab3"
+      }
     }
   },
   {
@@ -859,6 +964,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "dd5d3930b03da2e6"
+      }
     }
   },
   {
@@ -896,6 +1006,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "4f4150508815e24a"
       }
     }
   },
@@ -937,6 +1052,11 @@
         "needsToggle": true,
         "notes": "Deals subdual damage only."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "78b143b76f8a52a5"
+      }
     }
   },
   {
@@ -974,6 +1094,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "45068e7934a04a63"
       }
     }
   },
@@ -1013,6 +1138,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "a275ef4e6c5ee584"
+      }
     }
   },
   {
@@ -1051,6 +1181,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "a5192f95b5795133"
+      }
     }
   },
   {
@@ -1088,6 +1223,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "5e73d234b96874d2"
       }
     }
   },
@@ -1130,6 +1270,11 @@
         "needsToggle": true,
         "notes": "Supports trip and disarm bonuses that are not yet automated."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "3f40e27b0dd7d3d5"
+      }
     }
   },
   {
@@ -1168,6 +1313,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "a06acfae458e36ac"
+      }
     }
   },
   {
@@ -1205,6 +1355,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "5e1d7feb497a6a45"
       }
     }
   },
@@ -1246,6 +1401,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "bd130b54c23c862a"
+      }
     }
   },
   {
@@ -1283,6 +1443,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "c7e67b790878b3a3"
       }
     }
   },
@@ -1325,6 +1490,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "fec297b7c52754d9"
+      }
     }
   },
   {
@@ -1362,6 +1532,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "434a806b40570f91"
       }
     }
   },
@@ -1408,6 +1583,11 @@
         "needsToggle": true,
         "notes": "Reach, adjacent attacks, trip, disarm, and finesse interactions need dedicated handling."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "8e3b286a2c0da6d8"
+      }
     }
   },
   {
@@ -1445,6 +1625,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b0e2f135eed03c4b"
       }
     }
   },
@@ -1487,6 +1672,11 @@
         "needsToggle": true,
         "notes": "Trip and disarm bonuses are not yet automated."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "59944b5646208ec8"
+      }
     }
   },
   {
@@ -1527,6 +1717,11 @@
         "needsToggle": true,
         "notes": "Reach-only targeting is not yet enforced."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "237225f332a67549"
+      }
     }
   },
   {
@@ -1564,6 +1759,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "cec0aec6c4cd89dc"
       }
     }
   },
@@ -1603,6 +1803,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "ece314b0dcd15a7a"
+      }
     }
   },
   {
@@ -1640,6 +1845,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "14de81f1d2eb621f"
       }
     }
   },
@@ -1681,6 +1891,11 @@
         "needsTarget": false,
         "needsToggle": true,
         "notes": "Reach-only attacks and trip handling need dedicated support."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "c26ae5e0afb611b2"
       }
     }
   },
@@ -1724,6 +1939,11 @@
         "needsToggle": true,
         "notes": "Trip and brace options are not yet automated."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "cfb9492d6934eebf"
+      }
     }
   },
   {
@@ -1764,6 +1984,11 @@
         "needsTarget": false,
         "needsToggle": true,
         "notes": "Reach-only attacks and brace vs. charge are not yet automated."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f0410c4eae560574"
       }
     }
   },
@@ -1806,6 +2031,11 @@
         "needsToggle": true,
         "notes": "Reach-only attacks and disarm bonuses are not yet automated."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "8c657669ec42402b"
+      }
     }
   },
   {
@@ -1844,6 +2074,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "bd0096d3b6de7fd1"
       }
     }
   },
@@ -1885,6 +2120,11 @@
         "needsToggle": false,
         "notes": "One-handed use depends on the PHB special Strength 17+ and Weapon Focus rule."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "5cbfeb61fc450167"
+      }
     }
   },
   {
@@ -1922,6 +2162,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "a929d5dcc2dfb686"
       }
     }
   },
@@ -1963,6 +2208,11 @@
         "needsTarget": true,
         "needsToggle": true,
         "notes": "Requires ranged touch handling, entangled condition, rope control, and refolding rules."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "c0db827e9ba0656c"
       }
     }
   },
@@ -2006,6 +2256,11 @@
         "needsToggle": true,
         "notes": "Whip damage restrictions, trip, disarm, and ranged-melee special handling need dedicated automation."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "95ed115d2242e2af"
+      }
     }
   },
   {
@@ -2047,6 +2302,11 @@
         "needsToggle": false,
         "notes": "PHB allows up to three shuriken per attack and ignores Strength to damage."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "6f92ff2ee24d4cac"
+      }
     }
   },
   {
@@ -2087,6 +2347,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Uses arrows as ammunition."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "d79b26b1ba069ce7"
       }
     }
   },
@@ -2130,6 +2395,11 @@
         "needsToggle": false,
         "notes": "Uses arrows. Strength-rated variants are not yet modeled separately."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "24b32baac16f7728"
+      }
     }
   },
   {
@@ -2170,6 +2440,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Uses arrows as ammunition."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "ac1f7ca942e299f3"
       }
     }
   },
@@ -2213,6 +2488,11 @@
         "needsToggle": false,
         "notes": "Uses arrows. Strength-rated variants are not yet modeled separately."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "e22cb53875111a72"
+      }
     }
   },
   {
@@ -2251,6 +2531,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "cdab4e97045c3dad"
+      }
     }
   },
   {
@@ -2288,6 +2573,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "cffb5b45c65c40cf"
       }
     }
   },
@@ -2330,6 +2620,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "570e9ba358c5d5d5"
+      }
     }
   },
   {
@@ -2370,6 +2665,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "aa33419aa6e8cea0"
       }
     }
   }

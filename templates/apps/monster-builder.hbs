@@ -1,4 +1,26 @@
-<div class="monster-builder-shell">
+<div class="monster-builder-shell" data-mode="{{mode}}">
+  <nav class="monster-builder-actions" aria-label="Build method">
+    <button type="button" data-action="builderMode" data-mode="quick" aria-pressed="{{eq mode 'quick'}}">Quick Build</button>
+    {{#unless actor}}<button type="button" data-action="builderMode" data-mode="source" aria-pressed="{{eq mode 'source'}}">Source Creature</button>{{/unless}}
+    <button type="button" data-action="builderMode" data-mode="advanced" aria-pressed="{{eq mode 'advanced'}}">Advanced</button>
+  </nav>
+  {{#if (eq mode 'quick')}}<p>Enter identity, Hit Dice and attacks below. Open Advanced for traits, skills, ecology and export.</p>{{/if}}
+  {{#if (eq mode 'source')}}
+  <section class="mb-source-picker">
+    <label>Find a creature <input type="search" name="sourceQuery" value="{{sourceQuery}}" placeholder="Name or source locator" /></label>
+    <label>Source creature <select name="sourceIndex"><option value="">Choose a creature</option>{{#each sourceOptions}}<option value="{{index}}" {{#if selected}}selected{{/if}}>{{name}} — {{locator}}{{#unless complete}} — incomplete{{/unless}}</option>{{/each}}</select></label>
+    <p>Source totals and original text are preserved. A complete import still requires book verification.</p>
+    {{#if sourceStatus}}
+    <details><summary>Source evidence by field</summary>
+      <p>Imported values require review unless a matching value has been checked against a page. Structural completeness does not establish source accuracy.</p>
+      <table><thead><tr><th>Field</th><th>Evidence</th><th>Locator</th></tr></thead><tbody>
+      {{#each sourceStatus.fieldEvidence}}<tr><td>{{label}}</td><td>{{status}}</td><td>{{#if printedPage}}Printed {{printedPage}} / PDF {{pdfPage}}{{/if}}</td></tr>{{/each}}
+      </tbody></table>
+    </details>
+    {{/if}}
+    {{#if sourceStatus.missing.length}}<p role="alert">This import is incomplete: {{sourceStatus.missing}}. Reconcile these fields with the book before use.</p>{{/if}}
+  </section>
+  {{/if}}
   <div class="monster-builder-toolbar">
     <div>
       <strong>{{localize "EQRPG.MonsterBuilder"}}</strong>
@@ -22,6 +44,7 @@
     </button>
     {{/each}}
   </nav>
+  {{#if actor}}<details><summary>Review pending actor changes</summary><table><thead><tr><th>Field</th><th>New value</th></tr></thead><tbody>{{#each updatePreview}}<tr><td>{{field}}</td><td>{{value}}</td></tr>{{else}}<tr><td colspan="2">No changes</td></tr>{{/each}}</tbody></table><p>Current HP, temporary HP and mana are preserved.</p></details>{{/if}}
 
   <div class="monster-builder-body">
     <aside class="monster-builder-summary">
@@ -62,6 +85,7 @@
         <div class="mb-grid two">
           <label><span>{{localize "EQRPG.Name"}}</span><input type="text" name="name" value="{{monster.name}}" /></label>
           <label><span>{{localize "EQRPG.Source"}}</span><input type="text" name="source" value="{{monster.source}}" /></label>
+          {{#if (eq mode 'quick')}}<label><span>{{localize "EQRPG.CR"}}</span><input type="text" name="advancement.challengeRating" value="{{monster.advancement.challengeRating}}" placeholder="1/2, 3, 12" /></label>{{/if}}
           <label><span>{{localize "EQRPG.Size"}}</span>
             <select name="identity.size">
               {{#each sizeOptions as |size|}}<option value="{{size.key}}" {{#if size.selected}}selected{{/if}}>{{size.label}}</option>{{/each}}
@@ -136,6 +160,8 @@
         <div class="mb-attack-list">
           {{#each derived.attacks as |attack idx|}}
           <div class="mb-attack-row">
+            <input type="number" name="combat.attacks.{{idx}}.count" value="{{attack.count}}" min="1" step="1" aria-label="Attack count" title="Number of attacks" />
+            <input type="number" name="combat.attacks.{{idx}}.count" value="{{attack.count}}" min="1" step="1" aria-label="Attack count" title="Number of attacks" />
             <input type="text" name="combat.attacks.{{idx}}.name" value="{{attack.name}}" placeholder="Bite" />
             <select name="combat.attacks.{{idx}}.category">
               <option value="natural" {{#if (eq attack.category "natural")}}selected{{/if}}>Natural</option>

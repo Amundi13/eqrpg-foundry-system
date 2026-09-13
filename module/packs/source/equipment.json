@@ -16,7 +16,18 @@
       "phbCore": true,
       "itemCategory": "container",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Container capacity is informational only for now." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Container capacity is informational only for now."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "8fc27ecc9810c18e"
+      }
     }
   },
   {
@@ -36,7 +47,18 @@
       "phbCore": true,
       "itemCategory": "gear",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "bdf4eb60a6b0dd4e"
+      }
     }
   },
   {
@@ -56,7 +78,18 @@
       "phbCore": true,
       "itemCategory": "provisions",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Provision tracking remains manual until hunger and thirst automation exists." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Provision tracking remains manual until hunger and thirst automation exists."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "59c193bc5baa393a"
+      }
     }
   },
   {
@@ -76,7 +109,18 @@
       "phbCore": true,
       "itemCategory": "provisions",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Provision tracking remains manual until hunger and thirst automation exists." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Provision tracking remains manual until hunger and thirst automation exists."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "c8d36c9e610c405c"
+      }
     }
   },
   {
@@ -96,7 +140,18 @@
       "phbCore": true,
       "itemCategory": "focus",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Focus item for divine roleplay and future spell requirements." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Focus item for divine roleplay and future spell requirements."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "9e8f5743a3c35411"
+      }
     }
   },
   {
@@ -116,7 +171,18 @@
       "phbCore": true,
       "itemCategory": "focus",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future spell component validation can key off this item." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Future spell component validation can key off this item."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b63f727ebc06bf18"
+      }
     }
   },
   {
@@ -136,7 +202,18 @@
       "phbCore": true,
       "itemCategory": "tool",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "3fc315fd5d7d533b"
+      }
     }
   },
   {
@@ -156,7 +233,18 @@
       "phbCore": true,
       "itemCategory": "tool",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "35ba8a417338364f"
+      }
     }
   },
   {
@@ -176,7 +264,18 @@
       "phbCore": true,
       "itemCategory": "tool",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "2cccc7f8cabe1812"
+      }
     }
   },
   {
@@ -196,7 +295,18 @@
       "phbCore": true,
       "itemCategory": "tool",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "e7e8cd0edbad3268"
+      }
     }
   },
   {
@@ -216,7 +326,18 @@
       "phbCore": true,
       "itemCategory": "light",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can toggle active torches." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Future light-duration tracking can toggle active torches."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "96b4b446b970b3bc"
+      }
     }
   },
   {
@@ -236,7 +357,18 @@
       "phbCore": true,
       "itemCategory": "light",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can spend oil on lamps and lanterns." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Future light-duration tracking can spend oil on lamps and lanterns."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "9962c7d7eb2a9109"
+      }
     }
   },
   {
@@ -256,7 +388,18 @@
       "phbCore": true,
       "itemCategory": "tool",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "3422d89b300d994d"
+      }
     }
   },
   {
@@ -276,7 +419,18 @@
       "phbCore": true,
       "itemCategory": "gear",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "2bc9038aa6cb897c"
+      }
     }
   },
   {
@@ -296,7 +450,18 @@
       "phbCore": true,
       "itemCategory": "gear",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "22db1bad15b25757"
+      }
     }
   },
   {
@@ -316,7 +481,18 @@
       "phbCore": true,
       "itemCategory": "tool",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "7091166c7e515fc6"
+      }
     }
   },
   {
@@ -336,7 +512,18 @@
       "phbCore": true,
       "itemCategory": "tool",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "7143c863941df70d"
+      }
     }
   },
   {
@@ -356,7 +543,18 @@
       "phbCore": true,
       "itemCategory": "gear",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "2bbad83573bb5fc7"
+      }
     }
   },
   {
@@ -376,7 +574,18 @@
       "phbCore": true,
       "itemCategory": "light",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can spend oil on this lantern." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Future light-duration tracking can spend oil on this lantern."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f38ca235590eebf3"
+      }
     }
   },
   {
@@ -396,7 +605,18 @@
       "phbCore": true,
       "itemCategory": "light",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can spend oil on this lantern." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Future light-duration tracking can spend oil on this lantern."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "bbc7d2a1e2d0a30b"
+      }
     }
   },
   {
@@ -416,7 +636,18 @@
       "phbCore": true,
       "itemCategory": "light",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Future light-duration tracking can spend oil on this lamp." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Future light-duration tracking can spend oil on this lamp."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "6b28261fe918596d"
+      }
     }
   },
   {
@@ -436,7 +667,18 @@
       "phbCore": true,
       "itemCategory": "container",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Container capacity is informational only for now." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Container capacity is informational only for now."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "21225e24c356eb0e"
+      }
     }
   },
   {
@@ -456,7 +698,18 @@
       "phbCore": true,
       "itemCategory": "container",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Container capacity is informational only for now." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Container capacity is informational only for now."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "27d4edb0346687d2"
+      }
     }
   },
   {
@@ -476,7 +729,18 @@
       "phbCore": true,
       "itemCategory": "container",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Container capacity is informational only for now." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Container capacity is informational only for now."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "21171fb773259a11"
+      }
     }
   },
   {
@@ -496,7 +760,18 @@
       "phbCore": true,
       "itemCategory": "tactical",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": true, "needsToggle": true, "notes": "Placement, movement triggers, and attack resolution need scene automation." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": true,
+        "needsToggle": true,
+        "notes": "Placement, movement triggers, and attack resolution need scene automation."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "fb6eb148b7efcfc6"
+      }
     }
   },
   {
@@ -516,7 +791,18 @@
       "phbCore": true,
       "itemCategory": "kit",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": true, "notes": "Can later be tracked as ten medical uses." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": true,
+        "notes": "Can later be tracked as ten medical uses."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f09924f36daa7491"
+      }
     }
   },
   {
@@ -536,7 +822,18 @@
       "phbCore": true,
       "itemCategory": "kit",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future skill automation can read this for climb bonuses." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Future skill automation can read this for climb bonuses."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "d1266518882fba1a"
+      }
     }
   },
   {
@@ -556,7 +853,18 @@
       "phbCore": true,
       "itemCategory": "kit",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future Disable Device and Pick Lock flows can require this kit." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Future Disable Device and Pick Lock flows can require this kit."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "82ab4150e1b19486"
+      }
     }
   },
   {
@@ -576,7 +884,18 @@
       "phbCore": true,
       "itemCategory": "kit",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future Disable Device and Pick Lock flows can grant the masterwork bonus." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Future Disable Device and Pick Lock flows can grant the masterwork bonus."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "a0b7eb8947c0b15f"
+      }
     }
   },
   {
@@ -596,7 +915,18 @@
       "phbCore": true,
       "itemCategory": "focus",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future alchemy gating can key off this item." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Future alchemy gating can key off this item."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "8affedbbe5fbb749"
+      }
     }
   },
   {
@@ -616,7 +946,18 @@
       "phbCore": true,
       "itemCategory": "tool",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": true, "needsTarget": false, "needsToggle": false, "notes": "Specific instrument choice is cosmetic until bard music automation expands." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": true,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Specific instrument choice is cosmetic until bard music automation expands."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "103abf5452a17c2a"
+      }
     }
   },
   {
@@ -636,7 +977,18 @@
       "phbCore": true,
       "itemCategory": "focus",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Future arcane-learning flows can key off this item." }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Future arcane-learning flows can key off this item."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "5d3cefcefd4ead78"
+      }
     }
   },
   {
@@ -656,7 +1008,18 @@
       "phbCore": true,
       "itemCategory": "clothing",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "feabf4a80b9985ba"
+      }
     }
   },
   {
@@ -676,7 +1039,18 @@
       "phbCore": true,
       "itemCategory": "clothing",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "19ecf36ca2ac220e"
+      }
     }
   },
   {
@@ -696,7 +1070,18 @@
       "phbCore": true,
       "itemCategory": "clothing",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "cbfd0d086c8b89c2"
+      }
     }
   },
   {
@@ -716,7 +1101,18 @@
       "phbCore": true,
       "itemCategory": "clothing",
       "ammoType": "",
-      "automation": { "safeDirect": false, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "" }
+      "automation": {
+        "safeDirect": false,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "13b97757186fd6bd"
+      }
     }
   },
   {
@@ -736,7 +1132,18 @@
       "phbCore": true,
       "itemCategory": "ammo",
       "ammoType": "arrows",
-      "automation": { "safeDirect": true, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Consumed automatically by projectile bow attacks." }
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Consumed automatically by projectile bow attacks."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "4bb7f7e00758dd92"
+      }
     }
   },
   {
@@ -756,7 +1163,18 @@
       "phbCore": true,
       "itemCategory": "ammo",
       "ammoType": "bolts",
-      "automation": { "safeDirect": true, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Consumed automatically by projectile crossbow attacks." }
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Consumed automatically by projectile crossbow attacks."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b7ca73701067ca36"
+      }
     }
   },
   {
@@ -776,7 +1194,18 @@
       "phbCore": true,
       "itemCategory": "ammo",
       "ammoType": "sling-bullets",
-      "automation": { "safeDirect": true, "needsChoice": false, "needsTarget": false, "needsToggle": false, "notes": "Consumed automatically by sling attacks." }
+      "automation": {
+        "safeDirect": true,
+        "needsChoice": false,
+        "needsTarget": false,
+        "needsToggle": false,
+        "notes": "Consumed automatically by sling attacks."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "ff98daf083ff1616"
+      }
     }
   }
 ]

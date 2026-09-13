@@ -1,3 +1,18 @@
+// V14 exposes expiry/suppression separately from the manual disabled flag.
+export function isSpellPoolDepleted(effect) {
+  return effect.flags?.eqrpg?.endsOnTempHPDepleted === true && effect.flags.eqrpg.tempHPRemaining === 0;
+}
+export function hasConfirmedSpellTempHPGrant(actor, effect) {
+  const flags=effect?.flags?.eqrpg??{};
+  if(flags.tempHPGrantTracked!==true) return true;
+  const receipt=actor?.flags?.eqrpg?.effectHPGrants?.[effect.id];
+  return receipt?.state==='complete' && receipt.amount===flags.tempHPGrant;
+}
+export function isEffectActive(effect) {
+  return !effect.disabled && !effect.isSuppressed && !effect.duration?.expired && effect.active !== false
+    && !isSpellPoolDepleted(effect) && hasConfirmedSpellTempHPGrant(effect.parent,effect);
+}
+
 const signed = (value) => `${value >= 0 ? "+" : ""}${value}`;
 
 export function prepareSpellEffects(actor) {
@@ -7,6 +22,10 @@ export function prepareSpellEffects(actor) {
       const flags = effect.flags?.eqrpg ?? {};
       const bonuses = flags.bonuses ?? {};
       const details = [];
+      if (flags.tempHPGrant) details.push(`Temporary HP ${flags.tempHPRemaining ?? flags.tempHPGrant}/${flags.tempHPGrant}`);
+      if (flags.tempHPRoll) details.push(`Rolled ${flags.tempHPRoll.formula}: ${flags.tempHPRoll.total}`);
+      if (isSpellPoolDepleted(effect)) details.push('Ended: temporary HP depleted');
+      if (flags.durationNeedsReview) details.push("GM duration review: " + (flags.durationText || "unspecified"));
       const bonusLabels = {
         str: "STR",
         dex: "DEX",
@@ -38,7 +57,7 @@ export function prepareSpellEffects(actor) {
         name: effect.name,
         img: effect.img ?? effect.icon ?? "icons/svg/aura.svg",
         description: effect.description ?? "",
-        active: !effect.disabled,
+        active: isEffectActive(effect),
         disabled: !!effect.disabled,
         details: details.join("; "),
         duration: effect.duration?.label ?? "",

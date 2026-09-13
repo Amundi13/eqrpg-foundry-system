@@ -53,7 +53,7 @@ EQRPG.races = {
     speed: 20,
     abilities: ["infravision"],
     allowedClasses: [
-      "bard", "cleric", "paladin", "rogue", "warrior",
+      "cleric", "paladin", "rogue", "warrior",
     ],
   },
   erudite: {
@@ -95,7 +95,7 @@ EQRPG.races = {
     speed: 20,
     abilities: ["infravision", "sneak", "halflingFortitude"],
     allowedClasses: [
-      "bard", "cleric", "druid", "paladin", "ranger", "rogue", "warrior",
+      "cleric", "druid", "paladin", "ranger", "rogue", "warrior",
     ],
   },
   highelf: {
@@ -105,7 +105,7 @@ EQRPG.races = {
     speed: 30,
     abilities: ["infravision"],
     allowedClasses: [
-      "bard", "cleric", "enchanter", "magician", "paladin", "rogue", "wizard",
+      "cleric", "enchanter", "magician", "paladin", "wizard",
     ],
   },
   human: {
@@ -117,7 +117,7 @@ EQRPG.races = {
     allowedClasses: [
       "bard", "cleric", "druid", "enchanter", "magician", "monk",
       "necromancer", "paladin", "ranger", "rogue", "shadowknight",
-      "shaman", "warrior", "wizard",
+      "warrior", "wizard",
     ],
   },
   iksar: {
@@ -158,7 +158,7 @@ EQRPG.races = {
     speed: 30,
     abilities: ["infravision", "safefall", "sneak"],
     allowedClasses: [
-      "bard", "beastlord", "monk", "rogue", "shaman", "warrior",
+      "bard", "beastlord", "rogue", "shaman", "warrior",
     ],
   },
   woodelf: {
@@ -190,7 +190,7 @@ EQRPG.classes = {
     label: "EQRPG.ClassBeastlord",
     hitDie: 8,
     babProgression: "full",
-    saves: { fortitude: "good", reflex: "good", will: "poor" },
+    saves: { fortitude: "medium", reflex: "good", will: "medium" },
     spellcastingAbility: "wis",
     armorProficiency: ["light"],
     skillPoints: 4,
@@ -234,8 +234,8 @@ EQRPG.classes = {
   monk: {
     label: "EQRPG.ClassMonk",
     hitDie: 8,
-    babProgression: "medium",
-    saves: { fortitude: "good", reflex: "good", will: "good" },
+    babProgression: "full",
+    saves: { fortitude: "medium", reflex: "good", will: "medium" },
     spellcastingAbility: null,
     armorProficiency: [],
     skillPoints: 4,
@@ -244,7 +244,7 @@ EQRPG.classes = {
     label: "EQRPG.ClassNecromancer",
     hitDie: 4,
     babProgression: "poor",
-    saves: { fortitude: "poor", reflex: "poor", will: "good" },
+    saves: { fortitude: "medium", reflex: "poor", will: "good" },
     spellcastingAbility: "int",
     armorProficiency: [],
     skillPoints: 4,
@@ -262,7 +262,7 @@ EQRPG.classes = {
     label: "EQRPG.ClassRanger",
     hitDie: 10,
     babProgression: "full",
-    saves: { fortitude: "good", reflex: "good", will: "poor" },
+    saves: { fortitude: "medium", reflex: "good", will: "poor" },
     spellcastingAbility: "wis",
     armorProficiency: ["light", "medium", "shields"],
     skillPoints: 5,
@@ -270,7 +270,7 @@ EQRPG.classes = {
   rogue: {
     label: "EQRPG.ClassRogue",
     hitDie: 6,
-    babProgression: "medium",
+    babProgression: "rogue",
     saves: { fortitude: "poor", reflex: "good", will: "poor" },
     spellcastingAbility: null,
     armorProficiency: ["light"],
@@ -319,6 +319,7 @@ EQRPG.classes = {
 // ---------------------------------------------------------------------------
 EQRPG.babProgression = {
   full: (level) => level,
+  rogue: (level) => Math.floor(level * 4 / 5),
   medium: (level) => Math.floor(level * 3 / 4),
   poor: (level) => Math.floor(level / 2),
 };

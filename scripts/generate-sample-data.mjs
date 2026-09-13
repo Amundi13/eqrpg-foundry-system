@@ -77,6 +77,11 @@ for (const [exportName, filename, data] of datasets) {
   lines.push("");
 }
 
-fs.writeFileSync(outputPath, `${lines.join("\n").trimEnd()}\n`);
-
-console.log(`Generated ${path.relative(rootDir, outputPath)} from ${SOURCE_FILES.length} source files.`);
+const generated = `${lines.join("\n").trimEnd()}\n`;
+if (process.argv.includes("--check")) {
+  if (fs.readFileSync(outputPath,"utf8").replace(/\r\n/g,"\n") !== generated) throw new Error("sample-data.mjs is stale. Run node scripts/generate-sample-data.mjs.");
+  console.log("Generated sample-data parity check passed.");
+} else {
+  fs.writeFileSync(outputPath, generated);
+  console.log(`Generated ${path.relative(rootDir, outputPath)} from ${SOURCE_FILES.length} source files.`);
+}

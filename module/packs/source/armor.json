@@ -28,6 +28,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b7c2b77133846c0f"
+      }
     }
   },
   {
@@ -58,6 +63,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "23af988a65ec6a14"
       }
     }
   },
@@ -90,6 +100,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "55b425ee6fbdb968"
+      }
     }
   },
   {
@@ -120,6 +135,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "a39e59caaa02827c"
       }
     }
   },
@@ -152,6 +172,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "42144d2b14f79615"
+      }
     }
   },
   {
@@ -182,6 +207,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "572cc7dbe6d5e535"
       }
     }
   },
@@ -214,6 +244,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f66751152ca83603"
+      }
     }
   },
   {
@@ -244,6 +279,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "1c47cf9651ba6210"
       }
     }
   },
@@ -276,6 +316,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "18a413d1ba0c695f"
+      }
     }
   },
   {
@@ -306,6 +351,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "92c53f7bff1f9615"
       }
     }
   },
@@ -338,6 +388,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "0f0f260362b33885"
+      }
     }
   },
   {
@@ -368,6 +423,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "981b15a6eb777fb0"
       }
     }
   },
@@ -400,6 +460,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "20ec1bd9f8428143"
+      }
     }
   },
   {
@@ -430,6 +495,11 @@
         "needsTarget": false,
         "needsToggle": true,
         "notes": "Buckler attack penalty is situational and applies only when using the off-hand for a weapon."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "fcbaf5fafc372a9c"
       }
     }
   },
@@ -462,6 +532,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b4ebf9ad9642aec7"
+      }
     }
   },
   {
@@ -492,6 +567,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "306ed41c0fe6104e"
       }
     }
   },
@@ -524,6 +604,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "bfdc94b5b14dd973"
+      }
     }
   },
   {
@@ -554,6 +639,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "ebb60b341ff51122"
       }
     }
   },
@@ -586,6 +676,11 @@
         "needsToggle": true,
         "notes": "PHB tower shield rules are cover-based. Current implementation approximates them as +4 AC and -2 attack while carried."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f3678b90c8448856"
+      }
     }
   },
   {
@@ -617,6 +712,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "ed7656614b1e626b"
+      }
     }
   },
   {
@@ -647,6 +747,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "6247d807567f61d5"
       }
     }
   }

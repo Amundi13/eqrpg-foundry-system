@@ -5,6 +5,10 @@
 
       <div class="npc-statblock-grid">
         <div class="npc-statblock-row">
+          <label>Touch AC (GM verified)</label>
+          <input type="number" name="system.combat.ac.touch" value="{{system.combat.ac.touch}}" placeholder="Unreviewed" {{#unless isEditable}}disabled{{/unless}} />
+        </div>
+        <div class="npc-statblock-row">
           <label>{{localize "EQRPG.HitDice"}}</label>
           <input type="text" name="system.statblock.hitDice" value="{{system.statblock.hitDice}}"
                  placeholder="20d8+80 (170 hp)" {{#unless isEditable}}disabled{{/unless}} />

@@ -1,4 +1,4 @@
-export const MONSTER_BUILDER_SCHEMA = "eqrpg-monster-builder-v1";
+export const MONSTER_BUILDER_SCHEMA = "eqrpg-monster-builder-v2";
 
 export const SIZE_RULES = {
   fine: { label: "Fine", ac: 8, attack: 8, tokenSquares: 0.25, face: "1/2 ft. by 1/2 ft.", reach: 0 },
@@ -92,7 +92,7 @@ export function createDefaultMonster() {
         will: { misc: 0, manualOverride: false, total: 0 },
       },
       attacks: [
-        { name: "Slam", category: "natural", mode: "melee", primary: true, attackBonus: 0, damageFormula: "1d4", damageType: "bludgeoning", notes: "" },
+        { name: "Slam", count: 1, category: "natural", mode: "melee", primary: true, attackBonus: 0, damageFormula: "1d4", damageType: "bludgeoning", notes: "" },
       ],
     },
     traits: { vision: [], immunities: [], resistances: [], vulnerabilities: [], specialAbilities: "", specialQualities: "" },
@@ -111,7 +111,7 @@ export function createDefaultMonster() {
 
 export function abilityMod(score) {
   if (score === null || score === "" || score == null) return 0;
-  return Math.floor(((Number(score) || 10) - 10) / 2);
+  return Math.floor(((Number(score)) - 10) / 2);
 }
 
 export function calcBab(hd, progression) {
@@ -139,9 +139,10 @@ export function deriveMonster(monster) {
   const wisMod = abilityMod(monster.abilities.wis);
   const strMod = abilityMod(monster.abilities.str);
   const intMod = abilityMod(monster.abilities.int);
-  const averageHp = Math.max(1, Math.floor(hd * ((die + 1) / 2) + hd * conMod + (Number(monster.hitDice.bonus) || 0)));
+  const typeHpBonus = monster.identity.type === "ooze" ? ({small:5, medium:10, large:15, huge:20, gargantuan:30, colossal:40}[monster.identity.size] ?? 0) : 0;
+  const averageHp = Math.max(1, Math.floor(hd * ((die + 1) / 2) + hd * conMod + typeHpBonus + (Number(monster.hitDice.bonus) || 0)));
   const hp = monster.hitDice.overrideAverage ? Math.max(1, Number(monster.hitDice.manualHp) || averageHp) : averageHp;
-  const bab = calcBab(hd, typeRule.bab);
+  const bab = monster.combat.babManualOverride ? Number(monster.combat.baseAttackBonus) : calcBab(hd, typeRule.bab);
   const goodSaves = new Set(typeRule.goodSaves ?? []);
   const saveBase = {
     fortitude: goodSaves.has("fortitude") ? goodSave(hd) : poorSave(hd),
@@ -153,6 +154,9 @@ export function deriveMonster(monster) {
     reflex: saveBase.reflex + dexMod + (Number(monster.combat.saves.reflex.misc) || 0),
     will: saveBase.will + wisMod + (Number(monster.combat.saves.will.misc) || 0),
   };
+  for (const [key, save] of Object.entries(monster.combat.saves)) {
+    if (save.manualOverride) saves[key] = Number(save.total);
+  }
   const ac = 10 + sizeRule.ac + dexMod
     + (Number(monster.combat.armorClass.natural) || 0)
     + (Number(monster.combat.armorClass.armor) || 0)
@@ -160,11 +164,13 @@ export function deriveMonster(monster) {
     + (Number(monster.combat.armorClass.deflection) || 0)
     + (Number(monster.combat.armorClass.misc) || 0);
   const initiative = dexMod + (Number(monster.combat.initiativeMisc) || 0);
-  const skillBudget = estimateSkillBudget(typeRule, hd, monster.abilities.int, intMod);
+  const skillBudget = estimateSkillBudget(typeRule, hd, monster.abilities.int, intMod, monster.identity.size);
   const featSlots = estimateFeatSlots(typeRule, hd);
   const attacks = (monster.combat.attacks ?? []).map((attack) => {
     const secondaryPenalty = hasFeat(monster.feats, "Multiattack") ? -2 : -5;
-    const suggested = bab + strMod + sizeRule.attack + (Number(monster.combat.attackMisc) || 0) + (attack.primary ? 0 : secondaryPenalty);
+    const effectiveBab = monster.combat.babManualOverride ? Number(monster.combat.baseAttackBonus) : bab;
+    const attackMod = /ranged/i.test(attack.mode) || (attack.category === "natural" && hasFeat(monster.feats, "Weapon Finesse")) ? dexMod : strMod;
+    const suggested = effectiveBab + attackMod + sizeRule.attack + (Number(monster.combat.attackMisc) || 0) + (attack.primary ? 0 : secondaryPenalty);
     return { ...attack, suggestedAttackBonus: suggested };
   });
 
@@ -174,6 +180,7 @@ export function deriveMonster(monster) {
     hd,
     die,
     conMod,
+    typeHpBonus,
     dexMod,
     strMod,
     wisMod,
@@ -196,14 +203,15 @@ function hasFeat(featsText, featName) {
   return String(featsText ?? "").toLowerCase().includes(featName.toLowerCase());
 }
 
-function estimateSkillBudget(typeRule, hd, intScore, intMod) {
+function estimateSkillBudget(typeRule, hd, intScore, intMod, size) {
+  const extraHD = Math.max(0, hd - ({large:2, huge:4, gargantuan:16, colossal:32}[size] ?? 1));
   if (typeRule.skillFormula === "none") return 0;
   if (intScore === null) return 0;
   if (typeRule.skillFormula?.includes("(8 + INT mod)")) return Math.max(1, 8 + intMod) * hd;
   if (typeRule.skillFormula?.includes("(6 + INT mod)")) return Math.max(1, 6 + intMod) * hd;
-  if (typeRule.skillFormula?.startsWith("3 * INT")) return Math.max(0, (3 * (Number(intScore) || 0)) + (2 * Math.max(0, hd - 1)));
-  if (typeRule.skillFormula?.startsWith("2 * INT")) return Math.max(0, (2 * (Number(intScore) || 0)) + (Math.max(0, hd - 1)));
-  if (typeRule.skillFormula?.startsWith("6 + INT")) return Math.max(1, 6 + intMod) + Math.max(0, hd - 1);
+  if (typeRule.skillFormula?.startsWith("3 * INT")) return Math.max(0, (3 * (Number(intScore) || 0)) + (2 * extraHD));
+  if (typeRule.skillFormula?.startsWith("2 * INT")) return Math.max(0, (2 * (Number(intScore) || 0)) + (extraHD * (typeRule.skillFormula.includes("+ 2 per") ? 2 : 1)));
+  if (typeRule.skillFormula?.startsWith("6 + INT")) return Math.max(1, 6 + intMod) + extraHD;
   if (typeRule.skillFormula?.includes("10-15")) return "10-15 fixed";
   if (typeRule.skillFormula?.includes("10-12")) return "10-12 fixed";
   return "";
@@ -235,6 +243,7 @@ function validateMonster(monster, derived) {
   }
   if (!String(monster.advancement.challengeRating ?? "").trim()) warnings.push({ severity: "warning", text: "Challenge Rating is blank. Set it manually from comparable monsters." });
   for (const attack of derived.attacks) {
+    if (!Number.isInteger(Number(attack.count ?? 1)) || Number(attack.count ?? 1) < 1) warnings.push({severity:"error",text:`${attack.name || "Attack"} count must be a positive integer.`});
     if (!/^(\d+d\d+|\d+)([+-](\d+d\d+|\d+))*$/i.test(String(attack.damageFormula ?? "").trim())) {
       warnings.push({ severity: "error", text: `${attack.name || "Attack"} has an invalid damage formula.` });
     }
@@ -299,10 +308,16 @@ export function applyTypeDefaults(monster) {
 }
 
 export function normalizeMonster(input) {
+  if (input?.schemaVersion && !["eqrpg-monster-builder-v1",MONSTER_BUILDER_SCHEMA].includes(input.schemaVersion)) throw new Error("Unsupported monster draft version. Export from a supported system version before importing.");
   const base = createDefaultMonster();
   const source = input?.schemaVersion ? input : { ...input, schemaVersion: MONSTER_BUILDER_SCHEMA };
   const merged = foundry.utils.mergeObject(base, source ?? {}, { inplace: false, insertKeys: true, insertValues: true });
+  merged.schemaVersion = MONSTER_BUILDER_SCHEMA;
   if (!Array.isArray(merged.combat.attacks)) merged.combat.attacks = [];
+  merged.combat.attacks = merged.combat.attacks.map(attack => {
+    const legacy = attack.count === undefined ? String(attack.name ?? "").match(/^(\d+)\s+(.+)$/) : null;
+    return {...attack, count:attack.count ?? (legacy ? Number(legacy[1]) : 1), name:legacy ? legacy[2] : attack.name};
+  });
   if (!Array.isArray(merged.traits.vision)) merged.traits.vision = splitList(merged.traits.vision);
   if (!Array.isArray(merged.traits.immunities)) merged.traits.immunities = splitList(merged.traits.immunities);
   if (!Array.isArray(merged.traits.resistances)) merged.traits.resistances = splitList(merged.traits.resistances);
@@ -316,14 +331,15 @@ export function buildNPCActorData(monster) {
   const sizeLabel = derived.sizeRule.label;
   const typeLabel = derived.typeRule.label;
   const subtype = normalized.identity.subtypes ? ` (${normalized.identity.subtypes})` : "";
-  const hitDiceText = `${derived.hd}d${derived.die}${signed(Number(normalized.hitDice.bonus) || 0).replace("+0", "")} (${derived.hp} hp)`;
+  const hitDiceText = `${derived.hd}d${derived.die}${signed(derived.hd * derived.conMod + derived.typeHpBonus + (Number(normalized.hitDice.bonus) || 0)).replace("+0", "")} (${derived.hp} hp)`;
   const attackText = derived.attacks
-    .map((attack) => `${attack.name} ${signed(Number(attack.attackBonus) || 0)} ${attack.mode || "melee"}`)
+    .map((attack) => `${attack.count > 1 ? `${attack.count} ` : ""}${attack.name} ${signed(Number(attack.attackBonus) || 0)} ${attack.mode || "melee"}`)
     .join(", ");
   const damageText = derived.attacks
     .map((attack) => `${attack.name} ${attack.damageFormula}${attack.notes ? ` ${attack.notes}` : ""}`)
     .join(", ");
-  const savesText = `Fort ${signed(derived.saves.fortitude)}, Ref ${signed(derived.saves.reflex)}, Will ${signed(derived.saves.will)}`;
+  const finalSaves = Object.fromEntries(Object.entries(normalized.combat.saves).map(([key, save]) => [key, save.manualOverride ? Number(save.total) : derived.saves[key]]));
+  const savesText = `Fort ${signed(finalSaves.fortitude)}, Ref ${signed(finalSaves.reflex)}, Will ${signed(finalSaves.will)}`;
   const abilitiesText = Object.entries(normalized.abilities)
     .map(([key, value]) => `${key.toUpperCase()} ${value === null ? "-" : value}`)
     .join(", ");
@@ -338,7 +354,7 @@ export function buildNPCActorData(monster) {
     normalized.description ? `<h2>Description</h2><p>${escapeHtml(normalized.description).replace(/\n/g, "</p><p>")}</p>` : "",
     normalized.advancement.notes ? `<h2>GM Notes</h2><p>${escapeHtml(normalized.advancement.notes).replace(/\n/g, "</p><p>")}</p>` : "",
   ].join("");
-  const crNumber = Math.max(0, Math.floor(parseChallengeRating(normalized.advancement.challengeRating)));
+  const crNumber = Math.max(0, parseChallengeRating(normalized.advancement.challengeRating));
   const tokenSquares = derived.sizeRule.tokenSquares;
 
   return {
@@ -361,19 +377,19 @@ export function buildNPCActorData(monster) {
         subtypes: normalized.identity.subtypes ?? "",
         faction: normalized.identity.faction ?? "",
         alignment: normalized.identity.alignment ?? "",
-        speed: Number(normalized.combat.speed.walk) || 30,
+        speed: Number(normalized.combat.speed.walk ?? 30),
       },
       resources: {
         hp: { value: derived.hp, max: derived.hp, temp: 0, bonus: Number(normalized.hitDice.bonus) || 0 },
         mana: { value: 0, max: 0 },
       },
       combat: {
-        ac: { value: normalized.combat.armorClass.manualOverride ? Number(normalized.combat.armorClass.total) || derived.ac : derived.ac },
+        ac: { value: normalized.combat.armorClass.manualOverride ? Number(normalized.combat.armorClass.total) : derived.ac },
         bab: normalized.combat.babManualOverride ? Number(normalized.combat.baseAttackBonus) || 0 : derived.bab,
         saves: {
-          fortitude: { value: normalized.combat.saves.fortitude.manualOverride ? Number(normalized.combat.saves.fortitude.total) || derived.saves.fortitude : derived.saves.fortitude },
-          reflex: { value: normalized.combat.saves.reflex.manualOverride ? Number(normalized.combat.saves.reflex.total) || derived.saves.reflex : derived.saves.reflex },
-          will: { value: normalized.combat.saves.will.manualOverride ? Number(normalized.combat.saves.will.total) || derived.saves.will : derived.saves.will },
+          fortitude: { value: normalized.combat.saves.fortitude.manualOverride ? Number(normalized.combat.saves.fortitude.total) : derived.saves.fortitude },
+          reflex: { value: normalized.combat.saves.reflex.manualOverride ? Number(normalized.combat.saves.reflex.total) : derived.saves.reflex },
+          will: { value: normalized.combat.saves.will.manualOverride ? Number(normalized.combat.saves.will.total) : derived.saves.will },
         },
         initiative: { value: derived.initiative },
         attackMisc: Number(normalized.combat.attackMisc) || 0,
@@ -435,7 +451,7 @@ function buildRawText(monster, derivedText) {
 }
 
 function npcAbilityValue(value) {
-  return value === null ? 10 : Math.max(1, Math.floor(Number(value) || 10));
+  return value === null ? null : Math.max(0, Math.floor(Number(value ?? 10)));
 }
 
 function escapeHtml(text) {
@@ -446,4 +462,25 @@ function escapeHtml(text) {
     '"': "&quot;",
     "'": "&#39;",
   }[char]));
+}
+
+// Compare generated drafts, then patch only edited fields. Creation defaults must
+// never restore spent resources or overwrite unrelated existing actor data.
+export function buildNPCActorUpdate(monster, initialMonster) {
+  const before = buildNPCActorData(initialMonster);
+  const after = buildNPCActorData(monster);
+  const patch = {};
+  const protectedPaths = new Set(["type", "system.resources.hp.value", "system.resources.hp.temp", "system.resources.mana.value", "system.resources.mana.max"]);
+  function visit(value, old, path) {
+    if (protectedPaths.has(path)) return;
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+      for (const [key, child] of Object.entries(value)) visit(child, old?.[key], path ? `${path}.${key}` : key);
+    } else if (JSON.stringify(value) !== JSON.stringify(old)) patch[path] = value;
+  }
+  visit(after, before, "");
+  if (Object.keys(patch).length) {
+    for (const path of Object.keys(patch)) if (path.startsWith("flags.eqrpg.monsterBuilder.")) delete patch[path];
+    patch["flags.eqrpg.monsterBuilder"] = normalizeMonster(monster);
+  }
+  return patch;
 }

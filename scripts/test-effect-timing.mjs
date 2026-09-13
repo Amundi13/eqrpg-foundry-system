@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {spellEffectTiming} from '../module/helpers/effect-timing.mjs';
+assert.deepEqual(spellEffectTiming('10 minutes/level (D)',5,{time:100}).duration,{value:50,units:'minutes',expiry:null,expired:false});
+assert.equal(spellEffectTiming('1 round/2 levels',5).duration.value,2);
+assert.equal(spellEffectTiming('Permanent').duration.value,null);
+for(const text of ['1d6 rounds','Permanent (see text)','Concentration','Until discharged','Instantaneous','1 minute or until broken']) assert.equal(spellEffectTiming(text,5).manual,true,text);
+assert.equal(spellEffectTiming('1 round/level',0).manual,true);
+assert.deepEqual(spellEffectTiming('2 rounds',1,{generation:13,time:20}).duration,{seconds:12,startTime:20});
+assert.deepEqual(spellEffectTiming('2 rounds',1,{generation:13,combat:'c',round:3,turn:0}).duration,{rounds:2,startRound:3,startTurn:0,combat:'c'});
+assert.equal(spellEffectTiming('2 hours',1,{time:100}).start.time,100);
+console.log('Effect timing checks passed: V14/V13 durations, caster scaling and unresolved expressions.');

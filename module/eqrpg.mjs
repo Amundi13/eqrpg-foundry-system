@@ -1,3 +1,11 @@
+import {applyChatHP,reviewChatHP} from './helpers/chat-hp.mjs';
+import {tickCombatRound} from './helpers/combat-ticks.mjs';
+import {applyChatStatus,reviewChatStatus} from './helpers/chat-status.mjs';
+import {PACK_SOURCES} from "./packs/sources.mjs";
+import {applyChatSpellEffect} from "./helpers/chat-effects.mjs";
+import {reconcileExpiredSpellEffects} from "./helpers/effect-expiry.mjs";
+import { handleCommerceRequest, acknowledgeInterruptedCommerceRequest } from "./helpers/commerce-requests.mjs";
+import { previewActorMigrations, applyActorMigrations } from "./helpers/actor-migrations.mjs";
 // Document subclasses
 import { EQActor } from "./documents/actor.mjs";
 import { EQItem } from "./documents/item.mjs";
@@ -25,11 +33,13 @@ import { EQItemSheet } from "./sheets/item-sheet.mjs";
 
 // Applications
 import { CharacterWizard } from "./apps/character-wizard.mjs";
-import { EQStore, renderStore } from "./apps/store.mjs";
+import { EQStore, renderStore, refreshStores } from "./apps/store.mjs";
 import { MonsterBuilder, renderMonsterBuilder } from "./apps/monster-builder.mjs";
 
 // Config
 import { EQRPG } from "./helpers/config.mjs";
+import { isPrimaryGM } from "./helpers/gm-authority.mjs";
+import { planPackUpgrade, applyPackUpgrade, resolvePackConflict } from "./packs/pack-upgrades.mjs";
 
 // Compendium sample data
 import {
@@ -43,7 +53,20 @@ import { PHB_JOURNALS } from "./packs/phb-data.mjs";
 /*  Initialization                                                            */
 /* ========================================================================== */
 
+// Only newly created blank characters receive a wizard eligibility marker.
+// Importing an established character never enables the reset workflow.
+Hooks.on("preCreateActor", (actor, data) => {
+  if (actor.type !== "character") return;
+  const blank = !data.system?.details?.class && !data.system?.details?.race
+    && !(data.system?.resources?.xp > 0) && !(data.system?.details?.level > 1)
+    && !(data.items?.length) && !data.flags?.eqrpg?.creationCompleted;
+  actor.updateSource({"flags.eqrpg.creationEligible":blank});
+});
+
 Hooks.once("init", () => {
+  // Retain expired documents so their remaining HP pools can be reconciled.
+  // V14's update action persists duration.expired rather than deleting effects.
+  if (Number(game.release?.generation) >= 14 && CONFIG.ActiveEffect) CONFIG.ActiveEffect.expiryAction = "update";
   console.log("eqrpg | Initializing EverQuest Role-Playing Game System");
 
   // Register Handlebars helpers
@@ -85,7 +108,12 @@ Hooks.once("init", () => {
 
   // Expose config globally
   game.eqrpg = game.eqrpg ?? {};
+  game.eqrpg.reviewChatHP = reviewChatHP;
+  game.eqrpg.reviewChatStatus = reviewChatStatus;
   game.eqrpg.config = EQRPG;
+  game.eqrpg.acknowledgeInterruptedCommerceRequest = acknowledgeInterruptedCommerceRequest;
+  game.eqrpg.previewActorMigrations = previewActorMigrations;
+  game.eqrpg.applyActorMigrations = applyActorMigrations;
   game.eqrpg.CharacterWizard = CharacterWizard;
   game.eqrpg.EQStore = EQStore;
   game.eqrpg.openStore = (actor = game.user?.character ?? globalThis.canvas?.tokens?.controlled?.[0]?.actor ?? null, options = {}) =>
@@ -209,7 +237,7 @@ async function _toggleStatusEffect(doc, statusId, options = {}) {
 }
 
 Hooks.once("ready", async () => {
-  if (!game.user?.isGM) return;
+  if (!isPrimaryGM()) return;
   for (const scene of game.scenes ?? []) {
     const updates = [];
     for (const token of scene.tokens ?? []) {
@@ -245,23 +273,34 @@ function _onRenderChatMessage(message, html) {
     }
   };
 
-  // Apply damage buttons (Full / ½ / ×2)
-  root.querySelectorAll("[data-apply-damage]").forEach(btn => {
-    btn.addEventListener("click", async () => {
-      if (btn.dataset.applyDamageUuid) return;
-      const amount  = parseInt(btn.dataset.applyDamage) || 0;
-      const targets = [...(game.user?.targets ?? [])];
-      if (targets.length === 0) {
-        ui.notifications.warn(game.i18n.localize("EQRPG.NoTargets"));
-        return;
-      }
-      let applied = 0;
-      for (const token of targets) {
-        if (token.actor) { await token.actor.applyDamage(amount); applied++; }
-      }
-      ui.notifications.info(
-        game.i18n.format("EQRPG.DamageApplied", { amount, count: applied })
-      );
+  // One receipt per actor/panel: full, half and double are alternatives.
+  const hpPanels=[...root.querySelectorAll('.eq-apply-panel')];
+  root.querySelectorAll('[data-apply-damage], [data-apply-heal]').forEach(btn=>{
+    btn.addEventListener('click',async()=>{
+      btn.disabled=true;
+      try {
+        const kind=btn.dataset.applyDamage!==undefined?'damage':'heal';
+        const amount=Number(kind==='damage'?btn.dataset.applyDamage:btn.dataset.applyHeal);
+        const uuid=kind==='damage'?btn.dataset.applyDamageUuid:btn.dataset.applyHealUuid;
+        const panel=Math.max(0,hpPanels.indexOf(btn.closest('.eq-apply-panel')));
+        const actors=new Map();
+        if(uuid) {
+          const doc=await resolveTargetDoc(uuid);const actor=doc?.actor??doc;
+          if(actor?.system?.resources?.hp) actors.set(actor.uuid,actor);
+        } else for(const token of game.user?.targets??[]) {
+          if(token.actor) actors.set(token.actor.uuid,token.actor);
+        }
+        if(!actors.size) {ui.notifications.warn(game.i18n.localize('EQRPG.NoTargets'));return;}
+        let applied=0,replayed=0;
+        for(const actor of actors.values()) {
+          try {
+            const result=await applyChatHP(actor,message.id,panel,kind,amount);
+            if(result.replayed)replayed++;else applied++;
+          } catch(error) {ui.notifications.error(`${actor.name}: ${error.message}`);}
+        }
+        ui.notifications.info(`${kind==='damage'?'Damage':'Healing'} applied to ${applied} actor(s); ${replayed} already handled.`);
+      } catch(error) {ui.notifications.error(error.message);}
+      finally {btn.disabled=false;}
     });
   });
 
@@ -336,78 +375,29 @@ function _onRenderChatMessage(message, html) {
     });
   });
 
-  // Apply healing button
-  root.querySelectorAll("[data-apply-heal]").forEach(btn => {
-    btn.addEventListener("click", async () => {
-      if (btn.dataset.applyHealUuid) return;
-      const amount  = parseInt(btn.dataset.applyHeal) || 0;
-      const targets = [...(game.user?.targets ?? [])];
-      if (targets.length === 0) {
-        ui.notifications.warn(game.i18n.localize("EQRPG.NoTargets"));
-        return;
-      }
-      let applied = 0;
-      for (const token of targets) {
-        if (token.actor) { await token.actor.applyHealing(amount); applied++; }
-      }
-      ui.notifications.info(
-        game.i18n.format("EQRPG.HealApplied", { amount, count: applied })
-      );
-    });
-  });
-
-  root.querySelectorAll("[data-apply-damage-uuid]").forEach(btn => {
-    btn.addEventListener("click", async () => {
-      const amount = parseInt(btn.dataset.applyDamage) || 0;
-      const uuid = btn.dataset.applyDamageUuid;
-      const doc = await resolveTargetDoc(uuid);
-      const actor = doc?.actor ?? doc;
-      if (!actor?.applyDamage) {
-        ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound"));
-        return;
-      }
-      await actor.applyDamage(amount);
-      ui.notifications.info(
-        game.i18n.format("EQRPG.DamageAppliedSingle", { amount, name: actor.name })
-      );
-    });
-  });
-
-  root.querySelectorAll("[data-apply-heal-uuid]").forEach(btn => {
-    btn.addEventListener("click", async () => {
-      const amount = parseInt(btn.dataset.applyHeal) || 0;
-      const uuid = btn.dataset.applyHealUuid;
-      const doc = await resolveTargetDoc(uuid);
-      const actor = doc?.actor ?? doc;
-      if (!actor?.applyHealing) {
-        ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound"));
-        return;
-      }
-      await actor.applyHealing(amount);
-      ui.notifications.info(
-        game.i18n.format("EQRPG.HealAppliedSingle", { amount, name: actor.name })
-      );
-    });
-  });
-
   root.querySelectorAll("[data-toggle-status-uuid]").forEach(btn => {
     btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      try {
       const uuid = btn.dataset.toggleStatusUuid;
       const statusId = btn.dataset.statusId;
       const doc = await resolveTargetDoc(uuid);
-      const toggled = await _toggleStatusEffect(doc, statusId);
-      if (!toggled) {
+      const actor = doc?.actor ?? doc;
+      if (!actor) {
         ui.notifications.warn(game.i18n.localize("EQRPG.ActorNotFound"));
         return;
       }
-      ui.notifications.info(
-        game.i18n.format("EQRPG.StatusToggled", { status: statusId, name: doc.name ?? "target" })
-      );
+      const result = await applyChatStatus(actor,message.id,statusId);
+      ui.notifications.info(result.replayed ? "This condition action was already handled." : `${statusId} is present on ${actor.name}.`);
+      } catch(error) {ui.notifications.error(error.message);}
+      finally {btn.disabled = false;}
     });
   });
 
-  root.querySelectorAll("[data-apply-effect-uuid]").forEach(btn => {
+  root.querySelectorAll("[data-apply-effect-uuid]").forEach((btn,index) => {
     btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      try {
       const uuid = btn.dataset.applyEffectUuid;
       const rawConfig = btn.dataset.effectConfig ?? "";
       const doc = await resolveTargetDoc(uuid);
@@ -417,10 +407,10 @@ function _onRenderChatMessage(message, html) {
         return;
       }
       const config = JSON.parse(decodeURIComponent(rawConfig));
-      await actor.toggleSpellEffect(config);
-      ui.notifications.info(
-        game.i18n.format("EQRPG.EffectToggled", { effect: config.label ?? "effect", name: actor.name })
-      );
+      const result = await applyChatSpellEffect(actor,message.id,index,config);
+      ui.notifications.info(result.replayed ? "This spell-effect action was already handled." : `${config.label ?? "Spell effect"} is present on ${actor.name}.`);
+      } catch(error) {ui.notifications.error(error.message);}
+      finally {btn.disabled = false;}
     });
   });
 
@@ -451,9 +441,17 @@ Hooks.on("renderChatMessageHTML", _onRenderChatMessage);
 // Characters: unconscious at -1 to -9, dead at -10 or below
 // NPCs: dead at 0 or below
 // ---------------------------------------------------------------------------
+Hooks.on("updateActor", (actor, changes, _options, userId) => {
+  refreshStores(actor);
+  handleCommerceRequest(actor,changes,userId).catch(error=>{
+    console.error("EQRPG | Store request needs review",error);
+    ui.notifications.error(error.message);
+  });
+});
+
 Hooks.on("updateActor", async (actor, changes, _options, _userId) => {
-  // Only the GM manages token status effects
-  if (!game.user.isGM) return;
+  // One connected GM manages automatic token status effects.
+  if (!isPrimaryGM()) return;
   const newHP = foundry.utils.getProperty(changes, "system.resources.hp.value");
   if (newHP === undefined) return;
 
@@ -488,19 +486,42 @@ Hooks.on("updateActor", async (actor, changes, _options, _userId) => {
 // ---------------------------------------------------------------------------
 Hooks.on("updateCombat", async (combat, updateData, options, userId) => {
   // Only process when the turn advances; only the GM updates actor data
-  if (!("turn" in updateData)) return;
-  if (!game.user.isGM) return;
+  if (!("turn" in updateData) && !("round" in updateData)) return;
+  if (!isPrimaryGM()) return;
 
   const combatant = combat.combatant;
   const actor = combatant?.actor;
   if (!actor) return;
+  await reconcileExpiredSpellEffects(actor);
   await actor.normalizeSpellEffects?.();
   if (actor.type !== "character") return;
 
   // Tick spell cooldowns and combat-only mana effects. Racial HP regeneration is hourly, not per round.
-  await actor.tickSpellCooldowns();
-  await actor.regenManaCombat?.();
+  try {await tickCombatRound(actor,combat);}
+  catch(error) {ui.notifications.error(`${actor.name}: ${error.message}`);}
 });
+
+// V14 reports native expiry on duration.expired. Unknown/conditional durations
+// stay under GM control. Include unlinked token actors when time advances.
+Hooks.on("updateActiveEffect", (effect) => {
+  if(effect.parent?.effects && isPrimaryGM()) {
+    reconcileExpiredSpellEffects(effect.parent).catch(error=>ui.notifications.error(error.message));
+  }
+});
+async function reconcileWorldSpellExpiry() {
+  if(!isPrimaryGM()) return;
+  const actors=new Map();
+  for(const actor of game.actors??[]) actors.set(actor.uuid,actor);
+  for(const scene of game.scenes??[]) for(const token of scene.tokens??[]) {
+    if(token.actor) actors.set(token.actor.uuid,token.actor);
+  }
+  for(const actor of actors.values()) {
+    try {await reconcileExpiredSpellEffects(actor);}
+    catch(error) {ui.notifications.error(error.message);}
+  }
+}
+Hooks.on("updateWorldTime", reconcileWorldSpellExpiry);
+Hooks.once("ready", reconcileWorldSpellExpiry);
 
 // ---------------------------------------------------------------------------
 // Token HUD: inject HP / Mana text strip + attack array below the bar inputs
@@ -637,161 +658,58 @@ game.eqrpg.openMonsterBuilder = (actor = null, options = {}) => renderMonsterBui
 // Compendium: Auto-populate packs on first launch (GM only)
 // ---------------------------------------------------------------------------
 
-/**
- * Create documents in a compendium pack if it is currently empty.
- * @param {string}   packId   Full pack collection ID, e.g. "eqrpg.eqrpg-spells"
- * @param {object[]} data     Array of item creation data objects
- * @param {boolean}  [force]  If true, delete existing documents first then reimport
- */
-async function _populatePack(packId, data, force = false) {
-  const pack = game.packs.get(packId);
-  if (!pack) {
-    console.warn(`EQRPG | Pack not found: ${packId}`);
-    return;
+
+
+async function previewPackUpgrades(packIds = [...PACK_SOURCES.keys()]) {
+  if (!game.user?.isGM) throw new Error("GM only.");
+  const plans = [];
+  for (const packId of packIds) {
+    const pack = game.packs.get(packId);
+    const sources = PACK_SOURCES.get(packId);
+    if (!pack || !sources) throw new Error(`Unknown system pack: ${packId}`);
+    plans.push(planPackUpgrade(packId, sources, await pack.getDocuments()));
   }
-
-  // Unlock — try configure() then force the local flag as a fallback
-  const wasLocked = pack.locked;
-  if (wasLocked) {
-    try { await pack.configure({ locked: false }); } catch (_e) { /* ignore */ }
-    if (pack.locked) pack.locked = false; // belt-and-suspenders
-  }
-
-  try {
-    const existing = await pack.getDocuments();
-    if (existing.length > 0 && !force) return; // already populated — never overwrite
-    if (!data.length) return;
-
-    // Force-repopulate: delete all existing entries first
-    if (existing.length > 0 && force) {
-      console.log(`EQRPG | Clearing ${existing.length} existing entries from ${packId} …`);
-      const ids = existing.map(d => d.id);
-      await pack.documentClass.deleteDocuments(ids, { pack: pack.collection });
-    }
-
-    console.log(`EQRPG | Populating ${packId} with ${data.length} entries …`);
-    await pack.documentClass.createDocuments(data, { pack: pack.collection });
-    console.log(`EQRPG | ✓ Populated ${data.length} entries → ${packId}`);
-  } catch (err) {
-    console.error(`EQRPG | Failed to populate ${packId}:`, err);
-  } finally {
-    if (wasLocked) {
-      try { await pack.configure({ locked: true }); } catch (_e) { /* ignore */ }
-    }
-  }
+  return plans;
 }
 
-async function _populateActorPack(packId, data, force = false) {
-  const pack = game.packs.get(packId);
-  if (!pack) {
-    console.warn(`EQRPG | Actor pack not found: ${packId}`);
-    return;
-  }
-
-  const wasLocked = pack.locked;
-  if (wasLocked) {
-    try { await pack.configure({ locked: false }); } catch (_e) { /* ignore */ }
-    if (pack.locked) pack.locked = false;
-  }
-
+async function applyPackUpgrades(plans) {
+  if (!isPrimaryGM()) throw new Error("Apply pack upgrades from the first connected GM (sorted by user ID), to avoid competing writers.");
+  const results = [];
   try {
-    const existing = await pack.getDocuments();
-    if (existing.length > 0 && !force) return;
-    if (!data.length) return;
-
-    if (existing.length > 0 && force) {
-      console.log(`EQRPG | Clearing ${existing.length} existing actors from ${packId} …`);
-      const ids = existing.map((d) => d.id);
-      await pack.documentClass.deleteDocuments(ids, { pack: pack.collection });
+    for (const plan of plans) {
+      if (!PACK_SOURCES.has(plan.packId)) throw new Error(`Unknown system pack: ${plan.packId}`);
+      results.push({packId:plan.packId, ...await applyPackUpgrade(game.packs.get(plan.packId),plan)});
     }
-
-    console.log(`EQRPG | Populating ${packId} with ${data.length} actors …`);
-    await pack.documentClass.createDocuments(data, { pack: pack.collection });
-    console.log(`EQRPG | ✓ Populated ${data.length} actors → ${packId}`);
-  } catch (err) {
-    console.error(`EQRPG | Failed to populate actor pack ${packId}:`, err);
-  } finally {
-    if (wasLocked) {
-      try { await pack.configure({ locked: true }); } catch (_e) { /* ignore */ }
-    }
-  }
-}
-
-/**
- * Create JournalEntry documents in a compendium pack if it is empty.
- * Each entry in `data` is { name, pages: [{name, type, sort, text:{format,content}}] }.
- */
-async function _populateJournalPack(packId, data, force = false) {
-  const pack = game.packs.get(packId);
-  if (!pack) { console.warn(`EQRPG | Journal pack not found: ${packId}`); return; }
-
-  const wasLocked = pack.locked;
-  if (wasLocked) {
-    try { await pack.configure({ locked: false }); } catch (_e) { /* ignore */ }
-    if (pack.locked) pack.locked = false;
-  }
-
-  try {
-    const existing = await pack.getDocuments();
-    if (existing.length > 0 && !force) return;
-    if (!data.length) return;
-
-    if (existing.length > 0 && force) {
-      console.log(`EQRPG | Clearing ${existing.length} journal entries from ${packId} …`);
-      const ids = existing.map(d => d.id);
-      await pack.documentClass.deleteDocuments(ids, { pack: pack.collection });
-    }
-
-    console.log(`EQRPG | Populating ${packId} with ${data.length} journal entries …`);
-    await pack.documentClass.createDocuments(data, { pack: pack.collection });
-    console.log(`EQRPG | ✓ Populated ${data.length} journal entries → ${packId}`);
-  } catch (err) {
-    console.error(`EQRPG | Failed to populate ${packId}:`, err);
-  } finally {
-    if (wasLocked) {
-      try { await pack.configure({ locked: true }); } catch (_e) { /* ignore */ }
-    }
+    const conflicts = results.reduce((sum,result)=>sum+result.conflicts,0);
+    ui.notifications.info(`Pack upgrade finished: ${results.reduce((sum,result)=>sum+result.created,0)} created, ${results.reduce((sum,result)=>sum+result.updated,0)} updated, ${conflicts} conflicts left unchanged.`);
+    return results;
+  } catch (error) {
+    console.error("EQRPG | Pack upgrade stopped; review a fresh preview before retrying.", {error,completedPacks:results,partialPack:error.upgradeProgress});
+    ui.notifications.error("Pack upgrade stopped. Completed changes were retained; review the console and generate a fresh preview before retrying.");
+    throw error;
   }
 }
 
 Hooks.once("ready", async () => {
-  if (!game.user.isGM) return;
-
-  // Run sequentially so each configure() socket round-trip fully resolves
-  // on the server before the next pack's createDocuments is sent
-  await _populatePack("eqrpg.eqrpg-spells",      SAMPLE_SPELLS);
-  await _populatePack("eqrpg.eqrpg-skills",      SAMPLE_SKILLS);
-  await _populatePack("eqrpg.eqrpg-weapons",     SAMPLE_WEAPONS);
-  await _populatePack("eqrpg.eqrpg-armor",       SAMPLE_ARMOR);
-  await _populatePack("eqrpg.eqrpg-equipment",   SAMPLE_EQUIPMENT);
-  await _populatePack("eqrpg.eqrpg-consumables", SAMPLE_CONSUMABLES);
-  await _populatePack("eqrpg.eqrpg-feats",       SAMPLE_FEATS);
-  await _populateJournalPack("eqrpg.eqrpg-phb",  PHB_JOURNALS);
-  await _populateActorPack("eqrpg.eqrpg-monsters", SAMPLE_MONSTERS);
-
-  // Expose repopulate helper for GM use in the browser console:
-  // game.eqrpg.repopulateSpellPack()
-  game.eqrpg.repopulateSpellPack = async () => {
-    if (!game.user.isGM) { ui.notifications.warn("GM only."); return; }
-    ui.notifications.info("EQRPG | Repopulating spell pack — please wait...");
-    await _populatePack("eqrpg.eqrpg-spells", SAMPLE_SPELLS, true);
-    ui.notifications.info("EQRPG | Spell pack repopulated.");
-  };
-
-  // Expose repopulate helper for GM use in the browser console:
-  // game.eqrpg.repopulatePacks()
-  game.eqrpg.repopulatePacks = async () => {
-    if (!game.user.isGM) { ui.notifications.warn("GM only."); return; }
-    ui.notifications.info("EQRPG | Repopulating all packs — please wait…");
-    await _populatePack("eqrpg.eqrpg-spells",      SAMPLE_SPELLS,      true);
-    await _populatePack("eqrpg.eqrpg-skills",      SAMPLE_SKILLS,      true);
-    await _populatePack("eqrpg.eqrpg-weapons",     SAMPLE_WEAPONS,     true);
-    await _populatePack("eqrpg.eqrpg-armor",       SAMPLE_ARMOR,       true);
-    await _populatePack("eqrpg.eqrpg-equipment",   SAMPLE_EQUIPMENT,   true);
-    await _populatePack("eqrpg.eqrpg-consumables", SAMPLE_CONSUMABLES, true);
-    await _populatePack("eqrpg.eqrpg-feats",       SAMPLE_FEATS,       true);
-    await _populateJournalPack("eqrpg.eqrpg-phb",  PHB_JOURNALS,       true);
-    await _populateActorPack("eqrpg.eqrpg-monsters", SAMPLE_MONSTERS,  true);
-    ui.notifications.info("EQRPG | ✓ All packs repopulated.");
-  };
+  if (!game.user?.isGM) return;
+  game.eqrpg.previewPackUpgrades = previewPackUpgrades;
+  game.eqrpg.resolvePackConflict = resolvePackConflict;
+  game.eqrpg.applyPackUpgrades = applyPackUpgrades;
+  // Legacy destructive helper names now return a read-only preview.
+  game.eqrpg.repopulateSpellPack = () => previewPackUpgrades(["eqrpg.eqrpg-spells"]);
+  game.eqrpg.repopulatePacks = () => previewPackUpgrades();
+  if (!isPrimaryGM()) return;
+  for (const [packId,sources] of PACK_SOURCES) {
+    const pack = game.packs.get(packId);
+    if (!pack) { console.warn(`EQRPG | Pack not found: ${packId}`); continue; }
+    try {
+      const documents = await pack.getDocuments();
+      if (documents.length) continue;
+      const plan = planPackUpgrade(packId,sources,documents);
+      await applyPackUpgrade(pack,plan);
+    } catch (error) {
+      console.error(`EQRPG | Pack initialization failed for ${packId}`,error);
+      ui.notifications.error(`Could not initialize ${packId}. Existing entries were retained; review before retrying.`);
+    }
+  }
 });

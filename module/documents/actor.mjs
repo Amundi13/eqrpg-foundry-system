@@ -1,7 +1,10 @@
+import {readSpellSlots} from '../helpers/spell-slots.mjs';
+import {rollRuneHP} from '../helpers/rune-roll.mjs';
+import { hasConfirmedSpellTempHPGrant, isEffectActive, isSpellPoolDepleted } from "../helpers/active-effects.mjs";
 /**
  * Extend the base Actor for EverQuest RPG.
  */
-import { getClassSpellTemplates } from "../packs/class-spells.mjs";
+import { getClassSpellTemplates, getSpellEligibility } from "../packs/class-spells.mjs";
 
 export class EQActor extends Actor {
 
@@ -439,18 +442,7 @@ export class EQActor extends Actor {
    * and ArrayField._cast() wraps that POJO in a 1-element array.
    */
   _getSlotArray() {
-    const sourceSlots = this.toObject().system?.spellSlots;
-    if (Array.isArray(sourceSlots)) {
-      // Ensure exactly 8 entries, cloning each as a plain object
-      const slots = sourceSlots.map(s => ({
-        itemId:            String(s?.itemId ?? ""),
-        cooldownRemaining: Number(s?.cooldownRemaining ?? 0),
-      }));
-      while (slots.length < 8) slots.push({ itemId: "", cooldownRemaining: 0 });
-      return slots.slice(0, 8);
-    }
-    // Data was corrupted (POJO from a bad previous update) — return clean slate
-    return Array.from({ length: 8 }, () => ({ itemId: "", cooldownRemaining: 0 }));
+    return readSpellSlots(this.toObject().system?.spellSlots);
   }
 
   // ---------------------------------------------------------------------------
@@ -458,52 +450,106 @@ export class EQActor extends Actor {
   // ---------------------------------------------------------------------------
 
   async castSpell(slotIndex) {
+    if (this._spellCastPending) return;
+    this._spellCastPending = true;
+    try { return await this._castPreparedSpell(slotIndex); }
+    finally { this._spellCastPending = false; }
+  }
+
+  async _castPreparedSpell(slotIndex) {
     const slots = this._getSlotArray();
     const slot  = slots[slotIndex];
     if (!slot?.itemId) return;
+    if (slot.cooldownRemaining > 0) {
+      ui.notifications.warn("This spell is still on cooldown.");
+      return;
+    }
 
     const spell = this.items.get(slot.itemId);
     if (!spell) return;
+    if (this.type === "character") {
+      const eligibility = getSpellEligibility(spell,this.system.details.class,this.system.details.level);
+      if (!eligibility.allowed) { ui.notifications.warn(eligibility.reason); return; }
+    }
 
     const manaCost    = spell.system.manaCost ?? 0;
     const currentMana = this.system.resources.mana.value;
+    if (!Number.isSafeInteger(manaCost) || manaCost < 0 || !Number.isFinite(currentMana)) throw new Error("Invalid spell cost or mana data; casting stopped for review.");
+    if(this.type==='character' && Number.isFinite(this.system.resources.mana.max) && currentMana>this.system.resources.mana.max) throw new Error('Stored mana exceeds the current maximum. Ask the GM to reconcile it before casting.');
 
     if (currentMana < manaCost) {
       ui.notifications.warn(game.i18n.localize("EQRPG.NotEnoughMana"));
       return;
     }
 
-    // Deduct mana (simple scalar field — dot path is fine)
-    await this.update({ "system.resources.mana.value": Math.max(0, currentMana - manaCost) });
-
-    // Apply recast cooldown via full-array replacement
+    // Commit resource cost and cooldown together before resolving the spell.
     const recastTime = spell.system.recastTime ?? 0;
-    if (recastTime > 0) {
-      const refreshed = this._getSlotArray();           // re-fetch after mana update
-      refreshed[slotIndex].cooldownRemaining = recastTime;
-      await this.update({ "system.spellSlots": refreshed });
+    if (!Number.isSafeInteger(recastTime) || recastTime < 0) throw new Error("Invalid spell recast time; casting stopped for review.");
+    // PHB printed 174 / PDF 177: a one-round recast cast in round 1 is ready in round 3.
+    slots[slotIndex].cooldownRemaining = recastTime > 0 ? recastTime + 1 : 0;
+    const nextMana = Math.max(0, currentMana - manaCost);
+    const startPatch = this._cooldownStartPatch(spell.id);
+    await this.update({ "system.resources.mana.value": nextMana, "system.spellSlots": slots, ...startPatch });
+    this._assertCooldownStart(spell.id,startPatch);
+    if (this.system.resources.mana.value !== nextMana || this._getSlotArray()[slotIndex]?.cooldownRemaining !== slots[slotIndex].cooldownRemaining) {
+      ui.notifications.warn("The spell cost or cooldown update was not confirmed. The spell was not resolved; check the character before retrying.");
+      return;
     }
 
-    await spell.castSpell(this);
+    await spell.castSpell(this, { resourcesPaid: true });
   }
 
   async memorizeSpell(spellId, slotIndex) {
     const slots = this._getSlotArray();
-    slots[slotIndex] = { itemId: spellId, cooldownRemaining: 0 };
-    await this.update({ "system.spellSlots": slots });
+    if (!Number.isInteger(slotIndex) || slotIndex < 0 || slotIndex >= slots.length) return;
+    const spell = this.items.get(spellId);
+    if (spell?.type !== "spell") return;
+    if (this.type === "character") {
+      const eligibility = getSpellEligibility(spell,this.system.details.class,this.system.details.level);
+      if (!eligibility.allowed) { ui.notifications.warn(eligibility.reason); return; }
+    }
+    if (slots[slotIndex].cooldownRemaining > 0 || slots.some(slot=>slot.itemId===spellId)) {
+      ui.notifications.warn("Wait for this slot's cooldown and remove any existing preparation before memorizing the spell.");
+      return;
+    }
+    const recastTime = spell.system.recastTime ?? 0;
+    if (!Number.isSafeInteger(recastTime) || recastTime < 0) throw new Error("Invalid spell recast time; preparation stopped for review.");
+    slots[slotIndex] = { itemId: spellId, cooldownRemaining: recastTime };
+    const startPatch = this._cooldownStartPatch(spellId);
+    await this.update({ "system.spellSlots": slots, ...startPatch });
+    this._assertCooldownStart(spellId,startPatch);
+    const prepared = this._getSlotArray()[slotIndex];
+    if (prepared?.itemId !== spellId || prepared.cooldownRemaining !== recastTime) throw new Error("Spell preparation was not confirmed.");
+  }
+
+  _cooldownStartPatch(itemId) {
+    const combat = game.combat;
+    if (!combat?.id || !Number.isSafeInteger(combat.round) || combat.round < 1) return {};
+    return {[`flags.eqrpg.cooldownStarts.${itemId}`]:{combatId:combat.id,round:combat.round}};
+  }
+
+  _assertCooldownStart(itemId,patch) {
+    const expected=Object.values(patch)[0];
+    if(!expected) return;
+    const actual=this.flags?.eqrpg?.cooldownStarts?.[itemId];
+    if(actual?.combatId!==expected.combatId || actual?.round!==expected.round) throw new Error('Cooldown start was not confirmed. Review the spell resources before retrying.');
   }
 
   async unmemorizeSpell(slotIndex) {
     const slots = this._getSlotArray();
+    if (!Number.isInteger(slotIndex) || slotIndex < 0 || slotIndex >= slots.length) return;
+    if (slots[slotIndex].cooldownRemaining > 0) { ui.notifications.warn("This spell is still on cooldown."); return; }
     slots[slotIndex] = { itemId: "", cooldownRemaining: 0 };
     await this.update({ "system.spellSlots": slots });
   }
 
   async recoverSpells() {
     const slots    = this._getSlotArray();
+    if(!game.user?.isGM || !this.isOwner) throw new Error('Only the GM can manually clear cooldowns. Use elapsed combat rounds or completed rest for normal recovery.');
     const newSlots = slots.map(s => ({ itemId: s.itemId, cooldownRemaining: 0 }));
     const hasCD    = slots.some(s => s.cooldownRemaining > 0);
     await this.update({ "system.spellSlots": newSlots });
+    if(JSON.stringify(this._getSlotArray())!==JSON.stringify(newSlots)) throw new Error('Cooldown override was not confirmed.');
     if (!hasCD) ui.notifications.info(game.i18n.localize("EQRPG.SpellsAlreadyRecovered"));
   }
 
@@ -558,8 +604,11 @@ export class EQActor extends Actor {
     }
 
     if (!createData.length) return [];
-    await this.createEmbeddedDocuments("Item", createData);
-    return createData.map((spell) => spell.name);
+    const created=await this.createEmbeddedDocuments("Item", createData);
+    if(!Array.isArray(created) || created.length!==createData.length) {
+      throw new Error('Class spell grants were not confirmed. The advancement is saved and can be recovered by pressing Level Up again.');
+    }
+    return created.map((spell,index) => spell?.name??createData[index].name);
   }
 
   /**
@@ -567,6 +616,18 @@ export class EQActor extends Actor {
    * grant newly unlocked class spells, then recalculate all derived stats.
    */
   async levelUp() {
+    if (this._levelUpPending) return;
+    this._levelUpPending = true;
+    try { return await this._performLevelUp(); }
+    finally { this._levelUpPending = false; }
+  }
+
+  async _performLevelUp() {
+    if (this.type !== "character" || !this.isOwner) throw new Error("Only an owned character can advance a level.");
+    const records=Object.values(this.flags?.eqrpg?.advancements??{});
+    const pending=records.filter(record=>record?.state==='pending');
+    if(pending.length>1) throw new Error('Multiple advancement records need GM review. No level was changed.');
+    if(pending.length===1) return this._recoverAdvancement(pending[0]);
     const system    = this.system;
     const level     = system.details.level;
     if (level >= 30) {
@@ -585,17 +646,42 @@ export class EQActor extends Actor {
     const conMod      = system.abilities.con.mod;
     const conSign     = conMod >= 0 ? "+" : "";
 
+    const previousRolls = foundry.utils.deepClone(system.hpAdvancement ?? []);
+    const previousHP = system.resources.hp.value;
     // Roll hit die for HP gain (minimum 1)
     const hpRoll = await new Roll(`1d${hitDie}`).evaluate();
+    if (!Number.isInteger(hpRoll.total) || hpRoll.total < 1 || hpRoll.total > hitDie) throw new Error("The advancement hit die result is invalid.");
     const hpGain = Math.max(1, hpRoll.total + conMod);
-
+    if (this.system.details.level !== level || this.system.details.class !== classKey
+      || this.system.resources.hp.value !== previousHP || this.system.abilities.con.mod !== conMod
+      || !this.system.xpProgress?.ready
+      || JSON.stringify(this.system.hpAdvancement ?? []) !== JSON.stringify(previousRolls)) {
+      throw new Error("The character changed while rolling advancement. Review the character before trying again.");
+    }
+    const nextRolls = [...previousRolls, {level: newLevel, die: hitDie, roll: hpRoll.total}];
+    const nextHP = Math.min(previousHP + hpGain, system.resources.hp.max + hpGain);
+    const advancementKey=`level_${newLevel}`;
+    const advancementPath=`flags.eqrpg.advancements.${advancementKey}`;
+    const advancement={state:'pending',classKey,level:newLevel,die:hitDie,roll:hpRoll.total,hpGain};
     await this.update({
       "system.details.level":       newLevel,
-      "system.resources.hp.value":  Math.min(system.resources.hp.value + hpGain, system.resources.hp.max + hpGain),
+      "system.hpAdvancement": nextRolls,
+      "system.resources.hp.value":  nextHP,
+      [advancementPath]: advancement,
     });
+    if (this.system.details.level !== newLevel || this.system.resources.hp.value !== nextHP
+      || JSON.stringify(this.system.hpAdvancement ?? []) !== JSON.stringify(nextRolls)
+      || this.flags?.eqrpg?.advancements?.[advancementKey]?.state!=='pending') {
+      throw new Error("Advancement was not confirmed. Review the level and HP record before trying again; no spells were granted.");
+    }
     const grantedSpells = classConfig?.spellcastingAbility
       ? await this._grantClassSpellsForLevel(classKey, newLevel)
       : [];
+    const completed={...advancement,state:'complete',grantedSpells};
+    await this.update({[advancementPath]:completed});
+    if(this.flags?.eqrpg?.advancements?.[advancementKey]?.state!=='complete') {
+      throw new Error('Advancement grants finished, but their record was not confirmed. Press Level Up again to recover safely.');
+    }
 
     const content = `<div class="eq-chat-card eq-levelup-card">`
       + this._buildActorCardHeader(`Level Up — Now Level ${newLevel}`)
@@ -613,6 +699,25 @@ export class EQActor extends Actor {
       rolls:    [hpRoll],
       rollMode: game.settings.get("core", "rollMode"),
     });
+  }
+
+  async _recoverAdvancement(record) {
+    const {classKey,level,die,roll,hpGain}=record;
+    const ledger=this.system.hpAdvancement??[];
+    if(this.system.details.level!==level || this.system.details.class!==classKey
+      || !ledger.some(entry=>entry.level===level && entry.die===die && entry.roll===roll)) {
+      throw new Error('The pending advancement no longer matches this character. Ask the GM to review it.');
+    }
+    const classConfig=CONFIG.EQRPG.classes?.[classKey];
+    const grantedSpells=classConfig?.spellcastingAbility
+      ? await this._grantClassSpellsForLevel(classKey,level)
+      : [];
+    const key=`level_${level}`;
+    await this.update({[`flags.eqrpg.advancements.${key}`]:{...record,state:'complete',grantedSpells}});
+    if(this.flags?.eqrpg?.advancements?.[key]?.state!=='complete') throw new Error('Recovered advancement was not confirmed. Review it before retrying.');
+    await ChatMessage.create({speaker:ChatMessage.getSpeaker({actor:this}),rollMode:game.settings.get('core','rollMode'),content:
+      `<div class="eq-chat-card eq-levelup-card">${this._buildActorCardHeader(`Recovered Level ${level} Advancement`)}<div class="eq-card-body"><div class="eq-levelup-gain">+${hpGain} HP was already recorded</div>${grantedSpells.length?`<div class="eq-levelup-detail"><strong>Recovered spells:</strong> ${grantedSpells.join(', ')}</div>`:''}</div></div>`});
+    return {recovered:true,level,grantedSpells};
   }
 
   // ---------------------------------------------------------------------------
@@ -642,6 +747,9 @@ export class EQActor extends Actor {
       "system.resources.hp.temp": newTemp,
       "system.resources.hp.value": newValue,
     });
+    if (this.system.resources.hp.temp !== newTemp || this.system.resources.hp.value !== newValue) {
+      throw new Error("Damage update was not confirmed. Review HP and temporary-HP pools before retrying.");
+    }
     return newValue;
   }
 
@@ -651,25 +759,71 @@ export class EQActor extends Actor {
    * @returns {number}       New HP value
    */
   async applyHealing(amount) {
+    if ((this.type === "character" && this.system.resources.hp.value <= -10)
+      || (this.type !== "character" && this.system.resources.hp.value <= 0)) {
+      throw new Error("Ordinary healing cannot restore a dead actor. Resolve resurrection separately.");
+    }
     const healing  = Math.max(0, Math.floor(Number(amount) || 0));
     const current  = Number(this.system.resources.hp.value) || 0;
     const max      = Number(this.system.resources.hp.max) || 0;
     const newValue = Math.min(max, current + healing);
     await this.update({ "system.resources.hp.value": newValue });
+    if (this.system.resources.hp.value !== newValue) throw new Error("Healing update was not confirmed. Review HP before retrying.");
     return newValue;
   }
 
-  async toggleSpellEffect(effectData = {}) {
+  validateSpellEffectApplication(effectData = {}) {
+    const label=String(effectData.label??'').trim();
+    const effectKey=String(effectData.effectKey??label.toLowerCase()).trim();
+    const grantsBuffHP=/^rune-(i|ii|iii|iv|v)$/.test(effectKey) || (effectData.changes??[]).some(change=>
+      ['system.resources.hp.temp','system.resources.hp.bonus'].includes(change?.key) && Number(change.value)>0);
+    if(!grantsBuffHP) return true;
+
+    const matching=this.effects.find(effect=>effect.name===label || effect.flags?.eqrpg?.effectKey===effectKey);
+    const matchingEnded=matching && (isSpellPoolDepleted(matching) || matching.duration?.expired
+      || this.flags?.eqrpg?.expiredSpellEffects?.[matching.id]);
+    if(matching && !matchingEnded && isEffectActive(matching)) return true;
+
+    for(const effect of this.effects??[]) {
+      if(effect===matching && matchingEnded) continue;
+      const flags=effect.flags?.eqrpg??{};
+      if(flags.tempHPGrantTracked===true && !hasConfirmedSpellTempHPGrant(this,effect)) {
+        throw new Error('A temporary-HP grant is pending review. Resolve it before applying another buff-HP effect.');
+      }
+      const remaining=Math.max(0,Number(flags.tempHPRemaining??flags.tempHPGrant)||0);
+      const hitPointBonus=Math.max(0,Number(flags.bonuses?.hpBonus)||0);
+      if((remaining>0 || hitPointBonus>0) && isEffectActive(effect)) {
+        throw new Error(`Buff temporary hit points do not stack. Remove or resolve ${effect.name??'the existing effect'} first.`);
+      }
+    }
+    return true;
+  }
+
+  isProtectedFromSpellLine(spellLine) {
+    if(String(spellLine??'').trim().toLowerCase()!=='lifetap') return false;
+    return [...(this.effects??[])].some(effect=>{
+      const key=String(effect.flags?.eqrpg?.effectKey??'').toLowerCase();
+      return /^rune-(i|ii|iii|iv|v)$/.test(key) && isEffectActive(effect);
+    });
+  }
+
+  async toggleSpellEffect(effectData = {}, {applyOnly = false} = {}) {
     const label = String(effectData.label ?? "").trim();
     if (!label) return null;
     const effectKey = String(effectData.effectKey ?? label.toLowerCase()).trim();
+    this.validateSpellEffectApplication(effectData);
     const existing = this.effects.find((effect) => effect.name === label || effect.flags?.eqrpg?.effectKey === effectKey);
     if (existing) {
+      const ended = isSpellPoolDepleted(existing) || existing.duration?.expired
+        || this.flags?.eqrpg?.expiredSpellEffects?.[existing.id];
+      if (applyOnly && !ended) return existing;
       await this.removeSpellEffect(existing.id, effectData.statuses ?? effectData.statusIds ?? []);
-      return null;
+      if (!applyOnly) return null;
     }
 
     const extracted = EQActor._extractSpellEffectBonuses(effectData.changes ?? []);
+    const runeRoll = await rollRuneHP(effectKey);
+    if (runeRoll) extracted.tempHP = runeRoll.total;
     const existingBonuses = effectData.flags?.eqrpg?.bonuses ?? {};
     const bonuses = EQActor._mergeSpellEffectBonuses(existingBonuses, extracted.bonuses);
     const changes = extracted.changes;
@@ -680,6 +834,7 @@ export class EQActor extends Actor {
       img: effectData.img || effectData.icon || "icons/svg/aura.svg",
       origin: effectData.origin || this.uuid,
       duration: effectData.duration ?? {},
+      ...(effectData.start ? {start:effectData.start} : {}),
       disabled: false,
       changes,
       statuses: statusIds,
@@ -696,6 +851,8 @@ export class EQActor extends Actor {
           bonuses,
           tempHPGrant: Math.max(0, extracted.tempHP),
           tempHPRemaining: Math.max(0, extracted.tempHP),
+          tempHPGrantTracked: extracted.tempHP > 0,
+          ...(runeRoll ? {tempHPRoll: runeRoll, endsOnTempHPDepleted: true} : {}),
           breaksOnAttack: !!effectData.breaksOnAttack,
           breaksOnCast: !!effectData.breaksOnCast,
           statusIds,
@@ -704,9 +861,18 @@ export class EQActor extends Actor {
     };
 
     const [created] = await this.createEmbeddedDocuments("ActiveEffect", [createData]);
+    if (!created?.id || !this.effects.find((entry) => entry.id === created.id)) {
+      throw new Error("Spell effect creation was not confirmed; temporary HP and token statuses were not changed.");
+    }
     if (extracted.tempHP > 0) {
       const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
-      await this.update({ "system.resources.hp.temp": currentTemp + extracted.tempHP });
+      const path=`flags.eqrpg.effectHPGrants.${created.id}`;
+      const receipt={state:'complete',amount:extracted.tempHP,before:currentTemp,after:currentTemp+extracted.tempHP};
+      await this.update({ "system.resources.hp.temp": receipt.after, [path]:receipt });
+      const actual=this.flags?.eqrpg?.effectHPGrants?.[created.id];
+      if(this.system.resources.hp.temp!==receipt.after || actual?.state!=='complete' || actual.amount!==receipt.amount || actual.before!==receipt.before || actual.after!==receipt.after) {
+        throw new Error('Temporary-HP grant was not confirmed. The effect is inactive; ask the GM to review it before another application.');
+      }
     }
     await this._setTokenStatuses(statusIds, true);
     return created ?? null;
@@ -717,6 +883,12 @@ export class EQActor extends Actor {
     if (!effect?.flags?.eqrpg?.spellEffect) return null;
 
     const active = !!enabled;
+    if (active && isSpellPoolDepleted(effect)) {
+      throw new Error('This spell effect has ended because its temporary HP was depleted. Cast a new effect.');
+    }
+    if (active && (effect.duration?.expired || this.flags?.eqrpg?.expiredSpellEffects?.[effectId])) {
+      throw new Error("This spell effect has expired. Cast a new effect instead of enabling it again.");
+    }
     if ((!effect.disabled) === active) return effect;
 
     const flags = effect.flags.eqrpg;
@@ -726,13 +898,14 @@ export class EQActor extends Actor {
     await effect.update({
       disabled: !active,
       statuses: statusIds,
-      "flags.eqrpg.tempHPRemaining": active ? tempHPGrant : 0,
+      "flags.eqrpg.tempHPRemaining": tempHPRemaining,
       "flags.eqrpg.statusIds": statusIds,
     });
 
-    if (tempHPGrant > 0) {
+    if (effect.disabled !== !active) throw new Error("Effect state update was not confirmed; temporary HP was not changed.");
+    if (tempHPGrant > 0 && hasConfirmedSpellTempHPGrant(this,effect) && !this.flags?.eqrpg?.expiredSpellEffects?.[effectId]) {
       const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
-      const nextTemp = active ? currentTemp + tempHPGrant : Math.max(0, currentTemp - tempHPRemaining);
+      const nextTemp = active ? currentTemp + tempHPRemaining : Math.max(0, currentTemp - tempHPRemaining);
       await this.update({ "system.resources.hp.temp": nextTemp });
     }
 
@@ -752,7 +925,12 @@ export class EQActor extends Actor {
 
     const flags = effect.flags.eqrpg;
     let statusIds = [];
-    if (!effect.disabled) {
+    // A canceled deletion must not spend the still-present effect's HP pool.
+    await effect.delete();
+    if (this.effects.find((entry) => entry.id === effectId)) {
+      throw new Error("Spell effect deletion was not confirmed; temporary HP and token statuses were not changed.");
+    }
+    if (!effect.disabled && hasConfirmedSpellTempHPGrant(this,effect) && !this.flags?.eqrpg?.expiredSpellEffects?.[effectId]) {
       const tempHPRemaining = Math.max(0, Number(flags.tempHPRemaining ?? flags.tempHPGrant) || 0);
       if (tempHPRemaining > 0) {
         const currentTemp = Math.max(0, Number(this.system.resources.hp.temp) || 0);
@@ -761,7 +939,6 @@ export class EQActor extends Actor {
       statusIds = this._getSpellEffectStatusIds(effect, fallbackStatusIds);
     }
 
-    await effect.delete();
     if (statusIds.length) await this._setTokenStatuses(statusIds, false);
     return true;
   }
@@ -784,7 +961,7 @@ export class EQActor extends Actor {
     const updates = [];
 
     for (const effect of this.effects ?? []) {
-      if (!remaining || effect.disabled || !effect.flags?.eqrpg?.spellEffect) continue;
+      if (!remaining || !isEffectActive(effect) || !hasConfirmedSpellTempHPGrant(this,effect) || this.flags?.eqrpg?.expiredSpellEffects?.[effect.id] || !effect.flags?.eqrpg?.spellEffect) continue;
       const flags = effect.flags.eqrpg;
       const available = Math.max(0, Number(flags.tempHPRemaining ?? flags.tempHPGrant) || 0);
       if (!available) continue;
@@ -797,7 +974,15 @@ export class EQActor extends Actor {
       remaining -= consumed;
     }
 
-    if (updates.length) await this.updateEmbeddedDocuments("ActiveEffect", updates);
+    if (updates.length) {
+      await this.updateEmbeddedDocuments("ActiveEffect", updates);
+      for (const update of updates) {
+        const effect = this.effects.find(entry => entry.id === update._id);
+        if (effect?.flags?.eqrpg?.tempHPRemaining !== update["flags.eqrpg.tempHPRemaining"]) {
+          throw new Error("Temporary-HP pool update was not confirmed. Review pools before applying damage again.");
+        }
+      }
+    }
   }
 
   async normalizeSpellEffects() {
@@ -840,12 +1025,15 @@ export class EQActor extends Actor {
         const hasIt = tokenActor.statuses?.has(statusId)
           ?? tokenDoc.hasStatusEffect?.(statusId)
           ?? false;
-        if (hasIt !== active) {
+        const supplied = [...(tokenActor.effects ?? [])].some(effect => isEffectActive(effect)
+          && this._getSpellEffectStatusIds(effect).includes(statusId));
+        const desired = active || supplied;
+        if (hasIt !== desired) {
           if (tokenActor.toggleStatusEffect) {
-            await tokenActor.toggleStatusEffect(statusId, { active });
+            await tokenActor.toggleStatusEffect(statusId, { active: desired });
           } else if (tokenDoc.toggleActiveEffect) {
             const status = CONFIG.statusEffects?.find((entry) => entry.id === statusId) ?? { id: statusId };
-            await tokenDoc.toggleActiveEffect(status, { active });
+            await tokenDoc.toggleActiveEffect(status, { active: desired });
           }
         }
       }
@@ -854,15 +1042,20 @@ export class EQActor extends Actor {
 
   async breakInvisibility(reason = "attack") {
     const breakFlag = reason === "cast" ? "breaksOnCast" : "breaksOnAttack";
+    const known = new Set(['invisibility','improved-invisibility','invisibility-to-undead','invisibility-to-animals']);
     const effectsToRemove = this.effects.filter((effect) => {
-      if (effect.disabled) return false;
+      if (!isEffectActive(effect)) return false;
       const flags = effect.flags?.eqrpg ?? {};
-      const key = String(flags.effectKey ?? effect.name ?? "").toLowerCase();
-      return flags[breakFlag] || key.includes("invisibility");
+      const key = String(flags.effectKey ?? effect.name ?? "").toLowerCase().replace(/^(toggle|apply)\s+/, '').replace(/\s+/g,'-');
+      return flags[breakFlag] === true || known.has(key);
     });
 
-    if (effectsToRemove.length) {
-      await this.deleteEmbeddedDocuments("ActiveEffect", effectsToRemove.map((effect) => effect.id));
+    for (const effect of effectsToRemove) {
+      if(effect.flags?.eqrpg?.spellEffect) await this.removeSpellEffect(effect.id);
+      else {
+        await effect.delete();
+        if(this.effects.some(entry=>entry.id===effect.id)) throw new Error('Invisibility removal was not confirmed; the action stopped.');
+      }
     }
     await this._setTokenStatuses(["invisible"], false);
   }
@@ -871,7 +1064,7 @@ export class EQActor extends Actor {
     const effects = this.effects ?? [];
     let manaPerRound = 0;
     for (const effect of effects) {
-      if (effect.disabled) continue;
+      if (!isEffectActive(effect)) continue;
       manaPerRound += Number(effect.flags?.eqrpg?.manaPerRound ?? 0) || 0;
     }
     return { manaPerRound };
@@ -951,6 +1144,10 @@ export class EQActor extends Actor {
     }
     if (!targetActor) {
       ui.notifications.warn(game.i18n.localize("EQRPG.NoTargets"));
+      return;
+    }
+    if(targetActor.isProtectedFromSpellLine?.('Lifetap')) {
+      ui.notifications.warn(`${targetActor.name} is protected from the lifetap spell line by Rune.`);
       return;
     }
 
@@ -1096,12 +1293,29 @@ export class EQActor extends Actor {
   }
 
   async layOnHands(targetActor) {
-    const pool = this.system.classFeatures?.layOnHandsPool ?? 0;
+    if (this._layOnHandsPending) return;
+    this._layOnHandsPending = true;
+    try { return await this._useLayOnHands(targetActor); }
+    finally { this._layOnHandsPending = false; }
+  }
+
+  async _useLayOnHands(targetActor) {
+    const day = Math.floor((game.time?.worldTime ?? 0) / 86400);
+    if (this.flags?.eqrpg?.layOnHandsDay === day) {
+      ui.notifications.warn("Lay on hands has already been used today. The GM must advance world time to the next day before it refreshes.");
+      return;
+    }
+    const target = targetActor ?? this;
+    const improved = !!this.system.classFeatures?.improvedLayOnHands;
+    const pool = improved ? Math.max(0, target.system.resources.hp.max - target.system.resources.hp.value)
+      : (this.system.classFeatures?.layOnHandsPool ?? 0);
     if (pool <= 0) {
       ui.notifications.warn(game.i18n.localize("EQRPG.NoLayOnHands"));
       return;
     }
-    const target = targetActor ?? this;
+    await this.update({"flags.eqrpg.layOnHandsDay": day});
+    if (this.flags?.eqrpg?.layOnHandsDay !== day) throw new Error("Daily use was not confirmed; no healing was applied.");
+    // An ambiguous target write must not restore the daily use and allow duplicate healing.
     await target.applyHealing(pool);
 
     const isSelf = target === this;
@@ -1125,6 +1339,15 @@ export class EQActor extends Actor {
   }
 
   async rollHarmTouch(targetActor = null) {
+    if (this._harmTouchPending) return null;
+    this._harmTouchPending = true;
+    try { return await this._useHarmTouch(targetActor); }
+    finally { this._harmTouchPending = false; }
+  }
+
+  async _useHarmTouch(targetActor = null) {
+    const day = Math.floor((game.time?.worldTime ?? 0) / 86400);
+    if (this.flags?.eqrpg?.harmTouchDay === day) throw new Error("Harm touch has already been used today.");
     const damage = this.system.classFeatures?.harmTouchDamage ?? 0;
     const dc = this.system.classFeatures?.harmTouchDC ?? 0;
     const leechTouch = !!this.system.classFeatures?.leechTouch;
@@ -1138,9 +1361,23 @@ export class EQActor extends Actor {
       ui.notifications.warn(game.i18n.localize("EQRPG.NoTargets"));
       return null;
     }
+    const targetAC = target.system?.combat?.ac;
+    const touchAC = target.type === "character"
+      ? targetAC.value - targetAC.armor - targetAC.shield - targetAC.natural
+      : targetAC?.touch;
+    if (!Number.isFinite(touchAC)) throw new Error("The GM must set the target's touch AC before resolving harm touch.");
     await this.breakInvisibility("attack");
-
-    const saveBonus = target.system?.combat?.saves?.will?.value ?? 0;
+    const attackBonus = (this.system.combat?.bab ?? 0) + (this.system.abilities?.str?.mod ?? 0) + (this.system.combat?.attackBonus ?? 0);
+    const attackRoll = await new Roll(`1d20 + ${attackBonus}`, this.getRollData?.() ?? {}).evaluate();
+    const natural = attackRoll.dice?.[0]?.total;
+    const hit = natural === 20 || (natural !== 1 && attackRoll.total >= touchAC);
+    if (!hit) {
+      await ChatMessage.create({speaker:ChatMessage.getSpeaker({actor:this}),content:"Harm touch missed. Daily use was not spent.",rolls:[attackRoll]});
+      return attackRoll;
+    }
+    await this.update({"flags.eqrpg.harmTouchDay": day});
+    if (this.flags?.eqrpg?.harmTouchDay !== day) throw new Error("Daily use was not confirmed; no harm-touch damage was applied.");
+    const saveBonus = target.system?.combat?.saves?.fortitude?.value ?? 0;
     const saveRoll = await new Roll(`1d20 + ${saveBonus}`, target.getRollData?.() ?? {}).evaluate();
     const saved = saveRoll.total >= dc;
     const appliedDamage = saved ? Math.floor(damage / 2) : damage;
@@ -1172,91 +1409,42 @@ export class EQActor extends Actor {
     await ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor: this }),
       content,
-      rolls: [saveRoll],
+      rolls: [attackRoll, saveRoll],
       rollMode: game.settings.get("core", "rollMode"),
     });
 
     return saveRoll;
   }
 
-  /**
-   * Short rest — sit and meditate for ~1 hour.
-   * Restores manaRegen × 10 mana and racial regeneration for 1 hour.
-   * Does not clear cooldowns.
-   */
-  async restShort() {
-    const manaRegenRate = Math.max(0, Number(this.system.manaRegen) || 0);
-    const hpRegenRate = Math.max(0, Number(this.system.regenRate) || 0);
-    if (manaRegenRate <= 0 && hpRegenRate <= 0) {
-      ui.notifications.info(game.i18n.localize("EQRPG.NoRestRecovery"));
-      return;
-    }
+  // Apply a completed rest period declared by the user; world time is not advanced.
+  async restShort() {return this._applyCompletedRest(1);}
+  async restLong() {return this._applyCompletedRest(8);}
 
-    const currentMana = Number(this.system.resources.mana.value) || 0;
-    const maxMana = Number(this.system.resources.mana.max) || 0;
-    const manaRestored = manaRegenRate > 0 ? Math.min(maxMana - currentMana, manaRegenRate * 10) : 0;
-
-    const currentHP = Number(this.system.resources.hp.value) || 0;
-    const maxHP = Number(this.system.resources.hp.max) || 0;
-    const hpRestored = hpRegenRate > 0 ? Math.min(maxHP - currentHP, hpRegenRate) : 0;
-
-    if (manaRestored <= 0 && hpRestored <= 0) {
-      ui.notifications.info(game.i18n.localize("EQRPG.ResourcesAlreadyFull"));
-      return;
-    }
-
-    const update = {};
-    if (manaRestored > 0) update["system.resources.mana.value"] = currentMana + manaRestored;
-    if (hpRestored > 0) update["system.resources.hp.value"] = currentHP + hpRestored;
-    await this.update(update);
-
-    const parts = [];
-    if (manaRestored > 0) parts.push(`+${manaRestored} MP`);
-    if (hpRestored > 0) parts.push(`+${hpRestored} HP`);
-    const details = [];
-    if (manaRestored > 0) details.push(`${currentMana + manaRestored} / ${maxMana} MP`);
-    if (hpRestored > 0) details.push(`${currentHP + hpRestored} / ${maxHP} HP`);
-
-    const content = `<div class="eq-chat-card eq-rest-card">`
-      + this._buildActorCardHeader(`Short Rest — Meditation`)
-      + `<div class="eq-card-body">`
-      + `<span class="eq-rest-val">${parts.join(" & ")}</span>`
-      + ` <span class="eq-rest-detail">${details.join(" | ")}</span>`
-      + `</div></div>`;
-
-    await ChatMessage.create({
-      speaker:  ChatMessage.getSpeaker({ actor: this }),
-      content,
-      rollMode: game.settings.get("core", "rollMode"),
-    });
-  }
-
-  /**
-   * Long rest — full night of rest.
-   * Restores HP and mana to max, clears all spell cooldowns.
-   */
-  async restLong() {
-    const hpMax   = this.system.resources.hp.max;
-    const manaMax = this.system.resources.mana.max;
-    const slots   = this._getSlotArray().map(s => ({ itemId: s.itemId, cooldownRemaining: 0 }));
-
-    await this.update({
-      "system.resources.hp.value":   hpMax,
-      "system.resources.mana.value": manaMax,
-      "system.spellSlots":           slots,
-    });
-
-    const content = `<div class="eq-chat-card eq-rest-card">`
-      + this._buildActorCardHeader(`Full Rest`)
-      + `<div class="eq-card-body">`
-      + `<span class="eq-rest-val">${hpMax} HP &amp; ${manaMax} MP</span>`
-      + ` <span class="eq-rest-detail">Fully restored. All cooldowns cleared.</span>`
-      + `</div></div>`;
-
-    await ChatMessage.create({
-      speaker:  ChatMessage.getSpeaker({ actor: this }),
-      content,
-      rollMode: game.settings.get("core", "rollMode"),
-    });
+  async _applyCompletedRest(hours) {
+    if(!this.isOwner || this.type!=='character') throw new Error('Apply rest to a character you own.');
+    if(![1,8].includes(hours)) throw new Error('Unsupported rest period.');
+    if(this._restPending) throw new Error('Rest is already being applied.');
+    if(this.system.resources.hp.value<=-10) throw new Error('Rest cannot restore a dead character.');
+    if(game.combat?.started && [...(game.combat.combatants??[])].some(c=>c.actor?.uuid===this.uuid)) throw new Error('This character is in combat. Apply rest after the rest period is complete.');
+    this._restPending=true;
+    try {
+      const slots=this._getSlotArray();
+      const hp=this.system.resources.hp,mana=this.system.resources.mana;
+      const hpRate=Math.max(0,Number(this.system.regenRate)||0);
+      const manaRate=Math.max(0,Number(this.system.manaRegen)||0);
+      if(![hp.value,hp.max,mana.value,mana.max,hpRate,manaRate].every(Number.isFinite)) throw new Error('Invalid rest recovery data.');
+      const hpGain=Math.max(0,Math.min(hp.max-hp.value,Math.floor(hpRate*hours)));
+      const manaGain=Math.max(0,Math.min(mana.max-mana.value,Math.floor(manaRate*hours)));
+      const nextSlots=slots.map(slot=>({...slot,cooldownRemaining:Math.max(0,slot.cooldownRemaining-hours*600)}));
+      const receipt={id:foundry.utils.randomID(),hours,hpBefore:hp.value,manaBefore:mana.value,hpAfter:hp.value+hpGain,manaAfter:mana.value+manaGain};
+      await this.update({'system.resources.hp.value':receipt.hpAfter,'system.resources.mana.value':receipt.manaAfter,'system.spellSlots':nextSlots,'flags.eqrpg.lastRest':receipt});
+      if(this.flags?.eqrpg?.lastRest?.id!==receipt.id || this.system.resources.hp.value!==receipt.hpAfter || this.system.resources.mana.value!==receipt.manaAfter || JSON.stringify(this._getSlotArray())!==JSON.stringify(nextSlots)) throw new Error('Rest update was not confirmed. Review resources before applying rest again.');
+      try {await ChatMessage.create({
+        speaker:ChatMessage.getSpeaker({actor:this}),
+        content:`<div class="eq-chat-card eq-rest-card">${this._buildActorCardHeader(`Completed ${hours}-hour rest`)}<div class="eq-card-body">+${manaGain} MP; +${hpGain} HP from fast recovery. Natural healing is tracked separately by days. World time was not advanced.</div></div>`,
+        rollMode:game.settings.get('core','rollMode')
+      });} catch(error) {ui.notifications.warn('Rest was applied, but its chat announcement failed. Do not repeat the same rest.');}
+      return {hpGain,manaGain,hours};
+    } finally {this._restPending=false;}
   }
 }

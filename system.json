@@ -7,10 +7,10 @@
       "name": "erikw"
     }
   ],
-  "version": "0.1.10",
+  "version": "0.1.12",
   "url": "https://github.com/Amundi13/eqrpg-foundry-system",
   "manifest": "https://github.com/Amundi13/eqrpg-foundry-system/releases/latest/download/system.json",
-  "download": "https://github.com/Amundi13/eqrpg-foundry-system/releases/download/v0.1.10/eqrpg-foundry-system-v0.1.10.zip",
+  "download": "https://github.com/Amundi13/eqrpg-foundry-system/releases/download/v0.1.12/eqrpg-foundry-system-v0.1.12.zip",
   "compatibility": {
     "minimum": "13",
     "verified": "14.365",
@@ -45,101 +45,148 @@
       "label": "EQ Spells",
       "path": "packs/eqrpg-spells",
       "type": "Item",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "eqrpg-skills",
       "label": "EQ Skills",
       "path": "packs/eqrpg-skills",
       "type": "Item",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "eqrpg-weapons",
       "label": "EQ Weapons",
       "path": "packs/eqrpg-weapons",
       "type": "Item",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "eqrpg-armor",
       "label": "EQ Armor",
       "path": "packs/eqrpg-armor",
       "type": "Item",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "eqrpg-equipment",
       "label": "EQ Equipment",
       "path": "packs/eqrpg-equipment",
       "type": "Item",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "eqrpg-consumables",
       "label": "EQ Consumables",
       "path": "packs/eqrpg-consumables",
       "type": "Item",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "eqrpg-feats",
       "label": "EQ Feats",
       "path": "packs/eqrpg-feats",
       "type": "Item",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "eqrpg-phb",
       "label": "EQ Player's Handbook",
       "path": "packs/eqrpg-phb",
       "type": "JournalEntry",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "eqrpg-monsters",
       "label": "EQ Monsters of Norrath",
       "path": "packs/eqrpg-monsters",
       "type": "Actor",
-      "ownership": { "PLAYER": "OBSERVER", "ASSISTANT": "OWNER" }
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "documentTypes": {
     "Actor": {
       "character": {
-        "htmlFields": ["biography"]
+        "htmlFields": [
+          "biography"
+        ]
       },
       "npc": {
-        "htmlFields": ["biography"]
+        "htmlFields": [
+          "biography"
+        ]
       },
       "pet": {
-        "htmlFields": ["biography"]
+        "htmlFields": [
+          "biography"
+        ]
       }
     },
     "Item": {
       "weapon": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "armor": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "spell": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "skill": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "consumable": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "equipment": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "faction": {
         "htmlFields": []
       },
       "feat": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       }
     }
   }

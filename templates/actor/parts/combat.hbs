@@ -215,7 +215,7 @@
 
     {{!-- Class Features --}}
     {{#if classFeatures}}
-    {{#if (or classFeatures.sneakAttackDice classFeatures.unarmedDamageDie classFeatures.layOnHandsPool classFeatures.harmTouchDamage classFeatures.leechTouch additionalClassFeatures.length)}}
+    {{#if (or classFeatures.sneakAttackDice classFeatures.unarmedDamageDie classFeatures.layOnHandsPool classFeatures.improvedLayOnHands classFeatures.harmTouchDamage classFeatures.leechTouch additionalClassFeatures.length)}}
     <div class="combat-block features-block">
       <h3>{{localize "EQRPG.ClassFeatures"}}</h3>
 
@@ -236,10 +236,10 @@
       </div>
       {{/if}}
 
-      {{#if classFeatures.layOnHandsPool}}
+      {{#if (or classFeatures.layOnHandsPool classFeatures.improvedLayOnHands)}}
       <div class="combat-row">
         <label>{{localize "EQRPG.LayOnHands"}}</label>
-        <span class="combat-value">{{classFeatures.layOnHandsPool}} HP</span>
+        <span class="combat-value">{{#if classFeatures.improvedLayOnHands}}Complete healing{{else}}{{classFeatures.layOnHandsPool}} HP{{/if}}</span>
         <button type="button" class="roll-btn lay-on-hands-btn"
                 data-action="layOnHands"
                 title="{{localize 'EQRPG.UseLayOnHands'}}">✋</button>

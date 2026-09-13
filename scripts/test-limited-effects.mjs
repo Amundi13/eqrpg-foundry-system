@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+import {isEffectActive} from '../module/helpers/active-effects.mjs';
+globalThis.Actor=class{};
+globalThis.foundry={utils:{mergeObject:(a,b)=>({...a,...b})}};
+globalThis.game={time:{worldTime:0},user:{targets:new Set()},i18n:{localize:x=>x,format:x=>x},settings:{get:()=>''}};
+globalThis.ui={notifications:{warn(){}}};
+const messages=[];globalThis.ChatMessage={getSpeaker:()=>({}),create:async data=>messages.push(data)};
+const {EQActor}=await import('../module/documents/actor.mjs');
+assert.equal(isEffectActive({disabled:false,duration:{expired:true}}),false);
+assert.equal(isEffectActive({disabled:false,isSuppressed:true}),false);
+assert.equal(isEffectActive({disabled:false}),true);
+const toggles=[];
+const statusActor=Object.assign(Object.create(EQActor.prototype),{effects:[{statuses:new Set(['invisible']),disabled:false}],statuses:new Set(['invisible']),async toggleStatusEffect(id,data){toggles.push({id,...data});},getActiveTokens(){return [{actor:this}];}});
+await statusActor._setTokenStatuses(['invisible'],false);assert.equal(toggles.length,0);
+statusActor.effects[0].disabled=true;await statusActor._setTokenStatuses(['invisible'],false);assert.equal(toggles[0].active,false);
+const cancelledEffect={id:'buff',disabled:false,flags:{eqrpg:{spellEffect:true,tempHPGrant:4,tempHPRemaining:2}},async update(){}};
+const cancelledActor=Object.assign(Object.create(EQActor.prototype),{effects:[cancelledEffect],async update(){assert.fail('Cancelled effect update must not change HP');}});
+await assert.rejects(cancelledActor.setSpellEffectEnabled('buff',false),/not confirmed/);
+let queue=[],formulas=[];
+globalThis.Roll=class {constructor(formula){formulas.push(formula);}async evaluate(){const next=queue.shift();assert.ok(next,'Unexpected roll');this.total=next.total;this.dice=[{total:next.natural}];return this;}};
+function knight(){return Object.assign(Object.create(EQActor.prototype),{flags:{eqrpg:{}},system:{classFeatures:{harmTouchDamage:15,harmTouchDC:14},combat:{bab:5,attackBonus:1},abilities:{str:{mod:2}}},getRollData:()=>({}),breakInvisibility:async()=>{},_buildActorCardHeader:()=>'',async update(patch){this.flags.eqrpg.harmTouchDay=patch['flags.eqrpg.harmTouchDay'];}});}
+let damage=0;const target={name:'Target',type:'npc',system:{combat:{ac:{touch:12},saves:{fortitude:{value:6},will:{value:99}}}},applyDamage:async value=>damage+=value};
+const miss=knight();queue=[{total:30,natural:1}];await miss.rollHarmTouch(target);assert.equal(damage,0);assert.equal(miss.flags.eqrpg.harmTouchDay,undefined);
+queue=[{total:20,natural:12},{total:16,natural:10}];await miss.rollHarmTouch(target);assert.equal(damage,7);assert.equal(formulas.at(-1),'1d20 + 6');await assert.rejects(miss.rollHarmTouch(target),/already been used/);
+const noSave=knight();queue=[{total:1,natural:20},{total:7,natural:1}];await noSave.rollHarmTouch(target);assert.equal(damage,22);
+const cancelled=knight();cancelled.update=async()=>{};queue=[{total:20,natural:12}];await assert.rejects(cancelled.rollHarmTouch(target),/not confirmed/);assert.equal(damage,22);
+const unknown=knight();await assert.rejects(unknown.rollHarmTouch({...target,system:{combat:{ac:{touch:null}}}}),/touch AC/);
+const protectedTarget=Object.assign(Object.create(EQActor.prototype),{name:'Runed Target',effects:[{disabled:false,flags:{eqrpg:{effectKey:'rune-i'}}}],applyDamage:async()=>assert.fail('Rune must prevent lifetap damage')});
+const lifetapper=Object.assign(Object.create(EQActor.prototype),{system:{classFeatures:{lifetapDice:2}},getRollData:()=>({}),async applyHealing(){assert.fail('Rune must prevent lifetap healing');}});
+const queuedBefore=queue.length;assert.equal(await lifetapper.rollLifetap(protectedTarget),undefined);assert.equal(queue.length,queuedBefore);
+const healer=Object.assign(Object.create(EQActor.prototype),{flags:{eqrpg:{}},system:{classFeatures:{layOnHandsPool:10}},async update(){},async applyHealing(){assert.fail('Unconfirmed daily spend must not heal');}});
+await assert.rejects(healer.layOnHands(),/not confirmed/);
+console.log('Limited ability and effect tests passed: Fortitude/touch attacks, misses preserve daily use, confirmed spending, expiry and shared statuses.');
+
+let fullHealing=0;
+const improved=Object.assign(Object.create(EQActor.prototype),{name:'Paladin',flags:{eqrpg:{}},system:{classFeatures:{layOnHandsPool:0,improvedLayOnHands:true},resources:{hp:{value:-5,max:100}}},async update(patch){this.flags.eqrpg.layOnHandsDay=patch['flags.eqrpg.layOnHandsDay'];},async applyHealing(value){fullHealing+=value;},_buildActorCardHeader:()=>''});
+await improved.layOnHands();assert.equal(fullHealing,105);

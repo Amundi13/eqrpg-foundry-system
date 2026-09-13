@@ -24,8 +24,9 @@ globalThis.Hooks = {
   },
 };
 globalThis.Handlebars = { registerHelper() {} };
-globalThis.CONFIG = { Actor: {}, Item: {} };
+globalThis.CONFIG = { Actor: {}, Item: {}, ActiveEffect: {expiryAction:'delete'} };
 globalThis.game = {
+  release: {generation:14},
   eqrpg: {},
   i18n: { localize: (value) => value, format: (value) => value },
   user: null,
@@ -59,6 +60,7 @@ await import("../module/eqrpg.mjs");
 for (const callback of hooks.get("init") ?? []) await callback();
 
 const failures = [];
+if (CONFIG.ActiveEffect.expiryAction !== 'update') failures.push('Expired effects must be retained for pool cleanup');
 if (CONFIG.Actor.documentClass?.name !== "EQActor") failures.push("EQActor document class was not registered");
 if (CONFIG.Item.documentClass?.name !== "EQItem") failures.push("EQItem document class was not registered");
 if (Object.keys(CONFIG.Actor.dataModels ?? {}).sort().join(",") !== "character,npc,pet") {
@@ -85,4 +87,3 @@ if (failures.length) {
 }
 
 console.log("V14 init smoke test passed (documents, data models, and ApplicationV2 sheets registered). ");
-

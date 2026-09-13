@@ -1,3 +1,4 @@
+import { isEffectActive } from "../helpers/active-effects.mjs";
 const {
   NumberField, StringField, SchemaField, HTMLField,
   ArrayField,
@@ -30,7 +31,7 @@ function collectEffectSummary(actor) {
   };
 
   for (const effect of effects) {
-    if (effect.disabled) continue;
+    if (!isEffectActive(effect)) continue;
     const flags = effect.flags?.eqrpg ?? {};
     const effectBonuses = flags.bonuses ?? {};
     const hasteRank = Number(flags.hasteRank ?? 0) || 0;
@@ -206,6 +207,27 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         speedModified: new NumberField({ required: true, integer: true, min: 0, initial: 30 }),
       }),
 
+      // Legacy levels retain their existing average basis. Only future rolls
+      // enter this ledger; no historical rolls are invented during upgrade.
+      hpAdvancement: new ArrayField(new SchemaField({
+        level: new NumberField({required:true, integer:true, min:2, max:30}),
+        die: new NumberField({required:true, integer:true, min:1}),
+        roll: new NumberField({required:true, integer:true, min:1}),
+      }), {initial: []}),
+      // An opening balance requires explicit GM review; legacy history is unknown.
+      training: new SchemaField({
+        openingLevel: new NumberField({integer:true,min:0,max:30,initial:0}),
+        openingPoints: new NumberField({integer:true,min:0,initial:0}),
+        note: new StringField({initial:""}),
+        entries: new ArrayField(new SchemaField({
+          id: new StringField({required:true}),
+          level: new NumberField({integer:true,min:1,max:30,required:true}),
+          kind: new StringField({required:true}),
+          benefit: new StringField({required:true}),
+          mentor: new StringField({required:true}),
+          cost: new NumberField({integer:true,min:1,required:true}),
+        }),{initial:[]}),
+      }),
       // --- Resources ---
       resources: new SchemaField({
         hp: new SchemaField({
@@ -415,6 +437,11 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       const hitDie = classConfig.hitDie;
       const avgPerLevel = Math.floor(hitDie / 2) + 1;
       this.resources.hp.max = hitDie + (avgPerLevel * (level - 1)) + (this._getAbilityMod("con") * level);
+      for (const entry of this.hpAdvancement ?? []) {
+        if (entry.level > level) continue;
+        const con = this._getAbilityMod("con");
+        this.resources.hp.max += Math.max(1, entry.roll + con) - (avgPerLevel + con);
+      }
       if (this.resources.hp.max < 1) this.resources.hp.max = 1;
     }
     this.resources.hp.buff = effectSummary.bonuses.hpBonus;
@@ -423,22 +450,24 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     if (classConfig?.spellcastingAbility) {
       const castAbility = classConfig.spellcastingAbility;
       const castMod = this._getAbilityMod(castAbility);
-      const manaMultiplier = HYBRID_MANA_CLASSES.has(classKey) ? 2 : 3;
+      // PHB printed 170 / PDF 173: all pool types use twice the ability bonus.
+      const manaMultiplier = 2;
+      const casterLevel = classKey !== "bard" && HYBRID_MANA_CLASSES.has(classKey) ? Math.max(0, level - 4) : level;
       this.resources.mana.max = (castMod > 0 && level > 0)
-        ? (castMod * manaMultiplier) * level
+        ? (castMod * manaMultiplier) * casterLevel
         : 0;
 
-      const baseRegen = classKey === "bard" ? 0 : Math.max(1, Math.floor(level / 5));
       let meditateBonus = 0;
-      if (items && classKey !== "bard") {
+      if (items) {
         for (const item of items) {
           if (item.type === "skill" && item.name.toLowerCase().includes("meditation")) {
-            meditateBonus = Math.floor((item.system.ranks ?? 0) / 5);
+            meditateBonus = Math.max(0, Number(item.system.ranks ?? 0) || 0);
             break;
           }
         }
       }
-      this.manaRegen = baseRegen + Math.max(0, castMod) + meditateBonus;
+      // PHB printed 171 / PDF 174: ability bonus + Meditation ranks per hour.
+      this.manaRegen = this.resources.mana.max > 0 ? Math.max(0, castMod + meditateBonus) : 0;
     } else {
       this.resources.mana.max = 0;
       this.manaRegen = 0;
@@ -499,7 +528,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this.classFeatures = {};
 
     if (classKey === "rogue") {
-      this.classFeatures.sneakAttackDice = Math.ceil(level / 2);
+      this.classFeatures.sneakAttackDice = Math.floor(level / 3);
     }
 
     if (classKey === "monk") {
@@ -510,6 +539,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     if (classKey === "paladin") {
       const layMod = this._getAbilityMod("wis") + this._getAbilityMod("cha");
       this.classFeatures.layOnHandsPool = Math.max(0, layMod * level);
+      this.classFeatures.improvedLayOnHands = level >= 20;
     }
 
     if (classKey === "shadowknight") {
@@ -561,7 +591,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
     this.raceAbilities = config.races?.[raceKey]?.abilities ?? [];
     this.hasRegeneration = this.raceAbilities.includes("regeneration");
-    this.regenRate = this.hasRegeneration ? 1 : 0;
+    // PHB printed 32 / PDF 35: fast recovery heals character level per hour.
+    this.regenRate = this.hasRegeneration ? level : 0;
     this.hasStunImmunity = this.raceAbilities.includes("stun_immunity");
     this.hasColdResistance = this.raceAbilities.includes("coldResistance");
     this.coldResistBonus = this.hasColdResistance ? 4 : 0;

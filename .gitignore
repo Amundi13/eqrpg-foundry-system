@@ -16,3 +16,6 @@ dist/
 # Local PHB extraction / audit scratch files
 .tmp_*
 tmp_*
+
+# Local development dependencies
+node_modules/

@@ -1,0 +1,2999 @@
+{
+  "eqrpg.eqrpg-spells": [
+    {
+      "name": "Air Elemental",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 6,
+        "manaCost": 50,
+        "school": "Conjuration",
+        "castingTime": "1 action",
+        "range": "30 ft",
+        "duration": "10 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Summons an air elemental companion to serve the caster.",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "description": "<p>The magician shapes invisible currents of wind into a loyal air elemental servant.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "OrFulgPuAxzKwk29",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Ancient Cry of Chaos",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 15,
+        "manaCost": 175,
+        "school": "Evocation",
+        "castingTime": "1 action",
+        "range": "100 ft",
+        "duration": "Instantaneous",
+        "damageFormula": "10d8",
+        "healFormula": "",
+        "savingThrow": "reflex",
+        "effect": "A massive eruption of chaotic nature energy deals 10d8 damage in a 40 ft radius; Reflex save for half.",
+        "recastTime": 3,
+        "classes": [
+          "druid"
+        ],
+        "description": "<p>The druid channels the primal chaos from which all nature sprang, releasing a cataclysmic explosion of raw elemental fury.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "half",
+        "classLevels": [
+          "druid:15"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "NlbCyOzNFetbvboL",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Angstlich's Appalling Screech",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 0,
+        "school": "Bard Song [Fear, Mind-Affecting]",
+        "castingTime": "1 action (song)",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "ld4 rounds (2d4 rounds with",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "AE mezmerizes up to 4 creatures in 20 ft radius; Will save negates each; broken by damage.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>Song Line: Angstlich' s appalling screech Instrument: Wind (Dex) wind instrument) Angstlich' s appalling screech produces waves of fear that causes affected beings to flee in terror if they fail a Will save. Affected creatures have a 50% cl1ance of dropping any carried items as they flee frotn the caster at their maxi1nu1n speed. If cor- nered, the creature cowers, but it defends itself if attacked, suffering a -2 penalty to all attack and damage rolls. The effects of the song persist for ld4 rounds, and they last twice that (2d4 rounds) if performed on a wind instrument.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "bard:3"
+        ],
+        "spellLine": "Angstlich's Appalling Screech",
+        "saveDC": ""
+      },
+      "_id": "cBvjFL1bdOrJP9V7",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Arch-Shielding",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 11,
+        "manaCost": 0,
+        "school": "",
+        "castingTime": "1 action",
+        "range": "",
+        "duration": "",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "+ 7 AC, + 36 hit points, magic resistance ( 8), and",
+        "recastTime": 0,
+        "classes": [
+          "magician",
+          "wizard"
+        ],
+        "classLevels": [
+          "magician:11",
+          "wizard:11"
+        ],
+        "spellLine": "Arch-Shielding",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>+ 7 AC, + 36 hit points, magic resistance ( 8), and</p>"
+      },
+      "_id": "rpufMXGENPjS1dR6",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Banish Summoned",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 12,
+        "manaCost": 37,
+        "school": "Evocation [Magic]",
+        "castingTime": "1 action",
+        "range": "Medium ( 100 ft. + 10 ft./level)",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "As ward summoned, except this spell deals (2d10+ 3 )xlO points of magic damage.",
+        "recastTime": 1,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:12"
+        ],
+        "spellLine": "Ward summoned",
+        "saveEffect": "half",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>As ward summoned, except this spell deals (2d10+ 3 )xlO points of magic damage.</p>"
+      },
+      "_id": "tYgEBXcxUWjZYI4q",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Barrier of Combustion",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 10,
+        "manaCost": 17,
+        "school": "Abjuration [Fire]",
+        "castingTime": "1 action",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "4 n1inutes (D)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "As shield of fire, except this spell gra.nts a buff bonus of + 2 on saves against attacks with the [fire] descriptor, as well as fire resistance (8) and damage shield (5).",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:10"
+        ],
+        "spellLine": "Shield of fire",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>As shield of fire, except this spell gra.nts a buff bonus of + 2 on saves against attacks with the [fire] descriptor, as well as fire resistance (8) and damage shield (5).</p>"
+      },
+      "_id": "jp35v29NaFq6oSCp",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Bite of the Asp",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 2,
+        "manaCost": 14,
+        "school": "Conjuration",
+        "castingTime": "1 action",
+        "range": "Pet",
+        "duration": "Next attack",
+        "damageFormula": "1d6",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "Warder pet's next attack injects poison dealing 1d6/round for 3 rounds; Fort save negates.",
+        "recastTime": 0,
+        "classes": [
+          "beastlord"
+        ],
+        "description": "<p>The beastlord imbues their warder's claws or fangs with magically concentrated venom.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "beastlord:2"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "i38hMSgwKtLplzdW",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Bless",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 1,
+        "manaCost": 8,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "30 ft",
+        "duration": "10 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "+1 morale bonus to attack rolls and saves vs. fear for all allies in range.",
+        "recastTime": 0,
+        "classes": [
+          "cleric",
+          "paladin"
+        ],
+        "description": "<p>Divine inspiration steels the nerves and sharpens the aim of all nearby allies.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "cleric:1",
+          "paladin:1"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "BDEEXkitcy2vcweX",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Bristlebane's Bundle",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 12,
+        "manaCost": 8,
+        "school": "Conjuration (Creation)",
+        "castingTime": "1 action",
+        "range": "Personal",
+        "duration": "24 hours",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Effect: Sumrnoned ite1ns This spell creates amusing items suitable for throwing a party: 20 bottles of ale, 20 small cakes, one firecracker, and one spin- ning bottle. These items appear at the magician's feet. The firecracker is a one-use item. It can be thrown (range incre1nent 20 feet), but has no harmful effect; the noise produced is sufficient to wake a sleeping creature or break a mes1nerization effect, however. The spinning bottle is a magic item that upon command causes the user to spin rapidly about for 1 round, becoming quite dizzy. The affected creature cannot target any creature with an attack or a spell while spinning, and must succeed at a Channeling check (DC 15 + spell level) to cast or maintain a spell. This ability of the spinning bottle can be used only once.",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:12"
+        ],
+        "spellLine": "Summon drink",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>Effect: Sumrnoned ite1ns This spell creates amusing items suitable for throwing a party: 20 bottles of ale, 20 small cakes, one firecracker, and one spin- ning bottle. These items appear at the magician's feet. The firecracker is a one-use item. It can be thrown (range incre1nent 20 feet), but has no harmful effect; the noise produced is sufficient to wake a sleeping creature or break a mes1nerization effect, however. The spinning bottle is a magic item that upon command causes the user to spin rapidly about for 1 round, becoming quite dizzy. The affected creature cannot target any creature with an attack or a spell while spinning, and must succeed at a Channeling check (DC 15 + spell level) to cast or maintain a spell. This ability of the spinning bottle can be used only once.</p>"
+      },
+      "_id": "qLkpTzORfbfDikp9",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Brusco's Boastful Bellow",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 1,
+        "manaCost": 0,
+        "school": "Bard Song [Sonic]",
+        "castingTime": "1 action (song)",
+        "range": "C lose (25 ft. + 5 ft./2 levels)",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "Stuns target; Fort save negates.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>Song Line: Brusco's boastful bellow Instrument: None Brusco' s boastful bellow deals 1 d6 points of sonic damage + 1 point per 3 bard levels.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "half",
+        "classLevels": [
+          "bard:1"
+        ],
+        "spellLine": "Brusco's BoastFul Bellow",
+        "saveDC": ""
+      },
+      "_id": "OtdPGKyEG3N6b65B",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Burnout III",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 12,
+        "manaCost": 25,
+        "school": "Alteratio11",
+        "castingTime": "1 full round",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "1 minute/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "+8 STR, +8 DEX, and +4 AC to elemental pet for the duration.",
+        "recastTime": 2,
+        "classes": [
+          "magician"
+        ],
+        "description": "<p>As burnout, except the pet gains + 7 Strength, + 3 AC, and haste (7), wh ich grants a + 3 haste bonus to AC and alter- nating 1 or 2 extra attack actions every second round.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "magician:12"
+        ],
+        "spellLine": "Burnout",
+        "saveDC": ""
+      },
+      "_id": "HbyziUUYTvQskdVS",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Burnout II",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 8,
+        "manaCost": 13,
+        "school": "Alteration",
+        "castingTime": "1 full round",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "1 minute/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Grants elemental pet +6 STR and +6 DEX for the duration.",
+        "recastTime": 2,
+        "classes": [
+          "magician"
+        ],
+        "description": "<p>As burnout, except the pet gains +5 Stre11gth, + 2 AC, and haste ( 4), which grants a + 2 haste bonus to AC and 1 extra attack action every second round.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "magician:8"
+        ],
+        "spellLine": "Burnout",
+        "saveDC": ""
+      },
+      "_id": "kFoUsmGzR0Lq5rSh",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Burnout IV",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 14,
+        "manaCost": 25,
+        "school": "A lteration",
+        "castingTime": "1 full round",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "1 minute/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "As burnout, except the pet gains +9 Strength, +4 AC, and haste (8), which grants a + 3 l1aste bonus to AC, alternat- ing 1 or 2 extra attack actions every second round, and -1 weapon delay.",
+        "recastTime": 2,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:14"
+        ],
+        "spellLine": "Burnout",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>As burnout, except the pet gains +9 Strength, +4 AC, and haste (8), which grants a + 3 l1aste bonus to AC, alternat- ing 1 or 2 extra attack actions every second round, and -1 weapon delay.</p>"
+      },
+      "_id": "CCt1Oy1VbNxYJH6K",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Call of the Hero",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 13,
+        "manaCost": 83,
+        "school": "Conjuration (Sum1noning)",
+        "castingTime": "2 full rounds",
+        "range": "Up to 4 miles",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Teleports a willing target in line of sight to the caster's current location.",
+        "recastTime": 3,
+        "classes": [
+          "magician"
+        ],
+        "description": "<p>Co11sidered by magicians to be one of their defining powers, this mighty spell transports one willing being with who1n the caster is familiar to the caster's loca- tioi1. The target creature appears instantly beside tl1e caster. The caster need not know the target's location within the 4- mile range of this spell. This inakes the spell an excellent option for rescuing those near death as well as for exploring danger- ous or unknown areas, although com1nunication over distances can be an \u2022 issue. Material Components: A pearl.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "magician:13"
+        ],
+        "spellLine": "Call of the hero",
+        "saveDC": ""
+      },
+      "_id": "J6Z0TVYlCSPmcSmB",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Cantata of Soothing",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 8,
+        "manaCost": 0,
+        "school": "Song",
+        "castingTime": "1 action (song)",
+        "range": "20 ft AE",
+        "duration": "Concentration",
+        "damageFormula": "",
+        "healFormula": "2d6",
+        "savingThrow": "",
+        "effect": "All allies in range heal 2d6 HP per round while the song is maintained.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>A soothing, ancient cantata that mends the wounds of all allies who can hear the bard's song.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "bard:8"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "7L51digiuHAqMMA4",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Cassindra's Chant of Clarity",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 0,
+        "school": "Bard Song",
+        "castingTime": "1 action (song)",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "Performance",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Allies within range regenerate 2 mana per round while the song is maintained.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>Song Line: Cassindra' s chant of clarity Instrument: None While the bard performs Cassindra' s chant of clarity, all targeted spellcasters within range spend 10% less mana to cast spells. This mana savings adds to any other mana savings the caster might enjoy, such as from greater specialization or other similar abili- ties. For exa1nple, a caster using a spell from her school of greater specialization (10% less mana) who is also under the effects of Cassindra' s chant of clarity spends 20% less mana casting the spell. Cassi nt&gt;ra's Chorus OF Clarity Bard Song</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "bard:3"
+        ],
+        "spellLine": "Cassint>ra's Chant OF Clarity",
+        "saveDC": ""
+      },
+      "_id": "veKseZjsJyN9Z1U8",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Chant of Frost",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 1,
+        "manaCost": 0,
+        "school": "Song",
+        "castingTime": "1 action (song)",
+        "range": "30 ft",
+        "duration": "Concentration",
+        "damageFormula": "1d4",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "All enemies in range take 1d4 cold damage per round while the song is maintained.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>A lilting, haunting melody draws the cold of the northlands, chilling all foes nearby.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "bard:1"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "zCgXiRS1z6cam2dF",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Column of Fire",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 4,
+        "manaCost": 11,
+        "school": "Evocation [Fire]",
+        "castingTime": "1 action",
+        "range": "Medium ( 100 ft. + 10 ft./level)",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "reflex",
+        "effect": "This spell creates a blast of flame tl1at shoots downward, dealing 4d8 points of fire da1nage to all creatures within the area.",
+        "recastTime": 1,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:4"
+        ],
+        "spellLine": "Column of fire",
+        "saveEffect": "half",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>This spell creates a blast of flame tl1at shoots downward, dealing 4d8 points of fire da1nage to all creatures within the area.</p>"
+      },
+      "_id": "vw7KxQY7e7Ou9CjC",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Conflagration",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 11,
+        "manaCost": 42,
+        "school": "Evocation [Fire]",
+        "castingTime": "1 action",
+        "range": "Mediurn ( 100 ft. + 10 ft./level)",
+        "duration": "Instantaneous",
+        "damageFormula": "7d8",
+        "healFormula": "",
+        "savingThrow": "reflex",
+        "effect": "A massive conflagration erupts in a 20 ft radius dealing 7d8 fire damage; Reflex save for half.",
+        "recastTime": 0,
+        "classes": [
+          "wizard"
+        ],
+        "description": "<p>As shock of fire, except this spell deals (4d6)x10 points of fire damage. Conglaciation OF</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "half",
+        "classLevels": [
+          "wizard:11"
+        ],
+        "spellLine": "Shock of fire",
+        "saveDC": ""
+      },
+      "_id": "1bzRwhxiC460flRN",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Darkening",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 1,
+        "manaCost": 42,
+        "school": "Evocation [Force, Magic]",
+        "castingTime": "1 action",
+        "range": "Medium ( 100 ft. + 10 fc./level)",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "Target suffers -2 to all saving throws and -1 AC; Will save negates.",
+        "recastTime": 1,
+        "classes": [
+          "shadowknight"
+        ],
+        "description": "<p>As strike, except this spe ll deals (2d10+4 )xlO points of 1nagic damage.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "half",
+        "classLevels": [
+          "shadowknight:1"
+        ],
+        "spellLine": "Strike",
+        "saveDC": ""
+      },
+      "_id": "Wf9IMegsdCroXBRb",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Darkness",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 2,
+        "manaCost": 14,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "80 ft",
+        "duration": "1 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Slows target movement to half speed; Will save negates.",
+        "recastTime": 0,
+        "classes": [],
+        "description": "<p>A shroud of unnatural darkness encumbers the target, dragging at their limbs.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "partial",
+        "classLevels": [],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "CXXOvb0jIbZwR7nr",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Dark Pact",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 1,
+        "manaCost": 1,
+        "school": "Alteration [Magic]",
+        "castingTime": "1 action",
+        "range": "Personal",
+        "duration": "See text (D)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "none",
+        "effect": "Converts the caster's hit points into mana.",
+        "recastTime": 2,
+        "classes": [
+          "necromancer",
+          "shadowknight"
+        ],
+        "description": "<p>As dark pact, except this spell allows the transfer to take place at a greater rate. Each round, the caster converts 4 hit points into 2 mana.</p>",
+        "deliveryType": "attack",
+        "attackMode": "ranged",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "necromancer:3",
+          "shadowknight:1"
+        ],
+        "spellLine": "Dark pact",
+        "saveDC": ""
+      },
+      "_id": "Xc1edRIpf6PJthFs",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Death's Door",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 12,
+        "manaCost": 100,
+        "school": "Necromancy",
+        "castingTime": "1 action",
+        "range": "60 ft",
+        "duration": "3 rounds",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "Reduces target to 1 HP and prevents all healing for 3 rounds; Fort save negates.",
+        "recastTime": 0,
+        "classes": [
+          "necromancer"
+        ],
+        "description": "<p>A death curse so powerful it can shatter the strongest warrior's vitality in an instant.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "necromancer:12"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "Z8sWQjHKUaK14nxY",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Demi Lich",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 9,
+        "manaCost": 72,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "Self",
+        "duration": "10 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "+6 INT, +4 AC, +2 to all saves; lose 3 HP per round but gain 5 mana per round.",
+        "recastTime": 0,
+        "classes": [
+          "necromancer"
+        ],
+        "description": "<p>A near-complete transformation into demi-lich form \u2014 the necromancer teeters on the edge of true undeath.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "necromancer:9"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "JlpDIdaH9SuWrSjl",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Detect Magic",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 1,
+        "manaCost": 5,
+        "school": "Divination",
+        "castingTime": "instant",
+        "range": "30 ft",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Reveals magic auras on creatures, items, and areas within range.",
+        "recastTime": 0,
+        "classes": [
+          "magician",
+          "wizard"
+        ],
+        "description": "<p>A quick mental sweep that reveals the presence and school of magical auras nearby.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "mrt4r4ncvIqgsplY",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Dimensional Pocket",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 6,
+        "school": "Conjuration (Summoning)",
+        "castingTime": "1 full round",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "24 hours",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Effect: 1 pocket As spirit pouch, except this spell can be case on ocher creatures and creates the extradimensional container inside a target's pocket equivalent in size to a small bag. Items placed inside a dimen- sional pocket become effective ly weightless. The container disappears after 24 hours, as does everything inside of it at the time. Chapter Ten: Spells",
+        "recastTime": 1,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:3"
+        ],
+        "spellLine": "Spirit pouch",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>Effect: 1 pocket As spirit pouch, except this spell can be case on ocher creatures and creates the extradimensional container inside a target's pocket equivalent in size to a small bag. Items placed inside a dimen- sional pocket become effective ly weightless. The container disappears after 24 hours, as does everything inside of it at the time. Chapter Ten: Spells</p>"
+      },
+      "_id": "ERoVXpwHmc4z5Hqb",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Divine Strike",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 18,
+        "school": "Evocation",
+        "castingTime": "1 action",
+        "range": "40 ft",
+        "duration": "Instantaneous",
+        "damageFormula": "2d6",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Calls down a searing bolt of holy light on the target.",
+        "recastTime": 0,
+        "classes": [
+          "cleric",
+          "paladin"
+        ],
+        "description": "<p>Calls down a searing bolt of holy light upon the unholy.</p>",
+        "deliveryType": "attack",
+        "attackMode": "ranged",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "cleric:3",
+          "paladin:3"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "hI5mfo1KHEv5dwLu",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Drifting Death",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 33,
+        "school": "Conjuration (Summoning) [Magic]",
+        "castingTime": "1 action",
+        "range": "Medium (100 ft. + 10 ft./level)",
+        "duration": "9 rounds",
+        "damageFormula": "3d10",
+        "healFormula": "",
+        "savingThrow": "reflex",
+        "effect": "Deals 3d10 magic damage each round for 9 rounds.",
+        "recastTime": 0,
+        "classes": [
+          "ranger"
+        ],
+        "description": "<p>A cloud of venomous insects and wasting magic follows the target, slowly eating away at body and spirit.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "half",
+        "classLevels": [
+          "ranger:3"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "tRaU6HDB38OSsTer",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Dyzil's Deafening Decoy",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 13,
+        "manaCost": 0,
+        "school": "",
+        "castingTime": "1 action",
+        "range": "",
+        "duration": "",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Summons fearso1ne fire ele1nental pee.",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:13"
+        ],
+        "spellLine": "Dyzil's Deafening Decoy",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>Summons fearso1ne fire ele1nental pee.</p>"
+      },
+      "_id": "ZX3Ag76RzbjYtvSv",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Earth Elemental",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 2,
+        "manaCost": 20,
+        "school": "Conjuration",
+        "castingTime": "1 action",
+        "range": "30 ft",
+        "duration": "10 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Summons an earth elemental companion to serve the caster.",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "description": "<p>The magician calls stone and soil to life, binding an earth elemental as a loyal pet.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "kq2D4bE9CB2VJvJf",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Elementaling: Water",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 13,
+        "school": "Conjuration (Sum1noning)",
+        "castingTime": "1 full round",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "Permanent (D)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Effect: One summoned creature , EvuQuestRole-PlayingGamePlayer'sHanbbook As elementalkin: water, except the caster summons a type 2 water elemental.",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:3"
+        ],
+        "spellLine": "Elementalkin: water",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>Effect: One summoned creature , EvuQuestRole-PlayingGamePlayer'sHanbbook As elementalkin: water, except the caster summons a type 2 water elemental.</p>"
+      },
+      "_id": "OkRzDXqpfOrjFcNZ",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Elnerick's Entombment of Ice",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 10,
+        "manaCost": 38,
+        "school": "Evocation [Cold]",
+        "castingTime": "1 action",
+        "range": "Medium (100 ft. + 10 ft./level)",
+        "duration": "Up to 5 rounds",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "reflex",
+        "effect": "- - Chapter Ten: Spells ~~~ ~======---,~..:::=:.7\"\"\".,...,.....,,.,...,_~===-:=.~ ---' ~.A-.' This spell encases the target creature in a thick layer of ice. If the target fails his Reflex saving throw, he suffers (8dlO)x2 points of cold da1nage immediately and is held fast in his current position. The ice may be damaged normally by attacks (see \"Attacking an Object\" in Chapter 12: Combat), and has a hardness of 1 and 50 hit points. In the target's first rou11d following the casting of this spell, and each round thereafter, he may attempt to use a move action to break free, but this requires a Strength check with a OC equal to the ice's current hit points. If the check fails, the victi1n can take no other action that re- quires movement. In subsequent rounds, the target takes no further damage, and the ice melts away, losing 10 hit points every round u11til it reaches 0, at which point the ice is cotnpletely melted. The magically created ice will not last longer than 5 rounds even in frigid cli- mates, but its melting may be hastened by very high local te1nperatures, at the GM's discretion. Damage of any type will affect the en- tombed target only if the attack does enough damage to destroy the ice - any damage ren1aining fro1n the attack be- yond that which reduced the ice to O hit points is dealt to the creature instead. Otherwise, the attack is considered to have hit the ice (and will lower the en- tombed creature's escape DC appropriately). Other types of targetable spells such as weaken or mana sieve rnay be cast at the entombed target as normal.",
+        "recastTime": 1,
+        "classes": [
+          "wizard"
+        ],
+        "classLevels": [
+          "wizard:10"
+        ],
+        "spellLine": "Elnerick' s entombment of ice",
+        "saveEffect": "negates",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>- - Chapter Ten: Spells ~~~ ~======---,~..:::=:.7\"\"\".,...,.....,,.,...,_~===-:=.~ ---' ~.A-.' This spell encases the target creature in a thick layer of ice. If the target fails his Reflex saving throw, he suffers (8dlO)x2 points of cold da1nage immediately and is held fast in his current position. The ice may be damaged normally by attacks (see \"Attacking an Object\" in Chapter 12: Combat), and has a hardness of 1 and 50 hit points. In the target's first rou11d following the casting of this spell, and each round thereafter, he may attempt to use a move action to break free, but this requires a Strength check with a OC equal to the ice's current hit points. If the check fails, the victi1n can take no other action that re- quires movement. In subsequent rounds, the target takes no further damage, and the ice melts away, losing 10 hit points every round u11til it reaches 0, at which point the ice is cotnpletely melted. The magically created ice will not last longer than 5 rounds even in frigid cli- mates, but its melting may be hastened by very high local te1nperatures, at the GM's discretion. Damage of any type will affect the en- tombed target only if the attack does enough damage to destroy the ice - any damage ren1aining fro1n the attack be- yond that which reduced the ice to O hit points is dealt to the creature instead. Otherwise, the attack is considered to have hit the ice (and will lower the en- tombed creature's escape DC appropriately). Other types of targetable spells such as weaken or mana sieve rnay be cast at the entombed target as normal.</p>"
+      },
+      "_id": "RrLWMGBiAX0gM54I",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Ennui",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 7,
+        "manaCost": 48,
+        "school": "Enchantment",
+        "castingTime": "1 action",
+        "range": "60 ft",
+        "duration": "1d4+1 rounds",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Stuns target and slows their recovery; Will save halves duration.",
+        "recastTime": 0,
+        "classes": [
+          "enchanter"
+        ],
+        "description": "<p>A crushing wave of magical ennui robs the target of their will to act, leaving them stunned and listless.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "varies",
+        "classLevels": [
+          "enchanter:7"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "tVoG9VhdVlD34zy0",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Evacuate Faydark",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 9,
+        "manaCost": 50,
+        "school": "A lteration [Teleportation]",
+        "castingTime": "1 full round",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "than 20 ft. apart The caster transports up to six targets of his choice within range to the spires of Greater Faydark. Because this spell is cast so much more quickly than other group teleports, there is a chance that someone (including the caster himself) could be left behind. Each character evacuating has a 5% chance of being left behind. Each target should roll ld20, and on a result of 1, that creature has been left behind.",
+        "recastTime": 1,
+        "classes": [
+          "wizard"
+        ],
+        "classLevels": [
+          "wizard:9"
+        ],
+        "spellLine": "Gate",
+        "saveEffect": "negates",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>than 20 ft. apart The caster transports up to six targets of his choice within range to the spires of Greater Faydark. Because this spell is cast so much more quickly than other group teleports, there is a chance that someone (including the caster himself) could be left behind. Each character evacuating has a 5% chance of being left behind. Each target should roll ld20, and on a result of 1, that creature has been left behind.</p>"
+      },
+      "_id": "Yj7iv8d7rOqMpoGb",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Everfount",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 7,
+        "manaCost": 5,
+        "school": "Conjuration (Creation)",
+        "castingTime": "1 action",
+        "range": "Personal",
+        "duration": "24 hours",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Effect: 7 gallons of water As summon drink, except this spell creates 7 gallons of water.",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:7"
+        ],
+        "spellLine": "Summon drink",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>Effect: 7 gallons of water As summon drink, except this spell creates 7 gallons of water.</p>"
+      },
+      "_id": "64wQyQXnONnoScUs",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Expel Summoned",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 10,
+        "manaCost": 22,
+        "school": "Evocation [Magic]",
+        "castingTime": "1 action",
+        "range": "Medium ( 100 ft. + 10 ft./level)",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "As ward summoned, except this spell deals (6d10+ 3 )x2 points of magic damage.",
+        "recastTime": 1,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:10"
+        ],
+        "spellLine": "Ward summoned",
+        "saveEffect": "half",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>As ward summoned, except this spell deals (6d10+ 3 )x2 points of magic damage.</p>"
+      },
+      "_id": "iDbY5Q2HvgoaxPIe",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Expulse Summoned",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 6,
+        "manaCost": 10,
+        "school": "Evocation [Magic]",
+        "castingTime": "1 action",
+        "range": "Medium (100 ft.+ 10 ft./level)",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "2S9 As ward summoned, except this spell deals 6d 10 points of magic damage.",
+        "recastTime": 1,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:6"
+        ],
+        "spellLine": "Ward summoned",
+        "saveEffect": "half",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>2S9 As ward summoned, except this spell deals 6d 10 points of magic damage.</p>"
+      },
+      "_id": "3iUP0SZiN1cvxvc5",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Eyes of the Wolf",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 5,
+        "manaCost": 28,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "Self",
+        "duration": "10 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Grants low-light vision, the ability to see invisible, and +5 to Spot checks.",
+        "recastTime": 0,
+        "classes": [
+          "ranger"
+        ],
+        "description": "<p>The ranger borrows the keen supernatural vision of the wolf, piercing darkness and illusion alike.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "ranger:5"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "yIB9A9CzWQzPk8Wv",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Ferocity of Irionu",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 5,
+        "manaCost": 32,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "Pet range",
+        "duration": "2 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "+4 STR, +4 DEX, and +2 additional attacks per round to warder pet.",
+        "recastTime": 0,
+        "classes": [
+          "beastlord"
+        ],
+        "description": "<p>Named for a legendary beastlord, this buff drives the warder into a state of extraordinary ferocity.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "beastlord:5"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "iwHQqlwGBKBGvQny",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Fire Elemental",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 4,
+        "manaCost": 35,
+        "school": "Conjuration",
+        "castingTime": "1 action",
+        "range": "30 ft",
+        "duration": "10 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Summons a fire elemental companion to serve the caster.",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "description": "<p>Living flame is shaped and bound by the magician's will into a fire elemental servant.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "zhRbh0haceJ744M2",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Gathering Dusk",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 4,
+        "manaCost": 28,
+        "school": "Necromancy",
+        "castingTime": "1 action",
+        "range": "Self (20 ft AE)",
+        "duration": "1 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Generates a massive surge of threat/aggro and reduces all nearby enemies' saving throws by 2.",
+        "recastTime": 0,
+        "classes": [
+          "shadowknight"
+        ],
+        "description": "<p>An aura of death and menace radiates from the Shadow Knight, drawing all attacks and weakening nearby foes.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "shadowknight:4"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "BXjxSUaTswcJI02O",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Haste",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 5,
+        "manaCost": 35,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "touch",
+        "duration": "10 minutes",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Target gains one additional melee attack per round for the duration.",
+        "recastTime": 0,
+        "classes": [
+          "enchanter"
+        ],
+        "description": "<p>Accelerates the target's movements and reflexes to blinding speed.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "enchanter:5"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "EtMaSWW0Hs9V8QFn",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Holy Valor",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 15,
+        "school": "Abjuration",
+        "castingTime": "1 action",
+        "range": "30 ft",
+        "duration": "10 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Allies within range gain +2 on all saving throws vs. evil.",
+        "recastTime": 0,
+        "classes": [
+          "paladin"
+        ],
+        "description": "<p>Divine valor radiates from the paladin, fortifying nearby allies against evil influence.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "paladin:3"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "wt5UAvrPN1B8skzL",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Holy Winds",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 6,
+        "manaCost": 45,
+        "school": "Evocation",
+        "castingTime": "1 action",
+        "range": "Self (30 ft AE)",
+        "duration": "1d4 rounds",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "AE blast stuns all enemies in 30 ft for 1d4 rounds; Fort save negates each.",
+        "recastTime": 0,
+        "classes": [
+          "paladin"
+        ],
+        "description": "<p>Gale-force holy winds radiate outward from the paladin, stunning all nearby enemies in a burst of divine fury.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "paladin:6"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "5rkHlUHTCQ3DIsLE",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Illusion: Barbarian",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 5,
+        "manaCost": 5,
+        "school": "Divination",
+        "castingTime": "1 action",
+        "range": "Personal",
+        "duration": "1 hour/level (D)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Disguises caster as a Barbarian for purposes of faction and social interaction.",
+        "recastTime": 1,
+        "classes": [
+          "enchanter"
+        ],
+        "description": "<p>As minor illusion, except the caster for all intents and purposes beco1nes a barbarian of the same gender, gaining all racial abili- ties and modifiers for that race, as described in Chapter 2: Races. The caster also loses all special abilities and racial modifiers for her own race while transformed. Others will have an initial faction reaction based on the caster's new, illusory race.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "enchanter:5"
+        ],
+        "spellLine": "Minor illusion",
+        "saveDC": ""
+      },
+      "_id": "vJEt9m4AKNy6XCaQ",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Immolation of Ro",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 4,
+        "manaCost": 28,
+        "school": "Evocation",
+        "castingTime": "1 action",
+        "range": "80 ft",
+        "duration": "1 round/level",
+        "damageFormula": "1d6",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "Target takes 1d6 fire damage per round; Fort save halves each round's damage.",
+        "recastTime": 0,
+        "classes": [
+          "druid"
+        ],
+        "description": "<p>The fires of Ro himself engulf the target, burning relentlessly until the spell expires.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "varies",
+        "classLevels": [
+          "druid:4"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "wIAgAHadmIkJDs9B",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Inferno Shield",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 8,
+        "manaCost": 20,
+        "school": "Abjuration [Fire]",
+        "castingTime": "1 action",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "3 minutes (D)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "As shield of fire, except this spell grants a buff bonus of+ 1 on saves against attacks with the [fire] descriptor, as well as fire resistance ( 6) and damage shield ( 4).",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "classLevels": [
+          "magician:8"
+        ],
+        "spellLine": "Shield of fire",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>As shield of fire, except this spell grants a buff bonus of+ 1 on saves against attacks with the [fire] descriptor, as well as fire resistance ( 6) and damage shield ( 4).</p>"
+      },
+      "_id": "r16F1slou7mPuMZ2",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Infestation",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 1,
+        "manaCost": 10,
+        "school": "Necromancy",
+        "castingTime": "1 action",
+        "range": "Touch",
+        "duration": "1 min/level",
+        "damageFormula": "1d4",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Target takes 1d4 disease damage per round for the duration.",
+        "recastTime": 0,
+        "classes": [
+          "shadowknight"
+        ],
+        "description": "<p>Dark energy infests the target with a rotting magical disease that eats away at flesh.</p>",
+        "deliveryType": "attack",
+        "attackMode": "melee",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "shadowknight:1"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "S86ymOQNPYNcp4wP",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Instill Doubt",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 20,
+        "school": "Enchantment",
+        "castingTime": "1 action",
+        "range": "60 ft",
+        "duration": "1d4 rounds",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Target flees in magical fear for 1d4 rounds; Will save negates.",
+        "recastTime": 0,
+        "classes": [],
+        "description": "<p>The necromancer sows seeds of primal terror in the target's mind, sending them fleeing in blind panic.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "k8RPKmImAkvGqBhd",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Invisibility to Undead",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 9,
+        "manaCost": 6,
+        "school": "Divination",
+        "castingTime": "1 action",
+        "range": "See text",
+        "duration": "See text (D)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Wiz 9 As invisibility, except the target is made invisible only to undead creatures. Shadow knights and wizards 1nay cast this spell only upon themselves. Other classes that can cast this spell may target any willing creature within close range (25 ft. + 5 ft./2 levels).",
+        "recastTime": 1,
+        "classes": [
+          "necromancer",
+          "wizard"
+        ],
+        "classLevels": [
+          "necromancer:1",
+          "wizard:9"
+        ],
+        "spellLine": "Invisibility",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>Wiz 9 As invisibility, except the target is made invisible only to undead creatures. Shadow knights and wizards 1nay cast this spell only upon themselves. Other classes that can cast this spell may target any willing creature within close range (25 ft. + 5 ft./2 levels).</p>"
+      },
+      "_id": "mMCvtGoxDO8x0Lpr",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Krafen's Chant of Poison",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 4,
+        "manaCost": 0,
+        "school": "Song",
+        "castingTime": "1 action (song)",
+        "range": "30 ft",
+        "duration": "Concentration",
+        "damageFormula": "1d6",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "All enemies in range take 1d6 poison damage per round; Fort save halves.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>Krafen's sinister melody saturates the air with spectral poison that sickens all nearby foes.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "varies",
+        "classLevels": [
+          "bard:4"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "lYIneJxxKt4c88w8",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Kragg's Mending",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 9,
+        "manaCost": 68,
+        "school": "Alteration",
+        "castingTime": "2 actions",
+        "range": "Touch",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "6d8+10",
+        "savingThrow": "",
+        "effect": "Heals target for 6d8+10 HP.",
+        "recastTime": 0,
+        "classes": [
+          "shaman"
+        ],
+        "description": "<p>The legendary healer Kragg's most potent working, pouring massive restorative energy into a single target.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "shaman:9"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "V1DgP9s2Lzg1FB1y",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Kylian's Soothing Serenade",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 5,
+        "manaCost": 0,
+        "school": "Song",
+        "castingTime": "1 action (song)",
+        "range": "60 ft",
+        "duration": "Concentration",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Mezmerizes a single target; Will save negates. Effect broken by damage.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>A hauntingly beautiful melody from the bard Kylian captures a single target in entranced stillness.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "bard:5"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "0iKdAUwS9jWchbJr",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Maelstrom of Ro",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 4,
+        "manaCost": 26,
+        "school": "Evocation",
+        "castingTime": "1 action",
+        "range": "60 ft",
+        "duration": "Instantaneous",
+        "damageFormula": "2d8",
+        "healFormula": "",
+        "savingThrow": "reflex",
+        "effect": "2d8 fire damage to all enemies in 20 ft radius; Reflex save for half.",
+        "recastTime": 0,
+        "classes": [
+          "beastlord"
+        ],
+        "description": "<p>The beastlord channels the primal fire of Ro into a spiraling maelstrom that scorches all nearby foes.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "half",
+        "classLevels": [
+          "beastlord:4"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "IZ86kjAFlBStZoz5",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Mana Conversion",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 5,
+        "manaCost": 0,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "Touch",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Transfers up to 50 mana from the caster directly to the touched target.",
+        "recastTime": 0,
+        "classes": [
+          "enchanter"
+        ],
+        "description": "<p>The enchanter funnels their own arcane energy into another spellcaster who needs it more urgently.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "enchanter:5"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "zApA3hS7pvqlZ3Ow",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Markar's Relocation",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 10,
+        "manaCost": 50,
+        "school": "Alteration [Teleportation]",
+        "castingTime": "2 full rounds",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "than 20 ft. apart The caster transports up to six willing tar- gets to a location in the southwestern portion of the Emerald Jungle between the cliff rises toward the Field of Bone and the marshy region known as T rakanon's Teeth. This destination is not entirely safe.",
+        "recastTime": 0,
+        "classes": [
+          "wizard"
+        ],
+        "classLevels": [
+          "wizard:10"
+        ],
+        "spellLine": "Markar's Relocation",
+        "saveEffect": "negates",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>than 20 ft. apart The caster transports up to six willing tar- gets to a location in the southwestern portion of the Emerald Jungle between the cliff rises toward the Field of Bone and the marshy region known as T rakanon's Teeth. This destination is not entirely safe.</p>"
+      },
+      "_id": "QCoUuv2NJa4iXrgh",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "McVaxius' Berserker Crescendo",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 9,
+        "manaCost": 0,
+        "school": "Bard Song",
+        "castingTime": "1 action (song)",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "Performance",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Targets gain haste (3), a +1 haste bonus to AC, 1 extra attack action every third round, -1 weapon delay, and a +4 Strength buff bonus. A brass instrument increases the Strength bonus to +6.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>McVaxius' legendary battle crescendo drives allies into a frenzy of accelerated attacks.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "bard:9"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "pGhOEaJedwoQx4rp",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Melody of Ervaj",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 11,
+        "manaCost": 0,
+        "school": "Bard Song",
+        "castingTime": "1 action (song)",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "Performance",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Provides haste (1). This haste bonus stacks with other haste effects, even another bard song.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>Song Line: Melody of Ervaj Instrument: Brass (Con; instru1nent re- quired) Melody of Ervaj provides a haste ( 1) effect; however, its haste bonus stacks with all other haste effects, even another bard song. Tb.us a bard might twist melody of Ervaj with verses of victory to grant a total bonus of haste (5) from her songs, which might then further combine with haste froin a spell and a magic item.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "bard:11"
+        ],
+        "spellLine": "Melot:>y OF Ervaj",
+        "saveDC": ""
+      },
+      "_id": "d6H5VccaehkU31zt",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Minor Familiar",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 8,
+        "manaCost": 88,
+        "school": "Conjuration (Summoning)",
+        "castingTime": "2 full rounds",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "Until dismissed (D)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Effect: One summoned creature As minor familiar, except this spell sum- mons a type 3 familiar. As long as the familiar remains within the spell's range of the caster, the caster gains the following benefits: a + 3 bonus on all Channeling skill checks, + 2 on all saves, and a bonus of resistance (8) against any type of spell or spell-like attack that has a descriptor, such as [magic] or [poi- son]. In addition, this close proximity of the familiar allows the caster to regain 1 point of mana every 5 minutes in addition to any other nor1nal or magical mana recovery, and the caster's mana pool and current mana increase by 12.",
+        "recastTime": 0,
+        "classes": [
+          "wizard"
+        ],
+        "classLevels": [
+          "wizard:8"
+        ],
+        "spellLine": "Minor familiar",
+        "saveEffect": "",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>Effect: One summoned creature As minor familiar, except this spell sum- mons a type 3 familiar. As long as the familiar remains within the spell's range of the caster, the caster gains the following benefits: a + 3 bonus on all Channeling skill checks, + 2 on all saves, and a bonus of resistance (8) against any type of spell or spell-like attack that has a descriptor, such as [magic] or [poi- son]. In addition, this close proximity of the familiar allows the caster to regain 1 point of mana every 5 minutes in addition to any other nor1nal or magical mana recovery, and the caster's mana pool and current mana increase by 12.</p>"
+      },
+      "_id": "e6gNuVHBG1NjVoOC",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Niv's Melody of Preservation",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 10,
+        "manaCost": 0,
+        "school": "Bard Song",
+        "castingTime": "1 action (song)",
+        "range": "C lose (25 ft. + 5 ft./2 levels)",
+        "duration": "Performance",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "Provides +3 Strength, +1 insight bonus on attack rolls, healing 2 points per round, and spell resistance equal to bard level + 4. With a successful stringed instrument use, these improve to +5 Strength, +2 attack, healing 4 per round, and spell resistance equal to bard level + 6.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>Song Line: Niv' s melody of preservation Instrument: String (Dex) less) Niv's melody of preservation provides an array of benefits, including a + 3 bonus to Strength, a+ 1 insight bonus on attack rolls and 2 points of healing per round of perfor- mance. Finally, Niv' s melody of preservation grants its targets spell resistance (bard's level + 4). Successful use of a stringed instrument increases the bonuses to a +5 bonus to Strength, a + 2 insight bonus on attack rolls, 4 points of healing per round and spell resistance (bard's level+ 6).</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "bard:10"
+        ],
+        "spellLine": "Niv's Melot>y OF Preservation",
+        "saveDC": ""
+      },
+      "_id": "4iJzvDKij1ASNZIx",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Pack Hunt",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 6,
+        "manaCost": 40,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "Self",
+        "duration": "2 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Both the beastlord and their warder gain +2 attack and +2d6 bonus damage when attacking the same target.",
+        "recastTime": 0,
+        "classes": [
+          "beastlord"
+        ],
+        "description": "<p>Beastlord and warder synchronize their attacks with preternatural coordination, each strike empowering the other.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "beastlord:6"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "Pk03MjeOLiXUEzdS",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Phantom Wind",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 18,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "80 ft",
+        "duration": "1 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Roots target in place; Will save negates.",
+        "recastTime": 0,
+        "classes": [
+          "wizard"
+        ],
+        "description": "<p>An invisible wall of wind slams into the target, pinning them in place with crushing force.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "p48odhwGMFQHX7ra",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Prophetic Guard",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 6,
+        "manaCost": 42,
+        "school": "Abjuration",
+        "castingTime": "1 action",
+        "range": "20 ft AE",
+        "duration": "10 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "All allies in range gain +2 AC and +2 to all saving throws.",
+        "recastTime": 0,
+        "classes": [
+          "shaman"
+        ],
+        "description": "<p>Spirit seers surround the shaman's allies with prophetic wards, fortifying their defenses.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "shaman:6"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "hsdPBAIbPbdsotIM",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Psalm of Veeshan",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 5,
+        "manaCost": 0,
+        "school": "Song",
+        "castingTime": "1 action (song)",
+        "range": "30 ft AE",
+        "duration": "Concentration",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Allies in range gain +5 resistance to fire, cold, and magic damage while the song is maintained.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>A soaring tribute to Veeshan, Crystalline Dragon of the North, wraps allies in elemental resistance.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "bard:5"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "U8HSE115uZcZSRq5",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Root (Druid)",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 2,
+        "manaCost": 12,
+        "school": "Alteration [Magic]",
+        "castingTime": "1 action",
+        "range": "Medium (100 ft. + 10 ft./level)",
+        "duration": "3d10 rounds (see text)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "reflex",
+        "effect": "Target is rooted in place and cannot move. Save: Fortitude negates.",
+        "recastTime": 1,
+        "classes": [
+          "druid",
+          "ranger",
+          "wizard"
+        ],
+        "description": "<p>As grasping roots, except this spell deals (5dlO)x2 points of magic damage, no save. This spell is also much easier to cast than most other spells in the root line, so the caster gains a+ 2 bonus to any Channeling check when casting engorging roots. EngulFing t&gt;arl&lt;.ness</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "druid:4",
+          "ranger:4",
+          "wizard:2"
+        ],
+        "spellLine": "Root",
+        "saveDC": ""
+      },
+      "_id": "SKryDd49GkPFe1nl",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Ro's Smoldering Creep",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 6,
+        "manaCost": 40,
+        "school": "Evocation",
+        "castingTime": "1 action",
+        "range": "80 ft",
+        "duration": "1 min/level",
+        "damageFormula": "2d8",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Creates a 10 ft patch of smoldering ground. Any creature entering or ending their turn there takes 2d8 fire damage.",
+        "recastTime": 0,
+        "classes": [
+          "ranger"
+        ],
+        "description": "<p>Ro's own fire creeps along the ground in a designated area, punishing any who dare walk through it.</p>",
+        "deliveryType": "attack",
+        "attackMode": "ranged",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "ranger:6"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "JmYEVvYIUZEbyo1s",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Rune",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 2,
+        "manaCost": 25,
+        "school": "Abjuration",
+        "castingTime": "Free action",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "1 minute/level (see text)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "As rune, but this spell grants a buff bonus of 8dl0 tetnporary hit points and can be cast as a free action. In addition, no 1nate- rial component is required.",
+        "recastTime": 6,
+        "classes": [
+          "enchanter"
+        ],
+        "classLevels": [
+          "enchanter:2"
+        ],
+        "spellLine": "Rune",
+        "saveEffect": "negates",
+        "saveDC": "",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "description": "<p>As rune, but this spell grants a buff bonus of 8dl0 tetnporary hit points and can be cast as a free action. In addition, no 1nate- rial component is required.</p>"
+      },
+      "_id": "mvFUBZBHUwazcXkA",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Selo's Accelerating Chorus",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 2,
+        "manaCost": 0,
+        "school": "Bard Song",
+        "castingTime": "1 action (song)",
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "duration": "Performance + 2d4 minutes",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Grants +20 ft movement speed to all allies within range while song is maintained.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>Song Line: Selo' s accelerando Instrument: Percussion (Dex; instrument required) Selo' s accelerating chorus is identical to Selo' s accelerando except that a percussion instru- ment is required to play the chorus, and the song's effect last for 2d4 minutes after the performance ends. Like Selo' s accelerando, this song 1nakes an ungodly racket when played.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "bard:2"
+        ],
+        "spellLine": "S\u20acLo's Acc\u20acL\u20acrating Chorus",
+        "saveDC": ""
+      },
+      "_id": "b3LChknySZ4Vs3Id",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Sense Undead",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 1,
+        "manaCost": 5,
+        "school": "Divination",
+        "castingTime": "1 action",
+        "range": "60 ft",
+        "duration": "Instantaneous",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Detects all undead creatures within range.",
+        "recastTime": 0,
+        "classes": [
+          "paladin"
+        ],
+        "description": "<p>A divine sense sweeps the area, pinpointing the cold presence of the undead.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "paladin:1"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "8PgYW914jg2jBXZd",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Sha's Legacy",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 8,
+        "manaCost": 65,
+        "school": "Conjuration",
+        "castingTime": "1 action",
+        "range": "60 ft",
+        "duration": "Instantaneous",
+        "damageFormula": "6d6",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Summons a spirit swarm dealing 6d6 damage to the primary target and nearby enemies.",
+        "recastTime": 0,
+        "classes": [
+          "shaman"
+        ],
+        "description": "<p>The shaman calls upon the spirit of the legendary Sha, unleashing a devastating swarm of ancestral spirits.</p>",
+        "deliveryType": "attack",
+        "attackMode": "ranged",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "shaman:8"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "ToVmoUBkiQ6ZzYGl",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Skin like Rock",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 10,
+        "school": "Abjuration",
+        "castingTime": "1 action",
+        "range": "C lose (25 ft. + 5 ft./2 levels)",
+        "duration": "10 minutes/level (D)",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "will",
+        "effect": "Target gains +3 natural AC bonus.",
+        "recastTime": 2,
+        "classes": [],
+        "description": "<p>The target's skin hardens to the toughness of stone, deflecting physical blows.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "yocpcKmkuPvsZake",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Slow",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 20,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "40 ft",
+        "duration": "5 minutes",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "Target's attack speed is reduced by 25%. Save: Fortitude negates.",
+        "recastTime": 0,
+        "classes": [
+          "shaman"
+        ],
+        "description": "<p>Warps time around the target, turning swift attacks into sluggish ones.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "shaman:3"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "AdsYAhZtYUt7mBUK",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Smite Undead",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 2,
+        "manaCost": 15,
+        "school": "Evocation",
+        "castingTime": "1 action",
+        "range": "60 ft",
+        "duration": "Instantaneous",
+        "damageFormula": "2d8",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Deals 2d8 divine damage to undead only; no effect on living targets.",
+        "recastTime": 0,
+        "classes": [
+          "cleric",
+          "paladin"
+        ],
+        "description": "<p>A bolt of pure divine energy sears through undead flesh and bone.</p>",
+        "deliveryType": "attack",
+        "attackMode": "ranged",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "cleric:2",
+          "paladin:2"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "dk3nobcpiux8kpff",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Snarl of the Beast",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 18,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "Pet range",
+        "duration": "3 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "+3 STR and +3 DEX to warder pet for the duration.",
+        "recastTime": 0,
+        "classes": [
+          "beastlord"
+        ],
+        "description": "<p>The beastlord channels feral energy into their warder, sharpening its reflexes and strengthening its muscles.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "beastlord:3"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "wIfWUnwkUNIQHF8g",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Strangle",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 5,
+        "manaCost": 36,
+        "school": "Necromancy",
+        "castingTime": "1 action",
+        "range": "60 ft",
+        "duration": "1 min/level",
+        "damageFormula": "1d8",
+        "healFormula": "",
+        "savingThrow": "fortitude",
+        "effect": "A stacking curse that deals 1d8 damage per round; can stack up to 3 times on the same target. Fort save negates each application.",
+        "recastTime": 0,
+        "classes": [
+          "necromancer"
+        ],
+        "description": "<p>Invisible hands of death close around the target's throat, dealing persistent necrotic damage.</p>",
+        "deliveryType": "save",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "negates",
+        "classLevels": [
+          "necromancer:5"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "BiJHggv4uEiUdCxz",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Verses of Victory",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 4,
+        "manaCost": 0,
+        "school": "Song",
+        "castingTime": "1 action (song)",
+        "range": "30 ft",
+        "duration": "Concentration",
+        "damageFormula": "",
+        "healFormula": "3",
+        "savingThrow": "",
+        "effect": "Allies within range regenerate 3 HP per round while the song is maintained.",
+        "recastTime": 0,
+        "classes": [
+          "bard"
+        ],
+        "description": "<p>A triumphant song of victory bolsters the spirits and health of all nearby allies.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "bard:4"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "csCRrqBxJfMkakI0",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Warsong of Zek",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 4,
+        "manaCost": 26,
+        "school": "Alteration",
+        "castingTime": "1 action",
+        "range": "Self",
+        "duration": "2 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "+2 attack, +2 damage with all weapons, and +30 ft movement speed for the duration.",
+        "recastTime": 0,
+        "classes": [
+          "ranger"
+        ],
+        "description": "<p>The Warsong of Zek, god of tactics and war, fills the ranger with martial excellence.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "ranger:4"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "96ALRmj3jHZVa1Xn",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Water Elemental",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 3,
+        "manaCost": 25,
+        "school": "Conjuration",
+        "castingTime": "1 action",
+        "range": "30 ft",
+        "duration": "10 min/level",
+        "damageFormula": "",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "Summons a water elemental companion to serve the caster.",
+        "recastTime": 0,
+        "classes": [
+          "magician"
+        ],
+        "description": "<p>Flowing water coalesces into a loyal water elemental under the magician's command.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "EoXx6CdrW4tOUxfg",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    },
+    {
+      "name": "Word of Divine Power",
+      "type": "spell",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "spellLevel": 6,
+        "manaCost": 38,
+        "school": "Evocation",
+        "castingTime": "1 action",
+        "range": "30 ft AE",
+        "duration": "Instantaneous",
+        "damageFormula": "3d8",
+        "healFormula": "",
+        "savingThrow": "",
+        "effect": "A burst of divine power deals 3d8 damage to undead and evil creatures in the area.",
+        "recastTime": 0,
+        "classes": [
+          "cleric"
+        ],
+        "description": "<p>A spoken word of sacred authority crashes outward as a wave of punishing divine force.</p>",
+        "deliveryType": "utility",
+        "attackMode": "",
+        "attackBonus": 0,
+        "saveEffect": "",
+        "classLevels": [
+          "cleric:6"
+        ],
+        "spellLine": "",
+        "saveDC": ""
+      },
+      "_id": "LE1bnWX2Dq20fn3j",
+      "effects": [],
+      "flags": {
+        "eqrpg": {
+          "legacyRetained": true
+        }
+      }
+    }
+  ]
+}

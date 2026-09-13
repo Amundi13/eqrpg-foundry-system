@@ -1,3 +1,4 @@
+import { submitCommerceRequest, commerceRequestStatus } from "../helpers/commerce-requests.mjs";
 import {
   SAMPLE_ARMOR,
   SAMPLE_CONSUMABLES,
@@ -6,7 +7,14 @@ import {
 } from "../packs/sample-data.mjs";
 import { STORE_PRESETS } from "../packs/store-presets.mjs";
 
+import { coinsToCopper, copperToCoins, priceToCopper, pendingPurchase } from "../helpers/commerce.mjs";
+
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
+const openStores = new Set();
+export function refreshStores(actor) {
+  for (const app of openStores) if(app.storeState.actorId===actor.id) app.render();
+}
 
 const STORE_TYPES = [
   { key: "all", label: "EQRPG.StoreAll" },
@@ -25,28 +33,6 @@ const STOCK = [
   ...foundry.utils.deepClone(item),
   _storeId: `${item.type}:${index}:${item.name}`,
 }));
-
-function coinsToCopper(wealth = {}) {
-  return (Number(wealth.platinum) || 0) * 1000
-    + (Number(wealth.gold) || 0) * 100
-    + (Number(wealth.silver) || 0) * 10
-    + (Number(wealth.copper) || 0);
-}
-
-function copperToCoins(totalCopper = 0) {
-  let remaining = Math.max(0, Math.floor(Number(totalCopper) || 0));
-  const platinum = Math.floor(remaining / 1000);
-  remaining %= 1000;
-  const gold = Math.floor(remaining / 100);
-  remaining %= 100;
-  const silver = Math.floor(remaining / 10);
-  const copper = remaining % 10;
-  return { platinum, gold, silver, copper };
-}
-
-function priceToCopper(price = 0) {
-  return Math.max(0, Math.round((Number(price) || 0) * 100));
-}
 
 function formatCoins(copper = 0) {
   const coins = copperToCoins(copper);
@@ -111,6 +97,7 @@ export class EQStore extends HandlebarsApplicationMixin(ApplicationV2) {
       id: `eqrpg-store-${storeId}`,
       window: { title: game.i18n.localize("EQRPG.Store") },
     }, appOptions));
+    openStores.add(this);
     this.storeState = {
       actorId: actor?.id ?? game.user?.character?.id ?? "",
       store,
@@ -118,6 +105,8 @@ export class EQStore extends HandlebarsApplicationMixin(ApplicationV2) {
       query: "",
     };
   }
+
+  async close(options) { openStores.delete(this); return super.close(options); }
 
   static DEFAULT_OPTIONS = {
     classes: ["eqrpg", "eq-store"],
@@ -131,6 +120,8 @@ export class EQStore extends HandlebarsApplicationMixin(ApplicationV2) {
     actions: {
       storeType: EQStore.#onStoreType,
       buyItem: EQStore.#onBuyItem,
+      resumePurchase: EQStore.#onResumePurchase,
+      cancelPurchase: EQStore.#onCancelPurchase,
     },
   };
 
@@ -143,7 +134,7 @@ export class EQStore extends HandlebarsApplicationMixin(ApplicationV2) {
     const ownedCharacters = Array.from(game.actors ?? [])
       .filter((candidate) => candidate.type === "character" && candidate.isOwner)
       .sort((a, b) => a.name.localeCompare(b.name));
-    if (!actor && ownedCharacters[0]) this.storeState.actorId = ownedCharacters[0].id;
+    if ((!actor || actor.type !== "character" || !actor.isOwner) && ownedCharacters[0]) this.storeState.actorId = ownedCharacters[0].id;
     const buyer = game.actors.get(this.storeState.actorId);
 
     const query = this.storeState.query.trim().toLowerCase();
@@ -194,7 +185,10 @@ export class EQStore extends HandlebarsApplicationMixin(ApplicationV2) {
       stock: filteredStock,
       buyer,
       wealthLabel: buyer ? formatCoins(coinsToCopper(buyer.system.wealth)) : "",
-      canBuy: !!buyer,
+      requestStatus: commerceRequestStatus(buyer),
+      pending: pendingPurchase(buyer),
+      canRecover: !!buyer?.isOwner,
+      canBuy: buyer?.type === "character" && buyer.isOwner && !pendingPurchase(buyer) && !["queued","processing"].includes(commerceRequestStatus(buyer)?.state),
     };
   }
 
@@ -231,28 +225,6 @@ export class EQStore extends HandlebarsApplicationMixin(ApplicationV2) {
     return STOCK.find((item) => item._storeId === storeId) ?? null;
   }
 
-  async #addPurchasedItem(actor, stockItem, quantity) {
-    const itemData = foundry.utils.deepClone(stockItem);
-    delete itemData._storeId;
-    delete itemData._id;
-
-    const hasQuantity = ["equipment", "consumable"].includes(itemData.type);
-    if (hasQuantity) {
-      const existing = actor.items.find((item) => item.type === itemData.type && item.name === itemData.name);
-      if (existing && Number.isFinite(Number(existing.system.quantity))) {
-        const current = Number(existing.system.quantity) || 0;
-        await existing.update({ "system.quantity": current + quantity });
-        return;
-      }
-      itemData.system.quantity = quantity;
-      await actor.createEmbeddedDocuments("Item", [itemData]);
-      return;
-    }
-
-    const copies = Array.from({ length: quantity }, () => foundry.utils.deepClone(itemData));
-    await actor.createEmbeddedDocuments("Item", copies);
-  }
-
   static #onStoreType(event, target) {
     this.storeState.type = target.dataset.type ?? "all";
     this.render();
@@ -269,31 +241,29 @@ export class EQStore extends HandlebarsApplicationMixin(ApplicationV2) {
 
     const quantityInput = row.querySelector("[name='store-quantity']");
     const quantity = Math.max(1, Math.min(99, Math.floor(Number(quantityInput?.value) || 1)));
-    const totalCost = priceToCopper(stockItem.system?.price) * quantity;
-    const currentCopper = coinsToCopper(actor.system.wealth);
-    if (currentCopper < totalCost) {
-      ui.notifications.warn(game.i18n.format("EQRPG.StoreInsufficientFunds", {
-        item: stockItem.name,
-        price: formatCoins(totalCost),
-      }));
-      return;
+    try {
+      await submitCommerceRequest(actor,"purchase",stockItem.flags.eqrpg.sourceId,quantity);
+      ui.notifications.info("Store request sent to the active GM.");
+    } catch (error) {
+      ui.notifications.error(error.message);
+    } finally {
+      this.render();
     }
+  }
 
-    await this.#addPurchasedItem(actor, stockItem, quantity);
+  static async #onResumePurchase() {
+    try {
+      await submitCommerceRequest(game.actors.get(this.storeState.actorId),"resume");
+      ui.notifications.info("Recovery request sent to the active GM.");
+    } catch (error) { ui.notifications.error(error.message); }
+    finally { this.render(); }
+  }
 
-    const nextCoins = copperToCoins(currentCopper - totalCost);
-    await actor.update({
-      "system.wealth.platinum": nextCoins.platinum,
-      "system.wealth.gold": nextCoins.gold,
-      "system.wealth.silver": nextCoins.silver,
-      "system.wealth.copper": nextCoins.copper,
-    });
-
-    ui.notifications.info(game.i18n.format("EQRPG.StorePurchased", {
-      quantity,
-      item: stockItem.name,
-      price: formatCoins(totalCost),
-    }));
-    this.render();
+  static async #onCancelPurchase() {
+    try {
+      await submitCommerceRequest(game.actors.get(this.storeState.actorId),"cancel");
+      ui.notifications.info("Cancellation request sent to the active GM.");
+    } catch (error) { ui.notifications.error(error.message); }
+    finally { this.render(); }
   }
 }

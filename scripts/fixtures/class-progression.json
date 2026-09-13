@@ -1,0 +1,4952 @@
+[
+  {
+    "class": "bard",
+    "level": 1,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 2,
+      "will": 1
+    },
+    "bab": 0,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 2,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 3,
+      "will": 2
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 3,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 3,
+      "will": 2
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 4,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 4,
+      "will": 3
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 5,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 4,
+      "will": 3
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 6,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 5,
+      "will": 3
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 7,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 5,
+      "will": 4
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 8,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 6,
+      "will": 4
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 9,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 6,
+      "will": 5
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 10,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 7,
+      "will": 5
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 11,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 7,
+      "will": 5
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 12,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 8,
+      "will": 6
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 13,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 8,
+      "will": 6
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 14,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 9,
+      "will": 7
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 15,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 9,
+      "will": 7
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 16,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 10,
+      "will": 7
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 17,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 10,
+      "will": 8
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 18,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 11,
+      "will": 8
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 19,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 11,
+      "will": 9
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 20,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 12,
+      "will": 9
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 21,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 12,
+      "will": 9
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 22,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 13,
+      "will": 10
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 23,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 13,
+      "will": 10
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 24,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 14,
+      "will": 11
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 25,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 14,
+      "will": 11
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 26,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 15,
+      "will": 11
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 27,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 15,
+      "will": 12
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 28,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 16,
+      "will": 12
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 29,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 16,
+      "will": 13
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "bard",
+    "level": 30,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 17,
+      "will": 13
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 54, PDF page 57"
+  },
+  {
+    "class": "beastlord",
+    "level": 1,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 2,
+      "will": 1
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 2,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 3,
+      "will": 2
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 3,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 3,
+      "will": 2
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 4,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 4,
+      "will": 3
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 5,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 4,
+      "will": 3
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 6,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 5,
+      "will": 3
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 7,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 5,
+      "will": 4
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 8,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 6,
+      "will": 4
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 9,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 6,
+      "will": 5
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 10,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 7,
+      "will": 5
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 11,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 7,
+      "will": 5
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 12,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 8,
+      "will": 6
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 13,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 8,
+      "will": 6
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 14,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 9,
+      "will": 7
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 15,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 9,
+      "will": 7
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 16,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 10,
+      "will": 7
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 17,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 10,
+      "will": 8
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 18,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 11,
+      "will": 8
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 19,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 11,
+      "will": 9
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 20,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 12,
+      "will": 9
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 21,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 12,
+      "will": 9
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 22,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 13,
+      "will": 10
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 23,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 13,
+      "will": 10
+    },
+    "bab": 23,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 24,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 14,
+      "will": 11
+    },
+    "bab": 24,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 25,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 14,
+      "will": 11
+    },
+    "bab": 25,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 26,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 15,
+      "will": 11
+    },
+    "bab": 26,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 27,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 15,
+      "will": 12
+    },
+    "bab": 27,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 28,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 16,
+      "will": 12
+    },
+    "bab": 28,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 29,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 16,
+      "will": 13
+    },
+    "bab": 29,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "beastlord",
+    "level": 30,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 17,
+      "will": 13
+    },
+    "bab": 30,
+    "source": "PHB Chapter 3 printed p. 91, PDF page 94"
+  },
+  {
+    "class": "cleric",
+    "level": 1,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 0,
+      "will": 2
+    },
+    "bab": 0,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 2,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 0,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 3,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 4,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 5,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 6,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 7,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 8,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 2,
+      "will": 6
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 9,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 6
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 10,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 11,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 12,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 13,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 14,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 4,
+      "will": 9
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 15,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 5,
+      "will": 9
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 16,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 17,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 18,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 19,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 20,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 6,
+      "will": 12
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 21,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 7,
+      "will": 12
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 22,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 23,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 24,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 25,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 26,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 15
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 27,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 9,
+      "will": 15
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 28,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 29,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "cleric",
+    "level": 30,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 10,
+      "will": 17
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 57, PDF page 60"
+  },
+  {
+    "class": "druid",
+    "level": 1,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 0,
+      "will": 2
+    },
+    "bab": 0,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 2,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 0,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 3,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 4,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 5,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 6,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 7,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 8,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 2,
+      "will": 6
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 9,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 6
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 10,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 11,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 12,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 13,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 14,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 4,
+      "will": 9
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 15,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 5,
+      "will": 9
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 16,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 17,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 18,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 19,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 20,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 6,
+      "will": 12
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 21,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 7,
+      "will": 12
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 22,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 23,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 24,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 25,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 26,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 15
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 27,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 9,
+      "will": 15
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 28,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 29,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "druid",
+    "level": 30,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 10,
+      "will": 17
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 60, PDF page 63"
+  },
+  {
+    "class": "enchanter",
+    "level": 1,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 0,
+      "will": 2
+    },
+    "bab": 0,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 2,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 0,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 3,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 4,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 5,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 6,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 7,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 8,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 6
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 9,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 3,
+      "will": 6
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 10,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 11,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 12,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 13,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 14,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 4,
+      "will": 9
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 15,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 5,
+      "will": 9
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 16,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 17,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 18,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 19,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 20,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 6,
+      "will": 12
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 21,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 7,
+      "will": 12
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 22,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 23,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 24,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 25,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 26,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 8,
+      "will": 15
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 27,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 9,
+      "will": 15
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 28,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 29,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "enchanter",
+    "level": 30,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 10,
+      "will": 17
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 63, PDF page 66"
+  },
+  {
+    "class": "magician",
+    "level": 1,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 0,
+      "will": 2
+    },
+    "bab": 0,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 2,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 0,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 3,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 4,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 5,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 6,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 7,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 8,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 6
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 9,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 3,
+      "will": 6
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 10,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 11,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 12,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 13,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 14,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 4,
+      "will": 9
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 15,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 5,
+      "will": 9
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 16,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 17,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 18,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 19,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 20,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 6,
+      "will": 12
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 21,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 7,
+      "will": 12
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 22,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 23,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 24,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 25,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 26,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 8,
+      "will": 15
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 27,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 9,
+      "will": 15
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 28,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 29,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "magician",
+    "level": 30,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 10,
+      "will": 17
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 67, PDF page 70"
+  },
+  {
+    "class": "monk",
+    "level": 1,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 2,
+      "will": 1
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 2,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 3,
+      "will": 2
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 3,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 3,
+      "will": 2
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 4,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 4,
+      "will": 3
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 5,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 4,
+      "will": 3
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 6,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 5,
+      "will": 3
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 7,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 5,
+      "will": 4
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 8,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 6,
+      "will": 4
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 9,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 6,
+      "will": 5
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 10,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 7,
+      "will": 5
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 11,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 7,
+      "will": 5
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 12,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 8,
+      "will": 6
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 13,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 8,
+      "will": 6
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 14,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 9,
+      "will": 7
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 15,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 9,
+      "will": 7
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 16,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 10,
+      "will": 7
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 17,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 10,
+      "will": 8
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 18,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 11,
+      "will": 8
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 19,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 11,
+      "will": 9
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 20,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 12,
+      "will": 9
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 21,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 12,
+      "will": 9
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 22,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 13,
+      "will": 10
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 23,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 13,
+      "will": 10
+    },
+    "bab": 23,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 24,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 14,
+      "will": 11
+    },
+    "bab": 24,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 25,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 14,
+      "will": 11
+    },
+    "bab": 25,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 26,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 15,
+      "will": 11
+    },
+    "bab": 26,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 27,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 15,
+      "will": 12
+    },
+    "bab": 27,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 28,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 16,
+      "will": 12
+    },
+    "bab": 28,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 29,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 16,
+      "will": 13
+    },
+    "bab": 29,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "monk",
+    "level": 30,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 17,
+      "will": 13
+    },
+    "bab": 30,
+    "source": "PHB Chapter 3 printed p. 79, PDF page 82"
+  },
+  {
+    "class": "necromancer",
+    "level": 1,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 0,
+      "will": 2
+    },
+    "bab": 0,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 2,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 0,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 3,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 4,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 5,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 6,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 7,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 8,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 2,
+      "will": 6
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 9,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 6
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 10,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 11,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 12,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 13,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 14,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 4,
+      "will": 9
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 15,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 5,
+      "will": 9
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 16,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 17,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 18,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 19,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 20,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 6,
+      "will": 12
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 21,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 7,
+      "will": 12
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 22,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 23,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 24,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 25,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 26,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 15
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 27,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 9,
+      "will": 15
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 28,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 29,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "necromancer",
+    "level": 30,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 10,
+      "will": 17
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 70, PDF page 73"
+  },
+  {
+    "class": "paladin",
+    "level": 1,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 0,
+      "will": 1
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 2,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 0,
+      "will": 2
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 3,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 2
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 4,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 5,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 6,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 2,
+      "will": 3
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 7,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 2,
+      "will": 4
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 8,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 2,
+      "will": 4
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 9,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 3,
+      "will": 5
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 10,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 3,
+      "will": 5
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 11,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 3,
+      "will": 5
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 12,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 4,
+      "will": 6
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 13,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 4,
+      "will": 6
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 14,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 4,
+      "will": 7
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 15,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 5,
+      "will": 7
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 16,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 5,
+      "will": 7
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 17,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 5,
+      "will": 8
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 18,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 6,
+      "will": 8
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 19,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 6,
+      "will": 9
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 20,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 6,
+      "will": 9
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 21,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 7,
+      "will": 9
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 22,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 7,
+      "will": 10
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 23,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 7,
+      "will": 10
+    },
+    "bab": 23,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 24,
+    "saves": {
+      "fortitude": 14,
+      "reflex": 8,
+      "will": 11
+    },
+    "bab": 24,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 25,
+    "saves": {
+      "fortitude": 14,
+      "reflex": 8,
+      "will": 11
+    },
+    "bab": 25,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 26,
+    "saves": {
+      "fortitude": 15,
+      "reflex": 8,
+      "will": 11
+    },
+    "bab": 26,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 27,
+    "saves": {
+      "fortitude": 15,
+      "reflex": 9,
+      "will": 12
+    },
+    "bab": 27,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 28,
+    "saves": {
+      "fortitude": 16,
+      "reflex": 9,
+      "will": 12
+    },
+    "bab": 28,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 29,
+    "saves": {
+      "fortitude": 16,
+      "reflex": 9,
+      "will": 13
+    },
+    "bab": 29,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "paladin",
+    "level": 30,
+    "saves": {
+      "fortitude": 17,
+      "reflex": 10,
+      "will": 13
+    },
+    "bab": 30,
+    "source": "PHB Chapter 3 printed p. 95, PDF page 98"
+  },
+  {
+    "class": "ranger",
+    "level": 1,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 2,
+      "will": 0
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 2,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 3,
+      "will": 0
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 3,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 3,
+      "will": 1
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 4,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 4,
+      "will": 1
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 5,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 4,
+      "will": 1
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 6,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 5,
+      "will": 2
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 7,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 5,
+      "will": 2
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 8,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 6,
+      "will": 2
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 9,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 6,
+      "will": 3
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 10,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 7,
+      "will": 3
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 11,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 7,
+      "will": 3
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 12,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 8,
+      "will": 4
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 13,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 8,
+      "will": 4
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 14,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 9,
+      "will": 4
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 15,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 9,
+      "will": 5
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 16,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 10,
+      "will": 5
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 17,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 10,
+      "will": 5
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 18,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 11,
+      "will": 6
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 19,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 11,
+      "will": 6
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 20,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 12,
+      "will": 6
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 21,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 12,
+      "will": 7
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 22,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 13,
+      "will": 7
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 23,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 13,
+      "will": 7
+    },
+    "bab": 23,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 24,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 14,
+      "will": 8
+    },
+    "bab": 24,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 25,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 14,
+      "will": 8
+    },
+    "bab": 25,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 26,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 15,
+      "will": 8
+    },
+    "bab": 26,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 27,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 15,
+      "will": 9
+    },
+    "bab": 27,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 28,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 16,
+      "will": 9
+    },
+    "bab": 28,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 29,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 16,
+      "will": 9
+    },
+    "bab": 29,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "ranger",
+    "level": 30,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 17,
+      "will": 10
+    },
+    "bab": 30,
+    "source": "PHB Chapter 3 printed p. 98, PDF page 101"
+  },
+  {
+    "class": "rogue",
+    "level": 1,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 2,
+      "will": 0
+    },
+    "bab": 0,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 2,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 3,
+      "will": 0
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 3,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 3,
+      "will": 1
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 4,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 4,
+      "will": 1
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 5,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 4,
+      "will": 1
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 6,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 5,
+      "will": 2
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 7,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 5,
+      "will": 2
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 8,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 6,
+      "will": 2
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 9,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 6,
+      "will": 3
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 10,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 7,
+      "will": 3
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 11,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 7,
+      "will": 3
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 12,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 8,
+      "will": 4
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 13,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 8,
+      "will": 4
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 14,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 9,
+      "will": 4
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 15,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 9,
+      "will": 5
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 16,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 10,
+      "will": 5
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 17,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 10,
+      "will": 5
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 18,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 11,
+      "will": 6
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 19,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 11,
+      "will": 6
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 20,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 12,
+      "will": 6
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 21,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 12,
+      "will": 7
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 22,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 13,
+      "will": 7
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 23,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 13,
+      "will": 7
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 24,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 14,
+      "will": 8
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 25,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 14,
+      "will": 8
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 26,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 15,
+      "will": 8
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 27,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 15,
+      "will": 9
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 28,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 16,
+      "will": 9
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 29,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 16,
+      "will": 9
+    },
+    "bab": 23,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "rogue",
+    "level": 30,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 17,
+      "will": 10
+    },
+    "bab": 24,
+    "source": "PHB Chapter 3 printed p. 83, PDF page 86"
+  },
+  {
+    "class": "shadowknight",
+    "level": 1,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 0,
+      "will": 1
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 2,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 0,
+      "will": 2
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 3,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 2
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 4,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 5,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 6,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 2,
+      "will": 3
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 7,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 2,
+      "will": 4
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 8,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 2,
+      "will": 4
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 9,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 3,
+      "will": 5
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 10,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 3,
+      "will": 5
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 11,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 3,
+      "will": 5
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 12,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 4,
+      "will": 6
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 13,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 4,
+      "will": 6
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 14,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 4,
+      "will": 7
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 15,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 5,
+      "will": 7
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 16,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 5,
+      "will": 7
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 17,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 5,
+      "will": 8
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 18,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 6,
+      "will": 8
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 19,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 6,
+      "will": 9
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 20,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 6,
+      "will": 9
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 21,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 7,
+      "will": 9
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 22,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 7,
+      "will": 10
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 23,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 7,
+      "will": 10
+    },
+    "bab": 23,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 24,
+    "saves": {
+      "fortitude": 14,
+      "reflex": 8,
+      "will": 11
+    },
+    "bab": 24,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 25,
+    "saves": {
+      "fortitude": 14,
+      "reflex": 8,
+      "will": 11
+    },
+    "bab": 25,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 26,
+    "saves": {
+      "fortitude": 15,
+      "reflex": 8,
+      "will": 11
+    },
+    "bab": 26,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 27,
+    "saves": {
+      "fortitude": 15,
+      "reflex": 9,
+      "will": 12
+    },
+    "bab": 27,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 28,
+    "saves": {
+      "fortitude": 16,
+      "reflex": 9,
+      "will": 12
+    },
+    "bab": 28,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 29,
+    "saves": {
+      "fortitude": 16,
+      "reflex": 9,
+      "will": 13
+    },
+    "bab": 29,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shadowknight",
+    "level": 30,
+    "saves": {
+      "fortitude": 17,
+      "reflex": 10,
+      "will": 13
+    },
+    "bab": 30,
+    "source": "PHB Chapter 3 printed p. 102, PDF page 105"
+  },
+  {
+    "class": "shaman",
+    "level": 1,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 0,
+      "will": 2
+    },
+    "bab": 0,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 2,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 0,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 3,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 4,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 5,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 6,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 7,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 8,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 2,
+      "will": 6
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 9,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 6
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 10,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 11,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 12,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 13,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 14,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 4,
+      "will": 9
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 15,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 5,
+      "will": 9
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 16,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 17,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 18,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 19,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 20,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 6,
+      "will": 12
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 21,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 7,
+      "will": 12
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 22,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 23,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 24,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 25,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 26,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 8,
+      "will": 15
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 27,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 9,
+      "will": 15
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 28,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 29,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "shaman",
+    "level": 30,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 10,
+      "will": 17
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 72, PDF page 75"
+  },
+  {
+    "class": "warrior",
+    "level": 1,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 0,
+      "will": 0
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 2,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 0,
+      "will": 0
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 3,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 1,
+      "will": 1
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 4,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 1,
+      "will": 1
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 5,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 1,
+      "will": 1
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 6,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 2,
+      "will": 2
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 7,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 2,
+      "will": 2
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 8,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 2,
+      "will": 2
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 9,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 3,
+      "will": 3
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 10,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 3,
+      "will": 3
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 11,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 3,
+      "will": 3
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 12,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 4,
+      "will": 4
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 13,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 4,
+      "will": 4
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 14,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 4,
+      "will": 4
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 15,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 5,
+      "will": 5
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 16,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 5,
+      "will": 5
+    },
+    "bab": 16,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 17,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 5,
+      "will": 5
+    },
+    "bab": 17,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 18,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 6,
+      "will": 6
+    },
+    "bab": 18,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 19,
+    "saves": {
+      "fortitude": 11,
+      "reflex": 6,
+      "will": 6
+    },
+    "bab": 19,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 20,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 6,
+      "will": 6
+    },
+    "bab": 20,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 21,
+    "saves": {
+      "fortitude": 12,
+      "reflex": 7,
+      "will": 7
+    },
+    "bab": 21,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 22,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 7,
+      "will": 7
+    },
+    "bab": 22,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 23,
+    "saves": {
+      "fortitude": 13,
+      "reflex": 7,
+      "will": 7
+    },
+    "bab": 23,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 24,
+    "saves": {
+      "fortitude": 14,
+      "reflex": 8,
+      "will": 8
+    },
+    "bab": 24,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 25,
+    "saves": {
+      "fortitude": 14,
+      "reflex": 8,
+      "will": 8
+    },
+    "bab": 25,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 26,
+    "saves": {
+      "fortitude": 15,
+      "reflex": 8,
+      "will": 8
+    },
+    "bab": 26,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 27,
+    "saves": {
+      "fortitude": 15,
+      "reflex": 9,
+      "will": 9
+    },
+    "bab": 27,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 28,
+    "saves": {
+      "fortitude": 16,
+      "reflex": 9,
+      "will": 9
+    },
+    "bab": 28,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 29,
+    "saves": {
+      "fortitude": 16,
+      "reflex": 9,
+      "will": 9
+    },
+    "bab": 29,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "warrior",
+    "level": 30,
+    "saves": {
+      "fortitude": 17,
+      "reflex": 10,
+      "will": 10
+    },
+    "bab": 30,
+    "source": "PHB Chapter 3 printed p. 87, PDF page 90"
+  },
+  {
+    "class": "wizard",
+    "level": 1,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 0,
+      "will": 2
+    },
+    "bab": 0,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 2,
+    "saves": {
+      "fortitude": 0,
+      "reflex": 0,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 3,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 1,
+      "will": 3
+    },
+    "bab": 1,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 4,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 5,
+    "saves": {
+      "fortitude": 1,
+      "reflex": 1,
+      "will": 4
+    },
+    "bab": 2,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 6,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 7,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 5
+    },
+    "bab": 3,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 8,
+    "saves": {
+      "fortitude": 2,
+      "reflex": 2,
+      "will": 6
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 9,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 3,
+      "will": 6
+    },
+    "bab": 4,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 10,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 11,
+    "saves": {
+      "fortitude": 3,
+      "reflex": 3,
+      "will": 7
+    },
+    "bab": 5,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 12,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 13,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 4,
+      "will": 8
+    },
+    "bab": 6,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 14,
+    "saves": {
+      "fortitude": 4,
+      "reflex": 4,
+      "will": 9
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 15,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 5,
+      "will": 9
+    },
+    "bab": 7,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 16,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 17,
+    "saves": {
+      "fortitude": 5,
+      "reflex": 5,
+      "will": 10
+    },
+    "bab": 8,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 18,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 19,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 6,
+      "will": 11
+    },
+    "bab": 9,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 20,
+    "saves": {
+      "fortitude": 6,
+      "reflex": 6,
+      "will": 12
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 21,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 7,
+      "will": 12
+    },
+    "bab": 10,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 22,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 23,
+    "saves": {
+      "fortitude": 7,
+      "reflex": 7,
+      "will": 13
+    },
+    "bab": 11,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 24,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 25,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 8,
+      "will": 14
+    },
+    "bab": 12,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 26,
+    "saves": {
+      "fortitude": 8,
+      "reflex": 8,
+      "will": 15
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 27,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 9,
+      "will": 15
+    },
+    "bab": 13,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 28,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 29,
+    "saves": {
+      "fortitude": 9,
+      "reflex": 9,
+      "will": 16
+    },
+    "bab": 14,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  },
+  {
+    "class": "wizard",
+    "level": 30,
+    "saves": {
+      "fortitude": 10,
+      "reflex": 10,
+      "will": 17
+    },
+    "bab": 15,
+    "source": "PHB Chapter 3 printed p. 76, PDF page 79"
+  }
+]

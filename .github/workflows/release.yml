@@ -14,7 +14,16 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.20.0'
+          cache: npm
+
+      - name: Install pinned development tools
+        run: npm ci --no-audit --no-fund
 
       - name: Resolve version
         id: version
@@ -39,20 +48,48 @@ jobs:
           node --check module/apps/store.mjs
 
       - name: Validate generated sample data
-        run: node scripts/validate-sample-data.mjs
+        run: |
+          node scripts/assign-source-ids.mjs --check
+          node scripts/generate-sample-data.mjs --check
+          node scripts/validate-sample-data.mjs
 
       - name: Validate Foundry V14 compatibility
         run: |
           node scripts/validate-v14-compat.mjs
           node scripts/smoke-v14-init.mjs
           node scripts/test-buff-toggle.mjs
+          node scripts/test-chat-effects.mjs
+          node scripts/test-chat-hp.mjs
+          node scripts/test-chat-status.mjs
+          node scripts/test-audit-regressions.mjs
+          node scripts/test-pack-upgrades.mjs
+          node scripts/test-commerce.mjs
+          node scripts/test-commerce-requests.mjs
+          node scripts/test-training.mjs
+          node scripts/test-limited-effects.mjs
+          node scripts/test-combat-ticks.mjs
+          node scripts/test-magic-timing.mjs
+          node scripts/test-rest-recovery.mjs
+          node scripts/test-spell-slots.mjs
+          node scripts/test-invisibility.mjs
+          node scripts/test-rune-roll.mjs
+          node scripts/test-actor-migrations.mjs
+          node scripts/test-effect-timing.mjs
+          node scripts/test-effect-expiry.mjs
+          node scripts/test-wizard-safety.mjs
+          node scripts/test-catalog-evidence.mjs
+          node scripts/audit-catalog-evidence.mjs
+
+      - name: Verify independent pack and archive builds
+        shell: pwsh
+        run: ./scripts/test-reproducible-build.ps1
 
       - name: Build release assets
         shell: pwsh
         run: ./scripts/build-release.ps1 -Version "${{ steps.version.outputs.version }}" -OutputDir dist -Repository "${{ github.repository }}"
 
       - name: Publish GitHub release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           files: |
             dist/system.json

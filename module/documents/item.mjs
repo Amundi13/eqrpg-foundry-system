@@ -1,3 +1,4 @@
+import { spellEffectTiming } from "../helpers/effect-timing.mjs";
 /**
  * Extend the base Item for EverQuest RPG.
  */
@@ -589,7 +590,7 @@ export class EQItem extends Item {
         .filter((result) => !result.success)
         .map((result) => context.targets?.find((target) => target.actor?.uuid === result.actorUuid))
         .filter(Boolean);
-      const affectedTargets = failedTargets.length ? failedTargets : (context.targets ?? []);
+      const affectedTargets = saveResults.length ? failedTargets : (context.targets ?? []);
       if (!affectedTargets.length) return null;
       return {
         targets: affectedTargets,
@@ -642,6 +643,8 @@ export class EQItem extends Item {
       "improved invisibility": {
         changes: [],
         statuses: ["invisible"],
+        breaksOnAttack: true,
+        breaksOnCast: true,
         description: spell.system.effect ?? "",
       },
       "invisibility to undead": {
@@ -672,23 +675,23 @@ export class EQItem extends Item {
         description: "PHB: recovers 6 mana each combat round.",
       },
       "rune i": {
-        changes: EQItem._buildSpellEffectChanges({ tempHP: 21 }),
+        changes: [],
         description: "PHB: 6d6 temporary hit points.",
       },
       "rune ii": {
-        changes: EQItem._buildSpellEffectChanges({ tempHP: 38 }),
+        changes: [],
         description: "PHB: 7d10 temporary hit points.",
       },
       "rune iii": {
-        changes: EQItem._buildSpellEffectChanges({ tempHP: 66 }),
+        changes: [],
         description: "PHB: (6d10)x2 temporary hit points.",
       },
       "rune iv": {
-        changes: EQItem._buildSpellEffectChanges({ tempHP: 92 }),
+        changes: [],
         description: "PHB: (8d10+2)x2 temporary hit points.",
       },
       "rune v": {
-        changes: EQItem._buildSpellEffectChanges({ tempHP: 150 }),
+        changes: [],
         description: "PHB: (4d6+1)x10 temporary hit points.",
       },
       "skin like wood": {
@@ -727,7 +730,7 @@ export class EQItem extends Item {
       targets: targetSet,
       config: {
         effectKey: lowerName.replace(/\s+/g, "-"),
-        label: `Toggle ${name}`,
+        label: `Apply ${name}`,
         ...profile,
       },
     };
@@ -743,6 +746,21 @@ export class EQItem extends Item {
       .filter(Boolean);
     const namedConfig = EQItem._buildNamedSpellEffectConfig(spell, context);
     if (namedConfig?.targets?.length) {
+      const actor=spell.actor;
+      const classKey=actor?.system?.details?.class;
+      const level=actor?.system?.details?.level??0;
+      const casterLevel=["paladin","ranger","beastlord","shadowknight"].includes(classKey)?Math.max(0,level-4):level;
+      // Rune's see-text condition is depletion, tracked by the actor pool.
+      const durationText=/^rune-(i|ii|iii|iv|v)$/.test(namedConfig.config.effectKey)
+        ? String(spell.system.duration ?? '').replace(/\s*\(see text\)\s*\.?$/i,'')
+        : spell.system.duration;
+      const timing=spellEffectTiming(durationText,casterLevel,{
+        time:game.time?.worldTime,combat:game.combat?.id,round:game.combat?.round,turn:game.combat?.turn,
+        combatant:game.combat?.combatant?.id,initiative:game.combat?.combatant?.initiative,generation:game.release?.generation,
+      });
+      namedConfig.config.duration=timing.duration??{};
+      if(timing.start) namedConfig.config.start=timing.start;
+      namedConfig.config.flags={eqrpg:{durationNeedsReview:timing.manual,durationText:spell.system.duration??""}};
       panels.push(EQItem._buildActorEffectPanel(namedConfig.targets, namedConfig.config));
     }
 
@@ -1290,6 +1308,13 @@ export class EQItem extends Item {
     return "utility";
   }
 
+  static _partitionSpellTargets(spell, targets = []) {
+    const selected=[...targets];
+    if(String(spell?.system?.spellLine??'').trim().toLowerCase()!=='lifetap') return {targets:selected,blocked:[]};
+    const blocked=selected.filter(target=>target?.actor?.isProtectedFromSpellLine?.('Lifetap'));
+    return {targets:selected.filter(target=>!blocked.includes(target)),blocked};
+  }
+
   static _inferSpellAttackMode(spell) {
     if (spell.system.attackMode) return spell.system.attackMode;
     const rangeText = String(spell.system.range ?? "").toLowerCase();
@@ -1361,18 +1386,30 @@ export class EQItem extends Item {
    * - utility / heal spells still post their effect cleanly to chat
    * @param {EQActor} caster  The actor casting (may differ from this.actor)
    */
-  async castSpell(caster) {
+  async castSpell(caster, { resourcesPaid = false } = {}) {
     if (this.type !== "spell") return;
 
     const actor      = caster ?? this.actor;
+    if (actor?.type === "character" && !resourcesPaid) {
+      const slot = actor._getSlotArray().findIndex(entry => entry.itemId === this.id);
+      if (slot < 0) { ui.notifications.warn("Memorize this spell before casting it."); return; }
+      return actor.castSpell(slot);
+    }
     actor?.prepareData?.();
     await actor?.breakInvisibility?.("cast");
     const spellLevel = EQItem._getEffectiveSpellLevel(this, actor);
     const manaCost   = this.system.manaCost ?? 0;
     const rollMode   = game.settings.get("core", "rollMode");
     const speaker    = actor ? ChatMessage.getSpeaker({ actor }) : undefined;
-    const targets    = [...(game.user?.targets ?? [])];
+    const selectedTargets=[...(game.user?.targets ?? [])];
+    const partition=EQItem._partitionSpellTargets(this,selectedTargets);
+    const targets=partition.targets;
     const selfTargets = (actor?.getActiveTokens?.() ?? []).map((token) => token.object ?? token).filter(Boolean);
+    if(partition.blocked.length) {
+      const names=partition.blocked.map(target=>target.name).join(', ');
+      await ChatMessage.create({speaker,content:`<div class="eq-chat-card eq-spell-card"><div class="eq-card-body"><strong>Rune protection:</strong> ${names} cannot be affected by the lifetap spell line.</div></div>`,rollMode});
+      if(!targets.length) return null;
+    }
 
     const castAbility = EQItem._getSpellcastingAbility(actor);
     const castMod     = castAbility ? (actor?.system?.abilities?.[castAbility]?.mod ?? 0) : 0;

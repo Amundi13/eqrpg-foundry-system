@@ -1,3 +1,4 @@
+import { isEffectActive } from "../helpers/active-effects.mjs";
 const {
   NumberField, StringField, SchemaField, HTMLField,
 } = foundry.data.fields;
@@ -21,7 +22,7 @@ function collectEffectSummary(actor) {
   };
 
   for (const effect of effects) {
-    if (effect.disabled) continue;
+    if (!isEffectActive(effect)) continue;
     const flags = effect.flags?.eqrpg ?? {};
     const effectBonuses = flags.bonuses ?? {};
     const hasteRank = Number(flags.hasteRank ?? 0) || 0;
@@ -122,7 +123,7 @@ export class NPCData extends foundry.abstract.TypeDataModel {
 
   static defineSchema() {
     const abilityField = () => new SchemaField({
-      value: new NumberField({ required: true, integer: true, initial: 10 }),
+      value: new NumberField({ required: true, nullable: true, integer: true, initial: 10 }),
       mod: new NumberField({ required: true, integer: true, initial: 0 }),
     });
 
@@ -141,7 +142,7 @@ export class NPCData extends foundry.abstract.TypeDataModel {
       }),
 
       details: new SchemaField({
-        cr: new NumberField({ required: true, integer: true, min: 0, initial: 1 }),
+        cr: new NumberField({ required: true, integer: false, min: 0, initial: 1 }),
         size: new StringField({ initial: "" }),
         type: new StringField({ initial: "" }),
         subtypes: new StringField({ initial: "" }),
@@ -165,6 +166,7 @@ export class NPCData extends foundry.abstract.TypeDataModel {
 
       combat: new SchemaField({
         ac: new SchemaField({
+          touch: new NumberField({integer:true,nullable:true,initial:null}),
           value: new NumberField({ required: true, integer: true, initial: 10 }),
         }),
         bab: new NumberField({ required: true, integer: true, initial: 0 }),
@@ -209,8 +211,8 @@ export class NPCData extends foundry.abstract.TypeDataModel {
   prepareDerivedData() {
     const effectSummary = collectEffectSummary(this.parent);
     for (const [key, ab] of Object.entries(this.abilities)) {
-      const effectiveValue = (Number(ab.value) || 10) + (effectSummary.bonuses.abilities[key] ?? 0);
-      ab.mod = Math.floor((effectiveValue - 10) / 2);
+      const effectiveValue = Number(ab.value ?? 10) + (effectSummary.bonuses.abilities[key] ?? 0);
+      ab.mod = ab.value === null ? 0 : Math.floor((effectiveValue - 10) / 2);
     }
     const combatRound = getCombatRound();
     this.combat.attackArray = buildAttackArray(

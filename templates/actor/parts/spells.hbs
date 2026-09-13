@@ -1,6 +1,7 @@
 <section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="spells">
 
   {{!-- Mana Bar + Rest Controls --}}
+  {{#if manaNeedsReview}}<p class="notification error" role="alert">Stored mana exceeds the recalculated maximum. Ask the GM to reconcile it before casting; the stored pool has not been erased.</p>{{/if}}
   <div class="mana-bar-section">
     <span class="mana-label">{{localize "EQRPG.Mana"}}</span>
     <div class="mana-track">
@@ -9,10 +10,12 @@
     <span class="mana-value">{{system.resources.mana.value}} / {{system.resources.mana.max}}</span>
   </div>
   <div class="rest-controls">
+    {{#if canOverrideSpellCooldowns}}
     <button type="button" data-action="recoverSpells" class="recover-btn"
             title="{{localize 'EQRPG.RecoverSpells'}}">
       🔮 {{localize "EQRPG.Recover"}}
     </button>
+    {{/if}}
     <button type="button" data-action="restShort" class="rest-btn rest-short-btn"
             title="{{localize 'EQRPG.RestShortTitle'}}">
       🧘 {{localize "EQRPG.RestShort"}}
@@ -57,6 +60,7 @@
 
   {{!-- Memorized Spell Slots --}}
   <h3>{{localize "EQRPG.SpellMemorization"}}</h3>
+  {{#if spellSlotError}}<p class="notification error" role="alert">{{spellSlotError}}</p>{{/if}}
   <div class="spell-slots-grid">
     {{#each spellSlots as |slot|}}
     <div class="spell-slot {{#if slot.itemId}}memorized{{else}}empty{{/if}} {{#if slot.onCooldown}}on-cooldown{{/if}}">

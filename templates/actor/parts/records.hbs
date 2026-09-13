@@ -1,5 +1,37 @@
 <section class="tab {{tab.cssClass}}" data-group="sheet" data-tab="records">
   <div class="frontsheet-records">
+    <section class="frontsheet-panel" data-training-panel>
+      <h3>Training points</h3>
+      <p>PHB p.50, Table 3-2. This ledger records spending; apply benefits to the character manually. The GM must check prerequisites, skill caps, prior training limits and access to a mentor.</p>
+      {{#if trainingSummary.initialized}}
+      <p><strong>Available: {{trainingSummary.balance}}</strong> · Earned since review: {{trainingSummary.earned}} · Recorded spending: {{trainingSummary.spent}}</p>
+      <p>Opening balance: {{system.training.openingPoints}} at level {{system.training.openingLevel}}. {{system.training.note}}</p>
+      <table><thead><tr><th>Level</th><th>Benefit</th><th>Points</th><th>Mentor / review</th></tr></thead><tbody>
+      {{#each system.training.entries}}<tr><td>{{level}}</td><td>{{benefit}} ({{kind}})</td><td>{{cost}}</td><td>{{mentor}}</td></tr>{{/each}}
+      </tbody></table>
+      {{#if canRecordTraining}}
+      <label>Purchase <select data-training-kind><option value="ability">+1 ability (12 points)</option><option value="classSkill">+1 class skill rank (3 points)</option><option value="crossClassSkill">+1 cross-class rank (5 points)</option><option value="resistance">+1 resistance (1 point)</option><option value="feat">Trained feat (7 points)</option></select></label>
+      <label>Specific benefit <input type="text" data-training-benefit placeholder="e.g. +1 Strength" /></label>
+      <label>Mentor / review notes <input type="text" data-training-mentor /></label>
+      <label><input type="checkbox" data-training-reviewed /> I reviewed prerequisites, caps and prior training.</label>
+      <button type="button" data-action="recordTraining">Record expenditure</button>
+      {{/if}}
+      {{else}}
+      <p>Training history has not been reviewed. No unspent points are assumed for this character.</p>
+      {{#if canRecordTraining}}
+      <label>Verified unspent points <input type="number" min="0" step="1" value="0" data-training-points /></label>
+      <label>Evidence / review notes <input type="text" data-training-note /></label>
+      <button type="button" data-action="initializeTraining">Set reviewed opening balance</button>
+      {{/if}}
+      {{/if}}
+    </section>
+    <section class="frontsheet-panel">
+      <h3>Recorded hit-point rolls</h3>
+      <p>Earlier levels retain their existing HP basis. New level-up rolls are recorded below.</p>
+      <table><thead><tr><th>Level</th><th>Hit die</th><th>Roll</th></tr></thead><tbody>
+      {{#each system.hpAdvancement}}<tr><td>{{level}}</td><td>d{{die}}</td><td>{{roll}}</td></tr>{{/each}}
+      </tbody></table>
+    </section>
     <section class="frontsheet-panel frontsheet-panel-progression">
       <div class="frontsheet-panel-title">{{localize "EQRPG.AdventureRecord"}}</div>
       <div class="frontsheet-reference-grid">

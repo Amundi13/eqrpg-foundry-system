@@ -4,7 +4,7 @@ Custom Foundry VTT system support for the EverQuest Role-Playing Game (d20).
 
 ## Status
 
-Early development release targeting Foundry VTT v13.
+Early development release targeting Foundry VTT V14 Build 365. Local validation and live V14 world-migration checks pass; Forge upgrade validation remains outstanding.
 
 ## Features
 
@@ -25,6 +25,8 @@ Early development release targeting Foundry VTT v13.
 
 ## Local Development
 
+For the current unreleased build and tonight's manual adjudication boundaries, see [GAME-NIGHT.md](GAME-NIGHT.md).
+
 This repository is intended to live inside the Foundry data path during development:
 
 `FoundryVTT/Data/systems/eqrpg`
@@ -34,7 +36,9 @@ After making changes, reload Foundry and use the browser console for runtime deb
 ## Compatibility
 
 - Minimum Foundry version: `13`
-- Verified Foundry version: `13`
+- Verified Foundry version: `14.365`
+
+For reviewed compendium updates, see [Compendium upgrades](PACK-UPGRADES.md). The old repopulation helpers now preview changes instead of deleting pack entries.
 
 ## Install
 

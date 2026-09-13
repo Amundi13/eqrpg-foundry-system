@@ -25,6 +25,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f8a6cb09e78f7a1f"
+      }
     }
   },
   {
@@ -52,6 +57,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "18ebbfaa87560214"
       }
     }
   },
@@ -81,6 +91,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "449009acc56d9606"
+      }
     }
   },
   {
@@ -108,6 +123,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f7fa78220a04bf40"
       }
     }
   },
@@ -137,6 +157,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "e7cc5fcba6741779"
+      }
     }
   },
   {
@@ -164,6 +189,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "47d3ce6296382880"
       }
     }
   },
@@ -193,6 +223,11 @@
         "needsToggle": false,
         "notes": ""
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "bfc7feed1ccf912f"
+      }
     }
   },
   {
@@ -220,6 +255,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": ""
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "728e46933bfd5849"
       }
     }
   },
@@ -249,6 +289,11 @@
         "needsToggle": false,
         "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "ab960e6637060790"
+      }
     }
   },
   {
@@ -276,6 +321,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "db61ad947a3d798a"
       }
     }
   },
@@ -305,6 +355,11 @@
         "needsToggle": false,
         "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f0571b7e3665fd70"
+      }
     }
   },
   {
@@ -332,6 +387,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Use is straightforward, but poison-effect removal still needs effect tracking support."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "b1698a0523c50363"
       }
     }
   },
@@ -361,6 +421,11 @@
         "needsToggle": false,
         "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "dd6171e5a9173833"
+      }
     }
   },
   {
@@ -388,6 +453,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Use is straightforward, but poison-effect removal still needs effect tracking support."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "2fa270e4c5cd3a46"
       }
     }
   },
@@ -417,6 +487,11 @@
         "needsToggle": false,
         "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "bb72ca78adadbde2"
+      }
     }
   },
   {
@@ -444,6 +519,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Base consume flow is safe; effect text still needs dedicated buff automation where applicable."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "cabfd682bc052104"
       }
     }
   },
@@ -473,6 +553,11 @@
         "needsToggle": false,
         "notes": "Provision use is presentational until hunger and thirst tracking are implemented."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "fa4049b46e2f1bae"
+      }
     }
   },
   {
@@ -500,6 +585,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Provision use is presentational until hunger and thirst tracking are implemented."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "d0e1423fe4c1b721"
       }
     }
   },
@@ -529,6 +619,11 @@
         "needsToggle": false,
         "notes": "Scrolls need explicit spell linkage and caster-eligibility handling."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "0da17c938241a85d"
+      }
     }
   },
   {
@@ -556,6 +651,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Scrolls need explicit spell linkage and caster-eligibility handling."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "e272ffcbf2ad06bd"
       }
     }
   },
@@ -585,6 +685,11 @@
         "needsToggle": false,
         "notes": "Scrolls need explicit spell linkage and caster-eligibility handling."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "9659fbacf7f044ee"
+      }
     }
   },
   {
@@ -612,6 +717,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Scrolls need explicit spell linkage and caster-eligibility handling."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "8893209621b0c098"
       }
     }
   },
@@ -641,6 +751,11 @@
         "needsToggle": false,
         "notes": "Reagents are inventory-only until spell component consumption is automated."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f0ba609519775b93"
+      }
     }
   },
   {
@@ -668,6 +783,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Reagents are inventory-only until spell component consumption is automated."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "24a99998e2c5db5a"
       }
     }
   },
@@ -697,6 +817,11 @@
         "needsToggle": false,
         "notes": "Reagents are inventory-only until spell component consumption is automated."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "6f5128536288871d"
+      }
     }
   },
   {
@@ -724,6 +849,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Reagents are inventory-only until spell component consumption is automated."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "9d4fe2cb7d06e9d9"
       }
     }
   },
@@ -753,6 +883,11 @@
         "needsToggle": false,
         "notes": "Reagents are inventory-only until spell component consumption is automated."
       }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "f4bafe16749f1730"
+      }
     }
   },
   {
@@ -780,6 +915,11 @@
         "needsTarget": false,
         "needsToggle": false,
         "notes": "Reagents are inventory-only until spell component consumption is automated."
+      }
+    },
+    "flags": {
+      "eqrpg": {
+        "sourceId": "71d1c034ad1c0ee2"
       }
     }
   }

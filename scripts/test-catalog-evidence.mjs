@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {SAMPLE_MONSTERS,SAMPLE_SPELLS} from '../module/packs/sample-data.mjs';
+import {catalogFieldEvidence} from '../module/helpers/catalog-evidence.mjs';
+const source=SAMPLE_MONSTERS.find(s=>s.name==='Abhorrent');
+assert.equal(catalogFieldEvidence(source,'system.statblock.attacks').status,'Page checked');
+assert.equal(catalogFieldEvidence(source,'system.statblock.rawText').status,'Unreviewed');
+const edited=structuredClone(source);edited.system.statblock.attacks='Changed';assert.equal(catalogFieldEvidence(edited,'system.statblock.attacks').status,'Changed since review');
+const inherited=SAMPLE_SPELLS.find(s=>s.name==="Aanya's Quickening");assert.equal(inherited.system.verified,'Y');assert.equal(catalogFieldEvidence(inherited,'system.duration').status,'Unreviewed');
+const complete=SAMPLE_SPELLS.find(s=>s.name==='Complete Healing');assert.equal(catalogFieldEvidence(complete,'system.effect').printedPage,243);
+console.log('Catalog evidence tests passed: field specificity, stale evidence and inherited verification claims.');

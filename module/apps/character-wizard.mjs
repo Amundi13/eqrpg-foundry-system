@@ -330,6 +330,13 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
   /* ── Finish: write all choices to the actor ───────────────────────────── */
 
   static async #onFinish() {
+    if (this._finishing) return;
+    if (this.actor.system.details.level > 1 || this.actor.system.resources.xp > 0 || this.actor.flags?.eqrpg?.creationCompleted || !this.actor.flags?.eqrpg?.creationEligible || this.actor.flags?.eqrpg?.creationStarted) {
+      ui.notifications.warn("This character is established, legacy, or has an interrupted creation. Edit its sheet; the GM must review any attempt to restart creation.");
+      return;
+    }
+    this._finishing = true;
+    try {
     // Flush any un-synced text inputs before writing
     const q = sel => this.element?.querySelector(sel);
     if (q("[name='wizard-name']"))      this.choices.name      = q("[name='wizard-name']").value.trim()     || this.actor.name;
@@ -366,16 +373,33 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       update["system.wealth.copper"] = coinage.copper;
     }
 
+    // Claim the one-time workflow before changing statistics or granting items.
+    // Interrupted creation is reviewed, never silently replayed over partial state.
+    await this.actor.update({"flags.eqrpg.creationStarted":true});
+    if (!this.actor.flags?.eqrpg?.creationStarted) throw new Error("Character creation could not be started; no statistics were changed.");
     await this.actor.update(update);
+    if (this.actor.system.details.class !== ch.klass || this.actor.system.details.race !== ch.race
+      || ABILITY_KEYS.some(key => this.actor.system.abilities[key].base !== ch.abilities[key])) {
+      throw new Error("Character creation update was not confirmed. Ask the GM to review the partial character before restarting.");
+    }
+    await this.actor.update({"system.resources.hp.value": this.actor.system.resources.hp.max, "system.resources.mana.value": this.actor.system.resources.mana.max});
+    if (this.actor.system.resources.hp.value !== this.actor.system.resources.hp.max
+      || this.actor.system.resources.mana.value !== this.actor.system.resources.mana.max) {
+      throw new Error("Starting resources were not confirmed. Ask the GM to review this partial character.");
+    }
     await CharacterWizard.#applyStarterSpells(this.actor, ch.klass, 1);
     if (ch.loadout === "kit") {
       await CharacterWizard.#applyStarterKit(this.actor, ch.klass);
     }
+    await this.actor.update({"flags.eqrpg.creationCompleted": true,"flags.eqrpg.creationEligible":false});
+    if (!this.actor.flags?.eqrpg?.creationCompleted) throw new Error("Creation completion was not confirmed. Review the character before retrying.");
 
     ui.notifications.info(
       `${ch.name || this.actor.name} created as a Level 1 ${game.i18n.localize(cfg.races?.[ch.race]?.label ?? "")} ${game.i18n.localize(cfg.classes?.[ch.klass]?.label ?? "")}.`
     );
     this.close();
+    } catch(error) {ui.notifications.error(error.message);}
+    finally { this._finishing = false; }
   }
 
   static async #applyStarterKit(actor, classKey) {

@@ -7,3 +7,6 @@
 *.mjs text eol=lf
 
 *.png binary
+
+# LevelDB metadata and data require exact bytes, including LF in CURRENT.
+packs/** -text

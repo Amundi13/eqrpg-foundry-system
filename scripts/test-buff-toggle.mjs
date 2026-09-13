@@ -69,22 +69,38 @@ const actor = Object.assign(Object.create(EQActor.prototype), {
 await actor.toggleSpellEffectEnabled(effect.id);
 assert.equal(effect.disabled, true);
 assert.equal(actor.system.resources.hp.temp, 3);
-assert.equal(effect.flags.eqrpg.tempHPRemaining, 0);
+assert.equal(effect.flags.eqrpg.tempHPRemaining, 2);
 assert.deepEqual(statusChanges.at(-1), { ids: ["shielded"], active: false });
+
+const savedDelete=effect.delete;
+effect.delete=async()=>{};
+const statusCount=statusChanges.length;
+await assert.rejects(actor.removeSpellEffect(effect.id),/deletion was not confirmed/);
+assert.equal(actor.system.resources.hp.temp,3);
+assert.equal(actor.effects.length,1);
+assert.equal(statusChanges.length,statusCount);
+effect.delete=savedDelete;
+actor.createEmbeddedDocuments=async()=>[];
+await assert.rejects(actor.toggleSpellEffect({label:'Canceled spell',changes:[{key:'system.resources.hp.temp',mode:2,value:8}],statuses:['shielded']}),/creation was not confirmed/);
+assert.equal(actor.system.resources.hp.temp,3);
+assert.equal(statusChanges.length,statusCount);
 
 await actor.toggleSpellEffectEnabled(effect.id);
 assert.equal(effect.disabled, false);
-assert.equal(actor.system.resources.hp.temp, 7);
-assert.equal(effect.flags.eqrpg.tempHPRemaining, 4);
+assert.equal(actor.system.resources.hp.temp, 5);
+assert.equal(effect.flags.eqrpg.tempHPRemaining, 2);
 assert.deepEqual(statusChanges.at(-1), { ids: ["shielded"], active: true });
 
 await actor.applyDamage(3);
-assert.equal(actor.system.resources.hp.temp, 4);
+assert.equal(actor.system.resources.hp.temp, 2);
 assert.equal(actor.system.resources.hp.value, 10);
-assert.equal(effect.flags.eqrpg.tempHPRemaining, 1);
+assert.equal(effect.flags.eqrpg.tempHPRemaining, 0);
+await actor.toggleSpellEffectEnabled(effect.id);
+await actor.toggleSpellEffectEnabled(effect.id);
+assert.equal(actor.system.resources.hp.temp, 2, "spent temporary HP cannot be refilled by toggling");
 
 await actor.removeSpellEffect(effect.id);
-assert.equal(actor.system.resources.hp.temp, 3);
+assert.equal(actor.system.resources.hp.temp, 2);
 assert.equal(actor.effects.length, 0);
 assert.deepEqual(statusChanges.at(-1), { ids: ["shielded"], active: false });
 

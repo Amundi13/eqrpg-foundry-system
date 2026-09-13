@@ -1,3 +1,4 @@
+import { trainingSummary, initializeTraining, recordTraining } from "../helpers/training.mjs";
 import { renderStore } from "../apps/store.mjs";
 import { prepareSpellEffects } from "../helpers/active-effects.mjs";
 
@@ -67,6 +68,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       restLong:        EQCharacterSheet._onRestLong,
       // Level up
       levelUp:             EQCharacterSheet._onLevelUp,
+      initializeTraining: EQCharacterSheet._onInitializeTraining,
+      recordTraining: EQCharacterSheet._onRecordTraining,
       // Class features
       layOnHands:          EQCharacterSheet._onLayOnHands,
       rollHarmTouch:       EQCharacterSheet._onRollHarmTouch,
@@ -153,6 +156,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const pointBuy = this._getPointBuySummary(sourceAbilities);
 
     context.system = system;
+    context.trainingSummary = trainingSummary(system);
+    context.canRecordTraining = game.user.isGM && this.actor.isOwner;
     context.config = config;
     context.isEditable = this.isEditable;
     context.document = this.actor;
@@ -365,13 +370,13 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // XP progress toward next level
     context.xpProgress = system.xpProgress ?? {};
 
-    // Spell slots — always exactly 8, safe against ArrayField corruption.
-    // Read from actor._source (raw DB data) to get a real JS Array, not the
-    // TypeDataModel prepared instance which may be a POJO after bad updates.
-    const sourceSlots = this.actor.toObject().system?.spellSlots;
-    const rawSlots    = Array.isArray(sourceSlots) ? sourceSlots : [];
+    // Preserve malformed saved data and surface a repair message instead of
+    // rendering it as an empty preparation list.
+    let rawSlots=[];
+    try {rawSlots=this.actor._getSlotArray();}
+    catch(error) {context.spellSlotError=error.message;}
     context.spellSlots = [];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < rawSlots.length; i++) {
       const s     = rawSlots[i] ?? {};
       const id    = s.itemId ?? "";
       const cd    = s.cooldownRemaining ?? 0;
@@ -390,6 +395,8 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Whether this class is a spellcaster (affects whether Recover button shows)
     context.isCaster = !!config.classes[system.details.class]?.spellcastingAbility;
+    context.canOverrideSpellCooldowns = !!game.user?.isGM && this.actor.isOwner;
+    context.manaNeedsReview = system.resources.mana.value > system.resources.mana.max;
 
     // Encumbrance
     context.encumbrance = system.encumbrance;
@@ -417,10 +424,10 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         actionLabel: game.i18n.localize("EQRPG.UnarmedStrike"),
       });
     }
-    if (context.classFeatures.layOnHandsPool) {
+    if (context.classFeatures.layOnHandsPool || context.classFeatures.improvedLayOnHands) {
       context.frontSheetFeatures.push({
         label: game.i18n.localize("EQRPG.LayOnHands"),
-        value: `${context.classFeatures.layOnHandsPool} HP`,
+        value: context.classFeatures.improvedLayOnHands ? "Complete healing" : `${context.classFeatures.layOnHandsPool} HP`,
         action: "layOnHands",
         actionLabel: game.i18n.localize("EQRPG.UseLayOnHands"),
       });
@@ -802,12 +809,15 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async _onCastSpell(event, target) {
     const slotIndex = parseInt(target.dataset.slotIndex);
-    await this.actor.castSpell(slotIndex);
+    try {await this.actor.castSpell(slotIndex);}
+    catch(error) {ui.notifications.error(error.message);}
   }
 
   static async _onMemorizeSpell(event, target) {
     const spellId = target.dataset.itemId;
-    const slots = this.actor.system.spellSlots;
+    let slots;
+    try {slots=this.actor._getSlotArray();}
+    catch(error) {ui.notifications.error(error.message);return;}
     // Find the first empty slot
     let emptyIndex = -1;
     for (let i = 0; i < slots.length; i++) {
@@ -817,16 +827,19 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ui.notifications.warn(game.i18n.localize("EQRPG.NoEmptySlots"));
       return;
     }
-    await this.actor.memorizeSpell(spellId, emptyIndex);
+    try {await this.actor.memorizeSpell(spellId, emptyIndex);}
+    catch(error) {ui.notifications.error(error.message);}
   }
 
   static async _onUnmemorizeSpell(event, target) {
     const slotIndex = parseInt(target.dataset.slotIndex);
-    await this.actor.unmemorizeSpell(slotIndex);
+    try {await this.actor.unmemorizeSpell(slotIndex);}
+    catch(error) {ui.notifications.error(error.message);}
   }
 
   static async _onRecoverSpells(event, target) {
-    await this.actor.recoverSpells();
+    try {await this.actor.recoverSpells();}
+    catch(error) {ui.notifications.error(error.message);}
   }
 
   static async _onToggleSpellEffectState(event, target) {
@@ -844,21 +857,46 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async _onRestShort(event, target) {
     event?.preventDefault?.();
     event?.stopPropagation?.();
-    await this.actor.restShort();
+    try {await this.actor.restShort();}
+    catch(error) {ui.notifications.error(error.message);}
   }
 
   static async _onRestLong(event, target) {
     event?.preventDefault?.();
     event?.stopPropagation?.();
-    await this.actor.restLong();
+    try {await this.actor.restLong();}
+    catch(error) {ui.notifications.error(error.message);}
   }
 
   // -------------------------------------------------------------------------
   // Level Up Handler
   // -------------------------------------------------------------------------
 
+  static async _onInitializeTraining(event, target) {
+    const panel=target.closest("[data-training-panel]");
+    try {
+      await initializeTraining(this.actor,Number(panel.querySelector("[data-training-points]").value),panel.querySelector("[data-training-note]").value);
+      this.render();
+    } catch(error) {ui.notifications.error(error.message);}
+  }
+
+  static async _onRecordTraining(event, target) {
+    const panel=target.closest("[data-training-panel]");
+    try {
+      await recordTraining(this.actor,{
+        kind:panel.querySelector("[data-training-kind]").value,
+        benefit:panel.querySelector("[data-training-benefit]").value,
+        mentor:panel.querySelector("[data-training-mentor]").value,
+        reviewed:panel.querySelector("[data-training-reviewed]").checked,
+      });
+      ui.notifications.info("Training expenditure recorded. Apply the reviewed benefit to the character manually.");
+      this.render();
+    } catch(error) {ui.notifications.error(error.message);}
+  }
+
   static async _onLevelUp(event, target) {
-    await this.actor.levelUp();
+    try { await this.actor.levelUp(); }
+    catch (error) { ui.notifications.error(error.message); }
   }
 
   // -------------------------------------------------------------------------
@@ -941,13 +979,15 @@ export class EQCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async _onLayOnHands(event, target) {
     const targets     = [...(game.user?.targets ?? [])];
     const targetActor = targets[0]?.actor ?? null;
-    await this.actor.layOnHands(targetActor);
+    try { await this.actor.layOnHands(targetActor); }
+    catch(error) {ui.notifications.error(error.message);}
   }
 
   static async _onRollHarmTouch(event, target) {
     const targets     = [...(game.user?.targets ?? [])];
     const targetActor = targets[0]?.actor ?? null;
-    await this.actor.rollHarmTouch(targetActor);
+    try { await this.actor.rollHarmTouch(targetActor); }
+    catch(error) {ui.notifications.error(error.message);}
   }
 
   static async _onRollSneakDamage(event, target) {
