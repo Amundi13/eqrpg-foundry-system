@@ -1,6 +1,6 @@
 # Audit implementation status
 
-2026-09-13. The audited working tree is prepared as release 0.1.13 after local 0.1.11 acceptance and the 0.1.12 creator/mana regression hotfix. The nine-package audit plan remains in progress; remaining gaps are documented below.
+2026-09-13. The audited working tree is prepared as release 0.1.14 after local 0.1.11 acceptance and the creator/mana regression hotfix. The nine-package audit plan remains in progress; remaining gaps are documented below.
 
 ## Implemented and locally checked
 

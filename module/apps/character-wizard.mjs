@@ -394,8 +394,9 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       if (!this.actor.flags?.eqrpg?.creationStarted) throw new Error("Character creation could not be started; no statistics were changed.");
     }
     await this.actor.update(update);
-    if (this.actor.system.details.class !== ch.klass || this.actor.system.details.race !== ch.race
-      || ABILITY_KEYS.some(key => this.actor.system.abilities[key].base !== ch.abilities[key])) {
+    const persisted = this.actor.toObject();
+    if (persisted.system.details.class !== ch.klass || persisted.system.details.race !== ch.race
+      || ABILITY_KEYS.some(key => Number(persisted.system.abilities?.[key]?.base) !== Number(ch.abilities[key]))) {
       throw new Error("Character update was not confirmed. Review the sheet and try again.");
     }
     if (initialCreation) {

@@ -30,6 +30,7 @@ function makeActor({blank=false,started=false}={}) {
   flags:{eqrpg:{creationEligible:blank,...(started?{creationStarted:true}:{creationCompleted:!blank})}},
   items:[],updates:[],closed:false,
   async update(patch){this.updates.push(structuredClone(patch));applyFlat(this,patch);},
+  toObject(){return structuredClone({name:this.name,system:this.system,flags:this.flags});},
   async createEmbeddedDocuments(){assert.fail('Edit mode must not grant items');},
   async updateEmbeddedDocuments(){assert.fail('Edit mode must not alter items');},
  };
@@ -55,6 +56,15 @@ assert.equal(veteran.name,'Veteran Edited');
 assert.equal(veteran.system.details.class,'enchanter');
 assert.equal(veteran.system.abilities.int.base,18);
 assert.deepEqual({level:veteran.system.details.level,xp:veteran.system.resources.xp,hp:veteran.system.resources.hp,mana:veteran.system.resources.mana,wealth:veteran.system.wealth},before);
+
+// Foundry V14 can expose a transient partial prepared model after update; the
+// persisted source remains complete and is the authoritative confirmation.
+const v14Partial=makeActor();
+const originalUpdate=v14Partial.update.bind(v14Partial);
+v14Partial.update=async function(patch){await originalUpdate(patch);this.persisted=structuredClone({name:this.name,system:this.system,flags:this.flags});this.system={details:this.system.details,resources:this.system.resources};};
+v14Partial.toObject=function(){return structuredClone(this.persisted??{name:this.name,system:this.system,flags:this.flags});};
+await CharacterWizard.DEFAULT_OPTIONS.actions.wizardFinish.call({actor:v14Partial,choices,isInitialCreation:false,element:null,_finishing:false,close(){}});
+assert.equal(errors.length,0,errors.join('; '));
 
 const newcomer=makeActor({blank:true});
 const newChoices={race:'human',klass:'warrior',alignment:'tn',deity:'',name:'New Hero',loadout:'gold',abilities:{str:16,dex:14,con:14,int:8,wis:10,cha:8}};

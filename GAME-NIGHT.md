@@ -1,10 +1,10 @@
 # Game-night readiness
 
-The local game-night target is Foundry 14 Release 365 with EQRPG 0.1.13. The `norrath-test` world has been backed up, migrated to V14, and opened successfully. Character and NPC sheets, spellbook rendering, character attack/damage cards, and an NPC attack card passed live checks without browser errors. The 0.1.13 hotfix restores established campaign mana pools and lets the wizard safely update existing sheets.
+The local game-night target is Foundry 14 Release 365 with EQRPG 0.1.14. The `norrath-test` world has been backed up, migrated to V14, and opened successfully. Character and NPC sheets, spellbook rendering, character attack/damage cards, and an NPC attack card passed live checks without browser errors. The 0.1.14 hotfix restores established campaign mana pools and lets the wizard safely update existing sheets.
 
 ## Before players join
 
-1. Confirm the setup screen lists EQRPG 0.1.13, then launch the campaign once before players connect.
+1. Confirm the setup screen lists EQRPG 0.1.14, then launch the campaign once before players connect.
 2. Open EQ Spells and search for **Rune II** and **Improved Invisibility**. Their presence confirms the 1,256-record release spell pack loaded.
 3. Confirm the active GM can see migration and recovery notices. Do not dismiss a pending-operation warning without checking the named actor.
 4. Spot-check one caster's mana maximum and open the character wizard to confirm its current base abilities are retained.
