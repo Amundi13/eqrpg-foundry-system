@@ -73,11 +73,11 @@ function character(level,entries=[]){const model=Object.assign(new CharacterData
 assert.equal(character(2).resources.hp.max,19,"legacy average remains unchanged");
 assert.equal(character(2,[{level:2,die:12,roll:12}]).resources.hp.max,24,"rolled HP survives model reconstruction");
 assert.equal(character(3,[{level:3,die:12,roll:1}]).resources.hp.max,20,"legacy levels retained and future roll applied");
-const hybrid=character(11);hybrid.details.class="paladin";hybrid.abilities.wis.base=16;hybrid.prepareDerivedData();assert.equal(hybrid.resources.mana.max,42);
-// PHB printed 170-171 / PDF 173-174: example pools and hourly Meditation recovery.
-const wizard=character(5);wizard.details.class='wizard';wizard.abilities.int.base=16;wizard.parent.items=[{type:'skill',name:'Meditation',system:{ranks:7}}];wizard.prepareDerivedData();assert.equal(wizard.resources.mana.max,30);assert.equal(wizard.manaRegen,10);
+// Existing campaigns use 3x full-caster and 2x hybrid pools at every class level.
+const hybrid=character(11);hybrid.details.class="paladin";hybrid.abilities.wis.base=16;hybrid.prepareDerivedData();assert.equal(hybrid.resources.mana.max,66);
+const wizard=character(5);wizard.details.class='wizard';wizard.abilities.int.base=16;wizard.parent.items=[{type:'skill',name:'Meditation',system:{ranks:7}}];wizard.prepareDerivedData();assert.equal(wizard.resources.mana.max,45);assert.equal(wizard.manaRegen,10);
 const bard=character(10);bard.details.class='bard';bard.abilities.cha.base=18;bard.parent.items=[{type:'skill',name:'Meditation',system:{ranks:13}}];bard.prepareDerivedData();assert.equal(bard.resources.mana.max,80);assert.equal(bard.manaRegen,17);
-hybrid.details.level=4;hybrid.prepareDerivedData();assert.equal(hybrid.resources.mana.max,0);assert.equal(hybrid.manaRegen,0);
+hybrid.details.level=4;hybrid.prepareDerivedData();assert.equal(hybrid.resources.mana.max,24);assert.equal(hybrid.manaRegen,3);
 const troll=character(7);troll.details.race='troll';troll.prepareDerivedData();assert.equal(troll.regenRate,7,'PHB printed 32: seventh-level troll recovers 7 HP per hour');
 globalThis.Actor=class{};
 globalThis.ui={notifications:{warn(){}}};
@@ -106,11 +106,6 @@ const paladin=Object.assign(Object.create(EQActor.prototype),{name:"Paladin",fla
 await Promise.all([paladin.layOnHands(),paladin.layOnHands()]);await paladin.layOnHands();
 assert.equal(healing,30,"daily use survives repeated actions");
 game.time.worldTime=86400;await paladin.layOnHands();assert.equal(healing,60,"next world day refreshes daily use");
-const {CharacterWizard}=await import("../module/apps/character-wizard.mjs");
-for(const actor of [{system:{details:{level:2},resources:{xp:0}}},{system:{details:{level:1},resources:{xp:0}},flags:{eqrpg:{creationCompleted:true}}}]) {
-  actor.update=async()=>assert.fail("creation must not overwrite established characters");
-  await CharacterWizard.DEFAULT_OPTIONS.actions.wizardFinish.call({actor});
-}
 const {MonsterBuilder}=await import("../module/apps/monster-builder.mjs");
 let createdSource;
 foundry.documents={Actor:{create:async data=>{createdSource=data;return {name:data.name};}}};

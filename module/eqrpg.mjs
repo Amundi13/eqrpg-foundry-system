@@ -629,11 +629,18 @@ Hooks.on("renderCombatTracker", (_tracker, html) => {
 // ---------------------------------------------------------------------------
 // Character Wizard: auto-open on new character creation
 // ---------------------------------------------------------------------------
-Hooks.on("createActor", (actor, _options, userId) => {
+Hooks.on("createActor", async (actor, _options, userId) => {
   if (!["character", "pet"].includes(actor.type)) return;
   if (game.userId !== userId) return;
-  actor.update({ "prototypeToken.actorLink": true }).catch(() => {});
+  await actor.update({ "prototypeToken.actorLink": true }).catch(() => {});
   if (actor.type === "pet") return;
+  const blank = !actor.system.details?.class && !actor.system.details?.race
+    && !(actor.system.resources?.xp > 0) && !(actor.system.details?.level > 1)
+    && !(actor.items?.size) && !actor.flags?.eqrpg?.creationCompleted
+    && !actor.flags?.eqrpg?.creationStarted;
+  if (blank && actor.flags?.eqrpg?.creationEligible !== true) {
+    await actor.update({ "flags.eqrpg.creationEligible": true });
+  }
   // Short delay so the default sheet can open first, then the wizard appears on top
   setTimeout(() => new CharacterWizard(actor).render({ force: true }), 250);
 });

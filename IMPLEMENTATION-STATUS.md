@@ -1,12 +1,12 @@
 # Audit implementation status
 
-2026-09-13. The audited working tree is prepared as release 0.1.12 after local 0.1.11 acceptance. The nine-package audit plan remains in progress; remaining gaps are documented below.
+2026-09-13. The audited working tree is prepared as release 0.1.13 after local 0.1.11 acceptance and the 0.1.12 creator/mana regression hotfix. The nine-package audit plan remains in progress; remaining gaps are documented below.
 
 ## Implemented and locally checked
 
 - Corrected all 450 reviewed class-level BAB/save comparisons, six race/class restrictions, rogue backstab milestones, spell unlock timing and hybrid mana scaling.
 - Future HP rolls have a persistent ledger; legacy average HP remains. Level-up validates ownership, rolls and intervening changes, then confirms advancement before grants/chat. A pending post-level spell grant is recoverable by pressing Level Up again without advancing or rerolling. Cross-client advancement remains unresolved.
-- The wizard marks newly created blank characters explicitly, refuses legacy/established/interrupted actors, and confirms initialization writes. Interrupted creation requires manual review rather than replay.
+- The wizard completes newly created blank characters and opens established or interrupted characters in a non-destructive edit mode. Edits preserve level, XP, HP, mana, wealth and inventory; starter grants remain limited to first-time creation.
 - Training has a GM-reviewed opening balance, five points per subsequent level, source-table expenditure costs and an affordability-checked ledger. Benefit application, prerequisites, caps and the PHB trained-feat table/prose conflict remain manual. See TRAINING-RECORDS.md.
 - Preparation/casting enforce class eligibility, mana and cooldowns. Cooling slots cannot be cleared or moved to bypass recovery. Confirmed resource writes precede spell resolution; same-client repeat actions are guarded.
 - Slow saves, active/expired/suppressed bonus collection, shared token statuses and spent temporary-HP toggles have regression coverage. Canceled effect creation/deletion cannot change temporary HP or token statuses. Fixed and caster-scaled durations use version-specific effect data; unresolved expressions explicitly request GM review.

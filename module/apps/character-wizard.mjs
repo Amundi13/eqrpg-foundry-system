@@ -71,6 +71,40 @@ function getStarterSpellTemplates(classKey, level = 1) {
   return getClassSpellTemplates(classKey, level).map((spell) => foundry.utils.deepClone(spell));
 }
 
+export function isInitialCharacterCreation(actor) {
+  const flags = actor.flags?.eqrpg ?? {};
+  if (flags.creationStarted || flags.creationCompleted) return false;
+  if (Number(actor.system?.details?.level ?? 1) > 1 || Number(actor.system?.resources?.xp ?? 0) > 0) return false;
+  const itemCount = Number(actor.items?.size ?? actor.items?.length ?? 0);
+  if (itemCount > 0) return false;
+  const blankIdentity = !actor.system?.details?.race && !actor.system?.details?.class;
+  return flags.creationEligible === true || blankIdentity;
+}
+
+export function buildCharacterWizardUpdate(actor, choices, { initialCreation = false } = {}) {
+  const adj = CONFIG.EQRPG.races?.[choices.race]?.adjustments ?? {};
+  const update = {
+    name: choices.name || actor.name,
+    "system.details.race": choices.race,
+    "system.details.class": choices.klass,
+    "system.details.alignment": choices.alignment,
+    "system.details.deity": choices.deity,
+  };
+  if (initialCreation) update["system.details.level"] = 1;
+  for (const key of ABILITY_KEYS) {
+    update[`system.abilities.${key}.base`] = choices.abilities[key];
+    update[`system.abilities.${key}.racial`] = adj[key] ?? 0;
+  }
+  if (initialCreation && choices.loadout === "gold") {
+    const coinage = convertGoldToCoinage(getStarterGold(choices.klass));
+    update["system.wealth.platinum"] = coinage.platinum;
+    update["system.wealth.gold"] = coinage.gold;
+    update["system.wealth.silver"] = coinage.silver;
+    update["system.wealth.copper"] = coinage.copper;
+  }
+  return update;
+}
+
 // ── Wizard class ───────────────────────────────────────────────────────────
 export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
 
@@ -80,17 +114,19 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
    */
   constructor(actor, options = {}) {
     const wizardId = foundry.utils.randomID();
+    const initialCreation = isInitialCharacterCreation(actor);
     const mergedOptions = foundry.utils.mergeObject({
       id: `eq-character-wizard-${wizardId}`,
       window: {
-        title: actor?.name
-          ? `Character Creation: ${actor.name}`
-          : "Character Creation",
+        title: initialCreation
+          ? (actor?.name ? `Character Creation: ${actor.name}` : "Character Creation")
+          : (actor?.name ? `Edit Character: ${actor.name}` : "Edit Character"),
       },
     }, options);
     super(mergedOptions);
     this.actor = actor;
     this.step  = 0;
+    this.isInitialCreation = initialCreation;
 
     // Seed from any existing actor data so re-opening the wizard feels sane
     this.choices = {
@@ -100,7 +136,10 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       deity:     actor.system.details?.deity     ?? "",
       name:      actor.name                      ?? "",
       loadout:   "kit",
-      abilities: { str: 8, dex: 8, con: 8, int: 8, wis: 8, cha: 8 },
+      abilities: Object.fromEntries(ABILITY_KEYS.map((key) => [
+        key,
+        Number(actor.system.abilities?.[key]?.base ?? 8),
+      ])),
     };
   }
 
@@ -252,6 +291,8 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
       canNext:     this.#canAdvance(),
       isLastStep:  this.step === STEPS.length - 1,
       isFirstStep: this.step === 0,
+      isInitialCreation: this.isInitialCreation,
+      characterLevel: this.actor.system.details?.level ?? 1,
     };
   }
 
@@ -331,10 +372,6 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
 
   static async #onFinish() {
     if (this._finishing) return;
-    if (this.actor.system.details.level > 1 || this.actor.system.resources.xp > 0 || this.actor.flags?.eqrpg?.creationCompleted || !this.actor.flags?.eqrpg?.creationEligible || this.actor.flags?.eqrpg?.creationStarted) {
-      ui.notifications.warn("This character is established, legacy, or has an interrupted creation. Edit its sheet; the GM must review any attempt to restart creation.");
-      return;
-    }
     this._finishing = true;
     try {
     // Flush any un-synced text inputs before writing
@@ -348,54 +385,38 @@ export class CharacterWizard extends HandlebarsApplicationMixin(ApplicationV2) {
 
     const ch  = this.choices;
     const cfg = CONFIG.EQRPG;
-    const adj = cfg.races?.[ch.race]?.adjustments ?? {};
+    const initialCreation = this.isInitialCreation && isInitialCharacterCreation(this.actor);
+    const update = buildCharacterWizardUpdate(this.actor, ch, { initialCreation });
 
-    // Build flat update object
-    const update = {
-      name:                       ch.name || this.actor.name,
-      "system.details.race":      ch.race,
-      "system.details.class":     ch.klass,
-      "system.details.alignment": ch.alignment,
-      "system.details.deity":     ch.deity,
-      "system.details.level":     1,
-    };
-
-    for (const key of ABILITY_KEYS) {
-      update[`system.abilities.${key}.base`]   = ch.abilities[key];
-      update[`system.abilities.${key}.racial`] = adj[key] ?? 0;
+    if (initialCreation) {
+      // Claim the one-time grants before changing statistics or adding items.
+      await this.actor.update({"flags.eqrpg.creationStarted":true});
+      if (!this.actor.flags?.eqrpg?.creationStarted) throw new Error("Character creation could not be started; no statistics were changed.");
     }
-
-    if (ch.loadout === "gold") {
-      const coinage = convertGoldToCoinage(getStarterGold(ch.klass));
-      update["system.wealth.platinum"] = coinage.platinum;
-      update["system.wealth.gold"] = coinage.gold;
-      update["system.wealth.silver"] = coinage.silver;
-      update["system.wealth.copper"] = coinage.copper;
-    }
-
-    // Claim the one-time workflow before changing statistics or granting items.
-    // Interrupted creation is reviewed, never silently replayed over partial state.
-    await this.actor.update({"flags.eqrpg.creationStarted":true});
-    if (!this.actor.flags?.eqrpg?.creationStarted) throw new Error("Character creation could not be started; no statistics were changed.");
     await this.actor.update(update);
     if (this.actor.system.details.class !== ch.klass || this.actor.system.details.race !== ch.race
       || ABILITY_KEYS.some(key => this.actor.system.abilities[key].base !== ch.abilities[key])) {
-      throw new Error("Character creation update was not confirmed. Ask the GM to review the partial character before restarting.");
+      throw new Error("Character update was not confirmed. Review the sheet and try again.");
     }
-    await this.actor.update({"system.resources.hp.value": this.actor.system.resources.hp.max, "system.resources.mana.value": this.actor.system.resources.mana.max});
-    if (this.actor.system.resources.hp.value !== this.actor.system.resources.hp.max
-      || this.actor.system.resources.mana.value !== this.actor.system.resources.mana.max) {
-      throw new Error("Starting resources were not confirmed. Ask the GM to review this partial character.");
+    if (initialCreation) {
+      await this.actor.update({"system.resources.hp.value": this.actor.system.resources.hp.max, "system.resources.mana.value": this.actor.system.resources.mana.max});
+      if (this.actor.system.resources.hp.value !== this.actor.system.resources.hp.max
+        || this.actor.system.resources.mana.value !== this.actor.system.resources.mana.max) {
+        throw new Error("Starting resources were not confirmed. Ask the GM to review this partial character.");
+      }
+      await CharacterWizard.#applyStarterSpells(this.actor, ch.klass, 1);
+      if (ch.loadout === "kit") await CharacterWizard.#applyStarterKit(this.actor, ch.klass);
+      await this.actor.update({"flags.eqrpg.creationCompleted": true, "flags.eqrpg.creationEligible": false});
+      if (!this.actor.flags?.eqrpg?.creationCompleted) throw new Error("Creation completion was not confirmed. Review the character before retrying.");
+    } else if (this.actor.flags?.eqrpg?.creationStarted) {
+      // An interrupted run can be completed safely as an edit without replaying grants.
+      await this.actor.update({"flags.eqrpg.creationCompleted": true, "flags.eqrpg.creationEligible": false, "flags.eqrpg.-=creationStarted": null});
     }
-    await CharacterWizard.#applyStarterSpells(this.actor, ch.klass, 1);
-    if (ch.loadout === "kit") {
-      await CharacterWizard.#applyStarterKit(this.actor, ch.klass);
-    }
-    await this.actor.update({"flags.eqrpg.creationCompleted": true,"flags.eqrpg.creationEligible":false});
-    if (!this.actor.flags?.eqrpg?.creationCompleted) throw new Error("Creation completion was not confirmed. Review the character before retrying.");
 
     ui.notifications.info(
-      `${ch.name || this.actor.name} created as a Level 1 ${game.i18n.localize(cfg.races?.[ch.race]?.label ?? "")} ${game.i18n.localize(cfg.classes?.[ch.klass]?.label ?? "")}.`
+      initialCreation
+        ? `${ch.name || this.actor.name} created as a Level 1 ${game.i18n.localize(cfg.races?.[ch.race]?.label ?? "")} ${game.i18n.localize(cfg.classes?.[ch.klass]?.label ?? "")}.`
+        : `${ch.name || this.actor.name} updated through the character wizard.`
     );
     this.close();
     } catch(error) {ui.notifications.error(error.message);}

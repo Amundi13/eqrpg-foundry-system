@@ -450,11 +450,11 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     if (classConfig?.spellcastingAbility) {
       const castAbility = classConfig.spellcastingAbility;
       const castMod = this._getAbilityMod(castAbility);
-      // PHB printed 170 / PDF 173: all pool types use twice the ability bonus.
-      const manaMultiplier = 2;
-      const casterLevel = classKey !== "bard" && HYBRID_MANA_CLASSES.has(classKey) ? Math.max(0, level - 4) : level;
+      // Preserve the established campaign pools: full casters use 3x and hybrid
+      // casters use 2x their casting modifier per class level.
+      const manaMultiplier = HYBRID_MANA_CLASSES.has(classKey) ? 2 : 3;
       this.resources.mana.max = (castMod > 0 && level > 0)
-        ? (castMod * manaMultiplier) * casterLevel
+        ? (castMod * manaMultiplier) * level
         : 0;
 
       let meditateBonus = 0;
